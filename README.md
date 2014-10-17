@@ -1,5 +1,8 @@
 version 1.0.0.0
 
+PHP-TR gurubu https://www.facebook.com/groups/tr.developers/
+Samed Ceylan
+
 controller
 --------------------------
 <?php
