@@ -7,14 +7,14 @@
 
 	
 <!-- blueprint CSS framework -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Smce::baseUrl(); ?>/themes/site/css/screen.css" media="screen, projection" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Smce::baseUrl(); ?>/themes/site/css/print.css" media="print" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Smce::baseUrl(); ?>/css/screen.css" media="screen, projection" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Smce::baseUrl(); ?>/css/print.css" media="print" />
 	<!--[if lt IE 8]>
 	<link rel="stylesheet" type="text/css" href="<?php echo Smce::baseUrl(); ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
 
-	<link rel="stylesheet" type="text/css" href="<?php echo Smce::baseUrl(); ?>/themes/site/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Smce::baseUrl(); ?>/themes/site/css/form.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Smce::baseUrl(); ?>/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Smce::baseUrl(); ?>/css/form.css" />
 
 	<title>Smceframework</title>
 </head>
@@ -25,7 +25,7 @@
 <div class="container" id="page">
 
 	<div id="header">
-		<div id="logo"><img src="<?php echo Smce::baseUrl(); ?>/themes/site/images/logo.jpg"/></div>
+		<div id="logo"><img src="<?php echo Smce::baseUrl(); ?>/images/logo.jpg"/></div>
         SmceFramework Hoş geldiniz.
 	</div><!-- header -->
 

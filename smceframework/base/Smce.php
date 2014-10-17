@@ -11,7 +11,7 @@ class Smce extends Smcontroller{
    }
    
    
-   public static function basePath(){
+   public function basePath(){
 	 	return  Smce::$basePath;
    }
    private static function base_url(){

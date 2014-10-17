@@ -6,7 +6,7 @@ class SiteController extends Smcontroller
 	public $layout='//layouts/column1';
 
 
-	public function actionIndex() {
+	public function actionIndex(){
 	
 		 $this->render("view",array(
 		 	"model"=>"Site controllerden gelen bi yazıdır",
