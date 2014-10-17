@@ -44,17 +44,27 @@ class SMbase extends DB {
 	define('BASE_VIEW',$this->view);
   }
   
-  private function baseURLCommand(){
+  private function baseURLCommand() {
 	
-	require(BASE_PATH."/controller/".$this->controller."Controller.php");
-	$actionView="action".$this->view;
-	$actionController=$this->controller."Controller";
+		if(! is_file(BASE_PATH."/controller/".$this->controller."Controller.php")){
+			$html = '<html><body><h1>Page Not Found</h1></body></html>';
+	    	echo $html;
+		}
+
+		require(BASE_PATH."/controller/".$this->controller."Controller.php");
+
+		$actionView = 'action'.$this->view;
+		$actionController = $this->controller."Controller";
 	
-	$class=new $actionController;
-	
-	
-	$class->$actionView();
-  }
+		$class = new $actionController;
+
+		if(method_exists($class, $actionView)){
+			$class->$actionView();
+		}else{
+			$html = '<html><body><h1>Page Not Found</h1></body></html>';
+	    	echo $html;
+		}
+  	}
   
   
   private function _includeFILE_(){
