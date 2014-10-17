@@ -49,6 +49,7 @@ class SMbase extends DB {
 		if(! is_file(BASE_PATH."/controller/".$this->controller."Controller.php")){
 			$html = '<html><body><h1>Page Not Found</h1></body></html>';
 	    	echo $html;
+			exit;
 		}
 
 		require(BASE_PATH."/controller/".$this->controller."Controller.php");
@@ -63,6 +64,7 @@ class SMbase extends DB {
 		}else{
 			$html = '<html><body><h1>Page Not Found</h1></body></html>';
 	    	echo $html;
+			exit;
 		}
   	}
   
