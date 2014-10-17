@@ -63,8 +63,8 @@ config
 	define("DB_HOST","localhost");
 	
 	
-	model
-	---------------
+model
+---------------
 	
 	
 class UsersModel{ 
