@@ -5,6 +5,7 @@ class SiteController extends Smcontroller
 	
 	public $layout='//layouts/column1';
 
+
 	public function actionIndex(){
 	
 		 $this->render("view",array(
