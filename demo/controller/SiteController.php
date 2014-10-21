@@ -32,9 +32,10 @@ class SiteController extends Smcontroller
 		if(isset($_POST["LoginForm"])){
 			$post=(object)$_POST["LoginForm"];
 			
+			
 			$model->username	=	$post->username;
 			$model->password	=	$post->password;
-			$model->rememberMe	=	$post->rememberMe;
+			$model->rememberMe	=	@$post->rememberMe;
 			
 			if($model->validate() && $model->login()){
 				
