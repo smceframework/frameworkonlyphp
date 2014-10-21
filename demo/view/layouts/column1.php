@@ -1,7 +1,7 @@
 <?php /* @var $this Controller */ ?>
 
-<?php Smce::content('//layouts/header'); ?>
+<?php Smce::theme()->content('//layouts/header'); ?>
 <div id="content">
 	<?php echo $content; ?>
 </div><!-- content -->
-<?php Smce::content('//layouts/footer'); ?>
+<?php Smce::theme()->content('//layouts/footer'); ?>

@@ -1,7 +1,6 @@
 
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by SmceFramework.<br/>
-		All Rights Reserved.<br/>
+		Copyright &copy; <?php echo date('Y'); ?> by SmceFramework.
 		
 	</div><!-- footer -->
 

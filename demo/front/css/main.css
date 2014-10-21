@@ -16,7 +16,8 @@ body
 	margin-bottom: 5px;
 	background: white;
 	border: 1px solid #C9E0ED;
-	width:1200px;
+	width:960px;
+	margin:auto;
 }
 
 #header
@@ -53,7 +54,8 @@ body
 
 #mainmenu
 {
-	background:white url(bg.gif) repeat-x left top;
+	margin-top:10px;
+	border-bottom:1px solid #009ae3;
 }
 
 #mainmenu ul

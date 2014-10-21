@@ -1,97 +1,144 @@
-
-
 <?PHP
 
 
-require(SMCE_BASE_PATH."/base/SMdb.php");
 
-class SMbase extends DB {
+class Smbase extends SMCli{
 	
-  public $controller;
-  
-  public $view;
-  
-  
-  
-  
-  
-  public function __construct(){
-	    $this->baseURL();
-	    $this->_db_SETTING_();
-		$this->_includeFILE_();
-		$this->baseURLCommand();
-  }
-  
-  private function  getCurrentDirectory() {
-	return  DIRNAME($_SERVER['PHP_SELF']);
- }
- 
-  private function baseURL(){
-	 $uri=$_SERVER["REQUEST_URI"];
-	$uri=str_replace ( $this->getCurrentDirectory() ,"" ,$uri );
-	$uriEx=explode("/",$uri);
+	public static $config;
 	
-	$this->controller	= ucfirst ($uriEx[count($uriEx)-2]);
-	$uriEx[count($uriEx)]=explode("?",$uriEx[count($uriEx)-1]);
-	$this->view	= ucfirst ($uriEx[count($uriEx)-1][0]);
+	public static $controller;
+	public static $view;
 	
+	public static $layout;
+    public static $layouta="sadasd";
+	public function createWebApplication($config){
+		session_start();
+		Smbase::$config=$config;
+		Smbase::baseURL();
+		Smbase::_includeFILE_();
+		Smbase::_db_SETTING_();
+		Smbase::baseURLCommand();
 		
-	if(empty($this->controller) || empty($this->view)){
-		$this->controller="site";
-		$this->view="index";
 	}
-	define('BASE_CONTROLLER',$this->controller);
-	define('BASE_VIEW',$this->view);
-  }
-  
-  private function baseURLCommand() {
 	
-		if(! is_file(BASE_PATH."/controller/".$this->controller."Controller.php")){
-			$html = '<html><body><h1>Page Not Found</h1></body></html>';
-	    	echo $html;
+	
+	
+	private function  getCurrentDirectory() {
+		return  DIRNAME($_SERVER['PHP_SELF']);
+	}
+	
+	private function baseURL(){
+		$uri=$_SERVER["REQUEST_URI"];
+		$uri=str_replace ( Smbase::getCurrentDirectory() ,"" ,$uri );
+		$uriEx=explode("/",$uri);
+		
+		Smbase::$controller	= ucfirst ($uriEx[count($uriEx)-2]);
+		$uriEx[count($uriEx)]=explode("?",$uriEx[count($uriEx)-1]);
+		Smbase::$view	= ucfirst ($uriEx[count($uriEx)-1][0]);
+		
+			
+		if(empty(Smbase::$controller) || empty(Smbase::$view)){
+			Smbase::$controller="site";
+			Smbase::$view="index";
+		}
+		define('BASE_CONTROLLER',Smbase::$controller);
+		define('BASE_VIEW',Smbase::$view);
+	}
+	
+	private function baseURLCommand() {
+	
+		if(! is_file(BASE_PATH."/controller/".Smbase::$controller."Controller.php")){
+			Smbase::error("Controller Not Found");
 			exit;
 		}
-
-		require(BASE_PATH."/controller/".$this->controller."Controller.php");
-
-		$actionView = 'action'.$this->view;
-		$actionController = $this->controller."Controller";
+	
+		require(BASE_PATH."/controller/".Smbase::$controller."Controller.php");
+		
+		if(!empty(Smbase::$controller->layout))
+			Smbase::$layout=Smbase::$controller->layout;
+		
+		
+		$actionView = 'action'.Smbase::$view;
+		$actionController = Smbase::$controller."Controller";
 	
 		$class = new $actionController;
-
+	
 		if(method_exists($class, $actionView)){
-			$class->$actionView();
+			
+			if(method_exists ($class , "accessRules" )){
+				
+				$accessRules=$class->accessRules();
+				if(is_array($accessRules) && count($accessRules)>0){
+					
+					$SMAccessRules=new SMAccessRules;
+					if($SMAccessRules->rules($accessRules,Smbase::$view))
+						$class->$actionView();
+					else	
+						Smbase::error("You do not have authority to allow");
+				}
+			}else{
+				$class->$actionView();
+			}
+			
 		}else{
-			$html = '<html><body><h1>Page Not Found</h1></body></html>';
-	    	echo $html;
-			exit;
+			
+			Smbase::error("Page Not Found");
+			
 		}
-  	}
-  
-  
-  private function _includeFILE_(){
+	}
+	
+	
+	private function error($err){
+		
+	
+		$SiteController=new SiteController;
+		
+		SiteController::$error=false;
+		
+		$SiteController->error($err);
+		
+	}
+	
+	
+	private  function _includeFILE_(){
+	 
 	  require(SMCE_BASE_PATH."/base/Smcontroller.php");
 	  require(SMCE_BASE_PATH."/base/Smce.php");
-	  require(SMCE_BASE_PATH."/GUMP/gump.class.php");
-	 
-  }
-  
-  private function _db_SETTING_(){
-	DB::$user=DB_USER;
-	DB::$password = DB_PASSWORD; 
-	DB::$dbName = DB_NAME;
-	DB::$host = DB_HOST;
-  }
-  
-  
- 
+	}
+	
+	private function _db_SETTING_(){
+		$_db=Smbase::$config["components"]["db"];
+		
+		DB::$user= $_db["user"];
+		DB::$password = $_db["password"]; 
+		DB::$dbName = $_db["name"];
+		DB::$host = $_db["host"];
+	}
+	
+	
+	
 }
-
-  function __autoload($class_name) {
-	    if(file_exists(BASE_PATH."/components/".$class_name . '.php'))
-   			 require_once(BASE_PATH."/components/".$class_name . '.php');
+	
+	function __autoload($class_name) {
+		if(file_exists(BASE_PATH."/components/".$class_name . '.php'))
+			 require_once(BASE_PATH."/components/".$class_name . '.php');
 			 
 		if(file_exists(BASE_PATH."/model/".$class_name . '.php'))
-   			 require_once(BASE_PATH."/model/".$class_name . '.php');
-  }
+			 require_once(BASE_PATH."/model/".$class_name . '.php');
+			 
+		if(file_exists(BASE_PATH."/controller/".$class_name . '.php'))
+			 require_once(BASE_PATH."/controller/".$class_name . '.php');
+			 
+		if(file_exists(SMCE_BASE_PATH."/components/".$class_name . '.php'))
+			 require_once(SMCE_BASE_PATH."/components/".$class_name . '.php');
+			 
+		if(file_exists(SMCE_BASE_PATH."/lib/".$class_name . '.php'))
+			 require_once(SMCE_BASE_PATH."/lib/".$class_name . '.php');
+			 
+		if(file_exists(SMCE_BASE_PATH."/implements/".$class_name . '.php'))
+			 require_once(SMCE_BASE_PATH."/implements/".$class_name . '.php');
+			 
+		if(file_exists(SMCE_BASE_PATH."/base/".$class_name . '.php'))
+			 require_once(SMCE_BASE_PATH."/base/".$class_name . '.php');	 
+	}
   

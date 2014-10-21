@@ -5,6 +5,6 @@
 /*framework base path*/
 define('SMCE_BASE_PATH',dirname(__FILE__));
 
-require(SMCE_BASE_PATH."/base/SMbase.php");
+require(SMCE_BASE_PATH."/base/Smbase.php");
 new SMbase;
 ?>

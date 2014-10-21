@@ -3,12 +3,12 @@
 
 define('BASE_PATH',dirname(__FILE__));
 
-require("config/config.php");
+$config=require("config/config.php");
 
-$smce=dirname(__FILE__).'/../smceframework/index.php';
+$smce=dirname(__FILE__).'/../smceframework/smceBase.php';
 
 require_once($smce);
-
+Smbase::createWebApplication($config);
 
 
 ?>

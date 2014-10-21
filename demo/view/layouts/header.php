@@ -7,15 +7,17 @@
 
 	
 <!-- blueprint CSS framework -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Smce::baseUrl(); ?>/css/screen.css" media="screen, projection" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Smce::baseUrl(); ?>/css/print.css" media="print" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/screen.css" media="screen, projection" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/print.css" media="print" />
 	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Smce::baseUrl(); ?>/css/ie.css" media="screen, projection" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
 
-	<link rel="stylesheet" type="text/css" href="<?php echo Smce::baseUrl(); ?>/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Smce::baseUrl(); ?>/css/form.css" />
-
+	<link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/form.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/form.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/menu.css" />
+	<script type="text/javascript" src="<?php echo Smce::app()->baseUrl; ?>/front/js/menu.js"></script>
 	<title>Smceframework</title>
 </head>
 
@@ -25,10 +27,43 @@
 <div class="container" id="page">
 
 	<div id="header">
-		<div id="logo"><img src="<?php echo Smce::baseUrl(); ?>/images/logo.jpg"/></div>
-        SmceFramework Hoş geldiniz.
+		<div id="logo"><a href="<?php echo Smce::app()->createUrl("site/index"); ?>"><img src="<?php echo Smce::app()->baseUrl; ?>/front/images/logo.jpg"/></a></div>
 	</div><!-- header -->
 
-	<div id="mainmenu">
-		
-	</div><!-- mainmenu -->
+<div id="mainmenu">
+    
+    <div id='cssmenu'>
+        <ul>
+           <li class="active"><a href='<?php echo Smce::app()->createUrl("site/index"); ?>'>Home</a></li>
+           <li class='has-sub'><a href='#'>Menu</a>
+              <ul>
+                 <li class='has-sub'><a href='#'>Product 1</a>
+                    <ul>
+                       <li><a href='#'>Sub Product</a></li>
+                       <li><a href='#'>Sub Product</a></li>
+                    </ul>
+                 </li>
+                 <li class='has-sub'><a href='#'>Product 2</a>
+                    <ul>
+                       <li><a href='#'>Sub Product</a></li>
+                       <li><a href='#'>Sub Product</a></li>
+                    </ul>
+                 </li>
+              </ul>
+           </li>
+           <li><a href='<?=Smce::app()->createUrl("site/about");?>'>About</a></li>
+         
+           
+           
+           <?PHP if(Smce::app()->getState("name")==""):?>
+             <li><a href='<?=Smce::app()->createUrl("site/login");?>'>Login</a></li>
+           <?PHP endif;?>
+           
+          <?PHP if(Smce::app()->getState("name") !=""):?>
+                <li><a href='<?=Smce::app()->createUrl("site/logout");?>'>Logout (<?PHP echo Smce::app()->getState("name");?>)</a></li>
+            <?PHP endif;?>
+            
+        </ul>
+    </div><!-- cssmenu -->
+    
+</div><!-- mainmenu -->

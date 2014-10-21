@@ -9,7 +9,7 @@
  * @version     1.0
  */
 
-class Validate
+class SMGump
 {
 	// Validation rules for execution
 	protected $validation_rules = array();
@@ -28,7 +28,7 @@ class Validate
 
 	// Customer filter methods
 	protected static $filter_methods = array();
-
+ 
 	// ** ------------------------- Validation Data ------------------------------- ** //
 
 	public static $basic_tags     = "<br><p><a><strong><b><i><em><img><blockquote><code><dd><dl><hr><h1><h2><h3><h4><h5><h6><label><ul><li><span><sub><sup>";
@@ -397,10 +397,10 @@ class Validate
 		}
 
 		$resp = array();
-
+		
 		foreach($this->errors as $e) {
 
-			$field = ucwords(str_replace(array('_','-'), chr(32), $e['field']));
+			$field = $e['field'];
 			$param = $e['param'];
 			
 			// Let's fetch explicit field names if they exist
@@ -410,88 +410,88 @@ class Validate
 
 			switch($e['rule']) {
 				case 'mismatch' :
-					$resp[] = "There is no validation rule for <span class=\"$field_class\">$field</span>";
+					$resp[$field] = "There is no validation rule for <span class=\"$field_class\">$field</span>";
 					break;
 				case 'validate_required':
-					$resp[] = "The <span class=\"$field_class\">$field</span> field is required";
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> field is required";
 					break;
 				case 'validate_valid_email':
-					$resp[] = "The <span class=\"$field_class\">$field</span> field is required to be a valid email address";
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> field is required to be a valid email address";
 					break;
 				case 'validate_max_len':
 					if($param == 1) {
-						$resp[] = "The <span class=\"$field_class\">$field</span> field needs to be shorter than $param character";
+						$resp[$field] = "The <span class=\"$field_class\">$field</span> field needs to be shorter than $param character";
 					} else {
-						$resp[] = "The <span class=\"$field_class\">$field</span> field needs to be shorter than $param characters";
+						$resp[$field] = "The <span class=\"$field_class\">$field</span> field needs to be shorter than $param characters";
 					}
 					break;
 				case 'validate_min_len':
 					if($param == 1) {
-						$resp[] = "The <span class=\"$field_class\">$field</span> field needs to be longer than $param character";
+						$resp[$field] = "The <span class=\"$field_class\">$field</span> field needs to be longer than $param character";
 					} else {
-						$resp[] = "The <span class=\"$field_class\">$field</span> field needs to be longer than $param characters";
+						$resp[$field] = "The <span class=\"$field_class\">$field</span> field needs to be longer than $param characters";
 					}
 					break;
 				case 'validate_exact_len':
 					if($param == 1) {
-						$resp[] = "The <span class=\"$field_class\">$field</span> field needs to be exactly $param character in length";
+						$resp[$field] = "The <span class=\"$field_class\">$field</span> field needs to be exactly $param character in length";
 					} else {
-						$resp[] = "The <span class=\"$field_class\">$field</span> field needs to be exactly $param characters in length";
+						$resp[$field] = "The <span class=\"$field_class\">$field</span> field needs to be exactly $param characters in length";
 					}
 					break;
 				case 'validate_alpha':
-					$resp[] = "The <span class=\"$field_class\">$field</span> field may only contain alpha characters(a-z)";
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> field may only contain alpha characters(a-z)";
 					break;
 				case 'validate_alpha_numeric':
 					$resp[] = "The <span class=\"$field_class\">$field</span> field may only contain alpha-numeric characters";
 					break;
 				case 'validate_alpha_dash':
-					$resp[] = "The <span class=\"$field_class\">$field</span> field may only contain alpha characters &amp; dashes";
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> field may only contain alpha characters &amp; dashes";
 					break;
 				case 'validate_numeric':
-					$resp[] = "The <span class=\"$field_class\">$field</span> field may only contain numeric characters";
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> field may only contain numeric characters";
 					break;
 				case 'validate_integer':
-					$resp[] = "The <span class=\"$field_class\">$field</span> field may only contain a numeric value";
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> field may only contain a numeric value";
 					break;
 				case 'validate_boolean':
-					$resp[] = "The <span class=\"$field_class\">$field</span> field may only contain a true or false value";
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> field may only contain a true or false value";
 					break;
 				case 'validate_float':
-					$resp[] = "The <span class=\"$field_class\">$field</span> field may only contain a float value";
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> field may only contain a float value";
 					break;
 				case 'validate_valid_url':
-					$resp[] = "The <span class=\"$field_class\">$field</span> field is required to be a valid URL";
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> field is required to be a valid URL";
 					break;
 				case 'validate_url_exists':
-					$resp[] = "The <span class=\"$field_class\">$field</span> URL does not exist";
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> URL does not exist";
 					break;
 				case 'validate_valid_ip':
-					$resp[] = "The <span class=\"$field_class\">$field</span> field needs to contain a valid IP address";
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> field needs to contain a valid IP address";
 					break;
 				case 'validate_valid_cc':
-					$resp[] = "The <span class=\"$field_class\">$field</span> field needs to contain a valid credit card number";
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> field needs to contain a valid credit card number";
 					break;
 				case 'validate_valid_name':
-					$resp[] = "The <span class=\"$field_class\">$field</span> field needs to contain a valid human name";
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> field needs to contain a valid human name";
 					break;
 				case 'validate_contains':
-					$resp[] = "The <span class=\"$field_class\">$field</span> field needs to contain one of these values: ".implode(', ', $param);
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> field needs to contain one of these values: ".implode(', ', $param);
 					break;
 				case 'validate_street_address':
-					$resp[] = "The <span class=\"$field_class\">$field</span> field needs to be a valid street address";
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> field needs to be a valid street address";
 					break;
 				case 'validate_date':
-					$resp[] = "The <span class=\"$field_class\">$field</span> field needs to be a valid date";
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> field needs to be a valid date";
 					break;
 				case 'validate_min_numeric':
-					$resp[] = "The <span class=\"$field_class\">$field</span> field needs to be a numeric value, equal to, or higher than $param";
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> field needs to be a numeric value, equal to, or higher than $param";
 					break;
 				case 'validate_max_numeric':
-					$resp[] = "The <span class=\"$field_class\">$field</span> field needs to be a numeric value, equal to, or lower than $param";
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> field needs to be a numeric value, equal to, or lower than $param";
 					break;
 				default:
-					$resp[] = "The <span class=\"$field_class\">$field</span> field is invalid";				
+					$resp[$field] = "The <span class=\"$field_class\">$field</span> field is invalid";				
 			}
 		}
 

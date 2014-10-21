@@ -1,9 +1,9 @@
 <?php
 
-class Controller
+class Controller 
 {
 	
-	public function _controller1(){
-		return "bu bir controldür";
-	}
+	public static $layout='//layouts/column1';
+
+	
 }
