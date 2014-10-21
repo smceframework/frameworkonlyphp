@@ -11,6 +11,10 @@ class PanelController  extends Smcontroller
 		$this->controller=new Controller;
 	}
 	
+	private function indexControl(){
+		return true;
+	}
+	
 	
 	public function accessRules()
 	{
@@ -20,7 +24,7 @@ class PanelController  extends Smcontroller
 				'actions'=>array('index'), // Actions. is array
 				'users'=>'@',  // Only * or @ values ​​are
 				'redirect'=>"site/login",
-				'expression'=>true,	//True is allowed only. Only TRUE or FALSE values ​​are.
+				'expression'=>$this->indexControl(),	//True is allowed only. Only TRUE or FALSE values ​​are.
 				//'ip'=>array('127.0.0.1'), //IP is allowed only. is array
 			),
 			
