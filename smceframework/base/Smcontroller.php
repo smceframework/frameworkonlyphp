@@ -24,14 +24,26 @@ class Smcontroller extends Smve{
 		
 		ob_end_clean();
 		
-		if(!empty($this->layout) && ! is_file(Smce::app()->basePath."\\view".$this->layout.".php")){
-			echo "asdasd";
-			exit;
-				$html = '<html><body><h1>Layout Not Found "'.$this->layout.'"</h1></body></html>';
+		$components="Controller";
+		$layout="";
+		if(!empty($this->layout)){
+			$layout=$this->layout;
+		}elseif(class_exists($components) && isset(Controller::$layout)){
+			$layout=Controller::$layout;
+		}
+		
+		if(empty($layout)){
+			
+				$html = '<html><body><h1>Not Set Layout</h1></body></html>';
+				echo $html;
+				exit;
+		}elseif(!is_file(Smce::app()->basePath."\\view".$layout.".php")){
+			
+				$html = '<html><body><h1>Layout Not Found "'.$layout.'"</h1></body></html>';
 				echo $html;
 				exit;
 		}else{
-			 include(Smce::app()->basePath."\\view".Controller::$layout.".php");
+				include(Smce::app()->basePath."\\view".$layout.".php");
 		}
 		   
 	}

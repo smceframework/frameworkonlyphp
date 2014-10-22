@@ -55,11 +55,13 @@
          
            
            
-           <?PHP if(Smce::app()->getState("name")==""):?>
+           <?PHP 
+		   $name=Smce::app()->getState("name");
+		   if(empty($name)):?>
              <li><a href='<?=Smce::app()->createUrl("site/login");?>'>Login</a></li>
            <?PHP endif;?>
            
-          <?PHP if(Smce::app()->getState("name") !=""):?>
+          <?PHP if(!empty($name)):?>
                 <li><a href='<?=Smce::app()->createUrl("site/logout");?>'>Logout (<?PHP echo Smce::app()->getState("name");?>)</a></li>
             <?PHP endif;?>
             

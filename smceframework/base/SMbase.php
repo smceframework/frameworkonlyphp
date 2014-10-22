@@ -1,7 +1,6 @@
 <?PHP
 
 
-
 class Smbase extends SMCli{
 	
 	public static $config;
@@ -9,11 +8,10 @@ class Smbase extends SMCli{
 	public static $controller;
 	public static $view;
 	
-	public static $layout;
-    public static $layouta="sadasd";
-	public function createWebApplication($config){
+	
+	public function run(){
 		session_start();
-		Smbase::$config=$config;
+		
 		Smbase::baseURL();
 		Smbase::_includeFILE_();
 		Smbase::_db_SETTING_();
@@ -119,26 +117,11 @@ class Smbase extends SMCli{
 	
 }
 	
-	function __autoload($class_name) {
-		if(file_exists(BASE_PATH."/components/".$class_name . '.php'))
-			 require_once(BASE_PATH."/components/".$class_name . '.php');
-			 
-		if(file_exists(BASE_PATH."/model/".$class_name . '.php'))
-			 require_once(BASE_PATH."/model/".$class_name . '.php');
-			 
-		if(file_exists(BASE_PATH."/controller/".$class_name . '.php'))
-			 require_once(BASE_PATH."/controller/".$class_name . '.php');
-			 
-		if(file_exists(SMCE_BASE_PATH."/components/".$class_name . '.php'))
-			 require_once(SMCE_BASE_PATH."/components/".$class_name . '.php');
-			 
-		if(file_exists(SMCE_BASE_PATH."/lib/".$class_name . '.php'))
-			 require_once(SMCE_BASE_PATH."/lib/".$class_name . '.php');
-			 
-		if(file_exists(SMCE_BASE_PATH."/implements/".$class_name . '.php'))
-			 require_once(SMCE_BASE_PATH."/implements/".$class_name . '.php');
-			 
-		if(file_exists(SMCE_BASE_PATH."/base/".$class_name . '.php'))
-			 require_once(SMCE_BASE_PATH."/base/".$class_name . '.php');	 
-	}
+	
+
+
+
+
+
+
   
