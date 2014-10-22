@@ -39,8 +39,8 @@ class Smbase extends SMCli{
 			Smbase::$controller="site";
 			Smbase::$view="index";
 		}
-		define('BASE_CONTROLLER',Smbase::$controller);
-		define('BASE_VIEW',Smbase::$view);
+		define('BASE_CONTROLLER',strtolower(Smbase::$controller));
+		define('BASE_VIEW',strtolower(Smbase::$view));
 	}
 	
 	private function baseURLCommand() {

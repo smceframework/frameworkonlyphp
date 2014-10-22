@@ -71,4 +71,12 @@ class SMUser extends SMCli{
 		session_set_cookie_params($duration);
 	}
 	
+	public function caControl($urlArray=array()){
+		
+		$ur=BASE_CONTROLLER."/".BASE_VIEW;
+		
+		if(in_array($ur,$urlArray))
+			return true;
+	}
+	
 }

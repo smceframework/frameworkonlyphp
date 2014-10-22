@@ -31,10 +31,12 @@
 	</div><!-- header -->
 
 <div id="mainmenu">
-    
+     
     <div id='cssmenu'>
+  
         <ul>
-           <li class="active"><a href='<?php echo Smce::app()->createUrl("site/index"); ?>'>Home</a></li>
+           <li class="<?php if(Smce::app()->caControl(array("site/index")))echo "active";?>"><a href='<?php echo Smce::app()->createUrl("site/index"); ?>'>Home</a></li>
+           
            <li class='has-sub'><a href='#'>Menu</a>
               <ul>
                  <li class='has-sub'><a href='#'>Product 1</a>
@@ -51,14 +53,14 @@
                  </li>
               </ul>
            </li>
-           <li><a href='<?=Smce::app()->createUrl("site/about");?>'>About</a></li>
+           <li class="<?php if(Smce::app()->caControl(array("site/about")))echo "active";?>"><a href='<?=Smce::app()->createUrl("site/about");?>'>About</a></li>
          
            
            
            <?PHP 
 		   $name=Smce::app()->getState("name");
 		   if(empty($name)):?>
-             <li><a href='<?=Smce::app()->createUrl("site/login");?>'>Login</a></li>
+             <li class="<?php if(Smce::app()->caControl(array("site/login")))echo "active";?>"><a href='<?=Smce::app()->createUrl("site/login");?>'>Login</a></li>
            <?PHP endif;?>
            
           <?PHP if(!empty($name)):?>
