@@ -1,15 +1,16 @@
 <?PHP
 
-class Smce extends SMCli
+
+class Smce extends \SMLib\SMCli
 {
   	
 	public function app(){
-	  $SMUser=new SMUser;
+	  $SMUser=new \SMLib\SMUser;
 	  return $SMUser;
 	}
   
   	public function theme(){
-	  $SMLayout=new SMLayout;
+	  $SMLayout=new \SMLib\SMLayout;
 	  return $SMLayout;
 	}
    

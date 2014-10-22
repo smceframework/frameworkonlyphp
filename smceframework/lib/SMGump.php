@@ -9,6 +9,8 @@
  * @version     1.0
  */
 
+namespace SMLib;
+
 class SMGump
 {
 	// Validation rules for execution

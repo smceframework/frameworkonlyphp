@@ -10,9 +10,9 @@ class SmceFramework {
 		extract(@$config);
 		require(SMCE_BASE_PATH."/lib/SMAutoload.php");
 		require(SMCE_BASE_PATH."/base/Smbase.php");
-		$Smbase=new Smbase;
+		$Smbase=new \SMBase\Smbase;
 		
-		Smbase::$config=$config;
+		\SMBase\Smbase::$config=$config;
 		return $Smbase;
 	}
 }

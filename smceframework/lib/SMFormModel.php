@@ -1,7 +1,9 @@
 <?PHP
 
+namespace SMLib;
 
-class SMFormModel extends SMCli{
+
+class SMFormModel extends \SMLib\SMCli{
 	
 	public $error=false;
 	private $lastError=false;

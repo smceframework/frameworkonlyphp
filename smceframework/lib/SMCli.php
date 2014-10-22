@@ -1,5 +1,7 @@
 <?PHP
 
+namespace SMLib;
+
 class SMCli{
 	private $_e;
 	private $_m;

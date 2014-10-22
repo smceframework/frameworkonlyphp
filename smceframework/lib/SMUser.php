@@ -1,7 +1,9 @@
 <?PHP
 
 
-class SMUser extends SMCli{
+namespace SMLib;
+
+class SMUser extends \SMLib\SMCli{
 	 
 	 
 	public $data=array();

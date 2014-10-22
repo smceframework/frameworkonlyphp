@@ -1,7 +1,8 @@
 <?PHP
 
+namespace SMBase;
 
-class Smbase extends SMCli{
+class Smbase extends \SMLib\SMCli{
 	
 	public static $config;
 	
@@ -68,7 +69,7 @@ class Smbase extends SMCli{
 				$accessRules=$class->accessRules();
 				if(is_array($accessRules) && count($accessRules)>0){
 					
-					$SMAccessRules=new SMAccessRules;
+					$SMAccessRules=new \SMLib\SMAccessRules;
 					if($SMAccessRules->rules($accessRules,Smbase::$view))
 						$class->$actionView();
 					else	
@@ -107,10 +108,10 @@ class Smbase extends SMCli{
 	private function _db_SETTING_(){
 		$_db=Smbase::$config["components"]["db"];
 		
-		DB::$user= $_db["user"];
-		DB::$password = $_db["password"]; 
-		DB::$dbName = $_db["name"];
-		DB::$host = $_db["host"];
+		\DB::$user= $_db["user"];
+		\DB::$password = $_db["password"]; 
+		\DB::$dbName = $_db["name"];
+		\DB::$host = $_db["host"];
 	}
 	
 	
