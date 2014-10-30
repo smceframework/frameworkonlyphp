@@ -1,4 +1,4 @@
-<b>Proje BaseUrl</b>: <?PHP echo Smce::app()->baseUrl?> <br />
+<b>Proje BaseUrl</b>: <?PHP echo Smce::app()->baseUrl()?> <br />
 <b>Proje BasePath</b>: <?PHP echo Smce::app()->basePath?><br />
 <b>Layout/MasterPage</b>: <?PHP echo $this->layout?>
 <br />

@@ -117,5 +117,155 @@ class SMCli{
 			return call_user_func_array($this->$name, $parameters);
 		
 	}
-	
+	public function asa($behavior)
+	{
+		return isset($this->_m[$behavior]) ? $this->_m[$behavior] : null;
+	}
+	public function attachBehaviors($behaviors)
+	{
+		foreach($behaviors as $name=>$behavior)
+			$this->attachBehavior($name,$behavior);
+	}
+	public function detachBehaviors()
+	{
+		if($this->_m!==null)
+		{
+			foreach($this->_m as $name=>$behavior)
+				$this->detachBehavior($name);
+			$this->_m=null;
+		}
+	}
+	public function attachBehavior($name,$behavior)
+	{
+		
+		$behavior->setEnabled(true);
+		$behavior->attach($this);
+		return $this->_m[$name]=$behavior;
+	}
+	public function detachBehavior($name)
+	{
+		if(isset($this->_m[$name]))
+		{
+			$this->_m[$name]->detach($this);
+			$behavior=$this->_m[$name];
+			unset($this->_m[$name]);
+			return $behavior;
+		}
+	}
+	public function enableBehaviors()
+	{
+		if($this->_m!==null)
+		{
+			foreach($this->_m as $behavior)
+				$behavior->setEnabled(true);
+		}
+	}
+	public function disableBehaviors()
+	{
+		if($this->_m!==null)
+		{
+			foreach($this->_m as $behavior)
+				$behavior->setEnabled(false);
+		}
+	}
+	public function enableBehavior($name)
+	{
+		if(isset($this->_m[$name]))
+			$this->_m[$name]->setEnabled(true);
+	}
+	public function disableBehavior($name)
+	{
+		if(isset($this->_m[$name]))
+			$this->_m[$name]->setEnabled(false);
+	}
+	public function hasProperty($name)
+	{
+		return method_exists($this,'get'.$name) || method_exists($this,'set'.$name);
+	}
+	public function canGetProperty($name)
+	{
+		return method_exists($this,'get'.$name);
+	}
+	public function canSetProperty($name)
+	{
+		return method_exists($this,'set'.$name);
+	}
+	public function hasEvent($name)
+	{
+		return !strncasecmp($name,'on',2) && method_exists($this,$name);
+	}
+	public function hasEventHandler($name)
+	{
+		$name=strtolower($name);
+		return isset($this->_e[$name]) && $this->_e[$name]->getCount()>0;
+	}
+	public function getEventHandlers($name)
+	{
+		if($this->hasEvent($name))
+		{
+			$name=strtolower($name);
+			if(!isset($this->_e[$name]))
+				$this->_e[$name]=new CList;
+			return $this->_e[$name];
+		}
+		
+	}
+	public function attachEventHandler($name,$handler)
+	{
+		$this->getEventHandlers($name)->add($handler);
+	}
+	public function detachEventHandler($name,$handler)
+	{
+		if($this->hasEventHandler($name))
+			return $this->getEventHandlers($name)->remove($handler)!==false;
+		else
+			return false;
+	}
+	public function raiseEvent($name,$event)
+	{
+		$name=strtolower($name);
+		if(isset($this->_e[$name]))
+		{
+			foreach($this->_e[$name] as $handler)
+			{
+				if(is_string($handler))
+					call_user_func($handler,$event);
+				elseif(is_callable($handler,true))
+				{
+					if(is_array($handler))
+					{
+						// an array: 0 - object, 1 - method name
+						list($object,$method)=$handler;
+						if(is_string($object))	// static method call
+							call_user_func($handler,$event);
+						elseif(method_exists($object,$method))
+							$object->$method($event);
+						
+					}
+					else // PHP 5.3: anonymous function
+						call_user_func($handler,$event);
+				}
+				else
+				
+				// stop further handling if param.handled is set true
+				if(($event instanceof CEvent) && $event->handled)
+					return;
+			}
+		}
+		
+	}
+	public function evaluateExpression($_expression_,$_data_=array())
+	{
+		if(is_string($_expression_))
+		{
+			extract($_data_);
+			return eval('return '.$_expression_.';');
+		}
+		else
+		{
+			$_data_[]=$this;
+			return call_user_func_array($_expression_, $_data_);
+		}
+	}
+
 }
