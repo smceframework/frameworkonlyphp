@@ -3,15 +3,21 @@
 
 class Smce extends \SMLib\SMCli
 {
-  	
-	public function app(){
-	  $SMUser=new \SMLib\SMUser;
-	  return $SMUser;
+  	private static $SMUser = null;
+  	private static $SMLayout = null;
+
+	public static function app(){
+	  if (static::$SMUser === null) {
+	  	static::$SMUser=new \SMLib\SMUser;
+	  }
+	  return static::$SMUser;
 	}
   
-  	public function theme(){
-	  $SMLayout=new \SMLib\SMLayout;
-	  return $SMLayout;
+  	public static function theme(){
+  	  if (static::$SMLayout === null) {
+	  	static::$SMLayout=new \SMLib\SMLayout;
+	  }
+	  return static::$SMLayout;
 	}
    
   	

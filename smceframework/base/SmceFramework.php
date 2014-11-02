@@ -6,7 +6,7 @@
 class SmceFramework {
 	
 	
-	public function createWebApplication($config){
+	public static function createWebApplication($config){
 		if ($config) {
 			extract($config);
 		}
