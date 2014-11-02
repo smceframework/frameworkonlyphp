@@ -41,7 +41,7 @@ class SMForm  extends \SMLib\SMCli{
 		
 		if( property_exists($model,$attribute)){
 			$label=$model->attributeLabels();
-			return '<label>'.@$label[$attribute].'</label>';
+			return '<label>'.(isset($label[$attribute]) ? $label[$attribute] : '').'</label>';
 		}else{
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
