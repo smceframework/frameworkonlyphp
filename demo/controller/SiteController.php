@@ -35,7 +35,7 @@ class SiteController extends \SmceFramework\Smcontroller
 			
 			$model->username	=	$post->username;
 			$model->password	=	$post->password;
-			$model->rememberMe	=	@$post->rememberMe;
+			$model->rememberMe	=	isset($post->rememberMe);
 			
 			if($model->validate() && $model->login()){
 				

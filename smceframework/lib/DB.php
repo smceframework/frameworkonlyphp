@@ -178,9 +178,7 @@ class MeekroDB {
       }
 
       // suppress warnings, since we will check connect_error anyway
-      @$mysql->real_connect($this->host, $this->user, $this->password, $this->dbName, $this->port, null, $connect_flags);
-      
-      if ($mysql->connect_error) {
+      if (!$mysql->real_connect($this->host, $this->user, $this->password, $this->dbName, $this->port, null, $connect_flags)) {
         $this->nonSQLError('Unable to connect to MySQL server! Error: ' . $mysql->connect_error);
       }
       
