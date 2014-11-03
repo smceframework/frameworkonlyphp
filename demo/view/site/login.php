@@ -4,7 +4,7 @@
 
 
 <div class="form">
-<?PHP $form=$this->beginWidget(array(
+<?php $form=$this->beginWidget(array(
 	"id"=>"login-form",
 ));?>
 	<?php $form->errorSummary(); ?>

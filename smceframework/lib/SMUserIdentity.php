@@ -1,4 +1,4 @@
-<?PHP
+<?php
 
 
 abstract class SMUserIdentity extends \SMLib\SMCli implements \SMImplements\SMUserIdentity_

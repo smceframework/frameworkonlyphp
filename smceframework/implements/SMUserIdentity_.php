@@ -1,4 +1,4 @@
-<?PHP
+<?php
 
 namespace SMImplements;
 interface SMUserIdentity_

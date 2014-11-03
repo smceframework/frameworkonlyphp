@@ -1,4 +1,4 @@
-<?PHP
+<?php
 
 
 class Smce extends \SMLib\SMCli

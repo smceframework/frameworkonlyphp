@@ -57,15 +57,15 @@
 
 
 
-           <?PHP
+           <?php
 		   $name=Smce::app()->getState("name");
 		   if(empty($name)):?>
              <li class="<?php if(Smce::app()->caControl(array("site/login")))echo "active";?>"><a href='<?=Smce::app()->createUrl("site/login");?>'>Login</a></li>
-           <?PHP endif;?>
+           <?php endif;?>
 
-          <?PHP if(!empty($name)):?>
-                <li><a href='<?=Smce::app()->createUrl("site/logout");?>'>Logout (<?PHP echo Smce::app()->getState("name");?>)</a></li>
-            <?PHP endif;?>
+          <?php if(!empty($name)):?>
+                <li><a href='<?=Smce::app()->createUrl("site/logout");?>'>Logout (<?php echo Smce::app()->getState("name");?>)</a></li>
+            <?php endif;?>
 
         </ul>
     </div><!-- cssmenu -->

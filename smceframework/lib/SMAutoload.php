@@ -1,4 +1,4 @@
-<?PHP
+<?php
 
 	global $SMCE_IMPORT;
 	if(isset($import))

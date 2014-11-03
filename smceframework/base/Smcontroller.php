@@ -1,4 +1,4 @@
-<?PHP
+<?php
 
 namespace SmceFramework;
 class Smcontroller extends \SMBase\Smve

@@ -1,4 +1,4 @@
-<?PHP
+<?php
 
 
 /*framework base path*/
