@@ -1,9 +1,8 @@
 <?php
 
-class Controller 
+class Controller
 {
-	
-	public static $layout='//layouts/column1';
 
-	
+    public static $layout='//layouts/column1';
+
 }

@@ -19,8 +19,8 @@
 		<?php echo $form->passwordField($model,'password'); ?>
         <?php echo $form->error($model,'password'); ?>
 	</div>
-    
-    
+
+
    <div class="row rememberMe">
 		<?php echo $form->checkBox($model,'rememberMe'); ?>
         <?php echo $form->labelEx($model,'rememberMe'); ?>

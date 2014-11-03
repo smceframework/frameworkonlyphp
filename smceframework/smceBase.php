@@ -1,9 +1,6 @@
 <?PHP
 
 
-
 /*framework base path*/
 define('SMCE_BASE_PATH',dirname(__FILE__));
-require(SMCE_BASE_PATH."/base/SmceFramework.php");
-
-?>
+require SMCE_BASE_PATH."/base/SmceFramework.php";

@@ -1,17 +1,17 @@
 <?php
-	
-  
+
+
 return array(
 	'name'=>'SmceFramework',
-	
+
 	// autoloading model and component classes
-	'import'=>array(
+    'import'=>array(
 		'model',
 		'components',
 	),
-	
+
 	'debug'=>false,
-	
+
 	'components'=>array(
 		'db'=>array(
 			'user'=>"root",
@@ -21,6 +21,3 @@ return array(
 		),
 	),
 );
-
-
-?>

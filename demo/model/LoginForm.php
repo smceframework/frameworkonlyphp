@@ -4,7 +4,7 @@
  * LoginForm class.
  * user login form data. It is used by the 'login' action of 'SiteController'.
  */
- 
+
 class LoginForm extends \SmLib\SMFormModel
 {
 	public $username;
@@ -22,12 +22,12 @@ class LoginForm extends \SmLib\SMFormModel
 	{
 		return array(
 			// username and password are required
-			array('username, password', 'required'),
+            array('username, password', 'required'),
 			// rememberMe needs to be a boolean
-			array('rememberMe', 'boolean'),
+            array('rememberMe', 'boolean'),
 			// password needs to be authenticated
-			array('password', "after", 'authenticate'),//array('password', false, 'authenticate'),
-		);
+            array('password', "after", 'authenticate'),//array('password', false, 'authenticate'),
+        );
 	}
 
 	/**
@@ -48,12 +48,12 @@ class LoginForm extends \SmLib\SMFormModel
 	 */
 	public function authenticate($attribute,$value)
 	{
-		
+
 		$this->_identity=new UserIdentity($this->username,$this->password);
-		
+
 		if($this->_identity->authenticate() && !$this->error)
 			$this->addError('password','Kullanıcı ve/veya Parola hatalı.');
-	
+
 	}
 
 	/**
@@ -62,18 +62,15 @@ class LoginForm extends \SmLib\SMFormModel
 	 */
 	public function login()
 	{
-		if($this->_identity===null)
-		{
+		if ($this->_identity===null) {
 			$this->_identity=new UserIdentity($this->username,$this->password);
 			$this->_identity->authenticate();
 		}
-		if($this->_identity->errorCode===UserIdentity::ERROR_NONE)
-		{
+		if ($this->_identity->errorCode===UserIdentity::ERROR_NONE) {
 			$duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
-			Smce::app()->login($this->_identity,$duration);
+            Smce::app()->login($this->_identity,$duration);
 			return true;
-		}
-		else
+		} else
 			return false;
 	}
 }

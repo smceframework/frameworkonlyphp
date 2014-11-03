@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
 
-	
+
 <!-- blueprint CSS framework -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/screen.css" media="screen, projection" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/print.css" media="print" />
@@ -31,9 +31,9 @@
 	</div><!-- header -->
 
 <div id="mainmenu">
-     
+
     <div id='cssmenu'>
-  
+
         <ul>
            <li class="<?php if(Smce::app()->caControl(array("site/index")))echo "active";?>"><a href='<?php echo Smce::app()->createUrl("site/index"); ?>'>Home</a></li>
            <li class="<?php if(Smce::app()->caControl(array("themebasic/index")))echo "active";?>"><a href='<?php echo Smce::app()->createUrl("themebasic/index"); ?>'>Theme Basic</a></li>
@@ -54,20 +54,20 @@
               </ul>
            </li>
            <li class="<?php if(Smce::app()->caControl(array("site/about")))echo "active";?>"><a href='<?=Smce::app()->createUrl("site/about");?>'>About</a></li>
-         
-           
-           
-           <?PHP 
+
+
+
+           <?PHP
 		   $name=Smce::app()->getState("name");
 		   if(empty($name)):?>
              <li class="<?php if(Smce::app()->caControl(array("site/login")))echo "active";?>"><a href='<?=Smce::app()->createUrl("site/login");?>'>Login</a></li>
            <?PHP endif;?>
-           
+
           <?PHP if(!empty($name)):?>
                 <li><a href='<?=Smce::app()->createUrl("site/logout");?>'>Logout (<?PHP echo Smce::app()->getState("name");?>)</a></li>
             <?PHP endif;?>
-            
+
         </ul>
     </div><!-- cssmenu -->
-    
+
 </div><!-- mainmenu -->

@@ -1,9 +1,8 @@
 <?PHP
 
 namespace SMImplements;
-interface SMUserIdentity_{
+interface SMUserIdentity_
+{
 	public function authenticate();
-	
-}
 
-?>
+}
