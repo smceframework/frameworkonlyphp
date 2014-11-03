@@ -13,10 +13,10 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
 
-	<link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/basic/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/form.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/form.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/menu.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/basic/menu.css" />
 	<script type="text/javascript" src="<?php echo Smce::app()->baseUrl; ?>/front/js/menu.js"></script>
 	<title>Smceframework</title>
 </head>

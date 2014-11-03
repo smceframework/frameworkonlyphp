@@ -1,5 +1,6 @@
 <?PHP
 
+//error_reporting(E_ALL | E_STRICT);
 
 define('BASE_PATH',dirname(__FILE__));
 

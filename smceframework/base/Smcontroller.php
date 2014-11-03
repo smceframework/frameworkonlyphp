@@ -6,27 +6,31 @@ class Smcontroller extends \SMBase\Smve{
 	public $content;
 	public static $error=true;
 	
+	public $theme="";
 	
 	
 	public function render($url="",$array=array()){
 		ob_start();
 		
-		if(! is_file(\Smce::app()->basePath."\\view\\".(self::$error==true?BASE_CONTROLLER:"site")."\\".$url.".php")){
-				$html = '<html><body><h1>View Not Found "'.$url.'"</h1></body></html>';
+		if(! is_file(\Smce::app()->basePath.(empty($this->theme)?"\\":"\\theme\\".$this->theme."\\")."view\\".(self::$error==true?BASE_CONTROLLER:"site")."\\".$url.".php")){
+				$html = '<html><body><h1>View Not Found "'.(empty($this->theme)?"\\":"theme\\".$this->theme."\\")."view\\".(self::$error==true?BASE_CONTROLLER:"site")."\\".$url.'"</h1></body></html>';
 				echo $html;
 				exit;
 		}else{
 			
 			 extract($array);
-			 include(\Smce::app()->basePath."\\view\\".(self::$error==true?BASE_CONTROLLER:"site")."\\".$url.".php");
+			 include(\Smce::app()->basePath.(empty($this->theme)?"\\":"\\theme\\".$this->theme."\\")."view\\".(self::$error==true?BASE_CONTROLLER:"site")."\\".$url.".php");
 		}
 		
 		$content = ob_get_contents();
 		
 		ob_end_clean();
 		
+		
+		define("BASE_THEME",$this->theme);
 		$components="Controller";
 		$layout="";
+		
 		if(!empty($this->layout)){
 			$layout=$this->layout;
 		}elseif(class_exists($components) && isset(\Controller::$layout)){
@@ -38,13 +42,14 @@ class Smcontroller extends \SMBase\Smve{
 				$html = '<html><body><h1>Not Set Layout</h1></body></html>';
 				echo $html;
 				exit;
-		}elseif(!is_file(\Smce::app()->basePath."\\view".$layout.".php")){
+		}elseif(!is_file(\Smce::app()->basePath.(empty($this->theme)?"\\":"\\theme\\".$this->theme."\\")."view".$layout.".php")){
 			
-				$html = '<html><body><h1>Layout Not Found "'.$layout.'"</h1></body></html>';
+				$html = '<html><body><h1>Layout Not Found "'.(empty($this->theme)?"\\":"theme\\".$this->theme."\\")."view\\".$layout.'"</h1></body></html>';
 				echo $html;
 				exit;
 		}else{
-				include(\Smce::app()->basePath."\\view".$layout.".php");
+			
+				include(\Smce::app()->basePath.(empty($this->theme)?"\\":"\\theme\\".$this->theme."\\")."view".$layout.".php");
 		}
 		   
 	}
