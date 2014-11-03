@@ -6,7 +6,7 @@ Samed Ceylan
 controller
 --------------------------
 
-<code>
+``` php
 <?php
 
 class SiteController extends \SmceFramework\Smcontroller
@@ -74,12 +74,12 @@ class SiteController extends \SmceFramework\Smcontroller
 	}
 }
 
-</code>
+```
 
 view
 --------------------------
 
-<code>
+``` php
 
 <b>Proje BaseUrl</b>: <?PHP echo Smce::app()->baseUrl?> <br />
 <b>Proje BasePath</b>: <?PHP echo Smce::app()->basePath?><br />
@@ -101,13 +101,13 @@ view
 <b>Grup</b>: <?PHP echo $grup?>	<br />
 <b>Grup-Site</b>: <?PHP echo $grup_site?>	<br />
 
-</code>
+```
 
 
 config
 --------------
 
-<code>	
+``` php
 <?php
 	
   
@@ -134,12 +134,12 @@ return array(
 
 
 ?>
-</code>	
+```
 	
 model
 ---------------
 
-<code>	
+``` php
 <?php
 
 /**
@@ -220,12 +220,12 @@ class LoginForm extends \SmLib\SMFormModel
 	}
 }
 
-</code>
+```
 
 model 2
 ---------------------------------------
 
-<code>
+``` php
 <?php
 
 class UsersModel{ 
@@ -258,4 +258,4 @@ class UsersModel{
 
 }
 
-</code>
+```
