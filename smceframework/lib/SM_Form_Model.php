@@ -2,7 +2,7 @@
 
 namespace SMLib;
 
-class SMFormModel extends \SMLib\SMCli
+class SM_Form_Model extends \SMLib\SM_Cli
 {
 	public $error=false;
 	private $lastError=false;
@@ -10,7 +10,7 @@ class SMFormModel extends \SMLib\SMCli
 	public function addError($attribute,$params)
 	{
 		$attribute=$attribute;
-		SMForm::$errorData[$attribute]=$params;
+		SM_Form::$errorData[$attribute]=$params;
 		$this->error=true;
 	}
 
@@ -66,7 +66,7 @@ class SMFormModel extends \SMLib\SMCli
 
 				}
 
-				$SMGump = new SMGump();
+				$SMGump = new SM_Gump();
 
 				$SMGump->validate($data, $valid);
 

@@ -3,7 +3,7 @@
 
 namespace SMLib;
 
-class SMForm  extends \SMLib\SMCli
+class SM_Form  extends \SMLib\SM_Cli
 {
 	public static $errorData=array();
 
@@ -24,7 +24,7 @@ class SMForm  extends \SMLib\SMCli
 
 		echo $STR;
 
-		return new SMFormField();
+		return new SM_Form_Field();
 	}
 
 	public function endWidget()
@@ -35,12 +35,12 @@ class SMForm  extends \SMLib\SMCli
 
 	public function getError()
 	{
-		if(count(SMForm::$errorData)>0)
+		if(count(SM_Form::$errorData)>0)
 			return true;
 	}
 
 	public function getErrorData()
 	{
-			return SMForm::$errorData;
+			return SM_Form::$errorData;
 	}
 }

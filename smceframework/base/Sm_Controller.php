@@ -1,7 +1,7 @@
 <?php
 
 namespace SmceFramework;
-class Smcontroller extends \SMBase\Smve
+class Sm_Controller extends \Sm_Base\Sm_Ve
 {
     public $content;
     public static $error=true;

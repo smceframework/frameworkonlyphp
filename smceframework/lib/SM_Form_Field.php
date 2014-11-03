@@ -3,7 +3,7 @@
 
 namespace SMLib;
 
-class SMFormField extends \SMLib\SMCli
+class SM_Form_Field extends \SMLib\SM_Cli
 {
 	public function labelEx($model,$attribute)
 	{
@@ -245,8 +245,8 @@ class SMFormField extends \SMLib\SMCli
 		$model=new $model();
 
 		if ( property_exists($model,$attribute)) {
-			if(isset(SMForm::$errorData[$attribute]))
-				return '<div class="errorMessage">'.SMForm::$errorData[$attribute].'</div>';
+			if(isset(SM_Form::$errorData[$attribute]))
+				return '<div class="errorMessage">'.SM_Form::$errorData[$attribute].'</div>';
 		} else {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
@@ -255,11 +255,11 @@ class SMFormField extends \SMLib\SMCli
 
 	public function errorSummary()
 	{
-		if (count(SMForm::$errorData)>0) {
+		if (count(SM_Form::$errorData)>0) {
 			$STR='<div class="errorSummary">
 				<p>Lütfen veri giriş hatalarını düzeltin:</p>
 				<ul>';
-				foreach (SMForm::$errorData as $key=>$value) {
+				foreach (SM_Form::$errorData as $key=>$value) {
 					$STR.='<li>'.$value.'</li>';
 				}
 				$STR.='</ul></div>';

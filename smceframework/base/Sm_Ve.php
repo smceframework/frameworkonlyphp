@@ -1,7 +1,7 @@
 <?php
-namespace SMBase;
+namespace Sm_Base;
 
-class Smve extends \SMLib\SMForm
+class Sm_Ve extends \SMLib\SM_Form
 {
     public function redirect($url="",$array=array())
     {

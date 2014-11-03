@@ -5,7 +5,7 @@
  * It contains the authentication method that checks if the provided
  * data can identity the user.
  */
-class UserIdentity extends SMUserIdentity
+class UserIdentity extends SM_User_Identity
 {
 
     public function authenticate()

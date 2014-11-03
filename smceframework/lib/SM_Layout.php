@@ -2,7 +2,7 @@
 
 namespace SMLib;
 
-class SMLayout extends \SMLib\SMCli
+class SM_Layout extends \SMLib\SM_Cli
 {
 	public function content($url,$array=array())
 	{

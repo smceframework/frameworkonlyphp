@@ -2,7 +2,7 @@
 
 namespace SMLib;
 
-class SMAccessRules extends \SMLib\SMCli
+class SM_Access_Rules extends \SMLib\SM_Cli
 {
 	public function rules($accessRules,$view)
 	{
@@ -17,7 +17,7 @@ class SMAccessRules extends \SMLib\SMCli
 				}
 
 				if ($value["users"]=="@" && \Smce::app()->getState("smce_login71")=="") {
-					Smcontroller::redirect($value["redirect"]);
+					Sm_Controller::redirect($value["redirect"]);
 				}
 
 				if ($value["expression"]===true) {

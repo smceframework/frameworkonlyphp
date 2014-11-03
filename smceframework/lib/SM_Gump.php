@@ -11,7 +11,7 @@
 
 namespace SMLib;
 
-class SMGump
+class SM_Gump
 {
 	// Validation rules for execution
     protected $validation_rules = array();

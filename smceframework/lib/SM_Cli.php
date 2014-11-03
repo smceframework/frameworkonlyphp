@@ -2,7 +2,7 @@
 
 namespace SMLib;
 
-class SMCli
+class SM_Cli
 {
 	private $_e;
 	private $_m;

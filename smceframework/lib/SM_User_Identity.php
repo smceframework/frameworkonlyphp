@@ -1,7 +1,7 @@
 <?php
 
 
-abstract class SMUserIdentity extends \SMLib\SMCli implements \SMImplements\SMUserIdentity_
+abstract class SM_User_Identity extends \SMLib\SM_Cli implements \SMImplements\SM_User_Identity_Imp
 {
 	const ERROR_NONE=0;
     const ERROR_USERNAME_INVALID=1;

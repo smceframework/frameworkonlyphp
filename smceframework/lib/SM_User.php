@@ -3,7 +3,7 @@
 
 namespace SMLib;
 
-class SMUser extends \SMLib\SMCli
+class SM_User extends \SMLib\SM_Cli
 {
 	public $data=array();
 

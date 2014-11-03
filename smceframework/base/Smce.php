@@ -1,7 +1,7 @@
 <?php
 
 
-class Smce extends \SMLib\SMCli
+class Smce extends \SMLib\SM_Cli
 {
     private static $SMUser = null;
     private static $SMLayout = null;
@@ -9,7 +9,7 @@ class Smce extends \SMLib\SMCli
     public static function app()
     {
       if (static::$SMUser === null) {
-        static::$SMUser=new \SMLib\SMUser();
+        static::$SMUser=new \SMLib\SM_User();
       }
 
       return static::$SMUser;
@@ -18,7 +18,7 @@ class Smce extends \SMLib\SMCli
     public static function theme()
     {
       if (static::$SMLayout === null) {
-        static::$SMLayout=new \SMLib\SMLayout();
+        static::$SMLayout=new \SMLib\SM_Layout();
       }
 
       return static::$SMLayout;

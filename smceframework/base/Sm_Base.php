@@ -1,8 +1,8 @@
 <?php
 
-namespace SMBase;
+namespace Sm_Base;
 
-class Smbase extends \SMLib\SMCli
+class Sm_Base extends \SMLib\SM_Cli
 {
     public static $config;
 
@@ -13,10 +13,10 @@ class Smbase extends \SMLib\SMCli
     {
         session_start();
 
-        Smbase::baseURL();
-        Smbase::_includeFILE_();
-        Smbase::_db_SETTING_();
-        Smbase::baseURLCommand();
+        Sm_Base::baseURL();
+        Sm_Base::_includeFILE_();
+        Sm_Base::_db_SETTING_();
+        Sm_Base::baseURLCommand();
 
     }
 
@@ -28,35 +28,35 @@ class Smbase extends \SMLib\SMCli
     private function baseURL()
     {
         $uri=$_SERVER["REQUEST_URI"];
-        $uri=str_replace ( Smbase::getCurrentDirectory() ,"" ,$uri );
+        $uri=str_replace ( Sm_Base::getCurrentDirectory() ,"" ,$uri );
         $uriEx=explode("/",$uri);
 
-        Smbase::$controller    = ucfirst ($uriEx[count($uriEx)-2]);
+        Sm_Base::$controller    = ucfirst ($uriEx[count($uriEx)-2]);
         $uriEx[count($uriEx)]=explode("?",$uriEx[count($uriEx)-1]);
-        Smbase::$view    = ucfirst ($uriEx[count($uriEx)-1][0]);
+        Sm_Base::$view    = ucfirst ($uriEx[count($uriEx)-1][0]);
 
-        if (empty(Smbase::$controller) || empty(Smbase::$view)) {
-            Smbase::$controller="site";
-            Smbase::$view="index";
+        if (empty(Sm_Base::$controller) || empty(Sm_Base::$view)) {
+            Sm_Base::$controller="site";
+            Sm_Base::$view="index";
         }
-        define('BASE_CONTROLLER',strtolower(Smbase::$controller));
-        define('BASE_VIEW',strtolower(Smbase::$view));
+        define('BASE_CONTROLLER',strtolower(Sm_Base::$controller));
+        define('BASE_VIEW',strtolower(Sm_Base::$view));
     }
 
     private function baseURLCommand()
     {
-        if (! is_file(BASE_PATH."/controller/".Smbase::$controller."Controller.php")) {
-            Smbase::error("Controller Not Found");
+        if (! is_file(BASE_PATH."/controller/".Sm_Base::$controller."Controller.php")) {
+            Sm_Base::error("Controller Not Found");
             exit;
         }
 
-        require BASE_PATH."/controller/".Smbase::$controller."Controller.php";
+        require BASE_PATH."/controller/".Sm_Base::$controller."Controller.php";
 
-        if(!empty(Smbase::$controller->layout))
-            Smbase::$layout=Smbase::$controller->layout;
+        if(!empty(Sm_Base::$controller->layout))
+            Sm_Base::$layout=Sm_Base::$controller->layout;
 
-        $actionView = 'action'.Smbase::$view;
-        $actionController = Smbase::$controller."Controller";
+        $actionView = 'action'.Sm_Base::$view;
+        $actionController = Sm_Base::$controller."Controller";
 
         $class = new $actionController();
 
@@ -67,11 +67,11 @@ class Smbase extends \SMLib\SMCli
                 $accessRules=$class->accessRules();
                 if (is_array($accessRules) && count($accessRules)>0) {
 
-                    $SMAccessRules=new \SMLib\SMAccessRules();
-                    if($SMAccessRules->rules($accessRules,Smbase::$view))
+                    $SMAccessRules=new \SMLib\SM_Access_Rules();
+                    if($SMAccessRules->rules($accessRules,Sm_Base::$view))
                         $class->$actionView();
                     else
-                        Smbase::error("You do not have authority to allow");
+                        Sm_Base::error("You do not have authority to allow");
                 }
             } else {
                 $class->$actionView();
@@ -79,7 +79,7 @@ class Smbase extends \SMLib\SMCli
 
         } else {
 
-            Smbase::error("Page Not Found");
+            Sm_Base::error("Page Not Found");
 
         }
     }
@@ -96,13 +96,13 @@ class Smbase extends \SMLib\SMCli
 
     private function _includeFILE_()
     {
-      require SMCE_BASE_PATH."/base/Smcontroller.php";
+      require SMCE_BASE_PATH."/base/Sm_Controller.php";
       require SMCE_BASE_PATH."/base/Smce.php";
     }
 
     private function _db_SETTING_()
     {
-        $_db=Smbase::$config["components"]["db"];
+        $_db=Sm_Base::$config["components"]["db"];
 
         \DB::$user= $_db["user"];
         \DB::$password = $_db["password"];

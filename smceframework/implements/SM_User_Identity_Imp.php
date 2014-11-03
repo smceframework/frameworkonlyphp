@@ -1,7 +1,7 @@
 <?php
 
 namespace SMImplements;
-interface SMUserIdentity_
+interface SM_User_Identity_Imp
 {
 	public function authenticate();
 
