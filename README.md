@@ -1,4 +1,4 @@
-﻿version 1.0.6
+﻿version 1.1.7
 
 PHP-TR gurubu https://www.facebook.com/groups/tr.developers/
 Samed Ceylan
