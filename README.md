@@ -1,7 +1,8 @@
 ﻿version 1.1.7
 
 PHP-TR gurubu https://www.facebook.com/groups/tr.developers/
-https://www.facebook.com/groups/istanbul.developers/
+
+Php-ist grubu https://www.facebook.com/groups/istanbul.developers/
 
 Samed Ceylan
 
