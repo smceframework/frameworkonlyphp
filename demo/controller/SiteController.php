@@ -19,6 +19,7 @@ class SiteController extends \SmceFramework\Sm_Controller
             $this->redirect("panel/index");
         }
     }
+	
 
     public function actionAbout()
     {
