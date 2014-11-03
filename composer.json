@@ -1,0 +1,15 @@
+{
+    "name": "root/smce",
+    "description": "SMCE Framework",
+    "license": "MIT",
+    "authors": [
+        {
+        }
+    ],
+    "autoload": {
+       "psr-2": {
+       }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
