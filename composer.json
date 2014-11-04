@@ -1,9 +1,11 @@
 {
-    "name": "root/smce",
-    "description": "SMCE Framework",
+    "name": "smce/framework",
+    "description": "SmceFramework",
     "license": "MIT",
     "authors": [
         {
+			"name": "Samed Ceylan",
+            "email": "imadige@gmail.com"}
         }
     ],
     "autoload": {
