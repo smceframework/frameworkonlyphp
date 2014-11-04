@@ -18,9 +18,6 @@
     "require": {
 		
 	},
-	"support": {
-		"issues": "https://github.com/imadige/smceframework-MVC/issues?state=open",
-		"source": "https://github.com/imadige/smceframework-MVC"
-	},
+	
 	
 }
