@@ -1,17 +1,19 @@
 {
-    "name": "smce/framework",
-    "description": "SmceFramework",
-	"keywords": ["smce", "framework"],
+    "name": "root/smce",
+    "description": "SMCE Framework",
     "license": "MIT",
-	"type": "library",
-    "authors": [
+     "authors": [
         {
 			"name": "Samed Ceylan",
             "email": "imadige@gmail.com"
 			
         }
     ],
-    
+    "autoload": {
+      "classmap" : [
+		
+		]
+    },
     "minimum-stability": "dev",
     "require": {
 		"php": ">=5.1.0"
