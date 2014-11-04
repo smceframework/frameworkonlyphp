@@ -1,6 +1,6 @@
 {
-    "name": "root/smce",
-    "description": "SMCE Framework",
+    "name": "smce/framework",
+    "description": "SmceFramework",
 	"keywords": ["smce", "framework"],
     "license": "MIT",
     "authors": [
