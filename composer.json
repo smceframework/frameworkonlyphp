@@ -1,7 +1,9 @@
 {
     "name": "smce/framework",
     "description": "SmceFramework",
+	"keywords": ["smce", "framework"],
     "license": "MIT",
+	"type": "library",
     "authors": [
         {
 			"name": "Samed Ceylan",
@@ -10,9 +12,16 @@
         }
     ],
     "autoload": {
-       "psr-2": {
-       }
+      "classmap" : [
+		
+		]
     },
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+		"php": ">=5.1.0"
+	},
+	"support": {
+		"issues": "https://github.com/imadige/smceframework-MVC/issues?state=open",
+		"source": "https://github.com/imadige/smceframework-MVC"
+	},
 }
