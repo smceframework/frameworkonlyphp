@@ -27,7 +27,35 @@ class LoginForm extends \SmLib\SM_Form_Model
             array('rememberMe', 'boolean'),
 			// password needs to be authenticated
             array('password', "after", 'authenticate'),//array('password', false, 'authenticate'),
+			
         );
+		
+		/*
+			
+			-----RULES-----
+			
+				required
+				valid_email
+				max_len,1
+				min_len,4
+				exact_len,10
+				alpha
+				alpha_numeric
+				numeric
+				integer
+				boolean
+				float
+				valid_url
+				url_exists
+				valid_ip
+				valid_ipv4
+				valid_ipv6
+				valid_name
+				contains,free pro basic
+				
+			-----RULES-----
+			
+		*/
 	}
 
 	/**
