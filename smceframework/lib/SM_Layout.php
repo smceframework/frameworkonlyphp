@@ -4,16 +4,21 @@ namespace SMLib;
 
 class SM_Layout extends \SMLib\SM_Cli
 {
+	
 	public function content($url,$array=array())
 	{
 		extract($array);
-		if (!is_file(\Smce::app()->basePath.(BASE_THEME=="" ? "\\" : "\\theme\\".BASE_THEME."\\")."view".$url.".php")) {
-
-				$html = '<html><body><h1>Content Not Found "'.(BASE_THEME=="" ? "\\" : "theme\\".BASE_THEME."\\")."view\\".$url.'"</h1></body></html>';
-				echo $html;
-				exit;
+		$contentFile=\Smce::app()->basePath."\\";
+		if(BASE_THEME!="")
+			$contentFile.="theme\\".BASE_THEME."\\";
+		$contentFile.="view".$url.".php";
+			
+		if (!is_file($contentFile)) {
+			$html = '<html><body><h1>Content Not Found "'.$contentFile.'"</h1></body></html>';
+			echo $html;
+			exit;
 		} else {
-			include (\Smce::app()->basePath.(BASE_THEME=="" ? "\\" : "\\theme\\".BASE_THEME."\\")."view".$url.".php");
+			include ($contentFile);
 		}
 	}
 }
