@@ -1,6 +1,6 @@
 {
-    "name": "root/smce",
-    "description": "SMCE Framework",
+    "name": "smce/framework",
+    "description": "SmceFramework",
     "license": "MIT",
     "authors": [
         {
@@ -13,8 +13,4 @@
     "minimum-stability": "dev",
     "require": {},
 	
-	"support": {
-		"issues": "https://github.com/imadige/smceframework-MVC/issues?state=open",
-		"source": "https://github.com/imadige/smceframework-MVC"
-	},
 }
