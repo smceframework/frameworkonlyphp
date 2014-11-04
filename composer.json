@@ -5,7 +5,8 @@
     "authors": [
         {
 			"name": "Samed Ceylan",
-            "email": "imadige@gmail.com"}
+            "email": "imadige@gmail.com"
+			
         }
     ],
     "autoload": {
