@@ -12,14 +12,12 @@
     "autoload": {
       
     },
-    "minimum-stability": "dev",
-    "require": {}
-	
-	
    
-	"support": {
-		"issues": "https://github.com/imadige/smceframework-MVC/issues?state=open",
-		"source": "https://github.com/imadige/smceframework-MVC"
+	
+    "minimum-stability": "dev",
+    "require": {
+		"php": ">=5.1.0"
 	},
+	
 	
 }
