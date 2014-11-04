@@ -1,5 +1,7 @@
 ﻿version 1.1.7
-
+﻿
+composer: https://packagist.org/packages/smce/framework
+﻿
 PHP-TR gurubu https://www.facebook.com/groups/tr.developers/
 
 Php-ist grubu https://www.facebook.com/groups/istanbul.developers/
