@@ -3,7 +3,7 @@
 namespace SmceFramework;
 class Sm_Controller extends \Sm_Base\Sm_Ve
 {
-    public $content;
+    private $content;
     public static $error=true;
 
     public $theme="";
@@ -11,13 +11,9 @@ class Sm_Controller extends \Sm_Base\Sm_Ve
 	
 	const COMPENENTS="Controller";
 	
-
     public function render($url="",$array=array())
     {
-		
-		
         ob_start();
-
         if (! is_file(\Smce::app()->basePath.(empty($this->theme) ? "\\" : "\\theme\\".$this->theme."\\")."view\\".(self::$error==true ? BASE_CONTROLLER : "site")."\\".$url.".php")) {
                 $html = '<html><body><h1>View Not Found "'.(empty($this->theme) ? "\\" : "theme\\".$this->theme."\\")."view\\".(self::$error==true ? BASE_CONTROLLER : "site")."\\".$url.'"</h1></body></html>';
                 echo $html;
@@ -26,11 +22,8 @@ class Sm_Controller extends \Sm_Base\Sm_Ve
              extract($array);
              include (\Smce::app()->basePath.(empty($this->theme) ? "\\" : "\\theme\\".$this->theme."\\")."view\\".(self::$error==true ? BASE_CONTROLLER : "site")."\\".$url.".php");
         }
-
         $this->content = ob_get_contents();
-
         ob_end_clean();
-		
 		$this->settingRender();
 
     }
