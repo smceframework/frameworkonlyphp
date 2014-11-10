@@ -9,6 +9,11 @@
 ));?>
 	<?php $form->errorSummary(); ?>
 	<div class="row">
+        <p>
+        admin/admin<br />
+        demo/demo
+        
+        </p>
     	<?php echo $form->labelEx($model,'username'); ?>
 		<?php echo $form->textField($model,'username'); ?>
         <?php echo $form->error($model,'username'); ?>
