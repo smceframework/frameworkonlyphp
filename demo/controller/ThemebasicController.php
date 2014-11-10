@@ -1,6 +1,6 @@
 <?php
 
-class ThemebasicController extends \SmceFramework\Sm_Controller
+class ThemebasicController extends SmceFramework\SmController
 {
 
     public $layout='//layouts/column2';

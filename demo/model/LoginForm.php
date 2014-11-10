@@ -5,7 +5,7 @@
  * user login form data. It is used by the 'login' action of 'SiteController'.
  */
 
-class LoginForm extends \SmLib\SM_Form_Model
+class LoginForm extends \SmLib\SMFormModel
 {
 	public $username;
 	public $password;

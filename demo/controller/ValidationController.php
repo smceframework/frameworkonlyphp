@@ -1,6 +1,6 @@
 <?php
 
-class ValidationController extends \SmceFramework\Sm_Controller
+class ValidationController extends SmceFramework\SmController
 {
 
     public $layout='//layouts/column1';

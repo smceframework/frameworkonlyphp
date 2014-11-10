@@ -2,7 +2,7 @@
 
 
 
-$validator = new \SmLib\SM_Gump();
+$validator = new \SmLib\SMGump();
 
 echo "\nBEFORE SANITIZE:\n\n";
 

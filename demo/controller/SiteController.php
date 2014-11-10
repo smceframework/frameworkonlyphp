@@ -1,12 +1,13 @@
 <?php
 
-class SiteController extends \SmceFramework\Sm_Controller
+class SiteController extends SmceFramework\SmController
 {
 
     public $layout='//layouts/column1';
 
     public function actionIndex()
     {
+		
         if (Smce::app()->getState("name")=="") {
 
              $this->render("index",array(

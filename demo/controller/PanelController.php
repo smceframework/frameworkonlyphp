@@ -1,6 +1,6 @@
 <?php
 
-class PanelController  extends \SmceFramework\Sm_Controller
+class PanelController  extends SmceFramework\SmController
 {
     private $controller;
 
