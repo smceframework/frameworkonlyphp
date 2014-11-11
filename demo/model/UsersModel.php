@@ -26,7 +26,7 @@ class UsersModel
 	{
 		 //select
          $query=DB::query("SELECT * FROM users");
-
+	     return $query;
 	}
 
 }

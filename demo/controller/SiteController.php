@@ -8,7 +8,6 @@ class SiteController extends SmLib\SmController
     public function actionIndex()
     {
 		
-		
         if (Smce::app()->getState("name")=="") {
 
              $this->render("index",array(
