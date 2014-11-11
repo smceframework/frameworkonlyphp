@@ -315,6 +315,7 @@ $SmTemplate->setView("index",$array);
 $SmTemplate->setLayout("column1");
 $SmTemplate->setThemeDirectory("");
 $SmTemplate->run();
+//print_r($SmTemplate->getError());
 ?>
 
 ```
