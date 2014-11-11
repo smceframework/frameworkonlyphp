@@ -337,6 +337,7 @@ Layout //column1.php
 ```
 
 SmGump //Validation
+-----
 
 ``` php
 require("vendor/autoload.php");
