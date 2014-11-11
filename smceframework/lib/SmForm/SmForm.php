@@ -2,6 +2,8 @@
 
 namespace SmForm;
 
+require("SmFormField.php");
+
 class SmForm  
 {
 	public static $errorData=array();

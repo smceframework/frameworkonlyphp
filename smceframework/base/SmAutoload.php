@@ -23,8 +23,7 @@
 			 
 		elseif(file_exists(SMCE_BASE_PATH."/lib/".end($parts)."/".end($parts).'.php'))
 			 include SMCE_BASE_PATH."/lib/".end($parts)."/".end($parts).'.php';
-		elseif(file_exists(SMCE_BASE_PATH."/lib/".$parts[0]."/".end($parts).'.php'))
-			 include SMCE_BASE_PATH."/lib/".$parts[0]."/".end($parts).'.php';
+		
 			 
 		elseif(file_exists(SMCE_BASE_PATH."/implements/".end($parts). '.php'))
 			 include SMCE_BASE_PATH."/implements/".end($parts) . '.php';

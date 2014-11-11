@@ -1,9 +1,10 @@
 <?php
 
 
+
 namespace SmForm;
 
-class SmFormField 
+class SmFormField  extends  SmForm
 {
 	public function labelEx($model,$attribute)
 	{
