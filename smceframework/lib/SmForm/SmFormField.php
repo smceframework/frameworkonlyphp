@@ -3,7 +3,7 @@
 
 namespace SmForm;
 
-class SmFormField  extends \SmLib\SmCli implements SmFormFieldImp
+class SmFormField 
 {
 	public function labelEx($model,$attribute)
 	{

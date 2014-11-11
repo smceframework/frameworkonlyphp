@@ -2,7 +2,7 @@
 
 namespace SmForm;
 
-class SmForm  extends \SmLib\SmCli implements SmFormImp
+class SmForm  
 {
 	public static $errorData=array();
 

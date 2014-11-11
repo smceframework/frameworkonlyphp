@@ -11,7 +11,8 @@
 
 namespace SmTemplate;
  
-class SmTemplate implements SmTemplateImp{
+class SmTemplate 
+{
 	
 	private $layout;
 	
