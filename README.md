@@ -311,8 +311,8 @@ require("vendor/autoload.php");
 use \SmTemplate\SmTemplate;
 
 $SmTemplate=new SmTemplate();
-$SmTemplate->setView("index.php",$array);
-$SmTemplate->setLayout("column1.php");
+$SmTemplate->setView("index",$array);
+$SmTemplate->setLayout("column1");
 $SmTemplate->setThemeDirectory("");
 $SmTemplate->run();
 ?>
