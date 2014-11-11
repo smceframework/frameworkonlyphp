@@ -25,7 +25,7 @@ class UserSmodel
 	public function admin()
 	{
 		 //select
-         $query=DB::query("SELECT * FROM agencies");
+         $query=DB::query("SELECT * FROM users");
 
 	}
 
