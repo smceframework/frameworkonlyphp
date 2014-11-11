@@ -1,6 +1,4 @@
-﻿version 1.1.7
-﻿
-composer: https://packagist.org/packages/smce/framework
+﻿composer: https://packagist.org/packages/smce/framework
 
 PHP-TR gurubu https://www.facebook.com/groups/tr.developers/
 
