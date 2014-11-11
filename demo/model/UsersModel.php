@@ -1,6 +1,6 @@
 <?php
 
-class UserSmodel
+class UsersModel
 {
 	public function __construct()
 	{

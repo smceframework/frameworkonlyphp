@@ -15,8 +15,8 @@ return array(
 	'components'=>array(
 		'db'=>array(
 			'user'=>"root",
-			'password'=>"",
-			'name'=>"",
+			'password'=>"fy23tz98",
+			'name'=>"faselis",
 			'host'=>"localhost",
 		),
 	),
