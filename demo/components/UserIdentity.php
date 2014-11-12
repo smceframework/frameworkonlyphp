@@ -6,7 +6,7 @@
  * data can identity the user.
  */
  
-use smce\base\SmLib\SmUserIdentity;
+use smce\SmUserIdentity;
  
 class UserIdentity extends SmUserIdentity
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace smce\base\SmLib;
+namespace smce;
 
 use smce\base\SmLib\SmCli;
 use smce\amp\SMUserIdentityImp;

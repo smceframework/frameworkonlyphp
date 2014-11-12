@@ -4,7 +4,7 @@
  * LoginForm class.
  * user login form data. It is used by the 'login' action of 'SiteController'.
  */
-use smce\base\SmLib\SmFormModel;
+use smce\SmFormModel;
 
 class LoginForm extends SmFormModel
 {

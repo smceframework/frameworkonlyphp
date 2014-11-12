@@ -10,7 +10,7 @@ return array(
 		'components',
 	),
 
-	'debug'=>true,
+	'debug'=>false,
 	
 	'components'=>array(
 		'db'=>array(

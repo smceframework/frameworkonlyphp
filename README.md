@@ -9,7 +9,7 @@ Controller
 ``` php
 <?php
 
-use smce\base\SmLib\SmController;
+use smce\SmController;
 use smce\base\SmLib\DB;
 
 
@@ -153,7 +153,7 @@ Model
  * LoginForm class.
  * user login form data. It is used by the 'login' action of 'SiteController'.
  */
-use smce\base\SmLib\SmFormModel;
+use smce\SmFormModel;
 
 class LoginForm extends SmFormModel
 {
@@ -263,7 +263,7 @@ Model 2
 ``` php
 <?php
 
-use smce\base\SmLib\DB;
+use smce\DB;
 
 class UsersModel
 {

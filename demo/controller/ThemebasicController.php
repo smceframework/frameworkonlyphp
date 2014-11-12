@@ -1,6 +1,6 @@
 <?php
 
-use smce\base\SmLib\SmController;
+use smce\SmController;
 
 class ThemebasicController extends SmController
 {

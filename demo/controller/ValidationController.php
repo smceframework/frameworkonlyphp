@@ -1,6 +1,6 @@
 <?php
 
-use smce\base\SmLib\SmController;
+use smce\SmController;
 use smce\lib\Smce\SmGump\SmGump;
 
 class ValidationController extends SmController

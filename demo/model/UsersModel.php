@@ -1,6 +1,6 @@
 <?php
 
-use smce\base\SmLib\DB;
+use smce\DB;
 
 class UsersModel
 {

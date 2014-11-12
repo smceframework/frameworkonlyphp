@@ -8,25 +8,32 @@ class SmAutoload
 	
 	private static  function autoloadFramework($className)
 	{
+		$classMap=self::classMap();
 		
-		$className = ltrim($className, '\\');
-		$parts=explode("\\",$className);
+		if(isset($classMap[$className]))
+		{
+			include $classMap[$className];
+		}else{
 		
-		$fileName  = '';
-		$namespace = '';
-		
+			$className = ltrim($className, '\\');
+			$parts=explode("\\",$className);
 			
-			if ($lastNsPos = strrpos($className, '\\')) {
-				$namespace = substr($className, 0, $lastNsPos);
-				$className = substr($className, $lastNsPos + 1);
-				$fileName  = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
-				$fileName  = SMCE_PATH.str_replace($parts[0], "", $fileName) ;
+			$fileName  = '';
+			$namespace = '';
+			
 				
-			}
-			$fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
-			
-			if(is_file($fileName))
-				require $fileName;
+				if ($lastNsPos = strrpos($className, '\\')) {
+					$namespace = substr($className, 0, $lastNsPos);
+					$className = substr($className, $lastNsPos + 1);
+					$fileName  = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
+					$fileName  = SMCE_PATH.str_replace($parts[0], "", $fileName) ;
+					
+				}
+				$fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
+				
+				if(is_file($fileName))
+					require $fileName;
+		}
 		
 	}
 	
@@ -43,11 +50,22 @@ class SmAutoload
 	
 	
 	
+	
+	
 	public function register($config){
 		self::$config=$config;
 		spl_autoload_register(array($this, 'autoloadFramework'),true,true);
 		spl_autoload_register(array($this, 'autoloadApp'),true,true);
 	}
 	
+	
+	private static function classMap(){
+		return array(
+			"smce\SmController"=>SMCE_PATH."/base/SmLib/SmController.php",
+			"smce\SmFormModel"=>SMCE_PATH."/base/SmLib/SmFormModel.php",
+			"smce\DB"=>SMCE_PATH."/base/SmLib/DB.php",
+			"smce\SmUserIdentity"=>SMCE_PATH."/base/SmLib/SmUserIdentity.php",
+		);
+	}
 	
 }

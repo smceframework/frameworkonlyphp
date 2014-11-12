@@ -1,7 +1,7 @@
 <?php
 
-use smce\base\SmLib\SmController;
-use smce\base\SmLib\DB;
+use smce\SmController;
+use smce\DB;
 
 class PanelController  extends SmController
 {
