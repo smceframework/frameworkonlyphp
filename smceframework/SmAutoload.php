@@ -65,7 +65,6 @@ class SmAutoload
 			"smce\SmFormModel"=>SMCE_PATH."/base/SmLib/SmFormModel.php",
 			"smce\DB"=>SMCE_PATH."/base/SmLib/DB.php",
 			"smce\SmUserIdentity"=>SMCE_PATH."/base/SmLib/SmUserIdentity.php",
-			"smce\SmGump"=>SMCE_PATH."/lib/SmGump/SmGump.php",
 		);
 	}
 	

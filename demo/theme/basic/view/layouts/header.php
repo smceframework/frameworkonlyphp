@@ -37,6 +37,7 @@
         <ul>
            <li class="<?php if(Smce::app()->caControl(array("site/index")))echo "active";?>"><a href='<?php echo Smce::app()->createUrl("site/index"); ?>'>Home</a></li>
            <li class="<?php if(Smce::app()->caControl(array("themebasic/index")))echo "active";?>"><a href='<?php echo Smce::app()->createUrl("themebasic/index"); ?>'>Theme Basic</a></li>
+           <li class="<?php if(Smce::app()->caControl(array("validation/index")))echo "active";?>"><a href='<?php echo Smce::app()->createUrl("validation/index"); ?>'>Validation</a></li>
            <li class='has-sub'><a href='#'>Menu</a>
               <ul>
                  <li class='has-sub'><a href='#'>Product 1</a>
