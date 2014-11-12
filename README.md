@@ -1,12 +1,9 @@
-﻿composer: https://packagist.org/packages/smce/framework
+## Composer
+https://packagist.org/packages/smce/framework
 
-PHP-TR gurubu https://www.facebook.com/groups/tr.developers/
+# Ornekler
 
-Php-ist grubu https://www.facebook.com/groups/istanbul.developers/
-
-Samed Ceylan
-
-controller
+Controller
 --------------------------
 
 ``` php
@@ -84,7 +81,7 @@ class SiteController extends SmLib\SmController
 
 ```
 
-view
+View
 --------------------------
 
 ``` php
@@ -112,7 +109,7 @@ view
 ```
 
 
-config
+Config
 --------------
 
 ``` php
@@ -144,7 +141,7 @@ return array(
 ?>
 ```
 	
-model
+Model
 ---------------
 
 ``` php
@@ -256,7 +253,7 @@ class LoginForm extends SmLib\SmFormModel
 
 ```
 
-model 2
+Model 2
 ---------------------------------------
 
 ``` php
@@ -296,7 +293,7 @@ class UserSmodel
 
 ```
 
-composer
+Composer
 --------
 
 SmTemplate // Template Engine
@@ -434,3 +431,14 @@ echo "</pre>";
 ?>
 
 ```
+
+
+- 
+
+## Tartismalar
+
+PHP-TR gurubu https://www.facebook.com/groups/tr.developers/
+Php-ist grubu https://www.facebook.com/groups/istanbul.developers/
+
+## Gelistirici Hakkinda
+Samed Ceylan
