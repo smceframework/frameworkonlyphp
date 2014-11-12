@@ -300,7 +300,7 @@ class UsersModel
 
 ```
 
-## Composer
+# Composer
 
 SmTemplate // Template Engine
 -----
