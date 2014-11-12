@@ -16,6 +16,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+/**
+ * @todo bu dosya dahil tum dosyalarda birden fazla class olamyacak
+ */
 class DB
 {
   // initial connection
