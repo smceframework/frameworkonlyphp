@@ -44,7 +44,10 @@ class SmController extends SmVe
 	
 	private function getView($view)
 	{
-		if (!is_array($view)) {
+		if(is_array($view)){
+			$view=explode("/",$view[0]);
+			return $view[0]."/".$view[1];
+		}elseif (!is_array($view)) {
 			return BASE_CONTROLLER."/".$view;
 		} else {
 			return "site/".$view[0];
