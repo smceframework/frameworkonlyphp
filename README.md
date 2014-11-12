@@ -10,7 +10,7 @@ Controller
 <?php
 
 use smce\SmController;
-use smce\base\SmLib\DB;
+use smce\DB;
 
 
 class SiteController extends SmController
