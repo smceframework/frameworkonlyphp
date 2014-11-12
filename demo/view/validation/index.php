@@ -1,5 +1,7 @@
 <?php
 
+use smce\SmGump;
+
 $validator = new SmGump();
 
 echo "\nBEFORE SANITIZE:\n\n";

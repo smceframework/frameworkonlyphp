@@ -9,7 +9,7 @@
  * @version     1.0
  */
 
-namespace smce\lib\SmGump;
+namespace smce;
 
 class SmGump
 {

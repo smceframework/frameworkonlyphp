@@ -1,15 +1,10 @@
 <?php
 
 use smce\SmController;
-use smce\lib\Smce\SmGump\SmGump;
 
 class ValidationController extends SmController
 {
 	
-	function __construct() {
-		new SmGump();
-	}
-
     public $layout='//layouts/column1';
 	
 	
