@@ -2,7 +2,8 @@
 
 namespace SmForm;
 
-require("SmFormField.php");
+// @todo require yerine use kullanilacak
+require("SmFormField.php"); 
 
 class SmForm  
 {
