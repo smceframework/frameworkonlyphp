@@ -6,7 +6,9 @@
 	else
 		$SMCE_IMPORT=array();
 
-	
+	/**
+	 * @todo bu autoload psr-0 ile islevini yitirdi zamanla kaldirilacak.
+	 */
 	function __autoload($class_name)
 	{
 		$parts = explode('\\', $class_name);
