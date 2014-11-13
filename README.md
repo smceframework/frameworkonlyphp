@@ -9,7 +9,7 @@ Controller
 ``` php
 <?php
 
-use smce\SmController;
+use Smce\Core\SmController;
 
 
 class SiteController extends SmController
@@ -80,6 +80,7 @@ class SiteController extends SmController
 
 
 
+
 ```
 
 View
@@ -115,18 +116,45 @@ Config
 
 ``` php
 <?php
-	
-  
+
+
 return array(
 	'name'=>'SmceFramework',
-	
+
 	// autoloading model and component classes
-	'import'=>array(
-		'models',
+    'import'=>array(
+		'model',
 		'components',
 	),
+
+	'debug'=>false,
 	
-	'debug'=>true,
+	
+	'urlRouter'=>array(
+		'router'=>array(
+			"all"=>'controller/view',
+			"router"=>'controller/view/::veriA::/::veriB::',
+		),
+		'showScriptName'=>false, //false - true
+		
+		/*
+			'showScriptName'=>true,
+			
+			//App Path .htaccess
+			
+			RewriteEngine on
+
+			# if a directory or a file exists, use it directly
+			RewriteCond %{REQUEST_FILENAME} !-f
+			RewriteCond %{REQUEST_FILENAME} !-d
+			
+			# otherwise forward it to index.php
+			
+			# RewriteRule . index.php
+			RewriteRule ^(.*)$ index.php?page=$1 [L,NC]
+		
+		*/	
+	),
 	
 	'components'=>array(
 		'db'=>array(
@@ -138,8 +166,6 @@ return array(
 	),
 );
 
-
-?>
 ```
 	
 Model
@@ -152,7 +178,7 @@ Model
  * LoginForm class.
  * user login form data. It is used by the 'login' action of 'SiteController'.
  */
-use smce\SmFormModel;
+use Smce\Core\SmFormModel;
 
 class LoginForm extends SmFormModel
 {
