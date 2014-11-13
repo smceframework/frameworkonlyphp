@@ -21,7 +21,6 @@ class SmAutoload
 			$fileName  = '';
 			$namespace = '';
 			
-				
 				if ($lastNsPos = strrpos($className, '\\')) {
 					$namespace = substr($className, 0, $lastNsPos);
 					$className = substr($className, $lastNsPos + 1);
@@ -48,10 +47,6 @@ class SmAutoload
 		}
 	}
 	
-	
-	
-	
-	
 	public function register($config){
 		self::$config=$config;
 		spl_autoload_register(array($this, 'autoloadFramework'),true,true);
@@ -63,7 +58,7 @@ class SmAutoload
 		return array(
 			"smce\SmController"=>SMCE_PATH."/base/SmLib/SmController.php",
 			"smce\SmFormModel"=>SMCE_PATH."/base/SmLib/SmFormModel.php",
-			"smce\DB"=>SMCE_PATH."/base/SmLib/DB.php",
+			"DB"=>SMCE_PATH."/base/SmLib/DB.php",
 			"smce\SmUserIdentity"=>SMCE_PATH."/base/SmLib/SmUserIdentity.php",
 		);
 	}

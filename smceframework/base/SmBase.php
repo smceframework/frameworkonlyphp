@@ -2,7 +2,7 @@
 
 namespace smce\base;
 
-use smce\DB;
+use DB;
 use smce\SmController;
 use smce\base\SmLib\SmAccessRules;
 use smce\base\SmLib\SmCli;
