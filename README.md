@@ -10,7 +10,6 @@ Controller
 <?php
 
 use smce\SmController;
-use smce\DB;
 
 
 class SiteController extends SmController
@@ -263,7 +262,6 @@ Model 2
 ``` php
 <?php
 
-use smce\DB;
 
 class UsersModel
 {
