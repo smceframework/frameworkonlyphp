@@ -1,7 +1,6 @@
 <?php
 
 use smce\SmController;
-use smce\DB;
 
 
 class SiteController extends SmController

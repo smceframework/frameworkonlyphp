@@ -1,6 +1,5 @@
 <?php
 
-use smce\DB;
 
 class UsersModel
 {
