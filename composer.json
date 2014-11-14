@@ -9,7 +9,7 @@
     ],
     "autoload": {
 		"classmap" : [
-			"smceframework/SmCSmAutoload.php",
+			"smceframework/SmCSmAutoload.php"
 		]
     },
     "minimum-stability": "dev",
