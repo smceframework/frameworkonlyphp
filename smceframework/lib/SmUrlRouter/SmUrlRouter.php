@@ -87,5 +87,27 @@ class SmUrlRouter{
 		
 		return $STR;
 	}
+	
+	
+	public function redirect($controllerView="",$array=array(),$baseUrl)
+    {
+       $STR="";
+		if(isset($this->router["showScriptName"]) && $this->router["showScriptName"]==true){
+			$STR.=$baseUrl."/".$controllerView;
+			foreach($array as $key=>$value){
+				$STR.="/".$value;
+			}
+		}
+		else{
+			$STR.=$baseUrl."/index.php?route=".$controllerView;
+			$i=0;
+			foreach($array as $key=>$value){
+				$STR.="&".$key."=".$value;
+				$i++;
+			}
+		}
+
+        header('Location: '.$STR);
+    }
 
 }
