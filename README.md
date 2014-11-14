@@ -329,6 +329,8 @@ class UsersModel
 SmTemplate // Template Engine
 -----
 
+![Alt text](http://i58.tinypic.com/33dxb80.jpg "SmTemplate")
+
 ``` php
 
 <?php
