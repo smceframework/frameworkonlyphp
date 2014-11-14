@@ -45,8 +45,8 @@ class SmUrlRouter{
 				);
 				if(isset($this->router["router"][$requestGetEx[0]])){
 					foreach($this->router["router"][$requestGetEx[0]] as $key=>$value){
-						if(isset($requestGetEx[$key]))
-							$requestArray[$value]=$requestGetEx[$key];
+						if(isset($requestGetEx[$key+2]))
+							$requestArray[$value]=$requestGetEx[$key+2];
 							
 					}
 					

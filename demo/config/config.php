@@ -18,7 +18,7 @@ return array(
 			"all"=>array(),
 			"router"=>array("::veriA::","::dataB::"),
 		),
-		'showScriptName'=>false, //false - true
+		'showScriptName'=>true, //false - true
 		
 		/*
 			'showScriptName'=>true,
