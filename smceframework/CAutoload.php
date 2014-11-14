@@ -1,0 +1,4 @@
+<?PHP
+
+
+require("SmAutoload.php");
