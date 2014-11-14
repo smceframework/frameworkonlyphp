@@ -117,7 +117,7 @@ class SmAutoload
 		return array(
 			//lib
 			"Smce\Lib\SmForm"=>SMCE_PATH."/lib/SmForm/SmForm.php",
-			"Smce\Lib\SmForm"=>SMCE_PATH."/lib/SmForm/SmFormField.php",
+			"Smce\Lib\SmFormField"=>SMCE_PATH."/lib/SmForm/SmFormField.php",
 			"Smce\Lib\SmTemplate"=>SMCE_PATH."/lib/SmTemplate/SmTemplate.php",
 			"Smce\Lib\SmGump"=>SMCE_PATH."/lib/SmGump/SmGump.php",
 			"Smce\Lib\SmUrlRouter"=>SMCE_PATH."/lib/SmUrlRouter/SmUrlRouter.php",

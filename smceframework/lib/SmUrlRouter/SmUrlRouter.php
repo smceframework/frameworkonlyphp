@@ -28,12 +28,16 @@ class SmUrlRouter{
 				"view"=>"index",
 			);
 		}else{
+			$routeGetEx=array();
 			if(!isset($this->router["showScriptName"]) || $this->router["showScriptName"]==false){
-				$routeGetEx=explode("/",$_GET["route"]);
-				$requestArray=array(
-					"controller"=>$routeGetEx[0],
-					"view"=>$routeGetEx[1],
-				);
+				
+				if(isset($_GET["route"])){
+					$routeGetEx=explode("/",$_GET["route"]);
+					$requestArray=array(
+						"controller"=>$routeGetEx[0],
+						"view"=>$routeGetEx[1],
+					);
+				}
 				foreach($_GET as $key=>$value){
 					$requestArray[$key]=$value;
 				}

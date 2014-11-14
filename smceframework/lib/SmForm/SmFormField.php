@@ -1,8 +1,8 @@
 <?php
 
-
-
 namespace Smce\Lib;
+
+use Smce\Lib\SmForm;
 
 class SmFormField  extends  SmForm
 {
