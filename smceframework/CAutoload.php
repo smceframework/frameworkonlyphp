@@ -1,4 +1,5 @@
 <?PHP
 
 
-require("SmAutoload.php");
+$SmAutoload=require("SmAutoload.php");
+$SmAutoload->registerComposer();
