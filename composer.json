@@ -8,11 +8,9 @@
         }
     ],
     "autoload": {
-		"psr-0": {
-			"SmTemplate": "smceframework/lib",
-			"SmForm": "smceframework/lib",
-			"SmGump": "smceframework/lib"
-		}
+		"classmap" : [
+			"smceframework/SmCSmAutoload.php",
+		]
     },
     "minimum-stability": "dev",
     "require": {
