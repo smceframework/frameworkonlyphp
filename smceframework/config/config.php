@@ -5,11 +5,9 @@ return array(
 	
 	'urlRouter'=>array(
 		'router'=>array(
-			"all"=>array("controller","view"),
-			"router"=>array("controller","view","::veriA::","::dataB::"),
+			"all"=>array(),
 		),
 		'showScriptName'=>false, //false - true
-		
 		
 	),
 	
