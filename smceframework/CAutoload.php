@@ -1,5 +1,6 @@
 <?PHP
 
-use Smce;
-$SmAutoload=require("SmAutoload.php");
+
+require("SmAutoload.php");
+$SmAutoload=new \Smce\SmAutoload;
 $SmAutoload->registerComposer();

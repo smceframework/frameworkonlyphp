@@ -14,7 +14,7 @@ class SmceFramework
     {
        
         require SMCE_PATH."/SmAutoload.php";
-		$SmAutoload=new \smce\SmAutoload;
+		$SmAutoload=new \Smce\SmAutoload;
 		$SmAutoload->register($config);
 		
 		if(isset($config["debug"]) && $config["debug"]==true){
