@@ -8,9 +8,7 @@
         }
     ],
     "autoload": {
-		"classmap" : [
-			"smceframework/SmCSmAutoload.php"
-		]
+		"files": ["smceframework/CAutoload.php"]
     },
     "minimum-stability": "dev",
     "require": {
