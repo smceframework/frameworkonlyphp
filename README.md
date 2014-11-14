@@ -337,12 +337,19 @@ require("vendor/autoload.php");
 
 use Smce\Lib\SmTemplate;
 
+$array=array("model1"=>"Welcome to SmceFramework","model2"=>"Hello");
+
 $SmTemplate=new SmTemplate();
 $SmTemplate->setView("index",$array);
 $SmTemplate->setLayout("column1");
 $SmTemplate->setThemeDirectory("");
 $SmTemplate->run();
+
+/*
 //print_r($SmTemplate->getError());
+//
+//Array ( [0] => directory could not be found in the theme [1] => View Not Found /view/index.php [2] => Layout Not Found /view/column1.php ) 
+*/
 ?>
 
 ```
