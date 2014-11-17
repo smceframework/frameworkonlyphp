@@ -1,0 +1,22 @@
+{
+    "name": "smce/framework",
+    "description": "SmceFramework",
+	"keywords": ["smce", "framework", "smce framework", "smceframework", "mvc"],
+    "license": "MIT",
+    "authors": [
+        {
+        }
+    ],
+    "autoload": {
+		"files": ["smceframework/CAutoload.php"]
+    },
+    "minimum-stability": "dev",
+    "require": {
+		
+	},
+	
+	"support": {
+		"issues": "https://github.com/imadige/smceframework-MVC/issues?state=open",
+		"source": "https://github.com/imadige/smceframework-MVC"
+	}
+}
