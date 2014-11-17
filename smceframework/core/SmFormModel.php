@@ -16,6 +16,7 @@ class SmFormModel
 		SmForm::$errorData[$attribute]=$params;
 		$this->error=true;
 	}
+	
 
 	public function validate()
 	{

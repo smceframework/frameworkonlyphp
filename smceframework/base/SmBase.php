@@ -6,7 +6,6 @@ use Smce\Core\SmController;
 use Smce\Core\SmAccessRules;
 use Smce\Lib\SmUrlRouter;
 
-
 class SmBase
 {
     public static $config;
