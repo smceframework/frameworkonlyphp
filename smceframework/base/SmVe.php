@@ -21,5 +21,9 @@ class SmVe
 		
 		$SmUrlRouter->redirect($controllerView,$array,Smce::app()->baseUrl);
     }
+	
+	public function redirectUrl($url){
+		header('Location: '.$url);
+	}
 
 }
