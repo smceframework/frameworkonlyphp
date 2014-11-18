@@ -4,7 +4,7 @@ namespace Smce\Core;
 
 class SmLayout{
 	
-	public function content($url,$array=[])
+	public function content($url,$array=array())
 	{
 		
 		extract($array);

@@ -7,7 +7,7 @@ use Smce;
 
 class SmVe
 {
-    public function redirect($controllerView="",$array=[])
+    public function redirect($controllerView="",$array=array())
     {
         $request=str_replace(Smce::app()->baseUrl."/", "",$_SERVER["REQUEST_URI"]);
 		$request=str_replace("index.php", "",$request);

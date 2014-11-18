@@ -9,7 +9,7 @@ use Smce;
 
 class SmUser
 {
-	public $data=[];
+	public $data=array();
 
 	public function __construct()
 	{
@@ -23,7 +23,7 @@ class SmUser
 		return $this->data[strtolower($name)];
 	}
 
-	public function createUrl($controllerView="",$array=[])
+	public function createUrl($controllerView="",$array=array())
 	{
 		$request=str_replace(Smce::app()->baseUrl."/", "",$_SERVER["REQUEST_URI"]);
 		$request=str_replace("index.php", "",$request);
@@ -87,7 +87,7 @@ class SmUser
 		session_set_cookie_params($duration);
 	}
 
-	public function caControl($urlArray=[])
+	public function caControl($urlArray=array())
 	{
 		$ur=BASE_CONTROLLER."/".BASE_VIEW;
 

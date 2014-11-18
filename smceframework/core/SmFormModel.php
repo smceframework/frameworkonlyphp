@@ -32,12 +32,12 @@ class SmFormModel
 		if (method_exists($this, "rules")) {
 
 			$_rules=$this->rules();
-			$_lastvalid=[];
+			$_lastvalid=array();
 
 			if (is_array($this->rules())) {
 
-				$valid=[];
-				$data=[];
+				$valid=array();
+				$data=array();
 				foreach ($_rules as $key=>$value) {
 
 					$validExplode=explode(",",$value[0]);
@@ -54,10 +54,10 @@ class SmFormModel
 								$this->$value[2]($value2,$this->$value2);
 							} else {
 								$this->lastError=true;
-								$_lastvalid[]=["model"=>$value[2],
+								$_lastvalid[]=array("model"=>$value[2],
 										"attribute"=>$value2,
 										"value"=>$this->$value2
-								];
+								);
 							}
 
 						}

@@ -20,16 +20,16 @@ class SmFormField  extends  SmForm
 
 	}
 
-	public function textField($model,$attribute,$array=[])
+	public function textField($model,$attribute,$array=array())
 	{
 		if (!property_exists($model,$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
 		}
-		$form=[
+		$form=array(
 			"type"=>"text",
 			"id"=>get_class ($model)."_".$attribute,
-		];
+		);
 
 		$_error=$this->getErrorData();
 		if (isset($_error[$attribute])) {
@@ -62,16 +62,16 @@ class SmFormField  extends  SmForm
 		return $STR;
 	}
 
-	public function passwordField($model,$attribute,$array=[])
+	public function passwordField($model,$attribute,$array=array())
 	{
 		if (!property_exists($model,$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
 		}
-		$form=[
+		$form=array(
 			"type"=>"password",
 			"id"=>get_class ($model)."_".$attribute,
-		];
+		);
 		$_error=$this->getErrorData();
 		if (isset($_error[$attribute])) {
 			$form["class"][]="error";
@@ -103,16 +103,16 @@ class SmFormField  extends  SmForm
 		return $STR;
 	}
 
-	public function textArea($model,$attribute,$array=[])
+	public function textArea($model,$attribute,$array=array())
 	{
 		if (!property_exists($model,$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
 		}
 
-		$form=[
+		$form=array(
 			"id"=>get_class ($model)."_".$attribute,
-		];
+		);
 
 		$_error=$this->getErrorData();
 		if (isset($_error[$attribute])) {
@@ -145,16 +145,16 @@ class SmFormField  extends  SmForm
 		return $STR;
 	}
 
-	public function dropDownList($model,$attribute,$item=[],$array=[])
+	public function dropDownList($model,$attribute,$item=array(),$array=array())
 	{
 		if (!property_exists($model,$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
 		}
 
-		$form=[
+		$form=array(
 			"id"=>get_class ($model)."_".$attribute,
-		];
+		);
 
 		$_error=$this->getErrorData();
 		if (isset($_error[$attribute])) {
@@ -192,17 +192,17 @@ class SmFormField  extends  SmForm
 		return $STR;
 	}
 
-	public function checkBox($model,$attribute,$array=[])
+	public function checkBox($model,$attribute,$array=array())
 	{
 		if (!property_exists($model,$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
 		}
 
-		$form=[
+		$form=array(
 			"type"=>"checkbox",
 			"id"=>get_class ($model)."_".$attribute,
-		];
+		);
 
 		foreach($array as $key=>$value)
 			$form[$key]=$value;
@@ -225,11 +225,11 @@ class SmFormField  extends  SmForm
 		return $STR;
 	}
 
-	public function submit($val,$array=[])
+	public function submit($val,$array=array())
 	{
-		$form=[
+		$form=array(
 			"type"=>"submit",
-		];
+		);
 		$STR='<input ';
 		foreach($array as $key=>$value)
 			$form[$key]=$value;

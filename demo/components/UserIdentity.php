@@ -23,11 +23,10 @@ class UserIdentity extends SmUserIdentity
 
 		*/
 
-        $array=[
+        $array=array(
             "admin"=>"admin",
             "demo"=>"demo",
-        ];
-		
+        );
         if(isset($array[$this->username])!=$this->username)
             $this->errorCode=self::ERROR_USERNAME_INVALID;
         elseif(isset($array[$this->password])!=$this->password)

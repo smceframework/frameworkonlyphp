@@ -6,13 +6,13 @@ use Smce\Lib\SmFormField;
 
 class SmForm  
 {
-	public static $errorData=[];
+	public static $errorData=array();
 
-	public static function beginWidget($array=[])
+	public static function beginWidget($array=array())
 	{
-		$form=[
+		$form=array(
 			"method"=>"post",
-		];
+		);
 
 		foreach($array as $key=>$value)
 			$form[$key]=$value;

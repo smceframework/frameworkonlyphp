@@ -1,14 +1,14 @@
 <?php
 
 
-return [
+return array(
 	
-	'urlRouter'=>[
-		'router'=>[
-			"all"=>[],
-		],
+	'urlRouter'=>array(
+		'router'=>array(
+			"all"=>array(),
+		),
 		'showScriptName'=>false, //false - true
 		
-	],
+	),
 	
-];
+);

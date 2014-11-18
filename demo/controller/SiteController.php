@@ -12,11 +12,11 @@ class SiteController extends SmController
     {
 		
         if (Smce::app()->getState("name")=="") {
-             $this->render("index",[
+             $this->render("index",array(
                 "model"=>"Site controllerden gelen bi yazıdır",
                 "grup"=>"PHP-TR grubu",
                 "grup_site"=>"https://www.facebook.com/groups/tr.developers/",
-             ]);
+             ));
         } else {
             $this->redirect("panel/index");
         }
@@ -50,9 +50,9 @@ class SiteController extends SmController
             }
         }
 
-        $this->render("login",[
+        $this->render("login",array(
             "model"=>$model,
-         ]);
+         ));
 
     }
 
@@ -64,8 +64,8 @@ class SiteController extends SmController
 
     public function error($err)
     {
-         $this->render("error",[
+         $this->render("error",array(
             "code"=>$err,
-         ]);
+         ));
     }
 }
