@@ -21,11 +21,11 @@ class SiteController extends SmController
     {
 		
         if (Smce::app()->getState("name")=="") {
-             $this->render("index",[
+             $this->render("index",array(
                 "model"=>"Site controllerden gelen bi yazıdır",
                 "grup"=>"PHP-TR grubu",
                 "grup_site"=>"https://www.facebook.com/groups/tr.developers/",
-             ]);
+             ));
         } else {
             $this->redirect("panel/index");
         }
@@ -48,7 +48,7 @@ class SiteController extends SmController
 
             $model->username    =    $post->username;
             $model->password    =    $post->password;
-			if(isset($post->rememberMe))
+            if(isset($post->rememberMe))
             	$model->rememberMe    =  $post->rememberMe;
 			
             if ($model->validate() && $model->login()) {
@@ -59,9 +59,9 @@ class SiteController extends SmController
             }
         }
 
-        $this->render("login",[
+        $this->render("login",array(
             "model"=>$model,
-         ]);
+         ));
 
     }
 
@@ -73,9 +73,9 @@ class SiteController extends SmController
 
     public function error($err)
     {
-         $this->render("error",[
+         $this->render("error",array(
             "code"=>$err,
-         ]);
+         ));
     }
 }
 
@@ -119,23 +119,23 @@ Config
 <?php
 
 
-return [
+return array(
 	'name'=>'SmceFramework',
 
 	// autoloading model and component classes
-    'import'=>[
+    'import'=>array(
 		'model',
 		'components',
-	],
+	),
 
-	'debug'=>true,
+	'debug'=>false,
 	
 	
-	'urlRouter'=>[
-		'router'=>[
-			"all"=>[],
-			"router"=>["::veriA::","::dataB::"],
-		],
+	'urlRouter'=>array(
+		'router'=>array(
+			"all"=>'controller/view',
+			"router"=>'controller/view/::veriA::/::veriB::',
+		),
 		'showScriptName'=>false, //false - true
 		
 		/*
@@ -155,18 +155,17 @@ return [
 			RewriteRule ^(.*)$ index.php?page=$1 [L,NC]
 		
 		*/	
-	],
+	),
 	
-	'components'=>[
-		'db'=>[
+	'components'=>array(
+		'db'=>array(
 			'user'=>"root",
 			'password'=>"",
 			'name'=>"",
 			'host'=>"localhost",
-		],
-	],
-];
-
+		),
+	),
+);
 
 ```
 	
@@ -197,15 +196,15 @@ class LoginForm extends SmFormModel
 	 */
 	public function rules()
 	{
-		return [
+		return array(
 			// username and password are required
-            ['username, password', 'required'],
+            array('username, password', 'required'),
 			// rememberMe needs to be a boolean
-            ['rememberMe', 'boolean'],
+            array('rememberMe', 'boolean'),
 			// password needs to be authenticated
-            ['password', "after", 'authenticate'],//['password', false, 'authenticate'],
+            array('password', "after", 'authenticate'),//array('password', false, 'authenticate'),
 			
-        ];
+        );
 		
 		/*
 			
@@ -240,11 +239,11 @@ class LoginForm extends SmFormModel
 	 */
 	public function attributeLabels()
 	{
-		return [
+		return array(
 			'rememberMe'=>'Beni Hatırla',
 			'username'=>'E-mail',
 			'password'=>'Parola',
-		];
+		);
 	}
 
 	/**
@@ -279,7 +278,6 @@ class LoginForm extends SmFormModel
 			return false;
 	}
 }
-
 
 
 
@@ -387,7 +385,7 @@ use Smce\Lib\SmGump;
 $validator = new SmGump();
 
 
-$rules = [
+$rules = array(
 	'missing'   	=> 'required',
 	'email'     	=> 'valid_email',
 	'max_len'   	=> 'max_len,1',
@@ -405,10 +403,10 @@ $rules = [
 	'valid_ipv6'	=> 'valid_ipv6',
 	'valid_name'    => 'valid_name',
 	'contains'		=> 'contains,free pro basic'
-];
+);
 
 
-$invalid_data = [
+$invalid_data = array(
 	'missing'   	=> '',
 	'email'     	=> "not a valid email\r\n",
 	'max_len'   	=> "1234567890",
@@ -426,9 +424,9 @@ $invalid_data = [
 	'valid_ipv6'    => "google.com",
 	'valid_name' 	=> '*&((*S))(*09890uiadaiusyd)',
 	'contains'		=> 'premium'
-];
+);
 
-$valid_data = [
+$valid_data = array(
 	'missing'   	=> 'This is not missing',
 	'email'     	=> 'sean@wixel.net',
 	'max_len'   	=> '1',
@@ -446,7 +444,7 @@ $valid_data = [
 	'valid_ipv6'    => "2001:0db8:85a3:08d3:1319:8a2e:0370:7334",
 	'valid_name' 	=> 'Sean Nieuwoudt',
 	'contains'		=> 'free'
-];
+);
 
 echo "\nBEFORE SANITIZE:\n\n";
 
