@@ -5,9 +5,9 @@ use Smce\Lib\SmForm
 
 
 <div class="form">
-<?php $form=SmForm::beginWidget(array(
+<?php $form=SmForm::beginWidget([
 	"id"=>"login-form",
-));?>
+]);?>
 	<?php $form->errorSummary(); ?>
 	<div class="row">
         <p>

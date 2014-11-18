@@ -21,15 +21,15 @@ class LoginForm extends SmFormModel
 	 */
 	public function rules()
 	{
-		return array(
+		return [
 			// username and password are required
-            array('username, password', 'required'),
+            ['username, password', 'required'],
 			// rememberMe needs to be a boolean
-            array('rememberMe', 'boolean'),
+            ['rememberMe', 'boolean'],
 			// password needs to be authenticated
-            array('password', "after", 'authenticate'),//array('password', false, 'authenticate'),
+            ['password', "after", 'authenticate'],//['password', false, 'authenticate'],
 			
-        );
+        ];
 		
 		/*
 			
@@ -64,11 +64,11 @@ class LoginForm extends SmFormModel
 	 */
 	public function attributeLabels()
 	{
-		return array(
+		return [
 			'rememberMe'=>'Beni Hatırla',
 			'username'=>'E-mail',
 			'password'=>'Parola',
-		);
+		];
 	}
 
 	/**

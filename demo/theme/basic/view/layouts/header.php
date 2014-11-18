@@ -35,9 +35,9 @@
     <div id='csSmenu'>
 
         <ul>
-           <li class="<?php if(Smce::app()->caControl(array("site/index")))echo "active";?>"><a href='<?php echo Smce::app()->createUrl("site/index"); ?>'>Home</a></li>
-           <li class="<?php if(Smce::app()->caControl(array("themebasic/index")))echo "active";?>"><a href='<?php echo Smce::app()->createUrl("themebasic/index"); ?>'>Theme Basic</a></li>
-           <li class="<?php if(Smce::app()->caControl(array("validation/index")))echo "active";?>"><a href='<?php echo Smce::app()->createUrl("validation/index"); ?>'>Validation</a></li>
+           <li class="<?php if(Smce::app()->caControl(["site/index"]))echo "active";?>"><a href='<?php echo Smce::app()->createUrl("site/index"); ?>'>Home</a></li>
+           <li class="<?php if(Smce::app()->caControl(["themebasic/index"]))echo "active";?>"><a href='<?php echo Smce::app()->createUrl("themebasic/index"); ?>'>Theme Basic</a></li>
+           <li class="<?php if(Smce::app()->caControl(["validation/index"]))echo "active";?>"><a href='<?php echo Smce::app()->createUrl("validation/index"); ?>'>Validation</a></li>
            <li class='has-sub'><a href='#'>Menu</a>
               <ul>
                  <li class='has-sub'><a href='#'>Product 1</a>
@@ -55,14 +55,14 @@
               </ul>
            </li>
            
-           <li class="<?php if(Smce::app()->caControl(array("site/about")))echo "active";?>"><a href='<?=Smce::app()->createUrl("router/index",array("veriA"=>"SmceFramework","veriB"=>"3123554"));?>'>Router</a></li>
+           <li class="<?php if(Smce::app()->caControl(["site/about"]))echo "active";?>"><a href='<?=Smce::app()->createUrl("router/index",["veriA"=>"SmceFramework","veriB"=>"3123554"]);?>'>Router</a></li>
            
-           <li class="<?php if(Smce::app()->caControl(array("site/about")))echo "active";?>"><a href='<?=Smce::app()->createUrl("site/about");?>'>About</a></li>
+           <li class="<?php if(Smce::app()->caControl(["site/about"]))echo "active";?>"><a href='<?=Smce::app()->createUrl("site/about");?>'>About</a></li>
 			
            <?php
 		   $name=Smce::app()->getState("name");
 		   if(empty($name)):?>
-             <li class="<?php if(Smce::app()->caControl(array("site/login")))echo "active";?>"><a href='<?=Smce::app()->createUrl("site/login");?>'>Login</a></li>
+             <li class="<?php if(Smce::app()->caControl(["site/login"]))echo "active";?>"><a href='<?=Smce::app()->createUrl("site/login");?>'>Login</a></li>
            <?php endif;?>
 
           <?php if(!empty($name)):?>

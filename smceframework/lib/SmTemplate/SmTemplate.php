@@ -16,11 +16,11 @@ class SmTemplate
 	
 	private $layout;
 	
-	private $view=array();
+	private $view=[];
 	
 	private static $themeDirectory;
 	
-	public $error=array();
+	public $error=[];
 	
 	private $content="";
 	
@@ -29,7 +29,7 @@ class SmTemplate
 		 $this->layout=$layout;
 	}
 	
-	public function setView($view="",$array=array())
+	public function setView($view="",$array=[])
 	{
 		 $this->view["view"]=$view;
 		 $this->view["array"]=$array;

@@ -18,7 +18,8 @@ class SmceFramework
 		$SmAutoload->register($config);
 		
 		if(isset($config["debug"]) && $config["debug"]==true){
-			SmTracy::register();
+			$SmTracy=new SmTracy;
+			$SmTracy->register();
 			Debugger::enable();
 		}
 		

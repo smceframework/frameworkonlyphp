@@ -21,32 +21,32 @@ class SmUrlRouter{
 
 	public function run()
 	{
-		$requestArray=array();
+		$requestArray=[];
 		if(empty($this->request)){
-			$requestArray=array(
+			$requestArray=[
 				"controller"=>"site",
 				"view"=>"index",
-			);
+			];
 		}else{
-			$routeGetEx=array();
+			$routeGetEx=[];
 			if(!isset($this->router["showScriptName"]) || $this->router["showScriptName"]==false){
 				
 				if(isset($_GET["route"])){
 					$routeGetEx=explode("/",$_GET["route"]);
-					$requestArray=array(
+					$requestArray=[
 						"controller"=>$routeGetEx[0],
 						"view"=>$routeGetEx[1],
-					);
+					];
 				}
 				foreach($_GET as $key=>$value){
 					$requestArray[$key]=$value;
 				}
 			}else{
 				$requestGetEx=explode("/",$this->request);
-				$requestArray=array(
+				$requestArray=[
 					"controller"=>$requestGetEx[0],
 					"view"=>$requestGetEx[1],
-				);
+				];
 				if(isset($this->router["router"][$requestGetEx[0]])){
 					foreach($this->router["router"][$requestGetEx[0]] as $key=>$value){
 						if(isset($requestGetEx[$key+2]))

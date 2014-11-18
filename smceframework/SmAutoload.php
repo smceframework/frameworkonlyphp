@@ -68,24 +68,24 @@ class SmAutoload
 	
 	public function register($config){
 		self::$config=$config;
-		spl_autoload_register(array($this, 'autoloadFramework'),true,true);
-		spl_autoload_register(array($this, 'autoloadApp'),true,true);
+		spl_autoload_register([$this, 'autoloadFramework'],true,true);
+		spl_autoload_register([$this, 'autoloadApp'],true,true);
 	}
 	
 	public function registerComposer(){
-		spl_autoload_register(array($this, 'autoloadComposer'),true,true);
+		spl_autoload_register([$this, 'autoloadComposer'],true,true);
 	}
 	
 	private static function getClassMapAll()
 	{
-		$clasMap=array();
+		$clasMap=[];
 		$clasMap=array_merge(self::classMap(), self::classMapLib());
 		return $clasMap;
 	}
 	
 	
 	private static function classMap(){
-		return array(
+		return [
 
 			//Core
 			"Smce\Core\SmController"=>SMCE_PATH."/core/SmController.php",
@@ -108,19 +108,19 @@ class SmAutoload
 			"Smce\Amp\SMUserIdentityImp"=>SMCE_PATH."/amp/SMUserIdentityImp.php",
 			
 			
-		);
+		];
 	}
 	
 	
 	private static function classMapLib(){
-		return array(
+		return [
 			//lib
 			"Smce\Lib\SmForm"=>SMCE_PATH."/lib/SmForm/SmForm.php",
 			"Smce\Lib\SmFormField"=>SMCE_PATH."/lib/SmForm/SmFormField.php",
 			"Smce\Lib\SmTemplate"=>SMCE_PATH."/lib/SmTemplate/SmTemplate.php",
 			"Smce\Lib\SmGump"=>SMCE_PATH."/lib/SmGump/SmGump.php",
 			"Smce\Lib\SmUrlRouter"=>SMCE_PATH."/lib/SmUrlRouter/SmUrlRouter.php",
-		);
+		];
 	}
 	
 }

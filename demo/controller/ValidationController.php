@@ -10,7 +10,7 @@ class ValidationController extends SmController
 	
 	public function actionIndex(){
 		
-		$rules = array(
+		$rules = [
 			'missing'   	=> 'required',
 			'email'     	=> 'valid_email',
 			'max_len'   	=> 'max_len,1',
@@ -28,10 +28,10 @@ class ValidationController extends SmController
 			'valid_ipv6'	=> 'valid_ipv6',
 			'valid_name'    => 'valid_name',
 			'contains'		=> 'contains,free pro basic'
-		);
+		];
 		
 		
-		$invalid_data = array(
+		$invalid_data = [
 			'missing'   	=> '',
 			'email'     	=> "not a valid email\r\n",
 			'max_len'   	=> "1234567890",
@@ -49,9 +49,9 @@ class ValidationController extends SmController
 			'valid_ipv6'    => "google.com",
 			'valid_name' 	=> '*&((*S))(*09890uiadaiusyd)',
 			'contains'		=> 'premium'
-		);
+		];
 		
-		$valid_data = array(
+		$valid_data = [
 			'missing'   	=> 'This is not missing',
 			'email'     	=> 'sean@wixel.net',
 			'max_len'   	=> '1',
@@ -69,12 +69,12 @@ class ValidationController extends SmController
 			'valid_ipv6'    => "2001:0db8:85a3:08d3:1319:8a2e:0370:7334",
 			'valid_name' 	=> 'Sean Nieuwoudt',
 			'contains'		=> 'free'
-		);
+		];
 		
-		$this->render("index",array(
+		$this->render("index",[
 			"rules"=>$rules,
 			"invalid_data"=>$invalid_data,
 			"valid_data"=>$valid_data,
-		));
+		]);
 	}
 }

@@ -1,23 +1,23 @@
 <?php
 
 
-return array(
+return [
 	'name'=>'SmceFramework',
 
 	// autoloading model and component classes
-    'import'=>array(
+    'import'=>[
 		'model',
 		'components',
-	),
+	],
 
 	'debug'=>true,
 	
 	
-	'urlRouter'=>array(
-		'router'=>array(
-			"all"=>array(),
-			"router"=>array("::veriA::","::dataB::"),
-		),
+	'urlRouter'=>[
+		'router'=>[
+			"all"=>[],
+			"router"=>["::veriA::","::dataB::"],
+		],
 		'showScriptName'=>false, //false - true
 		
 		/*
@@ -37,14 +37,14 @@ return array(
 			RewriteRule ^(.*)$ index.php?page=$1 [L,NC]
 		
 		*/	
-	),
+	],
 	
-	'components'=>array(
-		'db'=>array(
+	'components'=>[
+		'db'=>[
 			'user'=>"root",
 			'password'=>"",
 			'name'=>"",
 			'host'=>"localhost",
-		),
-	),
-);
+		],
+	],
+];

@@ -19,7 +19,7 @@ class SmController extends SmVe
 
 	const COMPENENTS="Controller";
 
-    public function render($view="",$array=array())
+    public function render($view="",$array=[])
     {
 		$controller=strtolower(get_class($this));
 		$controller=str_replace("controller","",$controller);

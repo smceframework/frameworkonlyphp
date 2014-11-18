@@ -1,6 +1,6 @@
-<?php Smce::theme()->content('//layouts/header',array()); ?>
+<?php Smce::theme()->content('//layouts/header',[]); ?>
 
 <div id="content">
 	<?php echo $content; ?>
 </div><!-- content -->
-<?php Smce::theme()->content('//layouts/footer',array()); ?>
+<?php Smce::theme()->content('//layouts/footer',[]); ?>
