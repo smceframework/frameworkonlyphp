@@ -342,7 +342,7 @@ require("vendor/autoload.php");
 
 use Smce\Lib\SmTemplate;
 
-$array=["model1"=>"Welcome to SmceFramework","model2"=>"Hello"];
+$array=array("model1"=>"Welcome to SmceFramework","model2"=>"Hello");
 
 $SmTemplate=new SmTemplate();
 $SmTemplate->setView("index",$array);
