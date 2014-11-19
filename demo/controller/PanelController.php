@@ -4,19 +4,16 @@ use Smce\Core\SmController;
 
 class PanelController  extends SmController
 {
-    private $controller;
+    private $components1;
 
     public function __construct()
     {
-        DB::$error_handler = false;
-        DB::$throw_exception_on_error = true;
-
-        $this->controller=new Controller();
+        $this->components1=new Components1();
     }
 
     private function indexControl()
     {
-        return true;
+       return  $this->components1->getControl();
     }
 
     public function accessRules()
