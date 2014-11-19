@@ -17,3 +17,7 @@
 <b>SiteController gelen veri</b>: <?php echo $model?><br />
 <b>Grup</b>: <?php echo $grup?>	<br />
 <b>Grup-Site</b>: <?php echo $grup_site?>	<br />
+<br />
+<br />
+
+SiteController::methotTest(): <?=SiteController::methotTest()?>

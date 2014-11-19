@@ -27,6 +27,11 @@ class SiteController extends SmController
     {
          $this->render("pages/about");
     }
+	
+	
+	public function methotTest(){
+		return "This method was called from SiteController";
+	}
 
 	
     public function actionLogin()
