@@ -8,6 +8,8 @@ Controller
 --------------------------
 
 ``` php
+//controller/SiteController.php
+
 <?php
 
 use Smce\Core\SmController;
@@ -92,6 +94,7 @@ View
 --------------------------
 
 ``` php
+//view/site/index.php
 
 <b>Proje BaseUrl</b>: <?php echo Smce::app()->baseUrl?> <br />
 <b>Proje BasePath</b>: <?php echo Smce::app()->basePath?><br />
@@ -124,6 +127,8 @@ Config
 --------------
 
 ``` php
+//config/config.php
+
 <?php
 
 
@@ -181,6 +186,8 @@ Model
 ---------------
 
 ``` php
+//model/LoginForm.php
+
 <?php
 
 /**
@@ -295,6 +302,8 @@ Model 2
 ---------------------------------------
 
 ``` php
+//model/UsersModel.php
+
 <?php
 
 
