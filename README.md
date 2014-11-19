@@ -1,4 +1,5 @@
-﻿## Composer
+﻿
+## Composer
 https://packagist.org/packages/smce/framework
 
 # Ornekler
@@ -128,13 +129,13 @@ return array(
 		'components',
 	),
 
-	'debug'=>false,
+	'debug'=>true,
 	
 	
 	'urlRouter'=>array(
 		'router'=>array(
-			"all"=>'controller/view',
-			"router"=>'controller/view/::veriA::/::veriB::',
+			"all"=>array(),
+			"router"=>array("::veriA::","::dataB::"),
 		),
 		'showScriptName'=>false, //false - true
 		
