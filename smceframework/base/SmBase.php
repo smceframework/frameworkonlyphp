@@ -110,12 +110,14 @@ class SmBase
 
     private function _db_SETTING_()
     {
-        $_db=SmBase::$config["components"]["db"];
-
-        \DB::$user= $_db["user"];
-        \DB::$password = $_db["password"];
-        \DB::$dbName = $_db["name"];
-        \DB::$host = $_db["host"];
+        if(isset(SmBase::$config["components"]["db"])){
+			$_db=SmBase::$config["components"]["db"];
+	
+			\DB::$user= $_db["user"];
+			\DB::$password = $_db["password"];
+			\DB::$dbName = $_db["name"];
+			\DB::$host = $_db["host"];
+		}
     }
 
 	private function base_url()
