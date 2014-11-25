@@ -95,6 +95,8 @@ class SmBase
 
     public function error($err)
     {
+		if(file_exists(BASE_PATH."/controller/SiteController.php"))
+			include BASE_PATH."/controller/SiteController.php";
         $SiteController=new \SiteController();
 
         \SiteController::$error=true;
