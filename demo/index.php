@@ -15,4 +15,4 @@ $config=require "config/config.php";
 $smce=dirname(__FILE__).'/../smceframework/smceBase.php';
 
 require_once $smce;
-smce\base\SmceFramework::createWebApplication($config)->run();
+Smce\Base\SmceFramework::createWebApplication($config)->run();
