@@ -7,7 +7,7 @@ use Smce\Base\SmBase;
 use Smce\Core\SmAccessRulesSmAutoload;
 use Smce\Core\SmAccessRulesExtension\SmTracy;
 use Tracy\Debugger;
-
+use Tracy\Logger;
 class SmceFramework
 {
     public static function createWebApplication($config)
@@ -17,11 +17,17 @@ class SmceFramework
 		$SmAutoload=new \Smce\SmAutoload;
 		$SmAutoload->register($config);
 		
-		if(isset($config["debug"]) && $config["debug"]==true){
-			$SmTracy=new SmTracy;
-			$SmTracy->register();
-			Debugger::enable();
-		}
+		$SmTracy=new SmTracy;
+		$SmTracy->register();
+		
+		$debug=Debugger::PRODUCTION;
+		if(isset($config["debug"]) && $config["debug"]==true)
+			$debug=Debugger::DEVELOPMENT;
+	
+		
+		
+		Debugger::enable($debug, BASE_PATH . '/log');
+			
 		
 		//App Config
 		$SmBase=new SmBase;

@@ -33,7 +33,7 @@ class PanelController  extends SmController
 
     public function actionIndex()
     {
-		
+		a();
         $this->render("index");
 
         /*
