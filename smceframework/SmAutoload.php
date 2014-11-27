@@ -49,11 +49,13 @@ class SmAutoload
 				if(file_exists(BASE_PATH."/".$value."/".$class_name . '.php'))
 					include BASE_PATH."/".$value."/".$class_name . '.php';
 			}
-
-			if(file_exists(BASE_PATH."/controller/".$class_name . '.php'))
-					include BASE_PATH."/controller/".$class_name . '.php';
+		
 		}
+		
+		if(file_exists(BASE_PATH."/controller/".$class_name . '.php'))
+			include BASE_PATH."/controller/".$class_name . '.php';
 	}
+	
 	
 	
 	private static  function autoloadComposer($className)

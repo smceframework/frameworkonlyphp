@@ -5,6 +5,7 @@ namespace Smce\Base;
 use Smce\Core\SmController;
 use Smce\Core\SmAccessRules;
 use Smce\Lib\SmUrlRouter;
+use SiteController;
 
 class SmBase
 {
@@ -55,6 +56,7 @@ class SmBase
 
     private function baseURLCommand()
     {
+		
         if (! is_file(BASE_PATH."/controller/".ucfirst($this->controller)."Controller.php")) {
             SmBase::error("Controller Not Found");
             exit;
@@ -69,7 +71,7 @@ class SmBase
         $actionController = $this->controller."Controller";
 		
         $class = new $actionController();
-
+		
         if (method_exists($class, $actionView)) {
            
             if (method_exists ($class , "accessRules" )) {
@@ -95,11 +97,9 @@ class SmBase
 
     public function error($err)
     {
-		if(file_exists(BASE_PATH."/controller/SiteController.php"))
-			include BASE_PATH."/controller/SiteController.php";
-        $SiteController=new \SiteController();
+        $SiteController=new SiteController();
 
-        \SiteController::$error=true;
+        SiteController::$error=true;
 
         $SiteController->error($err);
 
@@ -112,7 +112,7 @@ class SmBase
 
     private function _db_SETTING_()
     {
-        if(isset(SmBase::$config["components"]["db"])){
+		if(isset(SmBase::$config["components"]["db"])){
 			$_db=SmBase::$config["components"]["db"];
 	
 			\DB::$user= $_db["user"];
