@@ -29,7 +29,10 @@ class SmBase
 
     private function baseURL()
     {
-		$request=str_replace($this->base_url()."/", "",$_SERVER["REQUEST_URI"]);
+		$request=str_replace($this->base_url(), "",$_SERVER["REQUEST_URI"]);
+		if(substr($request,0,1)=="/")
+			$request=substr($request,1,strlen($request));
+			
 		$request=str_replace("index.php", "",$request);
 		
 		$SmUrlRouter=new SmUrlRouter;
@@ -47,7 +50,6 @@ class SmBase
 		
       	$this->controller=strtolower($requestArray["controller"]);
         $this->view=strtolower($requestArray["view"]);
-      
 		
         define('BASE_CONTROLLER',strtolower($this->controller));
         define('BASE_VIEW',strtolower($this->view));
@@ -56,7 +58,6 @@ class SmBase
 
     private function baseURLCommand()
     {
-		
         if (! is_file(BASE_PATH."/controller/".ucfirst($this->controller)."Controller.php")) {
             SmBase::error("Controller Not Found");
             exit;
