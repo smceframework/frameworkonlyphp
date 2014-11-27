@@ -24,11 +24,8 @@ class SmceFramework
 		if(isset($config["debug"]) && $config["debug"]==true)
 			$debug=Debugger::DEVELOPMENT;
 	
-		
-		
 		Debugger::enable($debug, BASE_PATH . '/log');
 			
-		
 		//App Config
 		$SmBase=new SmBase;
         SmBase::$config=$config;
