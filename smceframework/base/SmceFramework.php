@@ -8,6 +8,7 @@ use Smce\Core\SmAccessRulesSmAutoload;
 use Smce\Core\SmAccessRulesExtension\SmTracy;
 use Tracy\Debugger;
 use Tracy\Logger;
+
 class SmceFramework
 {
     public static function createWebApplication($config)
@@ -23,6 +24,9 @@ class SmceFramework
 		$debug=Debugger::PRODUCTION;
 		if(isset($config["debug"]) && $config["debug"]==true)
 			$debug=Debugger::DEVELOPMENT;
+			
+		if(!file_exists(BASE_PATH . '/log'))
+			mkdir(BASE_PATH . '/log');
 	
 		Debugger::enable($debug, BASE_PATH . '/log');
 			
