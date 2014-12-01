@@ -26,7 +26,7 @@ https://packagist.org/packages/smce/framework
 
 - Logger
 
-- Servisler
+- Services
 
 
 # Ornekler
