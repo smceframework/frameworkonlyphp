@@ -40,11 +40,19 @@ return array(
 	),
 	
 	'components'=>array(
-		'db'=>array(
+	
+		//MeekroDB, MySQL
+		'MeekroDB'=>array( 
 			'user'=>"root",
 			'password'=>"",
 			'name'=>"",
 			'host'=>"localhost",
 		),
+		
+		//ActiveRecord, MySQL, SQLite, PostgreSQL, Oracle
+		'ActiveRecord'=>array(
+			"connectionString"=>"mysql://username:password@localhost/db_name"
+		),
+		
 	),
 );

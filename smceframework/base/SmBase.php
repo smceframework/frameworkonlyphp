@@ -6,6 +6,7 @@ use Smce\Core\SmController;
 use Smce\Core\SmAccessRules;
 use Smce\Lib\SmUrlRouter;
 use SiteController;
+use ActiveRecord;
 
 class SmBase
 {
@@ -113,14 +114,27 @@ class SmBase
 
     private function _db_SETTING_()
     {
-		if(isset(SmBase::$config["components"]["db"])){
-			$_db=SmBase::$config["components"]["db"];
+		if(isset(SmBase::$config["components"]["MeekroDB"])){
+			$_db=SmBase::$config["components"]["MeekroDB"];
 	
 			\DB::$user= $_db["user"];
 			\DB::$password = $_db["password"];
 			\DB::$dbName = $_db["name"];
 			\DB::$host = $_db["host"];
+			
+			
 		}
+		
+		if(isset(SmBase::$config["components"]["ActiveRecord"])){
+			
+			ActiveRecord\Config::initialize(function($cfg)
+			{
+				$cfg->set_model_directory(BASE_PATH."/model");
+				$cfg->set_connections(array(
+				'development' => SmBase::$config["components"]["ActiveRecord"]["connectionString"]));
+			});
+		}
+		
     }
 
 	private function base_url()

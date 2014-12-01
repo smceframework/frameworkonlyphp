@@ -4,12 +4,15 @@ namespace Smce\Core;
 
 use Smce\Lib\SmForm;
 use Smce\Lib\SmGump;
+use ActiveRecord;
 
-class SmFormModel
+class SmFormModel extends ActiveRecord\Model
 {
 	public $error=false;
 	private $lastError=false;
-
+	
+	private $model="";
+	
 	public function addError($attribute,$params)
 	{
 		$attribute=$attribute;

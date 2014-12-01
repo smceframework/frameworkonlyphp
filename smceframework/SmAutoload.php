@@ -72,6 +72,8 @@ class SmAutoload
 		self::$config=$config;
 		spl_autoload_register(array($this, 'autoloadFramework'),true,true);
 		spl_autoload_register(array($this, 'autoloadApp'),true,true);
+		require_once SMCE_PATH.'/extension/SmActiverecord/ActiveRecord.php';
+			
 	}
 	
 	public function registerComposer(){
