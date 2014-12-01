@@ -12,7 +12,7 @@ https://packagist.org/packages/smce/framework
 
 - Masterpage/Layout
 
-- Temlate Engine
+- Template Engine
 
 - ActiveRecord
 
