@@ -63,10 +63,10 @@ class SmBase
             SmBase::error("Controller Not Found");
             exit;
         }
-		
-		if (! is_file(BASE_PATH."/components/Controller.php")) {
+		$componentsController="";
+		if (is_file(BASE_PATH."/components/Controller.php")) {
 			require BASE_PATH."/components/Controller.php";
-			$componentsController=new Controller;
+			$componentsController=new \Controller;
 		}
 		
         require BASE_PATH."/controller/".ucfirst($this->controller)."Controller.php";
@@ -79,7 +79,7 @@ class SmBase
 		
 		$this->controllerAction($componentsController,"beforeAction");
 		
-        $class = new $actionController();
+        $class = new $actionController;
 		
         if (method_exists($class, $actionView)) {
            
@@ -109,7 +109,7 @@ class SmBase
 	{	
 		if(method_exists($class, $action))
 		{
-			$componentsController->$action();
+			$class->$action();
 		}
 	}
 

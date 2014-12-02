@@ -29,7 +29,7 @@ class SiteController extends SmController
     }
 	
 	
-	public function methotTest(){
+	public static function methotTest(){
 		return "This method was called from SiteController";
 	}
 

@@ -8,6 +8,7 @@ class Controller
 	public function beforeAction()
 	{
 		//before
+		
 	}
 	
 	public function afterAction()
