@@ -217,7 +217,6 @@ Components/Controller.php
 
 <?php
 
-<?php
 
 class Controller
 {
