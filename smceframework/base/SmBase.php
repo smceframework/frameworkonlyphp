@@ -64,6 +64,11 @@ class SmBase
             exit;
         }
 		
+		if (! is_file(BASE_PATH."/components/Controller.php")) {
+			require BASE_PATH."/components/Controller.php";
+			$componentsController=new Controller;
+		}
+		
         require BASE_PATH."/controller/".ucfirst($this->controller)."Controller.php";
 
         if(!empty($this->controller->layout))
@@ -71,6 +76,8 @@ class SmBase
 		
         $actionView = 'action'.ucfirst($this->view);
         $actionController = $this->controller."Controller";
+		
+		$this->controllerAction($componentsController,"beforeAction");
 		
         $class = new $actionController();
 		
@@ -90,12 +97,21 @@ class SmBase
                 }
             } else {
                 $class->$actionView();
+				$this->controllerAction($componentsController,"afterAction");
             }
 
         } else {
             SmBase::error("Page Not Found");
         }
     }
+	
+	public function controllerAction($class,$action)
+	{	
+		if(method_exists($class, $action))
+		{
+			$componentsController->$action();
+		}
+	}
 
     public function error($err)
     {
@@ -126,7 +142,6 @@ class SmBase
 		}
 		
 		if(isset(SmBase::$config["components"]["ActiveRecord"])){
-			
 			ActiveRecord\Config::initialize(function($cfg)
 			{
 				$cfg->set_model_directory(BASE_PATH."/model");

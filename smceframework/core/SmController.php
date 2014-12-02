@@ -2,7 +2,6 @@
 
 namespace Smce\Core;
 
-
 use Smce\Base\SmVe;
 use Smce\Lib\SmTemplate;
 use Smce\Base\SmBase;

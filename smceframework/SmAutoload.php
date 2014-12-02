@@ -99,6 +99,8 @@ class SmAutoload
 			"Smce\Core\SmAccessRules"=>SMCE_PATH."/core/SmAccessRules.php",
 			"Smce\Core\SmUser"=>SMCE_PATH."/core/SmUser.php",
 			"Smce\Core\SmLayout"=>SMCE_PATH."/core/SmLayout.php",
+			"Smce\Core\SmModel"=>SMCE_PATH."/core/SmModel.php",
+			"Smce\Core\SmActiveRecord"=>SMCE_PATH."/core/SmActiveRecord.php",
 			
 			//base
 			"Smce\Base\SmBase"=>SMCE_PATH."/base/SmBase.php",

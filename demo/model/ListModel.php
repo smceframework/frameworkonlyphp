@@ -1,9 +1,9 @@
 <?php
 //ActiveRecord example
 
-use Smce\Core\SmFormModel;
+use Smce\Core\SmActiveRecord;
 
-class ListModel extends SmFormModel
+class ListModel extends SmActiveRecord
 {
 	
 	public static $table_name="list";

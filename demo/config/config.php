@@ -40,7 +40,7 @@ return array(
 	),
 	
 	'components'=>array(
-	
+		/*
 		//MeekroDB, MySQL
 		'MeekroDB'=>array( 
 			'user'=>"root",
@@ -48,11 +48,15 @@ return array(
 			'name'=>"",
 			'host'=>"localhost",
 		),
+		*/
+		
 		
 		//ActiveRecord, MySQL, SQLite, PostgreSQL, Oracle
 		'ActiveRecord'=>array(
-			"connectionString"=>"mysql://username:password@localhost/db_name"
+			"connectionString"=>"mysql://root:fy23tz98@localhost/faselisproject"
 		),
+		
+		
 		
 	),
 );

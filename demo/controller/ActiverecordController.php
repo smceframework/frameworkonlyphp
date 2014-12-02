@@ -23,7 +23,7 @@ class ActiverecordController extends SmController
 	
 	
 	public function actionUpdate(){
-		$model=ListModel::find(2);
+		$model=ListModel::model()->find(2);
 		$model->name="Ceylan";
 		$model->save();
 	}
