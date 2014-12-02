@@ -370,6 +370,42 @@ class UsersModel
 ```
 
 
+Model 3
+---------------------------------------
+
+``` php
+//model/ListModel.php
+
+<?php
+//ActiveRecord example
+
+use Smce\Core\SmActiveRecord;
+
+class ListModel extends SmActiveRecord
+{
+	
+	public static $table_name="list";
+	
+	public function rules()
+	{
+		return array(
+			// name, password and email are required
+            array('name, email', 'required'),
+			
+		);
+	}
+
+	public function attributeLabels()
+	{
+		return array(
+			'name'=>'Ad Soyad',
+			'email'=>'E-mail',
+		);
+	}
+	
+	
+}
+
 
 # Composer
 
