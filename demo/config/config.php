@@ -50,12 +50,12 @@ return array(
 		),
 		*/
 		
-		
+		/*
 		//ActiveRecord, MySQL, SQLite, PostgreSQL, Oracle
 		'ActiveRecord'=>array(
-			"connectionString"=>"mysql://root:fy23tz98@localhost/faselisproject"
+			"connectionString"=>"mysql://username:password@localhost/db_name"
 		),
-		
+		*/
 		
 		
 	),
