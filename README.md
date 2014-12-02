@@ -208,6 +208,38 @@ return array(
 );
 
 ```
+
+Components/Controller.php
+--------------
+
+``` php
+//components/Controller.php
+
+<?php
+
+<?php
+
+class Controller
+{
+
+    public static $layout='//layouts/column1';
+	
+	public function beforeAction()
+	{
+		//before
+		
+	}
+	
+	public function afterAction()
+	{
+		//after
+	}
+
+}
+
+
+```	
+	
 	
 Model
 ---------------
