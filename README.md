@@ -22,7 +22,7 @@ https://packagist.org/packages/smce/framework
 
 - MeekroDB(MySQL)
 
-- Accses Rules Yapısı
+- Accses Rules
 
 - Debug
 
