@@ -26,4 +26,3 @@ if($validator->validate($valid_data, $rules)) {
 echo "\nDONE\n\n";
 
 echo "</pre>";
-?>
