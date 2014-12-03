@@ -1,0 +1,62 @@
+<?php
+
+
+return array(
+	'name'=>'SmceFramework',
+
+	// autoloading model and component classes
+    'import'=>array(
+		'model',
+		'components',
+	),
+
+	'debug'=>true,
+	
+	
+	'urlRouter'=>array(
+		'router'=>array(
+			"all"=>array(),
+			"router"=>array("::veriA::","::dataB::"),
+		),
+		'showScriptName'=>false, //false - true
+		
+		/*
+			'showScriptName'=>true,
+			
+			//App Path .htaccess
+			
+			RewriteEngine on
+
+			# if a directory or a file exists, use it directly
+			RewriteCond %{REQUEST_FILENAME} !-f
+			RewriteCond %{REQUEST_FILENAME} !-d
+			
+			# otherwise forward it to index.php
+			
+			# RewriteRule . index.php
+			RewriteRule ^(.*)$ index.php?page=$1 [L,NC]
+		
+		*/	
+	),
+	
+	'components'=>array(
+		/*
+		//MeekroDB, MySQL
+		'MeekroDB'=>array( 
+			'user'=>"root",
+			'password'=>"",
+			'name'=>"",
+			'host'=>"localhost",
+		),
+		*/
+		
+		
+		//ActiveRecord, MySQL, SQLite, PostgreSQL, Oracle
+		'ActiveRecord'=>array(
+			"connectionString"=>"mysql://root:fy23tz98@localhost/faselisproject"
+		),
+		
+		
+		
+	),
+);
