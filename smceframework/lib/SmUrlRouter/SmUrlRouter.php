@@ -34,8 +34,8 @@ class SmUrlRouter{
 				if(isset($_GET["route"])){
 					$routeGetEx=explode("/",$_GET["route"]);
 					$requestArray=array(
-						"controller"=>$routeGetEx[0],
-						"view"=>$routeGetEx[1],
+						"controller"=>isset($routeGetEx[0])?$routeGetEx[0]:"",
+						"view"=>isset($routeGetEx[1])?$routeGetEx[1]:"",
 					);
 				}
 				foreach($_GET as $key=>$value){
@@ -44,8 +44,8 @@ class SmUrlRouter{
 			}else{
 				$requestGetEx=explode("/",$this->request);
 				$requestArray=array(
-					"controller"=>$requestGetEx[0],
-					"view"=>$requestGetEx[1],
+					"controller"=>isset($routeGetEx[0])?$routeGetEx[0]:"",
+					"view"=>isset($routeGetEx[1])?$routeGetEx[1]:"",
 				);
 				if(isset($this->router["router"][$requestGetEx[0]])){
 					foreach($this->router["router"][$requestGetEx[0]] as $key=>$value){
