@@ -17,7 +17,6 @@ class SmFiletozip{
 	public function addFile($file_url="",$params=""){
 		if(isset($this->_params[$params])){
 			return array("result"=>0,"message"=>'not params. Only "current","away"');
-			exit;
 		}
 		
 		$this->_file[]=array("file"=>$file_url,"params"=>$params);

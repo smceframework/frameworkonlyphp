@@ -14,8 +14,6 @@
  
 namespace Smce\Extension;
 
-use Smce\Extension\SmUserAgentStringParser;
-
 class SmUserAgent
 {
   protected $userAgentString;

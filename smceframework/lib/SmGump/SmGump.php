@@ -11,6 +11,8 @@
 
 namespace Smce\Lib;
 
+use Exception;
+
 class SmGump
 {
 	// Validation rules for execution
@@ -112,6 +114,7 @@ class SmGump
 	 * @access public
 	 * @param string $rule
 	 * @param callable $callback
+	 * @throws Exception
 	 * @return bool
 	 */
 	public static function add_validator($rule, $callback)
@@ -133,6 +136,7 @@ class SmGump
 	 * @access public
 	 * @param string $rule
 	 * @param callable $callback
+	 * @throws Exception
 	 * @return bool
 	 */
 	public static function add_filter($rule, $callback)
@@ -291,6 +295,7 @@ class SmGump
 	 * @access public
 	 * @param  mixed $input
 	 * @param  array $ruleset
+	 * @throws Exception
 	 * @return mixed
 	 */
 	public function validate(array $input, array $ruleset)
@@ -491,6 +496,7 @@ class SmGump
 	 * @access public
 	 * @param  mixed $input
 	 * @param  array $filterset
+	 * @throws Exception
 	 * @return mixed
 	 */
 	public function filter(array $input, array $filterset)
@@ -734,6 +740,8 @@ class SmGump
 	 * @access protected
 	 * @param  string $field
 	 * @param  array $input
+	 * @param  param
+	 *
 	 * @return mixed
 	 */
 	protected function validate_contains($field, $input, $param = null)

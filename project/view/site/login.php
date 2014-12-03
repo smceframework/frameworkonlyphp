@@ -1,5 +1,5 @@
 <?php
-use Smce\Lib\SmForm
+use Smce\Lib\SmForm;
 ?>
 <h1>Login Form</h1>
 

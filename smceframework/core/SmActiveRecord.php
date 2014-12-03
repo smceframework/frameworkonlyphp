@@ -4,7 +4,6 @@ namespace Smce\Core;
 
 use Smce\Lib\SmForm;
 use Smce\Lib\SmGump;
-use Smce\Core\SmModel;
 use ActiveRecord;
 
 class SmActiveRecord extends ActiveRecord\Model
@@ -17,15 +16,14 @@ class SmActiveRecord extends ActiveRecord\Model
 	
 	public function addError($attribute,$params)
 	{
-		$attribute=$attribute;
-		SmForm::$errorData[$attribute]=$params;
-		$this->error=true;
+		SmForm::$errorData[$attribute] = $params;
+		$this->error = true;
 	}
 	
 
 	public function validate()
 	{
-		$_rules=$this->Smrules();
+		$_rules = $this->Smrules();
 		if(count($_rules)>0 || $this->error==true)
 			return false;
 		else

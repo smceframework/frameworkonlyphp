@@ -63,16 +63,18 @@ class SmUser
 
 	public function setState($key,$value)
 	{
-		if($_SESSION[$key]=$value)
+		if ($_SESSION[$key] = $value)
 			return true;
+
+		return false;
 	}
 
 	public function getState($key)
 	{
-		if(isset($_SESSION[$key]))
+		if (isset($_SESSION[$key]))
 			return $_SESSION[$key];
-		else
-			return false;
+
+		return false;
 	}
 
 	public function stateClear()
@@ -80,19 +82,21 @@ class SmUser
 		session_destroy();
 	}
 
-	public function login($_identity,$duration)
+	public function login($_identity, $duration)
 	{
-		$this->setState("SMCE_login71",true);
+		$this->setState("SMCE_login71", true);
 
 		session_set_cookie_params($duration);
 	}
 
 	public function caControl($urlArray=array())
 	{
-		$ur=BASE_CONTROLLER."/".BASE_VIEW;
+		$ur = BASE_CONTROLLER . '/'. BASE_VIEW;
 
-		if(in_array($ur,$urlArray))
+		if (in_array($ur, $urlArray))
 			return true;
+
+		return false;
 	}
 
 }

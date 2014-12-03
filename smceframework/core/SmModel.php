@@ -14,7 +14,6 @@ class SmModel {
 	
 	public function addError($attribute, $params)
 	{
-		$attribute = $attribute;
 		SmForm::$errorData[$attribute] = $params;
 		$this->error = true;
 	}
