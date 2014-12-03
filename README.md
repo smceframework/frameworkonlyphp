@@ -8,6 +8,8 @@ https://packagist.org/packages/smce/framework
                             
 - Autoload
 
+- Session Management
+
 - Validation
 
 - Masterpage/Layout
@@ -28,6 +30,7 @@ https://packagist.org/packages/smce/framework
 
 - Router
 
+- Zip Encoding Class
 
 # Ornekler
 
