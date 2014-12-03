@@ -7,7 +7,6 @@
 
 namespace Tracy;
 
-use Nette\Diagnostics\IBarPanel;
 use Tracy;
 
 
