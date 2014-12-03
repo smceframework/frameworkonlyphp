@@ -5,6 +5,8 @@ https://packagist.org/packages/smce/framework
 ## Features
 
 - MVC
+
+- PSR
                             
 - Autoload
 
