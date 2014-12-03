@@ -16,9 +16,7 @@ https://packagist.org/packages/smce/framework
 
 - Template Engine
 
-- ActiveRecord
-
-- MySQL, SQLite, PostgreSQL, Oracle
+- ActiveRecord(MySQL, SQLite, PostgreSQL, Oracle)
 
 - MeekroDB(MySQL)
 
