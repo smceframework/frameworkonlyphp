@@ -6,22 +6,23 @@ use Smce\Lib\SmFormField;
 
 class SmForm  
 {
-	public static $errorData=array();
+	public static $errorData = array();
 
-	public static function beginWidget($array=array())
+	public static function beginWidget($array = array())
 	{
-		$form=array(
-			"method"=>"post",
+		$form = array(
+			"method" => "post"
 		);
 
-		foreach($array as $key=>$value)
-			$form[$key]=$value;
+		foreach($array as $key => $value)
+			$form[$key] = $value;
 
-		$STR='<form';
-		foreach($form as $key=>$value)
-			$STR.=' '.$key.'="'.$value.'" ';
+		$STR = '<form';
+		
+		foreach ($form as $key => $value)
+			$STR .= sprintf(' %s="%s" ', $key, $value);
 
-		$STR.='/>';
+		$STR .= '/>';
 
 		echo $STR;
 
@@ -30,14 +31,12 @@ class SmForm
 
 	public static function endWidget()
 	{
-		$STR='</form>';
-		echo $STR;
+		echo '</form>';
 	}
 
 	public function getError()
 	{
-		if(count(SmForm::$errorData)>0)
-			return true;
+		if (count(SmForm::$errorData) > 0) return true;
 	}
 
 	public function getErrorData()
