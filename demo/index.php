@@ -1,18 +1,20 @@
 <?php
 
-
-
+// display php errors on screen
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
-
+// setting default timezone setting to Europe/Istanbul
 date_default_timezone_set('Europe/Istanbul');
 
-define('BASE_PATH',dirname(__FILE__));
+// set the base path, ex: /home/smce/public_html
+define('BASE_PATH', dirname(__FILE__));
 
-$config=require "config/config.php";
+// load configuration settings
+$config = require_once 'config/config.php';
 
-$smce=dirname(__FILE__).'/../smceframework/smceBase.php';
+// include smce base class
+require_once dirname(__FILE__).'/../smceframework/smceBase.php';
 
-require_once $smce;
+// createWebApplication and run
 Smce\Base\SmceFramework::createWebApplication($config)->run();
