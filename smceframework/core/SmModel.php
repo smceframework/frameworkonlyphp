@@ -1,4 +1,6 @@
-<?php namespace Smce\Core;
+<?php 
+
+namespace Smce\Core;
 
 use Smce\Lib\SmForm;
 use Smce\Lib\SmGump;
