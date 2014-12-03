@@ -2,11 +2,9 @@
 
 namespace Smce\Base;
 
-
-use Smce\Base\SmBase;
 use Smce\Extension\SmTracy;
+use Smce\SmAutoload;
 use Tracy\Debugger;
-use Tracy\Logger;
 
 class SmceFramework
 {
@@ -14,10 +12,10 @@ class SmceFramework
     {
        
         require SMCE_PATH."/SmAutoload.php";
-		$SmAutoload=new \Smce\SmAutoload;
+		$SmAutoload = new SmAutoload;
 		$SmAutoload->register($config);
 		
-		$SmTracy=new SmTracy;
+		$SmTracy = new SmTracy;
 		$SmTracy->register();
 		
 		$debug=Debugger::PRODUCTION;

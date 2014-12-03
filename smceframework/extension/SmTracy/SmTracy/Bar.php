@@ -7,6 +7,7 @@
 
 namespace Tracy;
 
+use Nette\Diagnostics\IBarPanel;
 use Tracy;
 
 
@@ -67,7 +68,7 @@ class Bar
 			try {
 				$tab = (string) $panel->getTab();
 				$panelHtml = $tab ? (string) $panel->getPanel() : NULL;
-				if ($tab && $panel instanceof \Nette\Diagnostics\IBarPanel) {
+				if ($tab && $panel instanceof IBarPanel) {
 					$panelHtml = preg_replace('~(["\'.\s#])nette-(debug|inner|collapsed|toggle|toggle-collapsed)(["\'\s])~', '$1tracy-$2$3', $panelHtml);
 					$panelHtml = str_replace('tracy-toggle-collapsed', 'tracy-toggle tracy-collapsed', $panelHtml);
 				}

@@ -5,6 +5,10 @@
     "license": "MIT",
     "authors": [
         {
+			"name": "Samed Ceylan",
+			"email": "imadige@gmail.com",
+			"homepage": "http://www.surferwins.com",
+			"role": "Developer"
         }
     ],
     "autoload": {
@@ -12,9 +16,8 @@
     },
     "minimum-stability": "dev",
     "require": {
-		
+
 	},
-	
 	"support": {
 		"issues": "https://github.com/imadige/smceframework-MVC/issues?state=open",
 		"source": "https://github.com/imadige/smceframework-MVC"
