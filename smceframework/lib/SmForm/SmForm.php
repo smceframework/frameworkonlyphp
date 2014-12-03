@@ -2,8 +2,6 @@
 
 namespace Smce\Lib;
 
-use Smce\Lib\SmFormField;
-
 class SmForm  
 {
 	public static $errorData = array();
@@ -36,7 +34,7 @@ class SmForm
 
 	public function getError()
 	{
-		if (count(SmForm::$errorData) > 0) return true;
+		return count(SmForm::$errorData) > 0;
 	}
 
 	public function getErrorData()

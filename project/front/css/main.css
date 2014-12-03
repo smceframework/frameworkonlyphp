@@ -12,12 +12,10 @@ body
 
 #page
 {
-	margin-top: 5px;
-	margin-bottom: 5px;
 	background: white;
 	border: 1px solid #C9E0ED;
 	width:960px;
-	margin:auto;
+	margin: auto;
 }
 
 #header
@@ -61,7 +59,7 @@ body
 #mainmenu ul
 {
 	padding:6px 20px 5px 20px;
-	margin:0px;
+	margin:0;
 }
 
 #mainmenu ul li
@@ -200,7 +198,7 @@ div.search-form
 
 .portlet-content li
 {
-	padding: 2px 0 4px 0px;
+	padding: 2px 0 4px 0;
 }
 
 .operations

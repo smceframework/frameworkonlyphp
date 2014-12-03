@@ -2,7 +2,6 @@
 
 namespace Smce\Base;
 
-use Smce\Core\SmController;
 use Smce\Core\SmAccessRules;
 use Smce\Lib\SmUrlRouter;
 use SiteController;

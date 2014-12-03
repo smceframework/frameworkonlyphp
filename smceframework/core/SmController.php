@@ -4,7 +4,6 @@ namespace Smce\Core;
 
 use Smce\Base\SmVe;
 use Smce\Lib\SmTemplate;
-use Smce\Base\SmBase;
 
 class SmController extends SmVe
 {
@@ -35,7 +34,7 @@ class SmController extends SmVe
 		if ($this->layout != "")
 			return $this->layout;
 	    elseif (class_exists(self::COMPENENTS) && isset(\Controller::$layout))
-			return \Controller::$layout;	
+			return \Controller::$layout;
 	}
 	
 	private function getTheme() 
