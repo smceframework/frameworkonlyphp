@@ -55,7 +55,7 @@
               </ul>
            </li>
            
-           <li class="<?php if(Smce::app()->caControl(array("site/about")))echo "active";?>"><a href='<?=Smce::app()->createUrl("router/index",array("veriA"=>"SmceFramework","veriB"=>"3123554"));?>'>Router</a></li>
+           <li><a href='<?=Smce::app()->createUrl("router/index",array("veriA"=>"SmceFramework","veriB"=>"3123554"));?>'>Router</a></li>
            
            <li class="<?php if(Smce::app()->caControl(array("site/about")))echo "active";?>"><a href='<?=Smce::app()->createUrl("site/about");?>'>About</a></li>
 			
