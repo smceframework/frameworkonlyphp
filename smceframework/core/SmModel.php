@@ -44,18 +44,21 @@ class SmModel{
 					$validExplode=explode(",",$value[0]);
 
 					foreach ($validExplode as $key2=>$value2) {
-
-						if ($value[1]!=false && $value[1]!="after") {
+						if(!isset($value[2])){
+							$value[2]="y";
+						}
+							
+						if ($value[2]!=false && $value[2]!="after") {
 							$value2=trim($value2);
 							$valid[$value2]=trim($value[1]);
 							$data[$value2]=$this->$value2;
 
 						} else {
-							if ($value[1]!="after") {
-								$this->$value[2]($value2,$this->$value2);
+							if ($value[2]!="after") {
+								$this->$value[1]($value2,$this->$value2);
 							} else {
 								$this->lastError=true;
-								$_lastvalid[]=array("model"=>$value[2],
+								$_lastvalid[]=array("model"=>$value[1],
 										"attribute"=>$value2,
 										"value"=>$this->$value2
 								);

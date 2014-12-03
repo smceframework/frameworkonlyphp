@@ -27,7 +27,7 @@ class LoginForm extends SmFormModel
 			// rememberMe needs to be a boolean
             array('rememberMe', 'boolean'),
 			// password needs to be authenticated
-            array('password', "after", 'authenticate'),//array('password', false, 'authenticate'),
+            array('password', 'authenticate','after'),//array('password', false, 'authenticate'),
 			
         );
 		
