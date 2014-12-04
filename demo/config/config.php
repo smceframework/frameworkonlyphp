@@ -50,20 +50,12 @@ return array(
 		),
 		*/
 		
-		/*
+		
 		//ActiveRecord, MySQL, SQLite, PostgreSQL, Oracle
 		'ActiveRecord'=>array(
-			"connectionString"=>"mysql://username:password@localhost/db_name"
+			"connectionString"=>"mysql://root:fy23tz98@localhost/faselisproject"
 		),
-		*/
 		
-		"Doctrine"=>array(
-			'driver'   => 'pdo_mysql',
-			'user'     => 'root',
-			'password' => 'fy23tz98',
-			'dbname'   => 'faselisproject',
-			'host'     => 'localhost',
-			'port'     => '3307',
-		),
+		
 	),
 );

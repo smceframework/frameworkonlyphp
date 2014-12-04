@@ -10,7 +10,6 @@ class SiteController extends SmController
 
     public function actionIndex()
     {
-		
         if (Smce::app()->getState("name")=="") {
              $this->render("index",array(
                 "model"=>"Site controllerden gelen bi yazıdır",

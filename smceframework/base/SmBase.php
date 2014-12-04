@@ -140,6 +140,9 @@ class SmBase
 		}
 		
 		if(isset(SmBase::$config["components"]["ActiveRecord"])){
+			
+			require_once SMCE_PATH.'/extension/SmActiverecord/ActiveRecord.php';
+			
 			ActiveRecord\Config::initialize(function($cfg)
 			{
 				$cfg->set_model_directory(BASE_PATH."/model");
