@@ -136,7 +136,6 @@ class SmBase
 			\DB::$dbName = $_db["name"];
 			\DB::$host = $_db["host"];
 			
-			
 		}
 		
 		if(isset(SmBase::$config["components"]["ActiveRecord"])){
