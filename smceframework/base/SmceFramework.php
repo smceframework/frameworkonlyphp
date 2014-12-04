@@ -10,7 +10,7 @@ class SmceFramework
 {
     public static function createWebApplication($config)
     {
-       
+        require_once SMCE_PATH.'/vendor/autoload.php';
         require SMCE_PATH."/SmAutoload.php";
 		$SmAutoload = new SmAutoload;
 		$SmAutoload->register($config);

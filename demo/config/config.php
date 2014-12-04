@@ -57,6 +57,13 @@ return array(
 		),
 		*/
 		
-		
+		"Doctrine"=>array(
+			'driver'   => 'pdo_mysql',
+			'user'     => 'root',
+			'password' => 'fy23tz98',
+			'dbname'   => 'faselisproject',
+			'host'     => 'localhost',
+			'port'     => '3307',
+		),
 	),
 );

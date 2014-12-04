@@ -14,7 +14,6 @@ class SmBase
 
     public $controller;
     public $view;
-
 	
     public function run()
     {

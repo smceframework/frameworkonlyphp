@@ -101,6 +101,8 @@ class SmAutoload
 			"Smce\Core\SmLayout"=>SMCE_PATH."/core/SmLayout.php",
 			"Smce\Core\SmModel"=>SMCE_PATH."/core/SmModel.php",
 			"Smce\Core\SmActiveRecord"=>SMCE_PATH."/core/SmActiveRecord.php",
+			"Smce\Core\SmDoctrine"=>SMCE_PATH."/core/SmDoctrine.php",
+			"Smce\Core\SmDoctrine\Dojos"=>BASE_PATH."/model/Dojos.php",
 			
 			//base
 			"Smce\Base\SmBase"=>SMCE_PATH."/base/SmBase.php",
