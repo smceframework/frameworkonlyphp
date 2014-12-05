@@ -19,9 +19,9 @@ class SmBase
     {
         session_start();
         SmBase::baseURL();
-        SmBase::_includeFILE_();
-        SmBase::_db_SETTING_();
-        SmBase::baseURLCommand();
+        SmBase::includeFile();
+        SmBase::dbSetting();
+        SmBase::command();
 		
     }
 
@@ -55,7 +55,7 @@ class SmBase
 
     }
 
-    private function baseURLCommand()
+    private function command()
     {
         if (! is_file(BASE_PATH."/controller/".ucfirst($this->controller)."Controller.php")) {
             SmBase::error("Controller Not Found");
@@ -121,12 +121,12 @@ class SmBase
 
     }
 
-    private function _includeFILE_()
+    private function includeFile()
     {
       require SMCE_PATH."/Smce.php";
     }
 
-    private function _db_SETTING_()
+    private function dbSetting()
     {
 		if(isset(SmBase::$config["components"]["MeekroDB"])){
 			$_db=SmBase::$config["components"]["MeekroDB"];
