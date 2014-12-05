@@ -12,31 +12,49 @@ namespace Smce\Lib;
 
 class SmFiletozip{
 	
-	private $_file=array();
-	private $_params=array("current","away");
-	private $tmp_file;
+	private $file=array();
+	private $params=array("current","away");
+	private $tmpFile;
 	
+	/**
+	 * 
+	 * mkdir tmp
+	 *
+	 */
+	 
 	public function __construct(){
 		if(!file_exists(__DIR__."/tmp"))
 			mkdir(__DIR__."/tmp", 0777);
 		
 	}
 	
-	public function addFile($file_url="",$params=""){
-		if(isset($this->_params[$params])){
+	/**
+	 * @param $fileUrl
+	 * @param $params
+	 *
+	 */
+	
+	public function addFile($fileUrl="",$params=""){
+		if(isset($this->params[$params])){
 			return array("result"=>0,"message"=>'not params. Only "current","away"');
 		}
 		
-		$this->_file[]=array("file"=>$file_url,"params"=>$params);
+		$this->file[]=array("file"=>$fileUrl,"params"=>$params);
 	}
+	
+	/**
+	 * zip file package
+	 *
+	 * @return this
+	 */
 	
 	public function filePackage(){
 		
-		$this->tmp_file = tempnam(BASE_PATH.'\tmp.','');
+		$this->tmpFile = tempnam(BASE_PATH.'\tmp.','');
 		
 		$zip = new \ZipArchive();
-		$zip->open($this->tmp_file, \ZipArchive::CREATE);
-		foreach($this->_file as $key=>$value){
+		$zip->open($this->tmpFile, \ZipArchive::CREATE);
+		foreach($this->file as $key=>$value){
 			
 			if($value["params"]=="away"){
 				$file=file_get_contents($value["file"]);
@@ -54,6 +72,12 @@ class SmFiletozip{
 		
 	}
 	
+	/**
+	 * @param $name
+	 *
+	 * @return temp file
+	 */
+	
 	public function download($name="")
 	{
 		if(empty($name))
@@ -61,14 +85,20 @@ class SmFiletozip{
 			
 		header('Content-disposition: attachment; filename='.$name.".zip");
 		header('Content-type: application/zip');
-		readfile($this->tmp_file);
-		unlink($this->tmp_file);
+		readfile($this->tmpFile);
+		unlink($this->tmpFile);
 	}
+	
+	/**
+	 * @param $name
+	 *
+	 * file put
+	 */
 	
 	public function filePutContent($name="")
 	{
-		file_put_contents($name,file_get_contents($this->tmp_file));
-		unlink($this->tmp_file);
+		file_put_contents($name,file_get_contents($this->tmpFile));
+		unlink($this->tmpFile);
 	}
 	
 	

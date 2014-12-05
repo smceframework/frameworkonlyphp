@@ -42,6 +42,13 @@ class SmceFramework
 		return self::$smBase;
     }
 	
+	/**
+	 *
+	 * icludefile
+	 *
+	 */
+	
+	
 	
 	private static function includeFile()
 	{
@@ -100,7 +107,7 @@ class SmceFramework
 	
 	/**
 	 *
-	 * 
+	 * smce $config
 	 *
 	 */
 	
