@@ -26,12 +26,12 @@ class SmAccessRules
 
 			if (isset($value["actions"]) && in_array(strtolower($view), $value["actions"])) {
 				
-				if($this->ipAdressSearch($value["ip"])==true)
+				if(isset($value["ip"]) && $this->ipAdressSearch($value["ip"])==true)
 					return true;
 					
 				$this->loginControl($value["users"],$value["redirect"]);
 
-				if($this->expressionControl($value["expression"])==true)
+				if(isset($value["expression"]) && $this->expressionControl($value["expression"])==true)
 					return true;
 					
 			}
@@ -47,7 +47,7 @@ class SmAccessRules
 	 */
 	private function ipAdressSearch($ipAdress)
 	{
-		if (!isset($ipAdress) && is_array($ipAdress)) {
+		if (is_array($ipAdress)) {
 
 			return in_array(Smce::app()->IP, $ipAdress);
 		}
@@ -76,7 +76,7 @@ class SmAccessRules
 	
 	private function expressionControl($expression)
 	{
-		if (isset($expression) && $expression === true) {
+		if ($expression === true) {
 
 			return true;
 		}

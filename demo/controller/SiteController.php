@@ -2,7 +2,6 @@
 
 use Smce\Core\SmController;
 
-
 class SiteController extends SmController
 {
 
@@ -45,13 +44,20 @@ class SiteController extends SmController
             $model->password    =    $post->password;
 			if(isset($post->rememberMe))
             	$model->rememberMe    =  $post->rememberMe;
-			
+		
             if ($model->validate() && $model->login()) {
 			
                 //redirect url
                 $this->redirect("panel/index");
 
             }
+			/*
+			*use Smce\Lib\SmForm;
+			*print_r(SmForm::getErrorData());
+			*
+			*/
+			
+			
         }
 
         $this->render("login",array(

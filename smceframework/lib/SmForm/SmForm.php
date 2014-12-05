@@ -55,7 +55,7 @@ class SmForm
 	 * @return error count
 	 */
 
-	public function getError()
+	public static function getError()
 	{
 		return count(SmForm::$errorData) > 0;
 	}
@@ -65,7 +65,7 @@ class SmForm
 	 * @return error data
 	 */
 
-	public function getErrorData()
+	public static function getErrorData()
 	{
 		return SmForm::$errorData;
 	}
