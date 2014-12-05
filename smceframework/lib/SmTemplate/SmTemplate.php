@@ -23,16 +23,35 @@ class SmTemplate
 	
 	private $content="";
 	
+	/**
+	 * @param $layout
+	 *
+	 * 
+	 */
+
+	
 	public function setLayout($layout="")
 	{
 		 $this->layout=$layout;
 	}
+	
+	/**
+	 * @param $view
+	 * @param $array
+	 * 
+	 */
 	
 	public function setView($view="",$array=array())
 	{
 		 $this->view["view"]=$view;
 		 $this->view["array"]=$array;
 	}
+	
+	/**
+	 * @param $theme
+	 * 
+	 * 
+	 */
 	
 	public function setThemeDirectory($theme="")
 	{
@@ -42,30 +61,66 @@ class SmTemplate
 			$this->error[]="directory could not be found in the theme";
 	}
 	
+	/**
+	 * run
+	 * 
+	 * 
+	 */
+	
 	public function run()
 	{
 		$this->adjustmentDirectoryFile();
 	}
+	
+	/**
+	 * @param $error
+	 * 
+	 * 
+	 */
 	
 	public function setError($error)
 	{
 		$this->error[]=$error;
 	}
 	
+	/**
+	 * 
+	 * 
+	 * return $error
+	 */
+	
 	public function getError()
 	{
 		return $this->error;
 	}
+	
+	/**
+	 * 
+	 * 
+	 * return $layout
+	 */
 	
 	public function getLayout()
 	{
 		 return $this->layout;
 	}
 	
+	/**
+	 * 
+	 * 
+	 * return $view
+	 */
+	
 	public function getView()
 	{
 		 return $this->view;
 	} 
+	
+	/**
+	 * Adjustment Directory File
+	 * 
+	 * 
+	 */
 	
 	
 	private function adjustmentDirectoryFile()
@@ -91,12 +146,23 @@ class SmTemplate
 		
 	}
 	
+	/**
+	 * 
+	 * 
+	 * include $layout
+	 */
+	
 	private function adjustmentLayout()
 	{
 		$content=$this->content;
 		include $this->layout;
-		
 	}
+	
+	/**
+	 *  Adjustment View
+	 * 
+	 * 
+	 */
 	
 	private function adjustmentView()
 	{
