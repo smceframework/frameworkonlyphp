@@ -14,6 +14,13 @@ class SmAutoload
 {
 	private static $config;
 	
+	
+	/**
+	 * @param $className
+	 * 
+	 * include class
+	 */
+	
 	private static  function autoloadFramework($className)
 	{
 		$classMap=self::getClassMapAll();
@@ -43,27 +50,35 @@ class SmAutoload
 					require $fileName;
 		}
 		
-		
-		
 	}
 	
-	private static function autoloadApp($class_name)
+	/**
+	 * @param $className
+	 * 
+	 * include class
+	 */
+	
+	private static function autoloadApp($className)
 	{
 		
-		$parts = explode('\\', $class_name);
+		$parts = explode('\\', $className);
 		if(isset(self::$config["import"])){
 			foreach (self::$config["import"] as $key=>$value) {
-				if(file_exists(BASE_PATH."/".$value."/".$class_name . '.php'))
-					include BASE_PATH."/".$value."/".$class_name . '.php';
+				if(file_exists(BASE_PATH."/".$value."/".$className . '.php'))
+					include BASE_PATH."/".$value."/".$className . '.php';
 			}
 		
 		}
 		
-		if(file_exists(BASE_PATH."/controller/".$class_name . '.php'))
-			include BASE_PATH."/controller/".$class_name . '.php';
+		if(file_exists(BASE_PATH."/controller/".$className . '.php'))
+			include BASE_PATH."/controller/".$className . '.php';
 	}
 	
-	
+	/**
+	 * @param $className
+	 * 
+	 * include class
+	 */
 	
 	private static  function autoloadComposer($className)
 	{
@@ -75,15 +90,33 @@ class SmAutoload
 		}
 	}
 	
+	/**
+	 * autoload register
+	 * 
+	 * @param $config
+	 */
+	
 	public function register($config){
 		self::$config=$config;
 		spl_autoload_register(array($this, 'autoloadFramework'),true,true);
 		spl_autoload_register(array($this, 'autoloadApp'),true,true);
 	}
 	
+	/**
+	 * composer autoload register
+	 * 
+	 * 
+	 */
+	
 	public function registerComposer(){
 		spl_autoload_register(array($this, 'autoloadComposer'),true,true);
 	}
+	
+	/**
+	 * class all map
+	 * 
+	 * 
+	 */
 	
 	private static function getClassMapAll()
 	{
@@ -91,6 +124,12 @@ class SmAutoload
 		$clasMap=array_merge(self::classMap(), self::classMapLib());
 		return $clasMap;
 	}
+	
+	/**
+	 * class map
+	 * 
+	 * @return array
+	 */
 	
 	
 	private static function classMap(){
@@ -126,7 +165,12 @@ class SmAutoload
 		);
 	}
 	
-	
+	/**
+	 * lib class map
+	 * 
+	 * @return array
+	 */
+	 
 	private static function classMapLib(){
 		return array(
 			//lib
