@@ -12,6 +12,12 @@ namespace Smce\Lib;
 
 class SmFormField  extends  SmForm
 {
+	/**
+	 * @param $model
+	 * @param $attribute
+	 *
+	 * @return label
+	 */
 	public function labelEx($model,$attribute)
 	{
 		$model=new $model();
@@ -25,6 +31,14 @@ class SmFormField  extends  SmForm
 		}
 
 	}
+	
+	/**
+	 * @param $model
+	 * @param $attribute
+	 * @param $array
+	 *
+	 * @return input textfield
+	 */
 
 	public function textField($model,$attribute,$array=array())
 	{
@@ -63,10 +77,18 @@ class SmFormField  extends  SmForm
 			}
 		}
 
-		$STR.='name="'.get_class ($model).'['.$attribute.']" value="'.$model->$attribute.'" />';
+		$STR.=sprintf('name="%s[%s]" value="%s" />',get_class($model),$attribute,$model->$attribute);
 
 		return $STR;
 	}
+	
+	/**
+	 * @param $model
+	 * @param $attribute
+	 * @param $array
+	 *
+	 * @return input passwordfield
+	 */
 
 	public function passwordField($model,$attribute,$array=array())
 	{
@@ -104,10 +126,18 @@ class SmFormField  extends  SmForm
 			}
 		}
 
-		$STR.='name="'.get_class ($model).'['.$attribute.']" value="'.$model->$attribute.'" />';
+		$STR.=sprintf('name="%s[%s]" value="%s" />',get_class($model),$attribute,$model->$attribute);
 
 		return $STR;
 	}
+	
+	/**
+	 * @param $model
+	 * @param $attribute
+	 * @param $array
+	 *
+	 * @return textarea
+	 */
 
 	public function textArea($model,$attribute,$array=array())
 	{
@@ -146,10 +176,19 @@ class SmFormField  extends  SmForm
 			}
 		}
 
-		$STR.='name="'.get_class ($model).'['.$attribute.']">'.$model->$attribute .'</textarea>';
+		$STR.=sprintf('name="%s[%s]">%s</textarea>',get_class($model),$attribute,$model->$attribute);
 
 		return $STR;
 	}
+	
+	/**
+	 * @param $model
+	 * @param $attribute
+	 * @param $item
+	 * @param $array
+	 *
+	 * @return select
+	 */
 
 	public function dropDownList($model,$attribute,$item=array(),$array=array())
 	{
@@ -188,8 +227,8 @@ class SmFormField  extends  SmForm
 			}
 		}
 
-		$STR.='name="'.get_class ($model).'['.$attribute.']">';
-
+		
+		$STR.=sprintf('name="%s[%s]">',get_class($model),$attribute);	
 		foreach($item as $key=>$value)
 			$STR.='<option value="'.$key.'" '.($key==$model->$attribute ? 'selected="selected"' : '').'>'.$value.'</option>';
 
@@ -197,6 +236,14 @@ class SmFormField  extends  SmForm
 
 		return $STR;
 	}
+	
+	/**
+	 * @param $model
+	 * @param $attribute
+	 * @param $array
+	 *
+	 * @return input checkbox
+	 */
 
 	public function checkBox($model,$attribute,$array=array())
 	{
@@ -230,8 +277,15 @@ class SmFormField  extends  SmForm
 
 		return $STR;
 	}
+	
+	/**
+	 * @param $value
+	 * @param $array
+	 *
+	 * @return input submit
+	 */
 
-	public function submit($val,$array=array())
+	public function submit($val="",$array=array())
 	{
 		$form=array(
 			"type"=>"submit",
@@ -246,6 +300,13 @@ class SmFormField  extends  SmForm
 
 		return $STR;
 	}
+	
+	/**
+	 * @param $model
+	 * @param $attribute
+	 *
+	 * @return errorMessage
+	 */
 
 	public function error($model,$attribute)
 	{
@@ -260,6 +321,11 @@ class SmFormField  extends  SmForm
 		}
 	}
 
+	/**
+	 *
+	 * @return errorSummary
+	 */
+	 
 	public function errorSummary()
 	{
 		if (count(SmForm::$errorData)>0) {
