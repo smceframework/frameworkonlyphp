@@ -14,6 +14,11 @@ class SmForm
 {
 	public static $errorData = array();
 
+	/**
+	 * @param $array
+	 *
+	 * @return SmFormField
+	 */
 	public static function beginWidget($array = array())
 	{
 		$form = array(
@@ -34,16 +39,31 @@ class SmForm
 
 		return new SmFormField();
 	}
+	
+	/**
+	 *
+	 * echo </form>
+	 */
 
 	public static function endWidget()
 	{
 		echo '</form>';
 	}
+	
+	/**
+	 *
+	 * @return error count
+	 */
 
 	public function getError()
 	{
 		return count(SmForm::$errorData) > 0;
 	}
+	
+	/**
+	 *
+	 * @return error data
+	 */
 
 	public function getErrorData()
 	{
