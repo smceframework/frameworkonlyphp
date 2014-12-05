@@ -16,20 +16,39 @@ class SmUrlRouter{
 	
 	private $request;
 
+
+	/**
+	 * @param $request
+	 * 
+	 * 
+	 */
 	public function setRequest($request)
 	{
 		$this->request=$request;
 	}
 	
+	/**
+	 * @param $router
+	 * 
+	 * 
+	 */
 	public function setRouter($router)
 	{
 		$this->router=$router;
 	}
 	
-
+	/**
+	 * run
+	 * 
+	 * @return requestArray
+	 */
 	public function run()
 	{
-		$requestArray=array();
+		$requestArray=array(
+				"controller"=>"",
+				"view"=>"",
+		);
+		
 		if(empty($this->request)){
 			$requestArray=array(
 				"controller"=>"site",
@@ -50,10 +69,12 @@ class SmUrlRouter{
 					$requestArray[$key]=$value;
 				}
 			}else{
+				
 				$requestGetEx=explode("/",$this->request);
+				
 				$requestArray=array(
-					"controller"=>isset($routeGetEx[0])?$routeGetEx[0]:"",
-					"view"=>isset($routeGetEx[1])?$routeGetEx[1]:"",
+					"controller"=>isset($requestGetEx[0])?$requestGetEx[0]:"",
+					"view"=>isset($requestGetEx[1])?$requestGetEx[1]:"",
 				);
 				if(isset($this->router["router"][$requestGetEx[0]])){
 					foreach($this->router["router"][$requestGetEx[0]] as $key=>$value){
@@ -75,6 +96,14 @@ class SmUrlRouter{
 		return $requestArray;
 	}
 
+	/**
+	 * @param $controllerView
+	 * @param $array
+	 * @param $baseUrl
+	 * 
+	 * @return url
+	 */
+	
 	public function createUrl($controllerView="",$array=array(),$baseUrl)
 	{
 		$STR="";
@@ -88,7 +117,7 @@ class SmUrlRouter{
 			$STR.=$baseUrl."/index.php?route=".$controllerView;
 			$i=0;
 			foreach($array as $key=>$value){
-				$STR.="&".$key."=".$value;
+				$STR.=sprintf("&%s=%s",$key,$value);
 				$i++;
 			}
 		}
@@ -96,6 +125,13 @@ class SmUrlRouter{
 		return $STR;
 	}
 	
+	/**
+	 * @param $controllerView
+	 * @param $array
+	 * @param $baseUrl
+	 * 
+	 * @header url
+	 */
 	
 	public function redirect($controllerView="",$array=array(),$baseUrl)
     {
