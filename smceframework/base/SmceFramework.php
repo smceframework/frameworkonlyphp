@@ -37,7 +37,7 @@ class SmceFramework
 		
 		static::appConfig($config);
 		
-		static::smceConfig($config);
+		static::smceConfig();
 		
 		return self::$smBase;
     }
@@ -100,14 +100,14 @@ class SmceFramework
 	
 	/**
 	 *
-	 * @param $config
+	 * 
 	 *
 	 */
 	
-	private static function smceConfig($config)
+	private static function smceConfig()
 	{
 		//SmceFramework Config
-		SmBase::$configSmce=$configSmce;
+		SmBase::$configSmce=self::$configSmce;
 	}
 	
 	
