@@ -12,6 +12,13 @@ class SmceFramework
 	
 	private static $configSmce;
 	
+	/**
+	 *
+	 * @param $config
+	 *
+	 * @return new SmBase
+	 */
+	 
     public static function createWebApplication($config)
     {
 		static::includeFile();
@@ -27,6 +34,7 @@ class SmceFramework
 		return self::$smBase;
     }
 	
+	
 	private static function includeFile()
 	{
 		if(file_exists(SMCE_PATH.'/vendor/autoload.php'))
@@ -36,11 +44,23 @@ class SmceFramework
 		self::$configSmce=require SMCE_PATH."/config/config.php";
 	}
 	
+	/**
+	 *
+	 * @param $config
+	 *
+	 */
+	
 	private static function SmAutoload($config)
 	{
 		$SmAutoload = new SmAutoload;
 		$SmAutoload->register($config);
 	}
+	
+	/**
+	 *
+	 * @param $config
+	 *
+	 */
 	
 	private static function SmTrancy($config)
 	{
@@ -57,16 +77,28 @@ class SmceFramework
 		 Debugger::enable($debug, BASE_PATH . '/log');
 	}
 	
+	/**
+	 *
+	 * @param $config
+	 *
+	 */
+	
 	private static function appConfig($config)
 	{
-		//App Config
+		//Application Config
 		self::$smBase=new SmBase;
         SmBase::$config=$config;
 	}
 	
+	/**
+	 *
+	 * @param $config
+	 *
+	 */
+	
 	private static function smceConfig($config)
 	{
-		//Smce Config
+		//SmceFramework Config
 		SmBase::$configSmce=$configSmce;
 	}
 	
