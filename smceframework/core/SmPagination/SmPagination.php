@@ -77,8 +77,12 @@ class SmPagination
 		 $pageCount	=	ceil($this->count/$this->pageSize);
 		 
 		 $str='<div class="pagination">';
+		 
 		 if($page!=1)
-			 $str.='<a href="'.$this->buildQueryString($page-1).'" class="page gradient">First</a>';
+			 $str.='<a href="'.$this->buildQueryString(1).'" class="page gradient">First</a>';
+		 
+		 if($page!=1)
+			 $str.='<a href="'.$this->buildQueryString($page-1).'" class="page gradient">Prev</a>';
 			 
 		 for($s = $leftPages; $s <= $rightPages; $s++) {
 			if($s == $page)
@@ -89,7 +93,10 @@ class SmPagination
 		}
 		
 		if($pageCount!=$page)
-			$str.='<a href="'.$this->buildQueryString($page+1).'" class="page gradient">Last</a>';
+			$str.='<a href="'.$this->buildQueryString($page+1).'" class="page gradient">Next</a>';
+			
+		if($pageCount!=$page)
+			$str.='<a href="'.$this->buildQueryString($pageCount).'" class="page gradient">Last</a>';	
 		return $str;
 	 }
 	 
