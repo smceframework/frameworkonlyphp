@@ -55,11 +55,13 @@ class SmUrlRouter{
 				"view"=>"index",
 			);
 		}else{
+			
 			$routeGetEx=array();
 			if(!isset($this->router["showScriptName"]) || $this->router["showScriptName"]==false){
 				
 				if(isset($_GET["route"])){
 					$routeGetEx=explode("/",$_GET["route"]);
+					
 					$requestArray=array(
 						"controller"=>isset($routeGetEx[0])?$routeGetEx[0]:"",
 						"view"=>isset($routeGetEx[1])?$routeGetEx[1]:"",
@@ -70,8 +72,8 @@ class SmUrlRouter{
 				}
 			}else{
 				
-				$requestGetEx=explode("/",$this->request);
-				
+				$parse=parse_url($this->request);
+				$requestGetEx=explode("/",$parse["path"]);
 				$requestArray=array(
 					"controller"=>isset($requestGetEx[0])?$requestGetEx[0]:"",
 					"view"=>isset($requestGetEx[1])?$requestGetEx[1]:"",

@@ -37,6 +37,7 @@ class SmBase
     private function baseURL()
     {
 		$request=str_replace($this->base_url(), "",$_SERVER["REQUEST_URI"]);
+		
 		if(substr($request,0,1)=="/")
 			$request=substr($request,1,strlen($request));
 			
@@ -50,7 +51,6 @@ class SmBase
 			$SmUrlRouter->setRouter(self::$configSmce["urlRouter"]);
 		
 		$requestArray=$SmUrlRouter->run();
-		
 		foreach($requestArray as $key=>$value){
 			$_GET[str_replace("::","",$key)]=$value;
 		}
