@@ -79,42 +79,32 @@ class SmPagination
 		 $str='<div class="pagination">';
 		 
 		 if($page!=1)
-			 $str.='<a href="'.$this->buildQueryString(1).'" class="page gradient">First</a>';
+			 $str.='<a href="'.$this->buildQueryString(array("page"=>1)).'" class="page gradient">First</a>';
 		 
 		 if($page!=1)
-			 $str.='<a href="'.$this->buildQueryString($page-1).'" class="page gradient">Prev</a>';
+			 $str.='<a href="'.$this->buildQueryString(array("page"=>page-1)).'" class="page gradient">Prev</a>';
 			 
 		 for($s = $leftPages; $s <= $rightPages; $s++) {
 			if($s == $page)
-			    $str.='<a href="'.$this->buildQueryString($s).'" class="page active">'.$s.'</a>';
+			    $str.='<a href="'.$this->buildQueryString(array("page"=>$s)).'" class="page active">'.$s.'</a>';
 			else
-				$str.='<a href="'.$this->buildQueryString($s).'" class="page">'.$s.'</a>';
+				$str.='<a href="'.$this->buildQueryString(array("page"=>$s)).'" class="page">'.$s.'</a>';
 				
 		}
 		
 		if($pageCount!=$page)
-			$str.='<a href="'.$this->buildQueryString($page+1).'" class="page gradient">Next</a>';
+			$str.='<a href="'.$this->buildQueryString(array("page"=>$page+1)).'" class="page gradient">Next</a>';
 			
 		if($pageCount!=$page)
-			$str.='<a href="'.$this->buildQueryString($pageCount).'" class="page gradient">Last</a>';	
+			$str.='<a href="'.$this->buildQueryString(array("page"=>$pageCount)).'" class="page gradient">Last</a>';	
 		return $str;
 	 }
 	 
 	 
-	private function buildQueryString($page)
+	private function buildQueryString($params)
 	{
-		$query = preg_replace('/&page=\d*/i', '', $_SERVER['REQUEST_URI']);
-		$query = preg_replace('/page=\d*/i', '', $query);
-		$parse=parse_url($query);
-		$main=str_replace("/index.php","",$_SERVER['SCRIPT_NAME']);
-		if($page==0)
-			$page=1;
-			
-		if(isset($parse["query"]) && count($parse["query"])>0){
-			return $parse["path"]."?".$parse["query"]."&".http_build_query(array("page"=>$page));
-		}else
-			return $parse["path"]."?".http_build_query(array("page"=>$page));
-		
+		$SmUrlManager=new SmUrlManager();
+		return $SmUrlManager->buildQueryString($params);
 	}
 
 }

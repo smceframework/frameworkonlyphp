@@ -143,6 +143,7 @@ class SmAutoload
 			"Smce\Core\SmUser"=>SMCE_PATH."/core/SmUser.php",
 			"Smce\Core\SmLayout"=>SMCE_PATH."/core/SmLayout.php",
 			"Smce\Core\SmModel"=>SMCE_PATH."/core/SmModel.php",
+			"Smce\Core\SmUrlManager"=>SMCE_PATH."/core/SmUrlManager.php",
 			"Smce\Core\SmAssetsManager"=>SMCE_PATH."/core/SmAssetsManager/SmAssetsManager.php",
 			"Smce\Core\SmActiveRecord"=>SMCE_PATH."/core/SmActiveRecord/SmActiveRecord.php",
 			"Smce\Core\SmActiveEvent"=>SMCE_PATH."/core/SmActiveRecord/SmActiveEvent.php",
