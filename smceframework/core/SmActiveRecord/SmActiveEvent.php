@@ -35,9 +35,14 @@ class SmActiveEvent extends ActiveRecord\Model
 		if(is_numeric(self::$pageSize))
 		{
 			$options2["limit"]=self::$pageSize;
-			$options2["offset"]=isset($_GET["page"])?($_GET["page"]-1)*self::$pageSize:0;
+			$page=0;
 			
-			self::$offset=isset($_GET["page"])?($_GET["page"]-1)*self::$pageSize:0;
+			if(isset($_GET["page"]) && is_numeric($_GET["page"]))
+				$page=($_GET["page"]-1)*self::$pageSize;
+			
+			$options2["offset"]=$page;
+			
+			self::$offset=$page;
 		}
 		if(count($options)>1)
 			$all2=self::all($options);

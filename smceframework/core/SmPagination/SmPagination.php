@@ -103,13 +103,16 @@ class SmPagination
 	 
 	private function buildQueryString($page)
 	{
-		$parse=parse_url($_SERVER['REQUEST_URI']);
+		$query = preg_replace('/&page=\d*/i', '', $_SERVER['REQUEST_URI']);
+		$query = preg_replace('/page=\d*/i', '', $query);
+		$parse=parse_url($query);
 		$main=str_replace("/index.php","",$_SERVER['SCRIPT_NAME']);
 		if($page==0)
 			$page=1;
-		if(isset($parse["query"]) && count($parse["query"])==0)
+			
+		if(isset($parse["query"]) && count($parse["query"])>0){
 			return $parse["path"]."?".$parse["query"]."&".http_build_query(array("page"=>$page));
-		else
+		}else
 			return $parse["path"]."?".http_build_query(array("page"=>$page));
 		
 	}
