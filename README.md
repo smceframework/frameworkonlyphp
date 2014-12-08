@@ -8,6 +8,7 @@ https://packagist.org/packages/smce/framework
 - PSR
 - Autoload
 - Session Management
+- Assets Manager
 - Validation
 - Masterpage/Layout
 - Template Engine
@@ -18,6 +19,7 @@ https://packagist.org/packages/smce/framework
 - Router
 - Zip Encoding Class
 - User Agent Class
+- Pagination Class
 
 # Ornekler
 
