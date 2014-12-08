@@ -12,4 +12,4 @@
 
 <br>
 
-<?php $SmPagination->linkPager()?>
+<?php echo $SmPagination->linkPager()?>

@@ -90,7 +90,7 @@ class SmPagination
 		
 		if($pageCount!=$page)
 			$str.='<a href="'.$this->buildQueryString($page+1).'" class="page gradient">Last</a>';
-		echo $str;
+		return $str;
 	 }
 	 
 	 

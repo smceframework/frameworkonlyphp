@@ -40,12 +40,13 @@ return array(
 	),
 	
 	'components'=>array(
+		/*
 		
 		//MySQL, SQLite, PostgreSQL, Oracle
 		'ActiveRecord'=>array(
 			"connectionString"=>"mysql://username:password@localhost/db_name"
 		),
 		
-		
+		*/
 	),
 );
