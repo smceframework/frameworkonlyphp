@@ -12,7 +12,6 @@ https://packagist.org/packages/smce/framework
 - Masterpage/Layout
 - Template Engine
 - ActiveRecord(MySQL, SQLite, PostgreSQL, Oracle)
-- MeekroDB(MySQL)
 - Accses Rules
 - Debug
 - Logger
