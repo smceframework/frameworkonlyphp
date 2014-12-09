@@ -59,6 +59,4 @@ class ActiverecordController extends SmController
 		$model->delete();
 	}
 	
-	
-	
 }
