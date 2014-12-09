@@ -9,15 +9,11 @@ class SiteController extends SmController
 
     public function actionIndex()
     {
-        if (Smce::app()->getState("name")=="") {
-             $this->render("index",array(
-                "model"=>"Site controllerden gelen bi yazıdır",
-                "grup"=>"PHP-TR grubu",
-                "grup_site"=>"https://www.facebook.com/groups/tr.developers/",
-             ));
-        } else {
-            $this->redirect("panel/index");
-        }
+		$hello="Hello World";
+
+		$this->render("index",array(
+			"model"=>$hello,
+		));
     }
 	
 
