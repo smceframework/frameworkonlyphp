@@ -144,9 +144,14 @@ class SmBase
 			ActiveRecord\Config::initialize(function($cfg)
 			{
 				$cfg->set_model_directory(BASE_PATH."/main/model");
-				$cfg->set_connections(array(
-				'development' => SmBase::$config["components"]["ActiveRecord"]["connectionString"]));
+				foreach(SmBase::$config["components"]["ActiveRecord"] as $key=>$value){
+					$cfg->set_connections(array(
+						$key => $value["connectionString"]
+					));
+				}
 			});
+			
+			
 		}
 		
     }
