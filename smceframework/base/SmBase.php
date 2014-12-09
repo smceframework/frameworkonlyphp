@@ -136,15 +136,6 @@ class SmBase
 
     private function dbSetting()
     {
-		if(isset(SmBase::$config["components"]["MeekroDB"])){
-			$_db=SmBase::$config["components"]["MeekroDB"];
-	
-			\DB::$user= $_db["user"];
-			\DB::$password = $_db["password"];
-			\DB::$dbName = $_db["name"];
-			\DB::$host = $_db["host"];
-			
-		}
 		
 		if(isset(SmBase::$config["components"]["ActiveRecord"])){
 			
