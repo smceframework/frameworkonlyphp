@@ -57,7 +57,7 @@ return array(
 		
 		'SHH'=>array(
 			"shh1"=>array(
-				"host"=>"ec2-54-173-80-208.compute-1.amazonaws.com",
+				"host"=>"ec2-xx.xx.xx.xx.compute-1.amazonaws.com",
 				"username"=>"root",
 				//"password"=>"",
 				"port"=>"22",
