@@ -18,6 +18,7 @@ https://packagist.org/packages/smce/framework
 - Debug
 - Logger
 - Router
+- Use SSH to Connect to a Remote Server
 - Zip Encoding Class
 - User Agent Class
 - Pagination Class
