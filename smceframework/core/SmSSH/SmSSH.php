@@ -43,7 +43,7 @@ class SmSSH
 				$this->error[]="Passwords can not be empty";
 		}
 			
-		$ssh = new \Net_SSH2($config["host"]);
+		$ssh = new \Net_SSH2($config["host"],$config["port"]);
 		if (!$ssh->login($config["username"], $key)) {
 			$this->error[]="Login Failed";
 		}
