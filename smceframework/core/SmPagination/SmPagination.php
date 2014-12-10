@@ -21,6 +21,13 @@ class SmPagination
 	 public $file=array(
 		 "/assets/pager.css",
 	 );
+	 
+	 /**
+	 *
+	 * @param $pageSize
+	 *
+	 */
+
 	
 	 public function __construct($pageSize=10)
 	 {
@@ -35,15 +42,36 @@ class SmPagination
 		 $this->pageSize=$pageSize;
 	 }
 	 
+	 /**
+	 *
+	 *
+	 * @return pageSize
+	 */
+
+	 
 	 public function getPageSize()
 	 {
 		 return $this->pageSize;
 	 }
 	 
+	 /**
+	 *
+	 *
+	 * @return count
+	 */
+
+	 
 	 public function setCount($count=0)
 	 {
 		 $this->count=$count;
 	 }
+	 
+	 /**
+	 *
+	 *
+	 * @return linkPager
+	 */
+
 	 
 	 public function linkPager()
 	 {
@@ -100,6 +128,12 @@ class SmPagination
 		return $str;
 	 }
 	 
+	/**
+	 * @params $params
+	 *
+	 * @return buildQueryString
+	 */
+ 
 	 
 	private function buildQueryString($params)
 	{

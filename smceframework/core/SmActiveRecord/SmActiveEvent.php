@@ -22,11 +22,24 @@ class SmActiveEvent extends ActiveRecord\Model
 	
 	public static $pagination;
 	
+	/**
+	 *
+	 * @param $pagination
+	 *
+	 */
+	
 	public function apply($pagination)
 	{
 		self::$pageSize=$pagination->getPageSize();
 		self::$pagination=$pagination;
 	}
+	
+	/**
+	 *
+	 * @param $options=array()
+	 *
+	 * @return array
+	 */
 
 	public static function findAll($options=array())
 	{
@@ -56,20 +69,51 @@ class SmActiveEvent extends ActiveRecord\Model
 		return $all;
 	}
 	
+	/**
+	 *
+	 * @param $id
+	 *
+	 * @return array
+	 */
+
+	
 	public static function findByPk($id)
 	{
 		return self::find($id);
 	}
+	
+	
+	/**
+	 *
+	 *
+	 * @return offset
+	 */
+
 	
 	public function getOffset()
 	{
 		return self::$offset;	
 	}
 	
+	
+	/**
+	 *
+	 *
+	 * @return pageSize
+	 */
+
 	public function getPageSize()
 	{
 		return self::$pageSize;	
 	}
+	
+	
+	/**
+	 *
+	 *
+	 * @return count
+	 */
+
 	
 	public function getCount()
 	{

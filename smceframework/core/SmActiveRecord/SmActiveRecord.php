@@ -22,12 +22,25 @@ class SmActiveRecord extends SmActiveEvent
 	
 	private $model="";
 	
+	
+	/**
+	 *
+	 * @param $attribute
+	 * @param $params
+	 *
+	 */
+	
 	public function addError($attribute,$params)
 	{
 		SmForm::$errorData[$attribute] = $params;
 		$this->error = true;
 	}
 	
+	/**
+	 *
+	 * @return bool
+	 *
+	 */
 
 	public function validate()
 	{
@@ -37,6 +50,12 @@ class SmActiveRecord extends SmActiveEvent
 		else
 			return true;
 	}
+	
+	/**
+	 *
+	 * void
+	 *
+	 */
 
 	private function Smrules()
 	{

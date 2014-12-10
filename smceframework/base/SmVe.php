@@ -15,6 +15,16 @@ use Smce;
 
 class SmVe
 {
+	
+	
+	/**
+	 *
+	 * @param $controllerView
+	 * @param $array
+	 *
+	 * header location
+	 */
+
     public function redirect($controllerView="",$array=array())
     {
         $request=str_replace(Smce::app()->baseUrl."/", "",$_SERVER["REQUEST_URI"]);
@@ -29,6 +39,14 @@ class SmVe
 		
 		$SmUrlRouter->redirect($controllerView,$array,Smce::app()->baseUrl);
     }
+	
+	/**
+	 *
+	 * @param $url
+	 *
+	 * header location
+	 */
+
 	
 	public function redirectUrl($url){
 		header('Location: '.$url);
