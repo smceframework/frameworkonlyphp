@@ -12,7 +12,7 @@ class SshController extends SmController
 	public function actionIndex()
 	{
 		$conn=new SmSSH();
-		$login=$conn->login("shh1");
+		$login=$conn->login("ssh1");
 		echo "<pre>";
 		echo $login->exec('cd /etc;ls -a');
 		

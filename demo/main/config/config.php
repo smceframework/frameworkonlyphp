@@ -56,7 +56,7 @@ return array(
 		
 		
 		'SSH'=>array(
-			"shh1"=>array(
+			"ssh1"=>array(
 				"host"=>"ec2-xx.xx.xx.xx.compute-1.amazonaws.com",
 				"username"=>"root",
 				//"password"=>"",
@@ -65,7 +65,7 @@ return array(
 			),
 			
 			/*
-			"shh2"=>array(
+			"ssh2"=>array(
 				"host"=>"ec2-xx.xx.xx.xx.compute-1.amazonaws.com",
 				"username"=>"root",
 				//"password"=>"",
