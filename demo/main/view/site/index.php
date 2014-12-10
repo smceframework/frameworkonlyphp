@@ -1,6 +1,3 @@
-<?php echo $model;?>
-<br><br>
-
 <b>Proje BaseUrl</b>: <?php echo Smce::app()->baseUrl?> <br />
 <b>Proje BasePath</b>: <?php echo Smce::app()->basePath?><br />
 <b>Layout/MasterPage</b>: <?php echo $this->layout?>
@@ -17,5 +14,10 @@
 <br />
 <br />
 
+<b>SiteController gelen veri</b>: <?php echo $model?><br />
+<b>Grup</b>: <?php echo $grup?>	<br />
+<b>Grup-Site</b>: <?php echo $grup_site?>	<br />
+<br />
+<br />
 
 SiteController::methotTest(): <?=SiteController::methotTest()?>

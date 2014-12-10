@@ -26,10 +26,10 @@ class SmUser
 	    $this->data["ip"]=$this->getIP();
 	}
 	
-	public static function db($connectionString)
+	public static function db()
 	{
-     	 $connectionManager=new ConnectionManager(); 
-	 	 return $connectionManager::get_connection($connectionString);
+      $a=new ConnectionManager; 
+	  return $a::get_connection();
 	  
 	}
 

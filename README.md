@@ -41,11 +41,17 @@ class SiteController extends SmController
 
     public function actionIndex()
     {
-		$hello="Hello World";
-
-		$this->render("index",array(
-			"model"=>$hello,
-		));
+        if (Smce::app()->getState("name") == "") {
+        
+             $this->render("index", array(
+           	"model" => "Site controllerden gelen bi yazıdır",
+                "grup" => "PHP-TR grubu",
+                "grup_site" => "https://www.facebook.com/groups/tr.developers/",
+             ));
+        } else {
+        
+            $this->redirect("panel/index");
+        }
     }
 
     public function actionAbout()
@@ -106,9 +112,6 @@ View
 ``` php
 //view/site/index.php
 
-<?php echo $model;?>
-<br><br>
-
 <b>Proje BaseUrl</b>: <?php echo Smce::app()->baseUrl?> <br />
 <b>Proje BasePath</b>: <?php echo Smce::app()->basePath?><br />
 <b>Layout/MasterPage</b>: <?php echo $this->layout?>
@@ -125,6 +128,11 @@ View
 <br />
 <br />
 
+<b>SiteController gelen veri</b>: <?php echo $model?><br />
+<b>Grup</b>: <?php echo $grup?>	<br />
+<b>Grup-Site</b>: <?php echo $grup_site?>	<br />
+<br />
+<br />
 
 SiteController::methotTest(): <?=SiteController::methotTest()?>
 
