@@ -55,6 +55,25 @@ return array(
 		),
 		
 		
+		'SHH'=>array(
+			"shh1"=>array(
+				"host"=>"ec2-xx.xx.xx.xx.compute-1.amazonaws.com",
+				"username"=>"root",
+				//"password"=>"",
+				"port"=>"22",
+				"pemfile"=>BASE_PATH."/main/data/centosKEy.pem",
+			),
+			
+			/*
+			"shh2"=>array(
+				"host"=>"ec2-xx.xx.xx.xx.compute-1.amazonaws.com",
+				"username"=>"root",
+				//"password"=>"",
+				"port"=>"22",
+				"pemfile"=>BASE_PATH."/main/data/centosKEy.pem",
+			),
+			*/
+		),
 		
 		
 	),
