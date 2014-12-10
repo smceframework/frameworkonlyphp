@@ -29,7 +29,7 @@ class SmSSH
 	 */
 	public function login($ssh)
 	{
-		$config=SmBase::$config["components"]["SHH"][$ssh];
+		$config=SmBase::$config["components"]["SSH"][$ssh];
 		$key = new \Crypt_RSA();
 		if(isset($config["pemfile"]) && $config["pemfile"]!="")
 			if(file_exists(BASE_PATH."/main/data/centosKEy.pem"))
