@@ -13,7 +13,8 @@ namespace Smce\Core;
 use Smce\Lib\SmForm;
 use Smce\Lib\SmGump;
 
-class SmModel {
+class SmModel 
+{
 	
 	public $error = false;
 	private $lastError = false;
@@ -21,13 +22,26 @@ class SmModel {
 	private $model = '';
 
 	public $attributes=array();
+
+	/**
+	 *
+	 * @param $attribute
+	 * @param $params
+	 *
+	 */
+	
 	
 	public function addError($attribute, $params)
 	{
 		SmForm::$errorData[$attribute] = $params;
 		$this->error = true;
 	}
-	
+
+	/**
+	 *
+	 * @return bool
+	 *
+	 */
 
 	public function validate()
 	{
@@ -38,6 +52,12 @@ class SmModel {
 		else
 			return true;
 	}
+
+	/**
+	 *
+	 * void
+	 *
+	 */
 
 	private function Smrules()
 	{
