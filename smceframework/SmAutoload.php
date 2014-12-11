@@ -136,6 +136,7 @@ class SmAutoload
 		return array(
 
 			//Core
+			"Smce\Core\SmException"=>SMCE_PATH."/core/SmException.php",
 			"Smce\Core\SmController"=>SMCE_PATH."/core/SmController.php",
 			"Smce\Core\SmFormModel"=>SMCE_PATH."/core/SmFormModel.php",
 			"Smce\Core\SmUserIdentity"=>SMCE_PATH."/core/SmUserIdentity.php",
