@@ -433,20 +433,21 @@ SmTemplate // Template Engine
 require("vendor/autoload.php");
 
 use Smce\Lib\SmTemplate;
+use Smce\Core\SmException;
 
 $array=array("model1"=>"Welcome to SmceFramework","model2"=>"Hello");
 
-$SmTemplate=new SmTemplate();
-$SmTemplate->setView("index",$array);
-$SmTemplate->setLayout("column1");
-$SmTemplate->setThemeDirectory("");
-$SmTemplate->run();
+try{
+	$SmTemplate=new SmTemplate();
+	$SmTemplate->setView("index",$array);
+	$SmTemplate->setLayout("column1");
+	$SmTemplate->setThemeDirectory("");
+	$SmTemplate->run();
+}catch(SmException $e){
+	echo $e->errorMessage();
+}
 
-/*
-//print_r($SmTemplate->getError());
-//
-//Array ( [0] => directory could not be found in the theme [1] => View Not Found /view/index.php [2] => Layout Not Found /view/column1.php ) 
-*/
+
 ?>
 
 ```

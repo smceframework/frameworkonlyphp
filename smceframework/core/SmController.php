@@ -30,11 +30,15 @@ class SmController extends SmVe
 		$controller=strtolower(get_class($this));
 		$controller=str_replace("controller","",$controller);
 		$this->setTheme();
-		$SmTemplate=new SmTemplate();
-		$SmTemplate->setView($this->getView($view,$controller),$array);
-		$SmTemplate->setLayout($this->getLayout());
-		$SmTemplate->setThemeDirectory($this->getTheme());
-		$SmTemplate->run();
+		try{
+			$SmTemplate=new SmTemplate();
+			$SmTemplate->setView($this->getView($view,$controller),$array);
+			$SmTemplate->setLayout($this->getLayout());
+			$SmTemplate->setThemeDirectory($this->getTheme());
+			$SmTemplate->run();
+		}catch(SmException $e){
+			echo $e->errorMessage();
+		}
     }
 	
 	private function getLayout() 

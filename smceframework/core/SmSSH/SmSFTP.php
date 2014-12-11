@@ -64,15 +64,5 @@ class SmSFTP
 		return $ssh;
 	}
 	
-	/**
-	 *
-	 * @return $error
-	 *
-	 */
-	
-	public function getError()
-	{
-		return $this->error;
-	}
 	
 }

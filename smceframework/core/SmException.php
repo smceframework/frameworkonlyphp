@@ -13,6 +13,6 @@ class SmException extends \Exception
 	
 	public function errorMessage()
 	{
-		return $this->error;
+		return "<h3>".$this->error."</h3>";
 	}
 }

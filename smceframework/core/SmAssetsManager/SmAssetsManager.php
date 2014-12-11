@@ -11,6 +11,8 @@
 
 namespace Smce\Core;
 
+use Smce\Core\SmException;
+
 class SmAssetsManager
 {
 	public $file=array();
@@ -22,7 +24,7 @@ class SmAssetsManager
 	public function __construct($name)
 	{
 		if($name=="")
-			$this->setError("Not assets name");
+			throw  new SmException("Not assets name");
 		else
 			$this->name=$name;
 			
@@ -44,13 +46,5 @@ class SmAssetsManager
 		}
 	}
 	
-	public function setError($error)
-	{
-		$this->error[]=$error;
-	}
 	
-	public function getError($error)
-	{
-		$this->error[]=$error;
-	}
 }

@@ -9,6 +9,8 @@
  */
 
 namespace Smce\Lib;
+
+use Smce\Core\SmException;
  
 class SmTemplate 
 {
@@ -58,7 +60,7 @@ class SmTemplate
 		if(file_exists($theme))
 			self::$themeDirectory=$theme;
 		else
-			$this->error[]="directory could not be found in the theme";
+			throw  new SmException("directory could not be found in the theme");
 	}
 	
 	/**
@@ -72,27 +74,6 @@ class SmTemplate
 		$this->adjustmentDirectoryFile();
 	}
 	
-	/**
-	 * @param $error
-	 * 
-	 * 
-	 */
-	
-	public function setError($error)
-	{
-		$this->error[]=$error;
-	}
-	
-	/**
-	 * 
-	 * 
-	 * return $error
-	 */
-	
-	public function getError()
-	{
-		return $this->error;
-	}
 	
 	/**
 	 * 
@@ -133,7 +114,7 @@ class SmTemplate
 			$this->view["view"]=$viewFile;
 			$this->adjustmentView($this->view);
 		}else
-			$this->setError("View Not Found ".$viewFile);
+			throw  new SmException("View Not Found ".$viewFile);
 			
 			
 		if(file_exists($layoutFile))
@@ -142,7 +123,7 @@ class SmTemplate
 			$this->adjustmentLayout();
 			
 		}else
-			$this->setError("Layout Not Found ".$layoutFile);
+			throw  new SmException("Layout Not Found ".$layoutFile);
 		
 	}
 	
