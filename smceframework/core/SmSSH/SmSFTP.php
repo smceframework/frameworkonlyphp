@@ -1,0 +1,68 @@
+<?php
+
+/**
+ *
+ * @author Samed Ceylan
+ * @link http://www.samedceylan.com/
+ * @copyright 2015 SmceFramework
+ * @github https://github.com/imadige/SMCEframework-MVC
+ */
+
+namespace Smce\Core;
+
+use Smce\Core\SmException;
+use Smce\Base\SmBase;
+
+require_once(dirname(__FILE__).'/Math/BigInteger.php');
+require_once(dirname(__FILE__).'/Net/SFTP.php');
+require_once(dirname(__FILE__).'/Crypt/RSA.php');
+
+class SmSFTP
+{
+	public $error=array();
+	
+	
+	/**
+	 *
+	 * @param config $ssh
+	 *
+	 * @return $conn
+	 *
+	 */
+	public function login($ssh)
+	{
+		$config=SmBase::$config["components"]["SSH"][$ssh];
+		$key = new \Crypt_RSA();
+		
+		if(empty($config["pemfile"]) && empty($config["password"]))
+			throw  new SmException("Passwords or .pem File can not be empty");
+			
+		
+		if(!empty($config["pemfile"]) && !file_exists($config["pemfile"]))
+			throw  new SmException(".pem File not found");
+		elseif(!empty($config["pemfile"]))
+			$key->loadKey(file_get_contents($config["pemfile"]));
+		else{
+			$key=$config["password"];
+		}
+		
+		if(!isset($config["host"]) || empty($config["host"]))
+				throw  new SmException("Host can not be empty");
+		
+
+		$waitTimeoutInSeconds = 1; 
+		$fp=fsockopen($config["host"],$config["port"],$errCode,$errStr,$waitTimeoutInSeconds);
+		if(!$fp){ 
+		   throw  new SmException($errCode."_".$errStr);
+		}
+		fclose($fp);  
+			
+		$ssh = new \Net_SFTP($config["host"],$config["port"]);
+		if (!$ssh->login($config["username"], $key)) {
+			$this->error[]="Login Failed";
+		}
+		return $ssh;
+	}
+	
+	
+}
