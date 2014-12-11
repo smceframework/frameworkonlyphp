@@ -19,6 +19,11 @@ class SmUser
 {
 	public $data=array();
 
+	/**
+	 * data
+	 * 
+	 *
+	 */
 	public function __construct()
 	{
 		$this->data["basepath"]=BASE_PATH;
@@ -32,11 +37,24 @@ class SmUser
 	  return $a::get_connection();
 	  
 	}
+	
+	/**
+	 * @param $name
+	 *
+	 * return $data
+	 */
 
 	public function __get($name)
 	{
 		return $this->data[strtolower($name)];
 	}
+	
+	/**
+	 * @param $controllerView
+	 * @param $array
+	 *
+	 * @return createUrl
+	 */
 
 	public function createUrl($controllerView="",$array=array())
 	{
@@ -52,6 +70,11 @@ class SmUser
 		
 		return $SmUrlRouter->createUrl($controllerView,$array,$this->data["baseurl"]);
 	}
+	
+	/**
+	 *
+	 * @return url
+	 */
 
 	private function base_url()
 	{
@@ -59,6 +82,11 @@ class SmUser
 		define("BASE_URL",$url);
 		return $url;
 	}
+	
+	/**
+	 *
+	 * @return ip addres
+	 */
 
 	private function getIP()
 	{
@@ -75,6 +103,13 @@ class SmUser
 		}
 		return $ip;
 	}
+	
+	/**
+	 * @param $key
+	 * @param $value
+	 *
+	 * @return bool
+	 */
 
 	public function setState($key,$value)
 	{
@@ -83,6 +118,12 @@ class SmUser
 
 		return false;
 	}
+	
+	/**
+	 * @param $key
+	 *
+	 * @return session or false
+	 */
 
 	public function getState($key)
 	{
@@ -92,10 +133,22 @@ class SmUser
 		return false;
 	}
 
+	/**
+	 *
+	 * session_destroy
+	 */
+	 
 	public function stateClear()
 	{
 		session_destroy();
 	}
+	
+	/**
+	 * @param $_identity
+	 * @param $duration
+	 *
+	 * session_set_cookie_params
+	 */
 
 	public function login($_identity, $duration)
 	{
@@ -103,6 +156,12 @@ class SmUser
 
 		session_set_cookie_params($duration);
 	}
+	
+	/**
+	 * @param $urlArray
+	 *
+	 * @return bool
+	 */
 
 	public function caControl($urlArray=array())
 	{
