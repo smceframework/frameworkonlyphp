@@ -12,7 +12,7 @@ class SiteController extends SmController
     {
         $hello="Hello World";
 		
-        $this->render("indexa",array("hello"=>$hello));
+        $this->render("index",array("hello"=>$hello));
         
     }
 	

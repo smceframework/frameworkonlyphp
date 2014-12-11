@@ -42,6 +42,8 @@ class SmException extends \Exception
 	
 	public function backtrace()
 	{
+		echo "<pre>";
 		print_r(debug_backtrace());
+		echo "</pre>";
 	}
 }
