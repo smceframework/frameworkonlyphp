@@ -27,7 +27,7 @@
 <div class="container" id="page">
 
 	<div id="header">
-		<div id="logo"><a href="<?php echo Smce::app()->createUrl("site/index"); ?>"><img src="<?php echo Smce::app()->baseUrl; ?>/front/images/logo.jpg"/></a></div>
+		<div id="logo">Welcome to SmceFramework</div>
 	</div><!-- header -->
 
 <div id="mainmenu">

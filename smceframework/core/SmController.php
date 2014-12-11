@@ -37,7 +37,7 @@ class SmController extends SmVe
 			$SmTemplate->setThemeDirectory($this->getTheme());
 			$SmTemplate->run();
 		}catch(SmException $e){
-			echo $e->errorMessage();
+			echo $e->getMessage();
 		}
     }
 	

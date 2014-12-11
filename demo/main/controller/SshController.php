@@ -19,7 +19,7 @@ class SshController extends SmController
 			echo "<pre>";
 			echo $login->exec('cd /etc;ls -a');
 		}catch(SmException $e){
-			echo $e->errorMessage();
+			echo $e->getMessage();
 		}
 		
 		//print_r($conn->getError());
@@ -36,7 +36,7 @@ class SshController extends SmController
 			$login->put('filename.txt', 'hello, world!');
 			print_r($login->nlist());
 		}catch(SmException $e){
-			echo $e->errorMessage();
+			echo $e->getMessage();
 		}
 		
 		//print_r($conn->getError());
