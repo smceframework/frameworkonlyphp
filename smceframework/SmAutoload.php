@@ -183,6 +183,7 @@ class SmAutoload
 			"Smce\Lib\SmGump"=>SMCE_PATH."/lib/SmGump/SmGump.php",
 			"Smce\Lib\SmUrlRouter"=>SMCE_PATH."/lib/SmUrlRouter/SmUrlRouter.php",
 			"Smce\Lib\SmFiletozip"=>SMCE_PATH."/lib/SmFiletozip/SmFiletozip.php",
+			"Smce\Lib\SmOutput"=>SMCE_PATH."/lib/SmOutput/SmOutput.php",
 		);
 	}
 	
