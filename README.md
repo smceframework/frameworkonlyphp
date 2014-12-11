@@ -20,6 +20,7 @@ https://packagist.org/packages/smce/framework
 - Router
 - Use SSH to Connect to a Remote Server (SSH,FTP)
 - Using multiple ssh and ftp over SSH
+- Exception Class
 - Zip Encoding Class
 - User Agent Class
 - Pagination Class
