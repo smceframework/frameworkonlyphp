@@ -110,7 +110,7 @@ class SmPagination
 			 $str.='<a href="'.$this->buildQueryString(array("page"=>1)).'" class="page gradient">First</a>';
 		 
 		 if($page!=1)
-			 $str.='<a href="'.$this->buildQueryString(array("page"=>page-1)).'" class="page gradient">Prev</a>';
+			 $str.='<a href="'.$this->buildQueryString(array("page"=>$page-1)).'" class="page gradient">Prev</a>';
 			 
 		 for($s = $leftPages; $s <= $rightPages; $s++) {
 			if($s == $page)

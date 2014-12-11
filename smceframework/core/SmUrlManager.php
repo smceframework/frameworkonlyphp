@@ -15,12 +15,13 @@ class SmUrlManager
 {
 	public $requestUri="";
 
-	public function __construct($requestUri)
+	public function __construct($requestUri="")
 	 {
 	 	if(!empty($requestUri))
 	 		$this->requestUri=$requestUri;
 	 	else
 	 		$this->requestUri=$_SERVER["REQUEST_URI"];
+			
 	 }
 
 	 public function parseUrl()
@@ -45,8 +46,8 @@ class SmUrlManager
 	 		unset($query["p"]);
 
 	 	$query=array_merge($query,$params);
-
-	 	return urldecode($this->parseUrl["path"]."?".http_build_query($query));
+		$parse=$this->parseUrl();
+	 	return urldecode($parse["path"]."?".http_build_query($query));
 
 	 }
 

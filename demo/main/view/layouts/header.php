@@ -17,7 +17,6 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/form.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/form.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/menu.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/pager.css" />
     
 	<script type="text/javascript" src="<?php echo Smce::app()->baseUrl; ?>/front/js/menu.js"></script>
 	<title>Smceframework</title>
