@@ -41,13 +41,7 @@ class SiteController extends SmController
         $model=new LoginForm();
 
         if (isset($_POST["LoginForm"])) {
-            $post=(object) $_POST["LoginForm"];
-
-            $model->username    =    $post->username;
-            $model->password    =    $post->password;
-			if(isset($post->rememberMe))
-            	$model->rememberMe    =  $post->rememberMe;
-		
+            $model->attributes=$_POST["LoginForm"];
             if ($model->validate() && $model->login()) {
 			
                 //redirect url

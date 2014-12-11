@@ -152,9 +152,9 @@ class SmUser
 
 	public function login($_identity, $duration)
 	{
-		$this->setState("SMCE_login71", true);
-
+		ini_set('session.gc_maxlifetime', $duration);
 		session_set_cookie_params($duration);
+		$this->setState("SMCE_login71", true);
 	}
 	
 	/**

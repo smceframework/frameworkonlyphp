@@ -19,6 +19,8 @@ class SmModel {
 	private $lastError = false;
 	
 	private $model = '';
+
+	public $attributes=array();
 	
 	public function addError($attribute, $params)
 	{
@@ -64,7 +66,11 @@ class SmModel {
 							
 							$value2 = trim($value2);
 							$valid[$value2] = trim($value[1]);
-							$data[$value2] = $this->$value2;
+							
+							if(isset($this->attributes[$value2])){
+								$data[$value2] = $this->attributes[$value2];
+								$this->$value2 = $this->attributes[$value2];
+							}	
 
 						} else {
 							
@@ -83,6 +89,7 @@ class SmModel {
 						}
 					}
 				}
+
 				
 				$SmGump = new SmGump();
 				$SmGump->validate($data, $valid);

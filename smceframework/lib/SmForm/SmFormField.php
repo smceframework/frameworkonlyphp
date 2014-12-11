@@ -255,6 +255,7 @@ class SmFormField  extends  SmForm
 		$form=array(
 			"type"=>"checkbox",
 			"id"=>get_class ($model)."_".$attribute,
+			"value"=>true,
 		);
 
 		foreach($array as $key=>$value)
