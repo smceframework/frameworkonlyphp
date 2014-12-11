@@ -13,15 +13,8 @@ namespace Smce\Core;
 class SmException extends \Exception
 {
 	
-	/**
-	 *
-	 * @return debug_backtrace()
-	 */
-	
-	public function backtrace()
+	public function getName()
 	{
-		echo "<pre>";
-		print_r(debug_backtrace());
-		echo "</pre>";
+		return "Core/SmException";
 	}
 }

@@ -19,7 +19,7 @@ class SshController extends SmController
 			echo "<pre>";
 			echo $login->exec('cd /etc;ls -a');
 		}catch(SmException $e){
-			echo $e->getMessage();
+			echo $e->backtrace();
 		}
 		
 		//print_r($conn->getError());
