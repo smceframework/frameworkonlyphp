@@ -23,6 +23,7 @@ https://packagist.org/packages/smce/framework
 - Zip Encoding Class
 - User Agent Class
 - Pagination Class
+- Output Class
 
 # Ornekler
 
@@ -561,6 +562,26 @@ if($validator->validate($valid_data, $rules)) {
 echo "\nDONE\n\n";
 
 echo "</pre>";
+?>
+
+```
+
+SmOutput
+-----
+
+``` php
+<?php
+
+require("vendor/autoload.php");
+
+use Smce\Lib\SmOutput;
+
+$SmOutput=new SmOutput;
+
+$SmOutput->setContentType("application/json")
+//->setFileName("hello.json")
+->put(json_encode(array('message' => 'Hello, World!')));
+
 ?>
 
 ```
