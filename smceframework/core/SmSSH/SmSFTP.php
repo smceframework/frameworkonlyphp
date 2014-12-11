@@ -12,10 +12,10 @@ namespace Smce\Core;
 
 use Smce\Base\SmBase;
 require_once(dirname(__FILE__).'/Math/BigInteger.php');
-require_once(dirname(__FILE__).'/Net/SSH2.php');
+require_once(dirname(__FILE__).'/Net/SFTP.php');
 require_once(dirname(__FILE__).'/Crypt/RSA.php');
 
-class SmSSH
+class SmSFTP
 {
 	public $error=array();
 	
@@ -44,7 +44,7 @@ class SmSSH
 				$this->error[]="Passwords can not be empty";
 		}
 			
-		$ssh = new \Net_SSH2($config["host"],$config["port"]);
+		$ssh = new \Net_SFTP($config["host"],$config["port"]);
 		if (!$ssh->login($config["username"], $key)) {
 			$this->error[]="Login Failed";
 		}

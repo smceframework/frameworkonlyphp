@@ -149,6 +149,7 @@ class SmAutoload
 			"Smce\Core\SmActiveEvent"=>SMCE_PATH."/core/SmActiveRecord/SmActiveEvent.php",
 			"Smce\Core\SmPagination"=>SMCE_PATH."/core/SmPagination/SmPagination.php",
 			"Smce\Core\SmSSH"=>SMCE_PATH."/core/SmSSH/SmSSH.php",
+			"Smce\Core\SmSFTP"=>SMCE_PATH."/core/SmSSH/SmSFTP.php",
 			
 			//base
 			"Smce\Base\SmBase"=>SMCE_PATH."/base/SmBase.php",
