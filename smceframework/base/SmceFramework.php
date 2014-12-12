@@ -27,7 +27,7 @@ class SmceFramework
 	 * @return new SmBase
 	 */
 	 
-    public static function createWebApplication($config)
+    public static function createWebApplication($config=array())
     {
 		static::includeFile();
 		
