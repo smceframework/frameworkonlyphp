@@ -7,12 +7,12 @@ use Smce\Base\SmBase;
 class SmMemCache {
 
     /**
-     * @var array memcacheq server
+     * @var array memcache server
      */
     private $server = array();
 
     /**
-     * @var memcacheq instance
+     * @var memcache instance
      */
     private $memcache;
 
@@ -21,7 +21,7 @@ class SmMemCache {
     }
 
     /**
-     * @return array memcacheq server
+     * @return array memcache server
      */
     public function getServer() {
         return $this->server;
@@ -29,7 +29,7 @@ class SmMemCache {
 
 
     /**
-     * @return array memcacheq server instance
+     * @return array memcache server instance
      */
     public function connect($server="") {
 		if(!isset(SmBase::$config["components"]["MemCache"][$server]))
@@ -51,6 +51,12 @@ class SmMemCache {
 
         
     }
+	
+	 /**
+     * @param $name
+	 *
+	 * @return $get
+     */
 
     public function get($name){
 		if($get=$this->memcache->get($name))
@@ -59,8 +65,12 @@ class SmMemCache {
 		return $get;
     }
 
-    /**
-     * @param mixed value to add to queue
+      /**
+     * @param $name
+	 * @param $value
+	 * @param $duration
+	 *
+	 * @return $set
      */
     public function set($name,$value,$duration=10){
         if($set=$this->memcache->set($name, $value, 0, $duration))
@@ -68,6 +78,7 @@ class SmMemCache {
 			
 		return $set;
     }
+
 
 }
 

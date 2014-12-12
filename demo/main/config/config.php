@@ -84,6 +84,14 @@ return array(
 			
 		),
 		
+		'Redis'=>array(
+			"red1"=>array(
+				'host' => 'localhost', 
+                'port' => 6379,
+			),
+			
+		),
+		
 		
 	),
 );
