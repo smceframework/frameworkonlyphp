@@ -76,5 +76,14 @@ return array(
 		),
 		
 		
+		'MemCache'=>array(
+			"mem1"=>array(
+				'host' => 'localhost', 
+                'port' => 11211,
+			),
+			
+		),
+		
+		
 	),
 );

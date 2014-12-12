@@ -25,6 +25,7 @@ https://packagist.org/packages/smce/framework
 - User Agent Class
 - Pagination Class
 - Output Class
+- MemCache Class
 
 # Ornekler
 

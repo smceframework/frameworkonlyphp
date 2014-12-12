@@ -185,6 +185,8 @@ class SmAutoload
 			"Smce\Lib\SmUrlRouter"=>SMCE_PATH."/lib/SmUrlRouter/SmUrlRouter.php",
 			"Smce\Lib\SmFiletozip"=>SMCE_PATH."/lib/SmFiletozip/SmFiletozip.php",
 			"Smce\Lib\SmOutput"=>SMCE_PATH."/lib/SmOutput/SmOutput.php",
+			"Smce\Lib\SmMemCache"=>SMCE_PATH."/lib/SmMemCache/SmMemCache.php",
+			
 		);
 	}
 	

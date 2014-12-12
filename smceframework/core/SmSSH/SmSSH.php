@@ -31,6 +31,9 @@ class SmSSH
 	 */
 	public function login($ssh)
 	{
+		if(!isset(SmBase::$config["components"]["SSH"][$ssh]))
+			  throw new SmException('SSH server configuration must have "host", "port", "username", "password" and "pemfile" values in array.');
+			  
 		$config=SmBase::$config["components"]["SSH"][$ssh];
 		$key = new \Crypt_RSA();
 		

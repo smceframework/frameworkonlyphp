@@ -22,7 +22,6 @@ class SshController extends SmController
 			echo $e->getMessage();
 		}
 		
-		//print_r($conn->getError());
 	}
 	
 	
@@ -38,8 +37,6 @@ class SshController extends SmController
 		}catch(SmException $e){
 			echo $e->getMessage();
 		}
-		
-		//print_r($conn->getError());
 		
 	}
 	
