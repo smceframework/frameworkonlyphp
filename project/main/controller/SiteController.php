@@ -10,9 +10,10 @@ class SiteController extends SmController
 
     public function actionIndex()
     {
-		$hello="Hello World";
+        $hello="Hello World";
 		
         $this->render("index",array("hello"=>$hello));
+        
     }
 	
 	public function actionOutput()
@@ -22,7 +23,6 @@ class SiteController extends SmController
 		//->setFileName("hello.json")
 		->put(json_encode(array('message' => 'Hello, World!')));
 	}
-	
 
     public function actionAbout()
     {
@@ -43,17 +43,21 @@ class SiteController extends SmController
         if (isset($_POST["LoginForm"])) {
             $post=(object) $_POST["LoginForm"];
 
-            $model->username    =    $post->username;
-            $model->password    =    $post->password;
-			if(isset($post->rememberMe))
-            	$model->rememberMe    =  $post->rememberMe;
-			
+            $model->attributesApply($_POST["LoginForm"]);
+		
             if ($model->validate() && $model->login()) {
 			
                 //redirect url
                 $this->redirect("panel/index");
 
             }
+			/*
+			*use Smce\Lib\SmForm;
+			*print_r(SmForm::getErrorData());
+			*
+			*/
+			
+			
         }
 
         $this->render("login",array(

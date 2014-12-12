@@ -26,6 +26,17 @@ class SmActiveRecord extends SmActiveEvent
 	/**
 	 *
 	 * @param $attribute
+	 *
+	 */
+	public function attributesApply($attributes)
+	{
+		foreach($attributes as $key=>$value)
+			$this->$key=$value;
+	}
+
+	/**
+	 *
+	 * @param $attribute
 	 * @param $params
 	 *
 	 */

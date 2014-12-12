@@ -86,11 +86,7 @@ class SmModel
 							
 							$value2 = trim($value2);
 							$valid[$value2] = trim($value[1]);
-							
-							if(isset($this->attributes[$value2])){
-								$data[$value2] = $this->attributes[$value2];
-								$this->$value2 = $this->attributes[$value2];
-							}	
+							$data[$value2] = $this->$value2;	
 
 						} else {
 							

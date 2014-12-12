@@ -41,7 +41,9 @@ class SiteController extends SmController
         $model=new LoginForm();
 
         if (isset($_POST["LoginForm"])) {
-            $model->attributes=$_POST["LoginForm"];
+			
+            $model->attributesApply($_POST["LoginForm"]);
+		
             if ($model->validate() && $model->login()) {
 			
                 //redirect url

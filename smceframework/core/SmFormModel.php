@@ -13,4 +13,16 @@ namespace Smce\Core;
 class SmFormModel extends SmModel
 {
 	
+	/**
+	 *
+	 * @param $attribute
+	 *
+	 */
+	 
+	public function attributesApply($attributes)
+	{
+		foreach($attributes as $key=>$value)
+			$this->$key=$value;
+	}
+	
 }
