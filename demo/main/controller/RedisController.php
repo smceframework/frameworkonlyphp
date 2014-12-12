@@ -31,22 +31,19 @@ class RedisController extends SmController
 	}
 
 
-	public function actionTest()
+	public function actionIndex2()
 	{
 		try{
 			$conn=new SmRedis();
 			$login=$conn->connect("red1");
 			
 			$hello="Hello World!";
-			
 			//set
-			$login->lpush("key",$hello); //300 second
-
-			$login->lpush("key","hello2"); //300 second
+			$login->getRedis()->set("key",$hello,300); //300 second
 
 
 			//get
-			print_r($login->lrange("key",0,-1));
+			echo $login->getRedis()->get("key");
 			
 		}catch(SmException $e){
 			echo $e->getMessage();
