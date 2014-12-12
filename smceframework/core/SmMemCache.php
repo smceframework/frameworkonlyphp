@@ -16,22 +16,29 @@ class SmMemCache {
      */
     private $memcache;
 
-    public function init() {
-        $this->memcache = $this->connect();
-    }
-
+    
     /**
      * @return array memcache server
      */
-    public function getServer() {
+    public function getServer() 
+    {
         return $this->server;
+    }
+
+    /*
+     * @return memcache connect
+     */
+    public function getMemcache() 
+    {
+        return $this->memcache;
     }
 
 
     /**
      * @return array memcache server instance
      */
-    public function connect($server="") {
+    public function connect($server="") 
+    {
 		if(!isset(SmBase::$config["components"]["MemCache"][$server]))
 			  throw new SmException('MemCache server configuration must have "host" and "port" values in array.');
 			  
@@ -47,7 +54,7 @@ class SmMemCache {
         if(!$this->memcache->connect($config['host'], $config['port']))
 			 throw new SmException('Failed on connecting to memcache server at ' . $config['host'] . ':' . $config['port']);
 		else
-			return $this->memcache;
+			return $this;
 
         
     }
@@ -59,7 +66,7 @@ class SmMemCache {
      */
 
     public function get($name){
-		if($get=$this->memcache->get($name))
+		if(!$get=$this->memcache->get($name))
 			 throw new SmException("Failed to save data at the server");
 			 
 		return $get;
@@ -73,7 +80,7 @@ class SmMemCache {
 	 * @return $set
      */
     public function set($name,$value,$duration=10){
-        if($set=$this->memcache->set($name, $value, 0, $duration))
+        if(!$set=$this->memcache->set($name, $value, 0, $duration))
 			 throw new SmException("Failed to save data at the server");
 			
 		return $set;

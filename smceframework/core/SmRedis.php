@@ -11,20 +11,20 @@ class Smredis {
      */
     private $server = array();
 
-    /**
-     * @var redis instance
-     */
-    private $redis;
-
-    public function init() {
-        $this->redis = $this->connect();
-    }
 
     /**
      * @return array redis server
      */
     public function getServer() {
         return $this->server;
+    }
+
+     /*
+     * @return memcache connect
+     */
+    public function getRedis() 
+    {
+        return $this->redis;
     }
 
 
@@ -47,7 +47,7 @@ class Smredis {
         if(!$this->redis->connect($config['host'], $config['port']))
 			 throw new SmException('Failed on connecting to redis server at ' . $config['host'] . ':' . $config['port']);
 		else
-			return $this->redis;
+			return $this;
 
         
     }
@@ -57,7 +57,7 @@ class Smredis {
 	 * @return $get
      */
     public function get($name){
-		if($get=$this->redis->get($name))
+		if(!$get=$this->redis->get($name))
 			 throw new SmException("Failed to save data at the server");
 			 
 		return $get;
@@ -71,7 +71,7 @@ class Smredis {
 	 * @return $set
      */
     public function set($name,$value,$duration=10){
-        if($set=$this->redis->set($name, $value, 0, $duration))
+        if(!$set=$this->redis->set($name, $value, 0, $duration))
 			 throw new SmException("Failed to save data at the server");
 			
 		return $set;
@@ -85,7 +85,7 @@ class Smredis {
      */
 
     public function lpush($name){
-		if($get=$this->redis->get($name))
+		if(!$get=$this->redis->get($name))
 			 throw new SmException("Failed to save data at the server");
 			 
 		return $get;
@@ -99,7 +99,7 @@ class Smredis {
 	 * @return $set
      */
     public function lrange($name,$value,$duration=10){
-        if($set=$this->redis->lrange($name, $value, 0, $duration))
+        if(!$set=$this->redis->lrange($name, $value, 0, $duration))
 			 throw new SmException("Failed to save data at the server");
 			
 		return $set;
