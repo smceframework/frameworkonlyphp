@@ -151,6 +151,7 @@ class SmAutoload
 			"Smce\Core\SmPagination"=>SMCE_PATH."/core/SmPagination/SmPagination.php",
 			"Smce\Core\SmSSH"=>SMCE_PATH."/core/SmSSH/SmSSH.php",
 			"Smce\Core\SmSFTP"=>SMCE_PATH."/core/SmSSH/SmSFTP.php",
+			"Smce\Lib\SmMemCache"=>SMCE_PATH."/lib/SmMemCache.php",
 			
 			//base
 			"Smce\Base\SmBase"=>SMCE_PATH."/base/SmBase.php",
@@ -185,7 +186,7 @@ class SmAutoload
 			"Smce\Lib\SmUrlRouter"=>SMCE_PATH."/lib/SmUrlRouter/SmUrlRouter.php",
 			"Smce\Lib\SmFiletozip"=>SMCE_PATH."/lib/SmFiletozip/SmFiletozip.php",
 			"Smce\Lib\SmOutput"=>SMCE_PATH."/lib/SmOutput/SmOutput.php",
-			"Smce\Lib\SmMemCache"=>SMCE_PATH."/lib/SmMemCache/SmMemCache.php",
+			
 			
 		);
 	}
