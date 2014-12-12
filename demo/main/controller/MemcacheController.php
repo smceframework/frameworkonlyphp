@@ -3,7 +3,7 @@
 use Smce\Core\SmController;
 
 use Smce\Core\SmException;
-use Smce\Lib\SmMemCache;
+use Smce\Core\SmMemCache;
 
 class MemcacheController extends SmController
 {
