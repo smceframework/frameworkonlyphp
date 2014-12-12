@@ -18,9 +18,12 @@ class MemcacheController extends SmController
 			
 			$object = new stdClass;
 			$object->str_attr = 'test';
-			$object->int_attr = 123;
+			$object->int_attr = 1234;
 			
-			$login->set("key",$object,300); //300 second
+			//set
+			$login->set("key",$object,false,300); //300 second
+
+			//get
 			print_r($login->get("key"));
 			
 		}catch(SmException $e){
