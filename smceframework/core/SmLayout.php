@@ -12,6 +12,13 @@ namespace Smce\Core;
 
 class SmLayout
 {
+
+	/**
+     * @param $url
+     * @param $array
+	 *
+	 * @return include file
+     */
 	
 	public function content($url,$array=array())
 	{

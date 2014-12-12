@@ -15,6 +15,10 @@ class SmUrlManager
 {
 	public $requestUri="";
 
+	/**
+     * @param $requestUri
+     */
+
 	public function __construct($requestUri="")
 	 {
 	 	if(!empty($requestUri))
@@ -24,10 +28,22 @@ class SmUrlManager
 			
 	 }
 
+	 /**
+     *
+	 *
+	 * @return parse_url()
+     */
+
 	 public function parseUrl()
 	 {
 	 	return parse_url($this->requestUri);
 	 }
+
+	 /**
+     * @param $params
+	 *
+	 * @return $url
+     */
 
 	 public function buildQueryString($params=array())
 	 {

@@ -1,5 +1,13 @@
 <?php
 
+/**
+ *
+ * @author Samed Ceylan
+ * @link http://www.samedceylan.com/
+ * @copyright 2015 SmceFramework
+ * @github https://github.com/imadige/SMCEframework-MVC
+ */
+
 namespace Smce\Core;
 
 use Smce\Base\SmBase;
@@ -67,7 +75,7 @@ class SmMemCache {
 
     public function get($name){
 		if(!$get=$this->memcache->get($name))
-			 throw new SmException("Failed to save data at the server");
+			 throw new SmException("Failed to get data at the server");
 			 
 		return $get;
     }
@@ -80,9 +88,9 @@ class SmMemCache {
 	 *
 	 * @return $set
      */
-    public function set($name,$value,$bolen,$duration=10){
+    public function set($name,$value,$bolen,$duration){
         if(!$set=$this->memcache->set($name, $value, $bolen, $duration))
-			 throw new SmException("Failed to save data at the server");
+			 throw new SmException("Failed to set data at the server");
 			
 		return $set;
     }
@@ -99,7 +107,7 @@ class SmMemCache {
      */
     public function add($name,$value,$bolen,$duration=10){
         if(!$set=$this->memcache->add($name, $value, $bolen, $duration))
-             throw new SmException("Failed to save data at the server");
+             throw new SmException("Failed to add data at the server");
             
         return $set;
     }
@@ -114,7 +122,7 @@ class SmMemCache {
 
     public function addServer($host,$port){
         if(!$get=$this->memcache->addServer($host,$port))
-             throw new SmException("Failed to save data at the server");
+             throw new SmException("Failed to addServer data at the server");
              
         return $get;
     }
@@ -129,7 +137,7 @@ class SmMemCache {
 
     public function close(){
         if(!$get=$this->memcache->close())
-             throw new SmException("Failed to save data at the server");
+             throw new SmException("Failed to close data at the server");
          
          return $get;
     }
@@ -144,7 +152,7 @@ class SmMemCache {
 
     public function decrement($key,$item){
         if(!$get=$this->memcache->decrement($key,$item))
-             throw new SmException("Failed to save data at the server");
+             throw new SmException("Failed to decrement data at the server");
              
         return $get;
     }
@@ -158,7 +166,7 @@ class SmMemCache {
 
     public function delete($key){
         if(!$get=$this->memcache->delete($key))
-             throw new SmException("Failed to save data at the server");
+             throw new SmException("Failed to delete data at the server");
              
         return $get;
     }
@@ -171,7 +179,7 @@ class SmMemCache {
 
     public function flush(){
         if(!$get=$this->memcache->flush())
-             throw new SmException("Failed to save data at the server");
+             throw new SmException("Failed to flush data at the server");
              
         return $get;
     }
@@ -184,7 +192,7 @@ class SmMemCache {
 
     public function getExtendedStats(){
         if(!$get=$this->memcache->getExtendedStats())
-             throw new SmException("Failed to save data at the server");
+             throw new SmException("Failed to getExtendedStats data at the server");
              
         return $get;
     }
@@ -199,7 +207,7 @@ class SmMemCache {
 
     public function getServerStatus($host,$port){
         if(!$get=$this->memcache->getServerStatus($host,$port))
-             throw new SmException("Failed to save data at the server");
+             throw new SmException("Failed to getServerStatus data at the server");
              
         return $get;
     }
@@ -213,7 +221,7 @@ class SmMemCache {
 
     public function getStats(){
         if(!$get=$this->memcache->getStats())
-             throw new SmException("Failed to save data at the server");
+             throw new SmException("Failed to getStats data at the server");
              
         return $get;
     }
@@ -227,7 +235,7 @@ class SmMemCache {
 
     public function getVersion(){
         if(!$get=$this->memcache->getVersion())
-             throw new SmException("Failed to save data at the server");
+             throw new SmException("Failed to getVersion data at the server");
              
         return $get;
     }
@@ -242,7 +250,7 @@ class SmMemCache {
 
     public function increment($key,$item){
         if(!$get=$this->memcache->increment($key,$item))
-             throw new SmException("Failed to save data at the server");
+             throw new SmException("Failed to increment data at the server");
              
         return $get;
     }
@@ -257,7 +265,7 @@ class SmMemCache {
 
     public function pconnect($host,$port){
         if(!$get=$this->memcache->pconnect($host,$port))
-             throw new SmException("Failed to save data at the server");
+             throw new SmException("Failed to pconnect data at the server");
              
         return $get;
     }
@@ -275,7 +283,7 @@ class SmMemCache {
 
     public function replace($key,$value,$bol,$duration){
         if(!$get=$this->memcache->replace($key,$value,$bol,$duration))
-             throw new SmException("Failed to save data at the server");
+             throw new SmException("Failed to replace data at the server");
              
         return $get;
     }
@@ -290,14 +298,10 @@ class SmMemCache {
 
     public function setCompressThreshold($i,$d){
         if(!$get=$this->memcache->setCompressThreshold($i,$d))
-             throw new SmException("Failed to save data at the server");
+             throw new SmException("Failed to setCompressThreshold data at the server");
              
         return $get;
     }
-
-
-
-    
 
 
 }

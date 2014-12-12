@@ -16,19 +16,43 @@ class RedisController extends SmController
 			$conn=new SmRedis();
 			$login=$conn->connect("red1");
 			
-			$object = new stdClass;
-			$object->str_attr = 'test';
-			$object->int_attr = 123;
-			
-			$login->set("key",$object,300); //300 second
-			print_r($login->get("key"));
+			$hello="Hello World!";
+			//set
+			$login->set("key",$hello,300); //300 second
+
+
+			//get
+			echo $login->get("key");
 			
 		}catch(SmException $e){
 			echo $e->getMessage();
 		}
 		
 	}
-	
+
+
+	public function actionTest()
+	{
+		try{
+			$conn=new SmRedis();
+			$login=$conn->connect("red1");
+			
+			$hello="Hello World!";
+			
+			//set
+			$login->lpush("key",$hello); //300 second
+
+			$login->lpush("key","hello2"); //300 second
+
+
+			//get
+			print_r($login->lrange("key",0,-1));
+			
+		}catch(SmException $e){
+			echo $e->getMessage();
+		}
+		
+	}
 	
 	
 	

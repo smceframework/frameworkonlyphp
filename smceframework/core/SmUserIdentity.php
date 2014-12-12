@@ -23,6 +23,11 @@ abstract class SmUserIdentity implements SmUserIdentityImp
 	public $username;
 	public $password;
 
+	  /**
+     * @param $username
+     * @param $password
+     */
+
 	public function __construct($username, $password)
 	{
 		$this->username = $username;

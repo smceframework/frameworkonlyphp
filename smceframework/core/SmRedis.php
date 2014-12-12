@@ -1,5 +1,13 @@
 <?php
 
+/**
+ *
+ * @author Samed Ceylan
+ * @link http://www.samedceylan.com/
+ * @copyright 2015 SmceFramework
+ * @github https://github.com/imadige/SMCEframework-MVC
+ */
+
 namespace Smce\Core;
 
 use Smce\Base\SmBase;
@@ -11,6 +19,10 @@ class Smredis {
      */
     private $server = array();
 
+    /**
+     * @var redis instance
+     */
+    private $redis;
 
     /**
      * @return array redis server
@@ -51,14 +63,16 @@ class Smredis {
 
         
     }
+    
 	 /**
      * @param $name
 	 *
 	 * @return $get
      */
     public function get($name){
-		if(!$get=$this->redis->get($name))
-			 throw new SmException("Failed to save data at the server");
+        if(!$get=$this->redis->get($name))
+            throw new SmException('Failed to get data at the server');
+		
 			 
 		return $get;
     }
@@ -70,39 +84,40 @@ class Smredis {
 	 *
 	 * @return $set
      */
-    public function set($name,$value,$duration=10){
-        if(!$set=$this->redis->set($name, $value, 0, $duration))
-			 throw new SmException("Failed to save data at the server");
-			
+    public function set($name,$value,$duration){
+       if(!$set=$this->redis->set($name, $value, $duration))
+            throw new SmException('Failed to set data at the server');
 		return $set;
     }
 	
 	
-	 /**
+	/**
      * @param $name
-	 *
-	 * @return $get
+     * @param $value
+     * @param $duration
+     *
+     * @return $set
      */
 
-    public function lpush($name){
-		if(!$get=$this->redis->get($name))
-			 throw new SmException("Failed to save data at the server");
+    public function lpush($key,$value){
+		if($get=$this->redis->lpush($key,$value))
+			 throw new SmException("Failed to lpush data at the server");
 			 
 		return $get;
     }
 
       /**
      * @param $name
-	 * @param $value
-	 * @param $duration
-	 *
-	 * @return $set
+     * @param $x
+     * @param $y
+     *
+     * @return $set
      */
-    public function lrange($name,$value,$duration=10){
-        if(!$set=$this->redis->lrange($name, $value, 0, $duration))
-			 throw new SmException("Failed to save data at the server");
-			
-		return $set;
+    public function lrange($name,$x,$y){
+        if(!$set=$this->redis->lrange($name, $x, $y))
+             throw new SmException("Failed to lrange data at the server");
+            
+        return $set;
     }
 
 }

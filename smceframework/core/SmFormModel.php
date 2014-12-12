@@ -15,7 +15,7 @@ class SmFormModel extends SmModel
 	
 	/**
 	 *
-	 * @param $attribute
+	 * @param $attributes
 	 *
 	 */
 	 
