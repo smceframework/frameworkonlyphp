@@ -10,7 +10,6 @@
 
 namespace Smce\Core;
 
-use Smce\Core\SmException;
 use Smce\Base\SmBase;
 
 require_once(dirname(__FILE__).'/Math/BigInteger.php');

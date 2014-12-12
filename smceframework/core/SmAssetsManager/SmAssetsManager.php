@@ -11,7 +11,6 @@
 
 namespace Smce\Core;
 
-use Smce\Core\SmException;
 
 class SmAssetsManager
 {
