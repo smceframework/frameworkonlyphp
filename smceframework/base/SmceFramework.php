@@ -33,7 +33,9 @@ class SmceFramework
 		
 		static::SmAutoload($config);
 		
-		static::SmTrancy($config);
+		
+		if(!empty($config))
+			static::SmTrancy($config);
 		
 		static::appConfig($config);
 		
