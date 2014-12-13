@@ -21,7 +21,7 @@ class SiteController extends SmController
 		$SmOutput=new SmOutput;
 		$SmOutput->setContentType("application/json")
 		//->setFileName("hello.json")
-		->put(json_encode(array('message' => 'Hello, World!')));
+		->put(json_encode(array('message' => 'Hello World!')));
 	}
 
 
