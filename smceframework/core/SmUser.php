@@ -33,8 +33,8 @@ class SmUser
 	
 	public static function db($db)
 	{
-      $conn=new ConnectionManager; 
-	  return $conn::get_connection($db);
+      	$conn=new ConnectionManager; 
+	  	return $conn::get_connection($db);
 	  
 	}
 	
