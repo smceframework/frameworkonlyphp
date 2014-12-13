@@ -44,7 +44,7 @@ return array(
 		//MySQL, SQLite, PostgreSQL, Oracle
 		'ActiveRecord'=>array(
 			'db1'=>array(
-				"connectionString"=>"mysql://username:password@localhost/db_name"
+				"connectionString"=>"mysql://root:fy23tz98@localhost/filmlistesi"
 			),
 			
 			/*
