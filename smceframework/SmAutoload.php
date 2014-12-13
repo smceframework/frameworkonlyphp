@@ -140,7 +140,7 @@ class SmAutoload
 			"Smce\Core\SmController"=>SMCE_PATH."/core/SmController.php",
 			"Smce\Core\SmFormModel"=>SMCE_PATH."/core/SmFormModel.php",
 			"Smce\Core\SmUserIdentity"=>SMCE_PATH."/core/SmUserIdentity.php",
-			"Smce\Core\SmAccessRules"=>SMCE_PATH."/core/SmAccessRules.php",
+			"Smce\Core\SmACL"=>SMCE_PATH."/core/SmACL.php",
 			"Smce\Core\SmUser"=>SMCE_PATH."/core/SmUser.php",
 			"Smce\Core\SmLayout"=>SMCE_PATH."/core/SmLayout.php",
 			"Smce\Core\SmModel"=>SMCE_PATH."/core/SmModel.php",

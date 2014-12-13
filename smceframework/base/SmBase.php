@@ -10,7 +10,7 @@
 
 namespace Smce\Base;
 
-use Smce\Core\SmAccessRules;
+use Smce\Core\SmACL;
 use Smce\Lib\SmUrlRouter;
 use SiteController;
 use ActiveRecord;
@@ -95,8 +95,8 @@ class SmBase
 
                 if (is_array($accessRules) && count($accessRules)>0) {
 
-                    $SmAccessRules=new SmAccessRules();
-                    if($SmAccessRules->rules($accessRules,$this->view))
+                    $SmACL=new SmACL();
+                    if($SmACL->rules($accessRules,$this->view))
                         $class->$actionView();
                     else
                         SmBase::error("You do not have authority to allow");
