@@ -11,7 +11,7 @@ class ActiverecordController extends SmController
 	
 	public function actionIndex(){
 		
-		$connection = Smce::app()->db();
+		$connection = Smce::app()->db("db1");
 		
 		//PDOStatement Class
 		$list=$connection->query("select * from list")->fetchAll();
