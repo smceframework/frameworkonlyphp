@@ -5,7 +5,7 @@ namespace Smce\Core;
 class SmConsole
 {
 	private $help=array(
-		"language 	 php smce --lang path/to/project/main/lang/main.php",
+		"language 	php smce --lang path/to/project/main/lang/main.php",
 	);
 
 	private $words=array(
@@ -37,6 +37,7 @@ class SmConsole
 	{
 		echo "Comming Soon";
 	}
+
 
 	public function __destruct() {
       echo "\n\n\r\r";
