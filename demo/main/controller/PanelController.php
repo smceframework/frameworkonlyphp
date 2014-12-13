@@ -16,6 +16,9 @@ class PanelController  extends SmController
        return  $this->components1->getControl();
     }
 
+
+    // Accses Control Lists (ACL)
+
     public function accessRules()
     {
         return array(

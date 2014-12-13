@@ -14,7 +14,7 @@ https://packagist.org/packages/smce/framework
 - Template Engine
 - ActiveRecord(MySQL, SQLite, PostgreSQL, Oracle)
 - Using ActiveRecord on Multiple Databases
-- Accses Rules
+- Accses Control Lists (ACL)
 - Debug
 - Logger
 - Router

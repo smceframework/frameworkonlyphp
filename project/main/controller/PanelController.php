@@ -9,6 +9,8 @@ class PanelController  extends SmController
        return  true;
     }
 
+    // Accses Control Lists (ACL)
+
     public function accessRules()
     {
         return array(
