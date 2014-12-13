@@ -23,5 +23,13 @@ class SiteController extends SmController
 		//->setFileName("hello.json")
 		->put(json_encode(array('message' => 'Hello, World!')));
 	}
+
+
+	public function error($err)
+    {
+         $this->render("error",array(
+            "code"=>$err,
+         ));
+    }
 	
 }
