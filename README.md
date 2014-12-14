@@ -28,6 +28,7 @@ https://packagist.org/packages/smce/framework
 - Output Class
 - MemCache Class
 - Redis Class
+- Migration Class
 
 # Ornekler
 
