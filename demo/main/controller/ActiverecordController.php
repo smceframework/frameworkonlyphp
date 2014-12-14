@@ -2,8 +2,6 @@
 
 use Smce\Core\SmController;
 
-use Smce\Core\SmActiveEvent;
-
 class ActiverecordController extends SmController
 {
 
@@ -37,7 +35,7 @@ class ActiverecordController extends SmController
 	
 	
 	public function actionUpdate(){
-		$model=ListModel::model()->find(2);
+		$model=ListModel::find(2);
 		$model->name="Ceylan";
 		$model->save();
 	}
