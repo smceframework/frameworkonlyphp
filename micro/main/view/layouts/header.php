@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to SmceFramework</title>
+	<title>Welcome to <?php echo Smce::app()->appname?></title>
 
 	<style type="text/css">
 
@@ -31,7 +31,7 @@
 <body>
 
 <div id="container">
-	<h1>Welcome to SmceFramework.</h1>
-
+	<h1>Welcome to <?php echo Smce::app()->appname?>.</h1>
+	
 	<div class="content">
 		

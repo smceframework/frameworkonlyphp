@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/menu.css" />
     
 	<script type="text/javascript" src="<?php echo Smce::app()->baseUrl; ?>/front/js/menu.js"></script>
-	<title>Smceframework</title>
+	<title><?php echo Smce::app()->appname?></title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
 <div class="container" id="page">
 
 	<div id="header">
-		<div id="logo">Welcome to SmceFramework</div>
+		<div id="logo">Welcome to <?php echo Smce::app()->appname;?></div>
 	</div><!-- header -->
 
 <div id="mainmenu">

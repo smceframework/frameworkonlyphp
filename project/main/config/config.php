@@ -2,7 +2,7 @@
 
 
 return array(
-	'name'=>'SmceFramework',
+	'appname'=>'Smce Framework',
 
 	// autoloading model and component classes
     'import'=>array(

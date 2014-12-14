@@ -29,6 +29,9 @@ class SmUser
 		$this->data["basepath"]=BASE_PATH;
 		$this->data["baseurl"]=$this->base_url();
 	    $this->data["ip"]=$this->getIP();
+
+	    foreach(SmBase::$config as $key=>$value)
+	    	$this->data[$key]=$value;
 	}
 	
 	public static function db($db)
