@@ -161,7 +161,7 @@ Config
 
 
 return array(
-	'name'=>'SmceFramework',
+	'appname'=>'Smce Framework',
 
 	// autoloading model and component classes
     'import'=>array(
@@ -199,14 +199,62 @@ return array(
 	),
 	
 	'components'=>array(
-		'db'=>array(
-			'user'=>"root",
-			'password'=>"",
-			'name'=>"",
-			'host'=>"localhost",
+		
+		//MySQL, SQLite, PostgreSQL, Oracle
+		'ActiveRecord'=>array(
+			'db1'=>array(
+				"connectionString"=>"mysql://username:password@localhost/db_name"
+			),
+			
+			/*
+			'db2'=>array(
+				"connectionString"=>"mysql://username:password@localhost/db_name"
+			),
+			*/
 		),
+		
+		
+		'SSH'=>array(
+			"ssh1"=>array(
+				"host"=>"ec2-xx.xx.xx.xx.compute-1.amazonaws.com",
+				"username"=>"root",
+				//"password"=>"",
+				"port"=>"22",
+				"pemfile"=>BASE_PATH."/main/data/centosKEy.pem",
+			),
+			
+			/*
+			"ssh2"=>array(
+				"host"=>"ec2-xx.xx.xx.xx.compute-1.amazonaws.com",
+				"username"=>"root",
+				//"password"=>"",
+				"port"=>"22",
+				"pemfile"=>BASE_PATH."/main/data/centosKEy.pem",
+			),
+			*/
+		),
+		
+		
+		'MemCache'=>array(
+			"mem1"=>array(
+				'host' => 'localhost', 
+                'port' => 11211,
+			),
+			
+		),
+		
+		'Redis'=>array(
+			"red1"=>array(
+				'host' => 'localhost', 
+                'port' => 6379,
+			),
+			
+		),
+		
+		
 	),
 );
+
 
 ```
 
