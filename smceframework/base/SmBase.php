@@ -81,7 +81,7 @@ class SmBase
             SmBase::$layout=$this->controller->layout;
 		
         $actionView = 'action'.ucfirst($this->view);
-        $actionController = $this->controller."Controller";
+        $actionController = ucfirst($this->controller."Controller");
 		
 		$this->controllerAction($componentsController,"beforeAction");
 		
@@ -131,7 +131,8 @@ class SmBase
 
     private function includeFile()
     {
-      require SMCE_PATH."/Smce.php";
+      require_once SMCE_PATH."/Smce.php";
+      require_once SMCE_PATH."/S.php";
     }
 
     private function dbSetting()

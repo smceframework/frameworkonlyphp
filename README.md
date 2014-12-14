@@ -29,6 +29,7 @@ https://packagist.org/packages/smce/framework
 - MemCache Class
 - Redis Class
 - Migration Class
+- Helper Class - Enriched With Anonymous Lambda Functions
 
 # Ornekler
 
