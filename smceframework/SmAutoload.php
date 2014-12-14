@@ -153,6 +153,8 @@ class SmAutoload
 			"Smce\Core\SmSFTP"=>SMCE_PATH."/core/SmSSH/SmSFTP.php",
 			"Smce\Core\SmMemCache"=>SMCE_PATH."/core/SmMemCache.php",
 			"Smce\Core\SmRedis"=>SMCE_PATH."/core/SmRedis.php",
+			"Smce\Core\SmMigration"=>SMCE_PATH."/core/SmMigration/SmMigration.php",
+			"Smce\Core\SmMigrationForge"=>SMCE_PATH."/core/SmMigration/SmMigrationForge.php",
 			
 			//base
 			"Smce\Base\SmBase"=>SMCE_PATH."/base/SmBase.php",

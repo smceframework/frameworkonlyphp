@@ -6,7 +6,7 @@ class ActiverecordController extends SmController
 {
 
     public $layout='//layouts/column1';
-	
+
 	public function actionIndex(){
 		
 		$connection = Smce::app()->db("db1");
