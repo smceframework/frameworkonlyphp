@@ -1,8 +1,6 @@
 <?php
 
 use Smce\Core\SmController;
-
-use Smce\Core\SmException;
 use Smce\Core\SmMigration;
 
 class MigrationController extends SmController
