@@ -16,6 +16,7 @@ class HelperController extends SmController
 		echo S::array_first(function($x){
 			return $x > 200 ? true:false;
 		},$array);
+
 	}
 	
 	public function actionArraylast()
@@ -25,6 +26,7 @@ class HelperController extends SmController
 		echo S::array_last(function($x){
 			return $x > 200 ? true:false;
 		},$array);
+
 	}
 
 	public function actionArrayfilter()
@@ -37,6 +39,7 @@ class HelperController extends SmController
 
 		echo "<pre>";
 		print_r($arr);
+
 	}
 
 	public function actionArrayflatten()
@@ -47,6 +50,7 @@ class HelperController extends SmController
 
 		echo "<pre>";
 		print_r($arr);
+
 	}
 
 	public function actionArrayget()
@@ -57,6 +61,7 @@ class HelperController extends SmController
 
 		echo "<pre>";
 		print_r($arr);
+		
 	}
 
 	
