@@ -658,12 +658,6 @@ $SmOutput->setContentType("application/json")
 ```
 
 
-- 
-
-## Tartismalar
-
-PHP-TR gurubu https://www.facebook.com/groups/tr.developers/
-Php-ist grubu https://www.facebook.com/groups/istanbul.developers/
 
 ## Gelistirici Hakkinda
 Samed Ceylan
