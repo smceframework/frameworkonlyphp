@@ -14,7 +14,7 @@ class HelperController extends SmController
 		$array=array(100, 200, 120, 336, 680, 247, 300, 185, 90, 125, 140);
 
 		echo S::array_first(function($x){
-			return $x > 200 ? true:false;
+			return $x > 200;
 		},$array);
 
 	}
@@ -24,7 +24,7 @@ class HelperController extends SmController
 		$array=array(100, 200, 120, 336, 680, 247, 300, 185, 90, 125, 140);
 
 		echo S::array_last(function($x){
-			return $x > 200 ? true:false;
+			return $x > 200;
 		},$array);
 
 	}
@@ -63,6 +63,26 @@ class HelperController extends SmController
 		print_r($arr);
 		
 	}
+	
+	
+	public function actionArraysort()
+	{
+		$array = array(
+			array('name' => 'Foo'),
+			array('name' => 'Soo'),
+			array('name' => 'Coo'),
+		);
+		
+		$arr=S::array_sort(function($value)
+		{
+			return $value['name'];
+		},$array);
 
+		echo "<pre>";
+		print_r($arr);
+		
+	}
+	
+	
 	
 }

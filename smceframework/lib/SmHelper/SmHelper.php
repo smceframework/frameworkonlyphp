@@ -35,7 +35,7 @@ class SmHelper
 		return $array_re;
 	}
 
-	public static function array_get($array,$params,$defalt=null)
+	public static function array_get($array,$params)
 	{
 		
 		if (is_null($params)) return $array;
@@ -44,20 +44,19 @@ class SmHelper
 
 		foreach (explode('.', $params) as $prEx)
 		{
-			if ( ! is_array($array) or ! array_key_exists($prEx, $array))
-			{
-
-				return self::value($default);
-			}
-
+			
 			$array = $array[$prEx];
+			
 		}
 		return $array;
 	}
-
-
-	public static function value($value)
+	
+	
+	public static function array_sort($command,$array)
 	{
-		return $value instanceof Closure ? $value() : $value;
+		usort($array,$command);
+		
+		return $array;
 	}
+
 }
