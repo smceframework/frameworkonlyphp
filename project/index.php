@@ -1,5 +1,7 @@
 <?php
 
+use Smce\Base\SmceFramework;
+
 // display php errors on screen
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
@@ -17,4 +19,4 @@ $config = require_once dirname(__FILE__).'/main/config/config.php';
 require_once dirname(__FILE__).'/../smceframework/smceBase.php';
 
 // createWebApplication and run
-Smce\Base\SmceFramework::createWebApplication($config)->run();
+SmceFramework::createWebApplication($config)->run();
