@@ -34,7 +34,7 @@ class SmceFramework
 		static::SmAutoload($config);
 		
 		
-		if(isset($config["debug"]) && is_bool($config["debug"]))
+		if(isset($config["debug"]) &&  $config["debug"]==true)
 			static::SmTrancy($config);
 		
 		static::appConfig($config);

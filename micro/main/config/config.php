@@ -10,7 +10,7 @@ return array(
 		
 	),
 
-	//'debug'=>true,
+	'debug'=>false,
 	
 	
 	'urlRouter'=>array(
