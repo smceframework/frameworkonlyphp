@@ -4,6 +4,9 @@ use Smce\Core\SmController;
 
 class PanelController  extends SmController
 {
+	
+	public $layout='//layouts/column1';
+	
     private $components1;
 
     public function __construct()
