@@ -35,7 +35,7 @@ class SmGrud
 		
 		$modelName=ucfirst($table)."Model";
 		
-		$model_1=file_get_contents(dirname(__FILE__)."/model/1");
+		$model_1=file_get_contents(dirname(__FILE__)."/model/model");
 		
 		$model_1=str_replace("[model]",$modelName,$model_1);
 		
@@ -122,6 +122,15 @@ class SmGrud
 		
 		$model_1=str_replace("[labels]",$labels,$model_1);
 		
+		
+		echo "Is Let's create a new model ?(yes-no)# ";
+		while ($c = fread(STDIN, 3)) {
+			if(trim(strtolower($c))=="yes" || trim(strtolower($c))=="y")
+				break;
+			else
+				exit;
+		}
+	
 		$fileName=Smce::app()->basePath."/main/model/".$modelName.".php";
 		if(file_put_contents($fileName,$model_1))
 			echo "Add ".$modelName." 	".$fileName;

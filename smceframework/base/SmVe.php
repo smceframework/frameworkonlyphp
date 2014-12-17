@@ -40,6 +40,8 @@ class SmVe
 		$SmUrlRouter->redirect($controllerView,$array,Smce::app()->baseUrl);
     }
 	
+	
+	
 	/**
 	 *
 	 * @param $url

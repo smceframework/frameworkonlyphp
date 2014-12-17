@@ -1,0 +1,18 @@
+<?php
+
+//[model]
+
+use Smce\Core\SmActiveRecord;
+
+class [model] extends SmActiveRecord
+{
+    
+    public static $table_name="[tablename]";
+    
+    public static $connection="[connection]";
+    
+    [rules]
+    
+    [labels]
+    
+}

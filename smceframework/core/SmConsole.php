@@ -9,7 +9,7 @@ class SmConsole
 	
 	private $help=array(
 		"language 		php smce --lang path/to/project/main/lang/main.php",
-		"grud/newmodel		php smce --grud model users",
+		"grud/newmodel		php smce --grud model connectingstring tablename",
 	);
 
 	private $words=array(
