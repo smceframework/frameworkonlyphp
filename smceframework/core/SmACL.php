@@ -64,7 +64,9 @@ class SmACL
 	{
 		if (isset($users) && $users == "@" && Smce::app()->getState("SMCE_login71") == '') {
 			
-			SmController::redirect($redirect==""?"site/login":$redirect);
+			$SmController=new SmController;
+			
+			$SmController->redirect($redirect==""?"site/login":$redirect);
 		}
 	}
 	
