@@ -96,7 +96,7 @@ class SmAutoload
 	 * @param $config
 	 */
 	
-	public function register($config){
+	public function register($config=array()){
 		self::$config=$config;
 		spl_autoload_register(array($this, 'autoloadFramework'),true,true);
 		spl_autoload_register(array($this, 'autoloadApp'),true,true);
@@ -155,6 +155,8 @@ class SmAutoload
 			"Smce\Core\SmRedis"=>SMCE_PATH."/core/SmRedis.php",
 			"Smce\Core\SmMigration"=>SMCE_PATH."/core/SmMigration/SmMigration.php",
 			"Smce\Core\SmMigrationForge"=>SMCE_PATH."/core/SmMigration/SmMigrationForge.php",
+			"Smce\Core\SmConsole"=>SMCE_PATH."/core/SmConsole.php",
+			"Smce\Core\SmGrud"=>SMCE_PATH."/core/SmGrud/SmGrud.php",
 			
 			//base
 			"Smce\Base\SmBase"=>SMCE_PATH."/base/SmBase.php",
