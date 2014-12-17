@@ -12,6 +12,7 @@ https://packagist.org/packages/smce/framework
 - Validation
 - Masterpage/Layout
 - Template Engine
+- GRUD
 - Smce Command Line
 - ORM ActiveRecord(MySQL, SQLite, PostgreSQL, Oracle)
 - Using ActiveRecord on Multiple Databases
