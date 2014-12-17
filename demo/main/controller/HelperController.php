@@ -34,7 +34,7 @@ class HelperController extends SmController
 		$array=array(100, 200, 120, 336, 680, 247, 300, 185, 90, 125, 140);
 
 		$arr=S::array_filter(function($x){
-			return $x > 200 ? true:false;
+			return $x > 200;
 		},$array);
 
 		echo "<pre>";

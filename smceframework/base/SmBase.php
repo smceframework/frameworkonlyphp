@@ -45,10 +45,10 @@ class SmBase
 		
 		$SmUrlRouter=new SmUrlRouter;
 		$SmUrlRouter->setRequest($request);
-		if(isset(self::$config["urlRouter"])){
-			$SmUrlRouter->setRouter(self::$config["urlRouter"]);
+		if(isset(self::$config["urlrouter"])){
+			$SmUrlRouter->setRouter(self::$config["urlrouter"]);
 		}else
-			$SmUrlRouter->setRouter(self::$configSmce["urlRouter"]);
+			$SmUrlRouter->setRouter(self::$configSmce["urlrouter"]);
 		
 		$requestArray=$SmUrlRouter->run();
 		foreach($requestArray as $key=>$value){
@@ -138,14 +138,14 @@ class SmBase
     private function dbSetting()
     {
 		
-		if(isset(SmBase::$config["components"]["ActiveRecord"])){
+		if(isset(SmBase::$config["components"]["activerecord"])){
 			
 			require_once SMCE_PATH.'/extension/SmActiverecord/ActiveRecord.php';
 			
 			ActiveRecord\Config::initialize(function($cfg)
 			{
 				$cfg->set_model_directory(BASE_PATH."/main/model");
-				foreach(SmBase::$config["components"]["ActiveRecord"] as $key=>$value){
+				foreach(SmBase::$config["components"]["activerecord"] as $key=>$value){
 					$cfg->set_connections(array(
 						$key => $value["connectionString"]
 					));

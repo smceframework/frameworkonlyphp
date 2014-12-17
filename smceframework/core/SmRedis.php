@@ -44,10 +44,10 @@ class Smredis {
      * @return array redis server instance
      */
     public function connect($server="") {
-		if(!isset(SmBase::$config["components"]["Redis"][$server]))
+		if(!isset(SmBase::$config["components"]["redis"][$server]))
 			  throw new SmException('redis server configuration must have "host" and "port" values in array.');
 			  
-		$config=SmBase::$config["components"]["Redis"][$server];
+		$config=SmBase::$config["components"]["redis"][$server];
 		
 		if (!empty($config['host']) && !empty($config['port'])) {
             $this->server = $server;

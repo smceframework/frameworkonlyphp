@@ -66,10 +66,10 @@ class SmUser
 		
 		$SmUrlRouter=new SmUrlRouter;
 		$SmUrlRouter->setRequest($request);
-		if(isset(SmBase::$config["urlRouter"])){
-			$SmUrlRouter->setRouter(SmBase::$config["urlRouter"]);
+		if(isset(SmBase::$config["urlrouter"])){
+			$SmUrlRouter->setRouter(SmBase::$config["urlrouter"]);
 		}else
-			$SmUrlRouter->setRouter(SmBase::$configSmce["urlRouter"]);
+			$SmUrlRouter->setRouter(SmBase::$configSmce["urlrouter"]);
 		
 		return $SmUrlRouter->createUrl($controllerView,$array,$this->data["baseurl"]);
 	}

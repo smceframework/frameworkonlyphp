@@ -47,10 +47,10 @@ class SmMemCache {
      */
     public function connect($server="") 
     {
-		if(!isset(SmBase::$config["components"]["MemCache"][$server]))
+		if(!isset(SmBase::$config["components"]["memcache"][$server]))
 			  throw new SmException('MemCache server configuration must have "host" and "port" values in array.');
 			  
-		$config=SmBase::$config["components"]["MemCache"][$server];
+		$config=SmBase::$config["components"]["memcache"][$server];
 		
 		if (!empty($config['host']) && !empty($config['port'])) {
             $this->server = $server;

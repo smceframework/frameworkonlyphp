@@ -13,7 +13,7 @@ return array(
 	'debug'=>true,
 	
 	
-	'urlRouter'=>array(
+	'urlrouter'=>array(
 		'router'=>array(
 			"all"=>array(),
 			"router"=>array("::veriA::","::dataB::"),
@@ -42,9 +42,9 @@ return array(
 	'components'=>array(
 		
 		//MySQL, SQLite, PostgreSQL, Oracle
-		'ActiveRecord'=>array(
+		'activerecord'=>array(
 			'db1'=>array(
-				"connectionString"=>"mysql://root:fy23tz98@localhost/filmlistesi"
+				"connectionString"=>"mysql://root:password@localhost/db_name"
 			),
 			
 			/*
@@ -54,8 +54,8 @@ return array(
 			*/
 		),
 		
-		
-		'SSH'=>array(
+		/*
+		'ssh'=>array(
 			"ssh1"=>array(
 				"host"=>"ec2-xx.xx.xx.xx.compute-1.amazonaws.com",
 				"username"=>"root",
@@ -64,7 +64,7 @@ return array(
 				"pemfile"=>BASE_PATH."/main/data/centosKEy.pem",
 			),
 			
-			/*
+			
 			"ssh2"=>array(
 				"host"=>"ec2-xx.xx.xx.xx.compute-1.amazonaws.com",
 				"username"=>"root",
@@ -72,26 +72,34 @@ return array(
 				"port"=>"22",
 				"pemfile"=>BASE_PATH."/main/data/centosKEy.pem",
 			),
-			*/
+			
 		),
 		
-		
-		'MemCache'=>array(
+		/*
+		'memcache'=>array(
 			"mem1"=>array(
 				'host' => 'localhost', 
                 'port' => 11211,
 			),
 			
+			"mem2"=>array(
+				'host' => 'localhost', 
+                'port' => 11211,
+			),
 		),
 		
-		'Redis'=>array(
+		'redis'=>array(
 			"red1"=>array(
 				'host' => 'localhost', 
                 'port' => 6379,
 			),
 			
+			"red2"=>array(
+				'host' => 'localhost', 
+                'port' => 6379,
+			),
 		),
 		
-		
+		*/
 	),
 );

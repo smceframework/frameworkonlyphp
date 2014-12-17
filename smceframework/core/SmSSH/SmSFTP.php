@@ -30,10 +30,10 @@ class SmSFTP
 	 */
 	public function login($ssh)
 	{
-		if(!isset(SmBase::$config["components"]["SSH"][$ssh]))
+		if(!isset(SmBase::$config["components"]["ssh"][$ssh]))
 			  throw new SmException('SSH server configuration must have "host", "port", "username", "password" and "pemfile" values in array.');
 			  
-		$config=SmBase::$config["components"]["SSH"][$ssh];
+		$config=SmBase::$config["components"]["ssh"][$ssh];
 		$key = new \Crypt_RSA();
 		
 		if(empty($config["pemfile"]) && empty($config["password"]))
