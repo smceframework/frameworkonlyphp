@@ -33,6 +33,11 @@ class SmBase
 		
     }
 
+	public function commandLineRun()
+    {
+        SmBase::includeFile();
+        SmBase::dbSetting();
+    }
 
     private function baseURL()
     {

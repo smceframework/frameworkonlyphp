@@ -15,6 +15,11 @@ use PDO;
 class SmMigrationForge{
 
 	protected $conn;
+	
+	
+	public function getConnection(){
+		return $this->conn;
+	}
 
 	/**
 	 * Return a list of tables within the selected database
@@ -126,6 +131,7 @@ class SmMigrationForge{
 
 		return $this->conn->query($sql,$data);
 	}
+	
 	/**
 	 * Update records in a table
 	 * @param string $table
@@ -156,5 +162,32 @@ class SmMigrationForge{
 
 
 		return $this->conn->query($sql,$values2);
+	}
+	
+	/**
+
+	 * @param sring $table
+	 *
+	 * @return Attributes
+	 *
+	*/
+	public function getAttributes($table)
+	{
+		return $this->conn->query("SHOW COLUMNS FROM ".$table)->fetchAll();
+		
+	}
+	
+	
+	/**
+
+	 * @param sring $table
+	 *
+	 * @return Attributes
+	 *
+	*/
+	public function getPrimaryKey($table)
+	{
+		return $this->conn->query("SHOW KEYS FROM ".$table. " WHERE Key_name = 'PRIMARY'")->fetchAll();
+		
 	}
 }

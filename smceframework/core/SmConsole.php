@@ -2,9 +2,11 @@
 
 namespace Smce\Core;
 
+use Smce\Base\SmBase;
 
 class SmConsole
 {
+	
 	private $help=array(
 		"language 		php smce --lang path/to/project/main/lang/main.php",
 		"grud/newmodel		php smce --grud model users",
@@ -16,12 +18,18 @@ class SmConsole
 		"--grud",
 	);
 
-	public function __construct($argv=array())
+	public function __construct($argv=array(),$config=array())
 	{
 		
 		if (isset($argv[1]) && in_array($argv[1], $this->words)) {
+			$SmBase=new SmBase;
+       		SmBase::$config=$config;
+			$SmBase->commandLineRun();
+			
 			$word=str_replace("-", "_", $argv[1]);
 			$this->$word($argv);
+			
+			
 		}else
 			echo "Undefined words. You can get help . ( php smce --help )";
 
@@ -49,8 +57,8 @@ class SmConsole
 			
 			try{
 				
-				$SmGrud=new SmGrud();
-				$SmGrud->newModel($argv[3],$argv[4]);
+				$SmGrud=new SmGrud($argv[3]);
+				$SmGrud->newModel($argv[4]);
 				
 			}catch(SmException $e){
 				
