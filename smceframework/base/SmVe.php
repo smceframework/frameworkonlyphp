@@ -11,6 +11,7 @@
 namespace Smce\Base;
 
 use Smce\Lib\SmUrlRouter;
+use Smce\Lib\SmUser;
 use Smce;
 
 class SmVe
@@ -27,17 +28,8 @@ class SmVe
 
     public function redirect($controllerView="",$array=array())
     {
-        $request=str_replace(Smce::app()->baseUrl."/", "",$_SERVER["REQUEST_URI"]);
-		$request=str_replace("index.php", "",$request);
-		
-		$SmUrlRouter=new SmUrlRouter;
-		$SmUrlRouter->setRequest($request);
-		if(isset(SmBase::$config["urlrouter"])){
-			$SmUrlRouter->setRouter(SmBase::$config["urlrouter"]);
-		}else
-			$SmUrlRouter->setRouter(SmBase::$configSmce["urlrouter"]);
-		
-		$SmUrlRouter->redirect($controllerView,$array,Smce::app()->baseUrl);
+        $SmUser=new SmUser;
+		$SmUser->redirect($controllerView,$array);
     }
 	
 	
@@ -50,8 +42,12 @@ class SmVe
 	 */
 
 	
-	public function redirectUrl($url){
-		header('Location: '.$url);
+	public function redirectUrl($url)
+	{
+		
+		$SmUser=new SmUser;
+		$SmUser->redirect($url);
+		
 	}
 
 }
