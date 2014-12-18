@@ -21,7 +21,7 @@ class SmFormField  extends  SmForm
 	public function labelEx($model,$attribute)
 	{
 		$model=new $model();
-		if (!isset($model->$attribute)) {
+		if (!property_exists($model,$attribute) && !property_exists($model,$attribute) && !isset($model->$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
 		}
@@ -42,7 +42,7 @@ class SmFormField  extends  SmForm
 
 	public function textField($model,$attribute,$array=array())
 	{
-		if (!isset($model->$attribute)) {
+		if (!property_exists($model,$attribute) && !isset($model->$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
 		}
@@ -92,7 +92,7 @@ class SmFormField  extends  SmForm
 
 	public function passwordField($model,$attribute,$array=array())
 	{
-		if (!isset($model->$attribute)) {
+		if (!property_exists($model,$attribute) && !isset($model->$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
 		}
@@ -141,7 +141,7 @@ class SmFormField  extends  SmForm
 
 	public function textArea($model,$attribute,$array=array())
 	{
-		if (!isset($model->$attribute)) {
+		if (!property_exists($model,$attribute) && !isset($model->$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
 		}
@@ -192,7 +192,7 @@ class SmFormField  extends  SmForm
 
 	public function dropDownList($model,$attribute,$item=array(),$array=array())
 	{
-		if (!isset($model->$attribute)) {
+		if (!property_exists($model,$attribute) && !isset($model->$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
 		}
@@ -247,7 +247,7 @@ class SmFormField  extends  SmForm
 
 	public function checkBox($model,$attribute,$array=array())
 	{
-		if (!isset($model->$attribute)) {
+		if (!property_exists($model,$attribute) && !isset($model->$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
 		}
@@ -313,7 +313,7 @@ class SmFormField  extends  SmForm
 	{
 		$model=new $model();
 
-		if (!isset($model->$attribute)) {
+		if (!property_exists($model,$attribute) && !isset($model->$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
 			

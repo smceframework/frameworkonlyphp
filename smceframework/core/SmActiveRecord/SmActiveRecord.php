@@ -13,7 +13,6 @@ namespace Smce\Core;
 use Smce\Core\SmForm;
 use Smce\Lib\SmGump;
 
-
 class SmActiveRecord extends SmActiveEvent
 {
 	public $error = false;
@@ -26,21 +25,6 @@ class SmActiveRecord extends SmActiveEvent
 	public $attributesData=array();
 	
 	
-	
-	public function __get($attribute)
-	{
-		if(isset($this->attributesData[$attribute])){
-			return $this->attributesData[$attribute];	
-		}
-			return "";
-	}
-	
-	
-	public function __set($attribute,$value)
-	{
-		$this->attributesData[$attribute]=$value;
-	}
-
 	/**
 	 *
 	 * @param $attribute

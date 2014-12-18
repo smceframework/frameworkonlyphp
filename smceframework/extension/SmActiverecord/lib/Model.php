@@ -375,6 +375,8 @@ class Model
 	 */
 	public function &__get($name)
 	{
+		$this->attributesData[$name]="";
+		
 		// check for getter
 		if (in_array("get_$name",static::$getters))
 		{
