@@ -21,14 +21,14 @@ class SmFormField  extends  SmForm
 	public function labelEx($model,$attribute)
 	{
 		$model=new $model();
-
-		if ( property_exists($model,$attribute)) {
-			$label=$model->attributeLabels();
-			return '<label>'.(isset($label[$attribute]) ? $label[$attribute] : '').'</label>';
-		} else {
+		if (!isset($model->$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
 		}
+		
+		$label=$model->attributeLabels();
+		
+		return '<label>'.(isset($label[$attribute]) ? $label[$attribute] : '').'</label>';
 
 	}
 	
@@ -42,7 +42,7 @@ class SmFormField  extends  SmForm
 
 	public function textField($model,$attribute,$array=array())
 	{
-		if (!property_exists($model,$attribute)) {
+		if (!isset($model->$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
 		}
@@ -92,7 +92,7 @@ class SmFormField  extends  SmForm
 
 	public function passwordField($model,$attribute,$array=array())
 	{
-		if (!property_exists($model,$attribute)) {
+		if (!isset($model->$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
 		}
@@ -141,7 +141,7 @@ class SmFormField  extends  SmForm
 
 	public function textArea($model,$attribute,$array=array())
 	{
-		if (!property_exists($model,$attribute)) {
+		if (!isset($model->$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
 		}
@@ -192,7 +192,7 @@ class SmFormField  extends  SmForm
 
 	public function dropDownList($model,$attribute,$item=array(),$array=array())
 	{
-		if (!property_exists($model,$attribute)) {
+		if (!isset($model->$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
 		}
@@ -247,7 +247,7 @@ class SmFormField  extends  SmForm
 
 	public function checkBox($model,$attribute,$array=array())
 	{
-		if (!property_exists($model,$attribute)) {
+		if (!isset($model->$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
 		}
@@ -313,13 +313,14 @@ class SmFormField  extends  SmForm
 	{
 		$model=new $model();
 
-		if ( property_exists($model,$attribute)) {
-			if(isset(SmForm::$errorData[$attribute]))
-				return '<div class="errorMessage">'.SmForm::$errorData[$attribute].'</div>';
-		} else {
+		if (!isset($model->$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
+			
 		}
+		
+		if(isset(SmForm::$errorData[$attribute]))
+			return '<div class="errorMessage">'.SmForm::$errorData[$attribute].'</div>';
 	}
 
 	/**
