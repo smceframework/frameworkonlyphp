@@ -11,5 +11,3 @@ require_once $smce_path.'/SmceBase.php';
 
 // createWebApplication and run
 SmceFramework::createWebApplication($config)->run();
-
-echo Smce::app()->getState("SMCE_".md5(md5(Smce::app()->securitycode)));

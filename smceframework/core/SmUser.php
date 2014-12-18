@@ -81,9 +81,12 @@ class SmUser
 
 	private function base_url()
 	{
-		$url=str_replace("/index.php","",$_SERVER['SCRIPT_NAME']);
-		define("BASE_URL",$url);
-		return $url;
+		
+		if(!defined('BASE_URL')){
+			$url=str_replace("/index.php","",$_SERVER['SCRIPT_NAME']);
+			define("BASE_URL",$url);
+			return $url;
+		}
 	}
 	
 	/**
