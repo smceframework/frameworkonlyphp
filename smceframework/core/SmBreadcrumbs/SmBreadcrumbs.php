@@ -25,16 +25,6 @@ class SmBreadcrumbs
 	 
 	 public function __construct($breadcrumbs=array())
 	 {
-		 if(!is_array($breadcrumbs))
-		 	throw new SmException("Breadcrumbs must be array");
-			
-		 $this->name="SmBreadcrumbs_47293758";
-		 $SmAssetsManager=new SmAssetsManager($this->name);
-		 
-		 foreach($this->file as $key=>$value)
-		 	$SmAssetsManager->addFile(dirname(__FILE__).$value);
-			
-		 $SmAssetsManager->run();
 		 
 		 $this->breadcrumbs=array_merge($this->breadcrumbs,$breadcrumbs);
 		 
