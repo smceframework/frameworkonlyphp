@@ -13,6 +13,12 @@ namespace Smce\Core;
 class SmException extends \Exception
 {
 	
+	/**
+	 *
+	 * @return name
+	 *
+	 */
+	 
 	public function getName()
 	{
 		return "Core/SmException";

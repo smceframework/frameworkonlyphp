@@ -137,6 +137,7 @@ class SmAutoload
 
 			//Core
 			"Smce\Core\SmException"=>SMCE_PATH."/core/SmException.php",
+			"Smce\Core\SmAssetsManager"=>SMCE_PATH."/core/SmAssetsManager/SmAssetsManager.php",
 			"Smce\Core\SmController"=>SMCE_PATH."/core/SmController.php",
 			"Smce\Core\SmFormModel"=>SMCE_PATH."/core/SmFormModel.php",
 			"Smce\Core\SmUserIdentity"=>SMCE_PATH."/core/SmUserIdentity.php",
@@ -145,7 +146,6 @@ class SmAutoload
 			"Smce\Core\SmLayout"=>SMCE_PATH."/core/SmLayout.php",
 			"Smce\Core\SmModel"=>SMCE_PATH."/core/SmModel.php",
 			"Smce\Core\SmUrlManager"=>SMCE_PATH."/core/SmUrlManager.php",
-			"Smce\Core\SmAssetsManager"=>SMCE_PATH."/core/SmAssetsManager/SmAssetsManager.php",
 			"Smce\Core\SmActiveRecord"=>SMCE_PATH."/core/SmActiveRecord/SmActiveRecord.php",
 			"Smce\Core\SmActiveEvent"=>SMCE_PATH."/core/SmActiveRecord/SmActiveEvent.php",
 			"Smce\Core\SmPagination"=>SMCE_PATH."/core/SmPagination/SmPagination.php",
@@ -157,6 +157,7 @@ class SmAutoload
 			"Smce\Core\SmMigrationForge"=>SMCE_PATH."/core/SmMigration/SmMigrationForge.php",
 			"Smce\Core\SmConsole"=>SMCE_PATH."/core/SmConsole.php",
 			"Smce\Core\SmGrud"=>SMCE_PATH."/core/SmGrud/SmGrud.php",
+			"Smce\Core\SmBreadcrumbs"=>SMCE_PATH."/core/SmBreadcrumbs/SmBreadcrumbs.php",
 			
 			//base
 			"Smce\Base\SmBase"=>SMCE_PATH."/base/SmBase.php",
@@ -183,6 +184,7 @@ class SmAutoload
 	 
 	private static function classMapLib(){
 		return array(
+		
 			//lib
 			"Smce\Lib\SmForm"=>SMCE_PATH."/lib/SmForm/SmForm.php",
 			"Smce\Lib\SmFormField"=>SMCE_PATH."/lib/SmForm/SmFormField.php",
@@ -192,7 +194,6 @@ class SmAutoload
 			"Smce\Lib\SmFiletozip"=>SMCE_PATH."/lib/SmFiletozip/SmFiletozip.php",
 			"Smce\Lib\SmOutput"=>SMCE_PATH."/lib/SmOutput/SmOutput.php",
 			"Smce\Lib\SmHelper"=>SMCE_PATH."/lib/SmHelper/SmHelper.php",
-			
 		);
 	}
 	

@@ -31,6 +31,7 @@ https://packagist.org/packages/smce/framework
 - Redis Class
 - Migration Class
 - Helper Class - Enriched With Anonymous Closure Functions
+- Breadcrumbs
 
 # Ornekler
 
