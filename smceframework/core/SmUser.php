@@ -116,7 +116,7 @@ class SmUser
 
 	public function setState($key,$value)
 	{
-		if ($_SESSION[$key] = $value)
+		if ($_SESSION[md5(md5(Smce::app()->securitycode)).$key] = $value)
 			return true;
 
 		return false;
@@ -130,8 +130,8 @@ class SmUser
 
 	public function getState($key)
 	{
-		if (isset($_SESSION[$key]))
-			return $_SESSION[$key];
+		if (isset($_SESSION[md5(md5(Smce::app()->securitycode)).$key]))
+			return $_SESSION[md5(md5(Smce::app()->securitycode)).$key];
 
 		return false;
 	}
@@ -143,7 +143,11 @@ class SmUser
 	 
 	public function stateClear()
 	{
-		session_destroy();
+		
+		foreach($_SESSION as $key=>$value){
+			$key=str_replace(md5(md5(Smce::app()->securitycode)),"",$key);
+			unset($_SESSION[md5(md5(Smce::app()->securitycode)).$key]);
+		}
 	}
 	
 	/**
@@ -157,7 +161,7 @@ class SmUser
 	{
 		ini_set('session.gc_maxlifetime', $duration);
 		session_set_cookie_params($duration);
-		$this->setState("SMCE_login71", true);
+		$this->setState("SMCE_".md5(md5(Smce::app()->securitycode)), true);
 	}
 	
 	/**

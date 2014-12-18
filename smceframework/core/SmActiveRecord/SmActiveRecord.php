@@ -23,16 +23,7 @@ class SmActiveRecord extends SmActiveEvent
 
 	public $attributes=array();
 	
-	public function __construct()
-	{
-		if(!isset($this->attr) || $this->attr==false){
-		
-			$SmMigration=new SmMigration(static::getConnection());
-			$attributes=$SmMigration->getAttributes(static::getTable());
-			print_r($attributes);
-			exit;
-		}
-	}
+	
 
 	/**
 	 *
