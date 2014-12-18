@@ -4,7 +4,7 @@
 return array(
 	'appname'=>'Smce Framework',
 	
-	//security code change
+	//security code (change)
 	"securitycode"=>"3u2377lasd823oo3m40z",
 	
 	// autoloading model and component classes
