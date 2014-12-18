@@ -11,14 +11,15 @@
 
 namespace Smce\Core;
 
+use Smce;
 
 class SmAssetsManager
 {
-	public $file=array();
+	private $file=array();
 	
-	public $name="";
+	private $name="";
 	
-	public $error=array();
+	private $aInclude=array();
 	
 	public function __construct($name)
 	{
@@ -42,7 +43,26 @@ class SmAssetsManager
 		{
 			if(!file_exists(BASE_PATH."/assets/".$this->name."/".basename($value)))
 				copy($value,BASE_PATH."/assets/".$this->name."/".basename($value));
+				
+				
+			$this->assetsInclude("/assets/".$this->name."/".basename($value));
 		}
+		
+	}
+	
+	public function assetsInclude($file)
+	{
+		if(!isset($this->aInclude[$file])){
+			
+			 $parts = pathinfo($file);
+			 if($parts['extension']=="css")
+				echo "<link rel='stylesheet' type='text/css' href='".Smce::app()->baseUrl.$file."' />";  
+			 elseif($parts['extension']=="js")
+				echo '<script type="text/javascript" src="'.Smce::app()->baseUrl.$file.'"></script>';  
+			 $this->aInclude[$file]=true;
+			
+		}
+		
 	}
 	
 	

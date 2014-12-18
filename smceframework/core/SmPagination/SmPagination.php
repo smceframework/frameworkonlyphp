@@ -75,14 +75,6 @@ class SmPagination
 	 
 	 public function linkPager()
 	 {
-		 foreach($this->file as $key=>$value){
-			 $parts = pathinfo(BASE_PATH."/assets/".$this->name."/".basename($value));
-			 if($parts['extension']=="css")
-			 	echo "<link rel='stylesheet' type='text/css' href='".Smce::app()->baseUrl."/assets/".$this->name."/".basename($value)."' />";  
-			 elseif($parts['extension']=="js")
-			 	echo '<script type="text/javascript" src="'.Smce::app()->baseUrl."/assets/".$this->name."/".basename($value).'"></script>';  
-			  
-		 }
 		 
 		 $page		= isset($_GET["page"])?$_GET["page"]:"";
 		 if(empty($page) || !is_numeric($page))

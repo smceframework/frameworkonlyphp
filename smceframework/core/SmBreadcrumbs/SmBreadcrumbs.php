@@ -10,9 +10,9 @@ class SmBreadcrumbs
 	 	"Home"=>array("site/index"),
 	 );
 	 
-	 private $breadcrumbsSTR="";
+	 private $breadcrumbsSTR;
 	 
-	 public $file=array(
+	 private $file=array(
 		 "/assets/breadcrumbs.css",
 	 );
 	 
@@ -23,13 +23,34 @@ class SmBreadcrumbs
 	 * @return $breadcrumbsSTR
 	 */
 	 
-	 public function __construct($breadcrumbs=array())
+	 public function __construct()
+	 {
+			
+		 $this->name="SmBreadcrumbs_47293758";
+		 $SmAssetsManager=new SmAssetsManager($this->name);
+		 
+		 foreach($this->file as $key=>$value)
+		 	$SmAssetsManager->addFile(dirname(__FILE__).$value);
+		
+		 $SmAssetsManager->run();
+	 }
+	 
+	 
+	 /**
+	 *
+	 * new BreadCrumbs
+	 *
+	 * @return breadcrumbsSettings()
+	 */
+	 
+	 public function newBreadCrumbs($breadcrumbs=array())
 	 {
 		 
 		 $this->breadcrumbs=array_merge($this->breadcrumbs,$breadcrumbs);
 		 
-		 $this->breadcrumbsSettings();
+		 $this->breadcrumbsSTR="";
 		 
+		 echo $this->breadcrumbsSettings();
 	 }
 	 
 	 
@@ -37,6 +58,7 @@ class SmBreadcrumbs
 	 *
 	 * breadcrumbs settings
 	 *
+	 * @return breadcrumbsSTR
 	 */
 	 
 	 private function breadcrumbsSettings()
@@ -48,15 +70,15 @@ class SmBreadcrumbs
 				 if(!isset($value[1]))
 			 	$value[1]=array();
 				
-			 	$this->breadcrumbsSTR.=sprintf(' » <a class="breadcrumbs" href="%s">%s</a>',Smce::app()->createUrl($value[0],$value[1]),$key);
+			 	$this->breadcrumbsSTR.=sprintf('<a class="breadcrumbs" href="%s">» %s</a>',Smce::app()->createUrl($value[0],$value[1]),$key);
 				
 			 }else
-			 	$this->breadcrumbsSTR.=sprintf(' » %s',$key);
+			 	$this->breadcrumbsSTR.=sprintf('<span class="breadcrumbs_span">» %s</span>',$key);
 		 }
 		 
 		 $this->breadcrumbsSTR.='<div class="clear"></div>';
 		 
-		 echo $this->breadcrumbsSTR;
+		 return $this->breadcrumbsSTR;
 	 }
 	 
 	 
