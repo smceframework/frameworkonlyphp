@@ -22,6 +22,7 @@ class SmActiveEvent extends ActiveRecord\Model
 	
 	public static $pagination;
 	
+	
 	/**
 	 *
 	 * @param $pagination

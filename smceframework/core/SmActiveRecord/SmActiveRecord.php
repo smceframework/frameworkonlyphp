@@ -10,7 +10,7 @@
  
 namespace Smce\Core;
 
-use Smce\Lib\SmForm;
+use Smce\Core\SmForm;
 use Smce\Lib\SmGump;
 
 
@@ -22,6 +22,17 @@ class SmActiveRecord extends SmActiveEvent
 	private $model = '';
 
 	public $attributes=array();
+	
+	public function __construct()
+	{
+		if(!isset($this->attr) || $this->attr==false){
+		
+			$SmMigration=new SmMigration(static::getConnection());
+			$attributes=$SmMigration->getAttributes(static::getTable());
+			print_r($attributes);
+			exit;
+		}
+	}
 
 	/**
 	 *

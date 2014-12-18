@@ -51,7 +51,7 @@ class SiteController extends SmController
 
             }
 			/*
-			*use Smce\Lib\SmForm;
+			*use Smce\Core\SmForm;
 			*print_r(SmForm::getErrorData());
 			*
 			*/

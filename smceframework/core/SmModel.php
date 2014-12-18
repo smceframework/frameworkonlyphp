@@ -10,7 +10,7 @@
  
 namespace Smce\Core;
 
-use Smce\Lib\SmForm;
+use Smce\Core\SmForm;
 use Smce\Lib\SmGump;
 
 class SmModel 

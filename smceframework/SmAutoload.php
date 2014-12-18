@@ -158,6 +158,8 @@ class SmAutoload
 			"Smce\Core\SmConsole"=>SMCE_PATH."/core/SmConsole.php",
 			"Smce\Core\SmGrud"=>SMCE_PATH."/core/SmGrud/SmGrud.php",
 			"Smce\Core\SmBreadcrumbs"=>SMCE_PATH."/core/SmBreadcrumbs/SmBreadcrumbs.php",
+			"Smce\Core\SmForm"=>SMCE_PATH."/core/SmForm/SmForm.php",
+			"Smce\Core\SmFormField"=>SMCE_PATH."/core/SmForm/SmFormField.php",
 			
 			//base
 			"Smce\Base\SmBase"=>SMCE_PATH."/base/SmBase.php",
@@ -186,8 +188,6 @@ class SmAutoload
 		return array(
 		
 			//lib
-			"Smce\Lib\SmForm"=>SMCE_PATH."/lib/SmForm/SmForm.php",
-			"Smce\Lib\SmFormField"=>SMCE_PATH."/lib/SmForm/SmFormField.php",
 			"Smce\Lib\SmTemplate"=>SMCE_PATH."/lib/SmTemplate/SmTemplate.php",
 			"Smce\Lib\SmGump"=>SMCE_PATH."/lib/SmGump/SmGump.php",
 			"Smce\Lib\SmUrlRouter"=>SMCE_PATH."/lib/SmUrlRouter/SmUrlRouter.php",

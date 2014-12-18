@@ -11,7 +11,7 @@
 namespace Smce\Base;
 
 use Smce\Lib\SmUrlRouter;
-use Smce\Lib\SmUser;
+use Smce\Core\SmUser;
 use Smce;
 
 class SmVe
