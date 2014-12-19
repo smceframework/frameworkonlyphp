@@ -54,22 +54,22 @@ class SmGrud
 			$value=(object)$value;
 			
 			if($value->null=="NO" && $value->extra!="auto_increment"){
-				$rules2.=$value->field.", ";
-				$rules1[]=$value->field;
+				$rules2.=strtolower($value->field).", ";
+				$rules1[]=strtolower($value->field);
 			}
 			
 			if(substr($value->type,0,7)=="varchar"){
 				preg_match("/\((.*?)\)/",$value->type,$match);
-				$varchar[$match[1]][]=$value->field;
+				$varchar[$match[1]][]=strtolower($value->field);
 			}
 			
 			if(substr($value->type,0,3)=="int"){
-				$int[][]=$value->field;
+				$int[][]=strtolower($value->field);
 			}
 			
-			$label=sprintf("'%s'		=>	'%s',",$value->field,$value->field);
+			$label[]=sprintf("'%s' =>\t'%s',",strtolower($value->field),strtolower($value->field));
 		}
-		$rules2=substr($rules2,0,strlen($rules2)-1);
+		$rules2=substr($rules2,0,strlen($rules2)-2);
 		$rules2.="', 'required'";
 		
 		$max_len=array();
@@ -117,7 +117,8 @@ class SmGrud
 		);
 	}";
 		
-		$labels=str_replace("[label]",$label,$labels);
+		
+		$labels=str_replace("[label]",implode("\n\t\t\t",$label),$labels);
 		
 		
 		$model_1=str_replace("[labels]",$labels,$model_1);
