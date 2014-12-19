@@ -108,12 +108,12 @@ class SmModel
 					}
 				}
 				
-				$this->exvalid($data,$valid,$rul,$_lastvalid);
+				$this->exvalid($data,$valid,$rul,$_lastvalid,$value2);
 			}
 		}
 	}
 	
-	private function exValid($data,$valid,$rul,$_lastvalid)
+	private function exValid($data,$valid,$rul,$_lastvalid,$value2)
 	{
 		$SmGump = new SmGump();
 		$SmGump->validate($data, $valid);
