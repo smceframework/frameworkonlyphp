@@ -29,7 +29,7 @@ class SmVe
     public function redirect($controllerView="",$array=array())
     {
         $SmUser=new SmUser;
-		$SmUser->redirect($controllerView,$array);
+		$SmUser->redirect(strtolower($controllerView),$array);
     }
 	
 	
