@@ -108,25 +108,30 @@ class SmModel
 					}
 				}
 				
-				$SmGump = new SmGump();
-				$SmGump->validate($data, $valid);
-				$rul = $SmGump->get_readable_errors();
-				if (count($rul) > 0) {
-					
-					foreach ($rul as $key => $value) {
+				$this->exvalid($data,$valid,$rul,$_lastvalid);
+			}
+		}
+	}
+	
+	private function exValid($data,$valid,$rul,$_lastvalid)
+	{
+		$SmGump = new SmGump();
+		$SmGump->validate($data, $valid);
+		$rul = $SmGump->get_readable_errors();
+		if (count($rul) > 0) {
+			
+			foreach ($rul as $key => $value) {
 
-						$this->addError($key, $value);
-					}
-					
-				} elseif ($this->lastError && empty($rul)) {
-					
-					if (count($_lastvalid) > 0) {
-						
-						foreach($_lastvalid as $key => $value)
-							$this->$value["model"]($value["attribute"], $this->$value2);
+				$this->addError($key, $value);
+			}
+			
+		} elseif ($this->lastError && empty($rul)) {
+			
+			if (count($_lastvalid) > 0) {
+				
+				foreach($_lastvalid as $key => $value)
+					$this->$value["model"]($value["attribute"], $this->$value2);
 
-					}
-				}
 			}
 		}
 	}
