@@ -36,10 +36,19 @@ https://packagist.org/packages/smce/framework
 
 # Ornekler
 
-## Smce Console help
-Name |
+### Smce Console help
+
+php smce --help |
 --- |
-aaa
+
+
+## Smce Console Grud
+
+
+### New Model
+
+php smce --grud model connectingstring table_name |
+--- |
 
 
 Controller
