@@ -108,12 +108,12 @@ class SmModel
 					}
 				}
 				
-				$this->exvalid($data,$valid,$rul,$_lastvalid,$value2);
+				$this->exvalid($data,$valid,$rul,$_lastvalid);
 			}
 		}
 	}
 	
-	private function exValid($data,$valid,$rul,$_lastvalid,$value2)
+	private function exValid($data,$valid,$rul,$_lastvalid)
 	{
 		$SmGump = new SmGump();
 		$SmGump->validate($data, $valid);
@@ -130,7 +130,7 @@ class SmModel
 			if (count($_lastvalid) > 0) {
 				
 				foreach($_lastvalid as $key => $value)
-					$this->$value["model"]($value["attribute"], $this->$value2);
+					$this->$value["model"]($value["attribute"],$value["value"]);
 
 			}
 		}
