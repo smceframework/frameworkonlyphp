@@ -54,12 +54,12 @@ class SmDetailView
 		foreach($this->view as $key=>$value){
 			
 			
-			if(isset($this->model->$value)){
-				$attributeLabel=$attributeLabels[$value];
+			if(isset($this->model->$key)){
+				$attributeLabel=$attributeLabels[$key];
 				$model.='<tr>
-							<td class="view_x1"><b>'.($attributeLabel!=""?$attributeLabel:$value).'</b></td>
+							<td class="view_x1"><b>'.($attributeLabel!=""?$attributeLabel:$key).'</b></td>
 							<td class="view_x2">:</td>
-							<td class="view_x3">'.$this->model->$value.'</td>
+							<td class="view_x3">'.($value==""?$this->model->$key:$value).'</td>
 						</tr>';
 			}
 				
