@@ -26,11 +26,12 @@ class SiteController extends SmController
 	}
 
 
-	public function error($err)
+    public function error($httpCode,$message)
     {
-         $this->render("error",array(
-            "code"=>$err,
-         ));
+		
+		$this->render("error".$httpCode,array(
+			"message"=>$message,
+		));
     }
 	
 }

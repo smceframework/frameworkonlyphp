@@ -71,10 +71,11 @@ class SiteController extends SmController
         $this->redirect("site/index");
     }
 
-    public function error($err)
+    public function error($httpCode,$message)
     {
-         $this->render("error",array(
-            "code"=>$err,
-         ));
+		
+		$this->render("error".$httpCode,array(
+			"message"=>$message,
+		));
     }
 }
