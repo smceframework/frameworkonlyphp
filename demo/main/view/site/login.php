@@ -10,7 +10,7 @@ use Smce\Core\SmForm
 <?php $form=SmForm::beginWidget(array(
 	"id"=>"login-form",
 ));?>
-	<?php $form->errorSummary(); ?>
+	<?php $form->errorSummary($model); ?>
 	<div class="row">
         <p>
         admin/admin<br />

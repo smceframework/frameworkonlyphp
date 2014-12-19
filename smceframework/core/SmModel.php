@@ -45,6 +45,7 @@ class SmModel
 
 	public function validate()
 	{
+		
 		$_rules = $this->Smrules();
 		
 		if (count($_rules) > 0 || $this->error)
@@ -61,6 +62,7 @@ class SmModel
 
 	private function Smrules()
 	{
+		
 		if (method_exists($this, 'rules')) {
 
 			$_rules = $this->rules();
@@ -105,7 +107,6 @@ class SmModel
 						}
 					}
 				}
-
 				
 				$SmGump = new SmGump();
 				$SmGump->validate($data, $valid);

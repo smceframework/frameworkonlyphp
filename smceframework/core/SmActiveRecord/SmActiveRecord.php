@@ -99,12 +99,10 @@ class SmActiveRecord extends SmActiveEvent
 							
 							$value2 = trim($value2);
 							$valid[$value2] = trim($value[1]);
+							$data[$value2]= $this->$value2;
 							
-							if(isset($this->attributes[$value2])){
-								$data[$value2] = $this->attributes[$value2];
-								$this->$value2 = $this->attributes[$value2];
-							}	
-
+							$this->exValid($data,$valid);
+							 
 						} else {
 							
 							if ($value[2] != "after") {
@@ -124,25 +122,37 @@ class SmActiveRecord extends SmActiveEvent
 				}
 
 				
-				$SmGump = new SmGump();
-				$SmGump->validate($data, $valid);
-				$rul = $SmGump->get_readable_errors();
-				if (count($rul) > 0) {
-					
-					foreach ($rul as $key => $value) {
+				$this->lastExValid($_lastvalid);
+			}
+		}
+	}
+	
+	
+	private function exValid($data,$valid)
+	{
+		$SmGump = new SmGump();
+		$SmGump->validate($data, $valid);
+		$rul = $SmGump->get_readable_errors();
+		
+		if (count($rul) > 0) {
+			
+			foreach ($rul as $key => $value) {
 
-						$this->addError($key, $value);
-					}
+				$this->addError($key, $value);
+			}
+			
+		}
+	}
+	
+	private function lastExValid($_lastvalid)
+	{
+		if ($this->lastError) {
 					
-				} elseif ($this->lastError && empty($rul)) {
-					
-					if (count($_lastvalid) > 0) {
-						
-						foreach($_lastvalid as $key => $value)
-							$this->$value["model"]($value["attribute"], $this->$value2);
+			if (count($_lastvalid) > 0) {
+				
+				foreach($_lastvalid as $key => $value)
+					$this->$value["model"]($value["attribute"], $this->$value2);
 
-					}
-				}
 			}
 		}
 	}

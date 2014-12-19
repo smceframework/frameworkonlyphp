@@ -319,8 +319,13 @@ class SmFormField  extends  SmForm
 			
 		}
 		
-		if(isset(SmForm::$errorData[$attribute]))
-			return '<div class="errorMessage">'.SmForm::$errorData[$attribute].'</div>';
+		if(isset(SmForm::$errorData[$attribute])){
+			$attributeLabels=$model->attributeLabels();
+			$attributeLabel=$attributeLabels[$attribute];
+			$replace=str_replace($attribute,$attributeLabel,SmForm::$errorData[$attribute]);
+			return '<div class="errorMessage">'.($attributeLabel!=""?$replace:SmForm::$errorData[$attribute]).'</div>';
+			
+		}
 	}
 
 	/**
@@ -328,14 +333,20 @@ class SmFormField  extends  SmForm
 	 * @return errorSummary
 	 */
 	 
-	public function errorSummary()
+	public function errorSummary($model)
 	{
+		
 		if (count(SmForm::$errorData)>0) {
+			
+			$attributeLabels=$model->attributeLabels();
+			
 			$STR='<div class="errorSummary">
 				<p>Lütfen veri giriş hatalarını düzeltin:</p>
 				<ul>';
 				foreach (SmForm::$errorData as $key=>$value) {
-					$STR.='<li>'.$value.'</li>';
+					$attributeLabel=$attributeLabels[$key];
+					$replace=str_replace($key,$attributeLabel,$value);
+					$STR.='<li>'.($attributeLabel!=""?$replace:$value).'</li>';
 				}
 				$STR.='</ul></div>';
 
