@@ -10,7 +10,9 @@
 
 namespace Smce\Core;
 
-class SmException extends \Exception
+use Exception;
+
+class SmException extends Exception
 {
 	
 	/**

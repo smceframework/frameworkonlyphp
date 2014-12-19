@@ -10,9 +10,10 @@
 
 namespace Smce\Base;
 
+
+use Smce\Core\SmHttpException;
 use Smce\Core\SmACL;
 use Smce\Lib\SmUrlRouter;
-use SiteController;
 use ActiveRecord;
 
 class SmBase
@@ -71,8 +72,8 @@ class SmBase
     private function command()
     {
         if (! is_file(BASE_PATH."/main/controller/".ucfirst($this->controller)."Controller.php")) {
-            SmBase::error("Controller Not Found");
-            exit;
+            SmHttpException::htppError(404,"Controller Not Found");
+			exit;
         }
 		$componentsController="";
 		if (is_file(BASE_PATH."/main/components/Controller.php")) {
@@ -104,15 +105,20 @@ class SmBase
                     if($SmACL->rules($accessRules,$this->view))
                         $class->$actionView();
                     else
-                        SmBase::error("You do not have authority to allow");
+                        SmHttpException::htppError(404,"You do not have authority to allow");
                 }
             } else {
-                $class->$actionView();
-				$this->controllerAction($componentsController,"afterAction");
+				try
+				{
+					$class->$actionView();
+					$this->controllerAction($componentsController,"afterAction");
+				}catch(SmHttpException $e){
+				 	SmHttpException::htppError($e->getHttpCode,$e->getMessage());
+				}
             }
 
         } else {
-            SmBase::error("Page Not Found");
+            SmHttpException::htppError(404,"Page Not Found");
         }
     }
 	
@@ -123,16 +129,7 @@ class SmBase
 			$class->$action();
 		}
 	}
-
-    public function error($err)
-    {
-        $SiteController=new SiteController();
-
-        SiteController::$error=true;
-
-        $SiteController->error($err);
-
-    }
+ 
 
     private function includeFile()
     {
