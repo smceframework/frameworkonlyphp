@@ -158,7 +158,6 @@ class SmAutoload
 			"Smce\Core\SmMigrationForge"=>SMCE_PATH."/core/SmMigration/SmMigrationForge.php",
 			"Smce\Core\SmConsole"=>SMCE_PATH."/core/SmConsole.php",
 			"Smce\Core\SmGrud"=>SMCE_PATH."/core/SmGrud/SmGrud.php",
-			"Smce\Core\SmBreadcrumbs"=>SMCE_PATH."/core/SmBreadcrumbs/SmBreadcrumbs.php",
 			"Smce\Core\SmForm"=>SMCE_PATH."/core/SmForm/SmForm.php",
 			"Smce\Core\SmFormField"=>SMCE_PATH."/core/SmForm/SmFormField.php",
 			
@@ -176,6 +175,9 @@ class SmAutoload
 			"Smce\Amp\SMUserIdentityImp"=>SMCE_PATH."/amp/SMUserIdentityImp.php",
 			
 			
+			//widget
+			"Smce\Widget\SmGridView"=>SMCE_PATH."/widget/SmGridView/SmGridView.php",
+			"Smce\Widget\SmBreadcrumbs"=>SMCE_PATH."/widget/SmBreadcrumbs/SmBreadcrumbs.php",
 		);
 	}
 	
@@ -195,6 +197,7 @@ class SmAutoload
 			"Smce\Lib\SmFiletozip"=>SMCE_PATH."/lib/SmFiletozip/SmFiletozip.php",
 			"Smce\Lib\SmOutput"=>SMCE_PATH."/lib/SmOutput/SmOutput.php",
 			"Smce\Lib\SmHelper"=>SMCE_PATH."/lib/SmHelper/SmHelper.php",
+			
 		);
 	}
 	

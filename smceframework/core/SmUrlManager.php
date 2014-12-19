@@ -19,7 +19,7 @@ class SmUrlManager
      * @param $requestUri
      */
 
-	public function __construct($requestUri="")
+	 public function __construct($requestUri="")
 	 {
 	 	if(!empty($requestUri))
 	 		$this->requestUri=$requestUri;
