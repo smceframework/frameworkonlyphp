@@ -58,6 +58,7 @@ class SmActiveRecord extends SmActiveEvent
 
 	public function validate()
 	{
+		
 		$_rules = $this->Smrules();
 		
 		if (count($_rules) > 0 || $this->error)
@@ -78,8 +79,7 @@ class SmActiveRecord extends SmActiveEvent
 
 			$_rules = $this->rules();
 			$_lastvalid = array();
-
-			if (is_array($this->rules())) {
+			if (is_array($_rules)) {
 
 				$valid = array();
 				$data = array();
@@ -87,7 +87,7 @@ class SmActiveRecord extends SmActiveEvent
 				foreach ($_rules as $key => $value) {
 
 					$validExplode = explode(",", $value[0]);
-
+					
 					foreach ($validExplode as $key2 => $value2) {
 						
 						if (!isset($value[2])) {
@@ -130,6 +130,7 @@ class SmActiveRecord extends SmActiveEvent
 	
 	private function exValid($data,$valid)
 	{
+		
 		$SmGump = new SmGump();
 		$SmGump->validate($data, $valid);
 		$rul = $SmGump->get_readable_errors();

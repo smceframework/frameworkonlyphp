@@ -31,7 +31,7 @@ class SmPagination
 	
 	 public function __construct($pageSize=10)
 	 {
-		 $this->name="SmPagination_2328274";
+		 $this->name="SmPagination_1003";
 		 $SmAssetsManager=new SmAssetsManager($this->name);
 		 
 		 foreach($this->file as $key=>$value)

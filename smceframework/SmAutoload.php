@@ -176,7 +176,7 @@ class SmAutoload
 			
 			
 			//widget
-			"Smce\Widget\SmGridView"=>SMCE_PATH."/widget/SmGridView/SmGridView.php",
+			"Smce\Widget\SmDetailView"=>SMCE_PATH."/widget/SmDetailView/SmDetailView.php",
 			"Smce\Widget\SmBreadcrumbs"=>SMCE_PATH."/widget/SmBreadcrumbs/SmBreadcrumbs.php",
 		);
 	}

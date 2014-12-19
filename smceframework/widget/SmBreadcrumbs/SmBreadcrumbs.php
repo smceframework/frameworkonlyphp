@@ -27,7 +27,7 @@ class SmBreadcrumbs
 	 public function __construct()
 	 {
 			
-		 $this->name="SmBreadcrumbs_47293758";
+		 $this->name="SmBreadcrumbs_1002";
 		 $SmAssetsManager=new SmAssetsManager($this->name);
 		 
 		 foreach($this->file as $key=>$value)
