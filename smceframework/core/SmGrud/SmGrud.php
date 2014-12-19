@@ -58,12 +58,12 @@ class SmGrud
 				$rules1[]=strtolower($value->field);
 			}
 			
-			if(substr($value->type,0,7)=="varchar"){
+			if(substr($value->type,0,7)=="varchar"  && $value->extra!="auto_increment"){
 				preg_match("/\((.*?)\)/",$value->type,$match);
 				$varchar[$match[1]][]=strtolower($value->field);
 			}
 			
-			if(substr($value->type,0,3)=="int"){
+			if(substr($value->type,0,3)=="int"  && $value->extra!="auto_increment"){
 				$int[][]=strtolower($value->field);
 			}
 			
@@ -78,7 +78,7 @@ class SmGrud
 		}
 		
 		
-		$integer=array();
+		$integer="";
 		foreach($int as $key=>$value){
 			$integer="array('".implode(", ",$value)."', 'integer')";
 		}
@@ -92,7 +92,7 @@ class SmGrud
 			
 			[max_len],
 			
-			[integer],
+			[integer]
 		);
 		
 	}";
