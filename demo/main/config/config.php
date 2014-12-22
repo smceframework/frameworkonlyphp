@@ -18,8 +18,8 @@ return array(
 	
 	'urlrouter'=>array(
 		'router'=>array(
-			"all"=>array(),
-			"router"=>array("::veriA::","::dataB::"),
+			"all"=>array(array("id")),
+			"router"=>array("dataA","dataB"),
 		),
 		'showScriptName'=>false, //false - true
 		
