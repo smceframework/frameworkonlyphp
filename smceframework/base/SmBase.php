@@ -58,7 +58,7 @@ class SmBase
 		
 		$requestArray=$SmUrlRouter->run();
 		foreach($requestArray as $key=>$value){
-			$_GET[str_replace("::","",$key)]=$value;
+			$_GET[$key]=$value;
 		}
 		
       	$this->controller=strtolower($requestArray["controller"]);

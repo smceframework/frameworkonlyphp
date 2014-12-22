@@ -87,14 +87,17 @@ class SmUrlRouter{
 					
 					
 				}else{
+					
 					foreach($this->router["router"]["all"] as $key=>$value){
-						if(isset($requestEx[$key+2]))
-							$requestArray[$value]=$requestEx[$key+2];
+					
+						if(isset($requestGetEx[$key+2]))
+							$requestArray[$value]=$requestGetEx[$key+2];
 					}
 				}
 			}
 		}
 		
+	
 		return $requestArray;
 	}
 
