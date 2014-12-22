@@ -25,7 +25,7 @@ class SmDetailView
 	 public function __construct()
 	 {
 			
-		 $this->name="SmDetailView_1001";
+		 $this->name="detailview_1001";
 		 $SmAssetsManager=new SmAssetsManager($this->name);
 		 
 		 foreach($this->file as $key=>$value)

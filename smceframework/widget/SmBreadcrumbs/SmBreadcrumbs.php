@@ -27,7 +27,7 @@ class SmBreadcrumbs
 	 public function __construct()
 	 {
 			
-		 $this->name="SmBreadcrumbs_1002";
+		 $this->name="breadcrumbs_1002";
 		 $SmAssetsManager=new SmAssetsManager($this->name);
 		 
 		 foreach($this->file as $key=>$value)
@@ -71,10 +71,10 @@ class SmBreadcrumbs
 				 if(!isset($value[1]))
 			 	$value[1]=array();
 				
-			 	$this->breadcrumbsSTR.=sprintf('<a class="breadcrumbs" href="%s">» %s</a>',Smce::app()->createUrl($value[0],$value[1]),$key);
+			 	$this->breadcrumbsSTR.=sprintf('<a class="smce_breadcrumbs" href="%s">» %s</a>',Smce::app()->createUrl($value[0],$value[1]),$key);
 				
 			 }else
-			 	$this->breadcrumbsSTR.=sprintf('<span class="breadcrumbs_span">» %s</span>',$key);
+			 	$this->breadcrumbsSTR.=sprintf('<span class="smce_breadcrumbs_span">» %s</span>',$key);
 		 }
 		 
 		 $this->breadcrumbsSTR.='<div class="clear"></div>';

@@ -14,7 +14,6 @@ require_once dirname(__FILE__).'/config.php';
 // include smce autoload class
 require_once $smce_path.'/ConsoleAutoload.php';
 
-
 // get console
-new SmConsole( $_SERVER["argv"]);
+new SmConsole($config);
 

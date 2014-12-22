@@ -18,9 +18,10 @@ class SmConsole
 		"--grud",
 	);
 
-	public function __construct($argv=array(),$config=array())
+	public function __construct($config=array())
 	{
-		
+		 $argv = $_SERVER["argv"];
+		 
 		if (isset($argv[1]) && in_array($argv[1], $this->words)) {
 			$SmBase=new SmBase;
        		SmBase::$config=$config;
