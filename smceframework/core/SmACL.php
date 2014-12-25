@@ -63,9 +63,7 @@ class SmACL
 	
 	private function loginControl($users,$redirect="")
 	{
-	  print_r($_SESSION);
-	  echo "SMCE_".md5(md5(Smce::app()->securitycode));
-
+	 
 		if (isset($users) && $users == "@" && Smce::app()->getState(md5(md5("SMCE_".Smce::app()->securitycode))) == '') {
 			
 			$SmController=new SmController;
