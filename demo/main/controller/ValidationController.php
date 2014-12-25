@@ -40,7 +40,7 @@ class ValidationController extends SmController
 			'alpha'	       	=> "*(^*^*&",
 			'alpha_numeric' => "abcdefg12345+\r\n\r\n\r\n",
 			'numeric'		=> "one, two\r\n",
-			'integer'		=> "1,003\r\n\r\n\r\n\r\n",
+			'integer'		=> "Haa3ws",
 			'boolean'		=> "this is not a boolean\r\n\r\n\r\n\r\n",
 			'float'			=> "not a float\r\n",
 			'valid_url'		=> "\r\n\r\nhttp://add",

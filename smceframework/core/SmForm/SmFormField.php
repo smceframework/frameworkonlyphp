@@ -192,6 +192,9 @@ class SmFormField  extends  SmForm
 
 	public function dropDownList($model,$attribute,$item=array(),$array=array())
 	{
+		if(count($item)==0)
+			$item=array(""=>"");
+			
 		if (!property_exists($model,$attribute) && !isset($model->$attribute)) {
 			echo '<html><body><h5>Not attribute '.$attribute.'</h5></body></html>';
 			exit;
