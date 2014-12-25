@@ -310,7 +310,7 @@ class SmGump
 
 			$rules = explode('|', $rules);
 
-	        if (in_array("required", $rules) || (isset($input[$field]) && trim($input[$field]) != '')) {
+	        if (in_array("required", $rules) || (isset($input[$field]))) {
 				foreach ($rules as $rule) {
 					$method = null;
 					$param  = null;
@@ -1041,7 +1041,7 @@ class SmGump
 	 */
 	protected function validate_integer($field, $input, $param = null)
 	{
-		if (!isset($input[$field]) || empty($input[$field])) {
+		if (!isset($input[$field])) {
 			return;
 		}
 
