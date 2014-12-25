@@ -20,6 +20,7 @@ class SmceFramework
 	
 	private static $configSmce;
 	
+	
 	/**
 	 *
 	 * @param $config
@@ -34,7 +35,7 @@ class SmceFramework
 		static::SmAutoload($config);
 		
 		
-		if(isset($config["debug"]) &&  $config["debug"]==true)
+		if(isset($config["debug"]) && $config["debug"]!=false)
 			static::SmTrancy($config);
 		
 		static::appConfig($config);
@@ -81,11 +82,17 @@ class SmceFramework
 	
 	private static function SmTrancy($debug)
 	{
+		
 		$SmTracy = new SmTracy;
 		$SmTracy->register();
 		
-		$debug=Debugger::PRODUCTION;
-		if(isset($debug) && $debug==true)
+		if($debug=="DEVELOPMENT")
+			$debug=Debugger::DEVELOPMENT;
+		elseif($debug=="PRODUCTION")
+			$debug=Debugger::PRODUCTION;
+		elseif($debug=="DETECT")
+			$debug=Debugger::DETECT;
+		else
 			$debug=Debugger::DEVELOPMENT;
 			
 		if(!file_exists(BASE_PATH . '/log'))

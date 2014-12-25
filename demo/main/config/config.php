@@ -13,7 +13,7 @@ return array(
 		'components',
 	),
 
-	'debug'=>true,
+	'debug'=>"DEVELOPMENT",  // false, "DEVELOPMENT", "PRODUCTION", "DETECT"
 	
 	
 	'urlrouter'=>array(
