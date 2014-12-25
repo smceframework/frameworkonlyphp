@@ -151,6 +151,9 @@ class SmUser
 			$key=str_replace(md5(md5(Smce::app()->securitycode)),"",$key);
 			unset($_SESSION[md5(md5(Smce::app()->securitycode)).$key]);
 		}
+		
+		unset($_SESSION[md5(md5(Smce::app()->securitycode)).md5(md5("SMCE_".Smce::app()->securitycode))]);
+		
 	}
 	
 	/**
@@ -164,7 +167,7 @@ class SmUser
 	{
 		ini_set('session.gc_maxlifetime', $duration);
 		session_set_cookie_params($duration);
-		$this->setState("SMCE_".md5(md5(Smce::app()->securitycode)), true);
+		$this->setState(md5(md5("SMCE_".Smce::app()->securitycode)), true);
 	}
 	
 	/**

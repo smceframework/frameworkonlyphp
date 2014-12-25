@@ -26,6 +26,7 @@ class SmACL
 
 			if (isset($value["actions"]) && in_array(strtolower($view), $value["actions"])) {
 				
+				
 				if(isset($value["ip"]) && $this->ipAdressSearch($value["ip"])==true)
 					return true;
 					
@@ -62,7 +63,10 @@ class SmACL
 	
 	private function loginControl($users,$redirect="")
 	{
-		if (isset($users) && $users == "@" && Smce::app()->getState("SMCE_".md5(md5(Smce::app()->securitycode))) == '') {
+	  print_r($_SESSION);
+	  echo "SMCE_".md5(md5(Smce::app()->securitycode));
+
+		if (isset($users) && $users == "@" && Smce::app()->getState(md5(md5("SMCE_".Smce::app()->securitycode))) == '') {
 			
 			$SmController=new SmController;
 			

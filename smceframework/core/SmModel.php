@@ -86,10 +86,12 @@ class SmModel
 							
 						if ($value[2] != false && $value[2] != "after") {
 							
-							$value2 = trim($value2);
-							$valid[$value2] = trim($value[1]);
-							$data[$value2] = $this->$value2;	
-
+							if(!isset(SmForm::$errorData[$value2])){
+								$value2 = trim($value2);
+								$valid[$value2] = trim($value[1]);
+								$data[$value2] = $this->$value2;	
+								$this->exvalid($data,$valid);
+							}
 						} else {
 							
 							if ($value[2] != "after") {
@@ -108,16 +110,18 @@ class SmModel
 					}
 				}
 				
-				$this->exvalid($data,$valid,$_lastvalid);
+				$this->lastExValid($_lastvalid);
 			}
 		}
 	}
 	
-	private function exValid($data,$valid,$_lastvalid)
+	private function exValid($data,$valid)
 	{
+		
 		$SmGump = new SmGump();
 		$SmGump->validate($data, $valid);
 		$rul = $SmGump->get_readable_errors();
+		
 		if (count($rul) > 0) {
 			
 			foreach ($rul as $key => $value) {
@@ -125,8 +129,13 @@ class SmModel
 				$this->addError($key, $value);
 			}
 			
-		} elseif ($this->lastError && empty($rul)) {
-			
+		}
+	}
+	
+	private function lastExValid($_lastvalid)
+	{
+		if ($this->lastError) {
+					
 			if (count($_lastvalid) > 0) {
 				
 				foreach($_lastvalid as $key => $value)

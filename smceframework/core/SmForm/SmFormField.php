@@ -227,7 +227,6 @@ class SmFormField  extends  SmForm
 				$STR.='"';
 			}
 		}
-
 		
 		$STR.=sprintf('name="%s[%s]">',get_class($model),$attribute);	
 		foreach($item as $key=>$value)
