@@ -17,6 +17,7 @@ class SmModel
 {
 	
 	public $error = false;
+	
 	private $lastError = false;
 	
 	private $model = '';

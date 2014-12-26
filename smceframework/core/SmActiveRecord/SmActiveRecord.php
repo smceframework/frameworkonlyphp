@@ -16,6 +16,7 @@ use Smce\Lib\SmGump;
 class SmActiveRecord extends SmActiveEvent
 {
 	public $error = false;
+	
 	private $lastError = false;
 	
 	private $model = '';
