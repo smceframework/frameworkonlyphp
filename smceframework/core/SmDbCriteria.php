@@ -32,14 +32,14 @@ class SmDbCriteria
 	public function limit($critical)
 	{
 		
-		$this->criteria["conditions"]=$critical;
+		$this->criteria["limit"]=$critical;
 		
 	}
 	
 	public function offset($critical)
 	{
 		
-		$this->criteria["conditions"]=$critical;
+		$this->criteria["offset"]=$critical;
 		
 	}
 	
