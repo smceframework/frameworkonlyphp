@@ -1,4 +1,7 @@
-﻿
+﻿## Hello World
+
+![SmceFramework Hello World](http://i57.tinypic.com/28kt5xw.jpg)
+
 ## Composer
 https://packagist.org/packages/smce/framework
 
