@@ -6,7 +6,7 @@
         <h2>High performing, Secure, Flexible and Simple PHP Framework Application</h2>
       </hgroup>
       <div class="clear"></div>
-        <div class="read-on"><a href="http:/www.smceframework.com" class="btn btn-large btn-block btn-inverse">Web</a>
+        <div class="read-on"><a href="http://www.smceframework.com" target="_blank" class="btn btn-large btn-block btn-inverse">Web</a>
         <a href="https://github.com/imadige/smceframework-MVC" target="_blank" class="btn btn-large btn-block btn-danger">Github</a></div>
       <div class="clear"></div>
     </div>
