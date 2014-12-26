@@ -119,6 +119,7 @@ nav {
 nav .logo {
 
   float: left;
+  margin-top:-25px;
 }
 nav .logo a{
   text-decoration: none;
