@@ -12,7 +12,6 @@
   <link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/reset.css">
   <link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/styles.css">
   <link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/font-awesome.css">
-   <link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/theme/basic.css">
     <link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/form.css">
   <!--[if IE]><link href="http://www.3818.com.ar/styles/fix-old-ie.css" media="all" type="text/css" rel="stylesheet">
 <![endif]-->

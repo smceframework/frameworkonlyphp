@@ -14,7 +14,7 @@ body:after {
 
 #content{
   text-align: left;
-  margin: 75px auto;
+  margin:auto;
   width: 1100px;
   border: 1px solid #efefef;
   padding: 20px;
@@ -83,7 +83,6 @@ section:after, header:after {
   border-bottom: 1px solid #d1d4d7;
 box-shadow: 0 0 5px rgba(0,0,0,.1);
 
-  position: fixed;
   width: 100%;
   z-index: 100;
   left:0;
@@ -162,7 +161,6 @@ nav ul li a:active {
 header {
   text-align: center;
  background-color: #13c4a5;
-  margin-top: 80px;
 	
  background-position: center top;
 	   -moz-background-size: 1360px auto;           /* Gecko 1.9.2 (Firefox 3.6) */
