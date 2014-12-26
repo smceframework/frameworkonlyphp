@@ -51,15 +51,43 @@ class SmDetailView
 		
 		$model="";
 		
-		foreach($this->view as $key=>$value){
+		foreach($this->view as $val){
 			
 			$attributeLabel="";
-			if(isset($attributeLabels[$key]))
-				$attributeLabel=$attributeLabels[$key];
+			
+			if(is_array($val))
+			{	
+				$value="";
+				$name="";
+			
+				if(isset($val["name"]))
+					$name=$val["name"];
+					
+				if(isset($val["value"]))
+					$value=$val["value"];
+					
+				$attributeLabel="";
+				
+				if(isset($attributeLabels[$name]))
+					$attributeLabel=$attributeLabels[$name];
+				else
+					$attributeLabel=$name;
+					
+				if(empty($value))
+					$value=$this->model->$name;
+					
+			}else{
+				if(isset($attributeLabels[$val]))
+					$attributeLabel=$attributeLabels[$val];
+				else
+					$attributeLabel=$val;
+					
+				$value=$this->model->$val;
+			}
 			$model.='<tr>
-						<td class="view_x1"><b>'.($attributeLabel!=""?$attributeLabel:$key).'</b></td>
+						<td class="view_x1"><b>'.$attributeLabel.'</b></td>
 						<td class="view_x2">:</td>
-						<td class="view_x3">'.($value==""?$this->model->$key:$value).'</td>
+						<td class="view_x3">'.$value.'</td>
 					</tr>';
 			
 		}
