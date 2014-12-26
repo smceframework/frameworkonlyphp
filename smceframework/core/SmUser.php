@@ -82,11 +82,12 @@ class SmUser
 	private function base_url()
 	{
 		
-		if(!defined('BASE_URL')){
-			$url=str_replace("/index.php","",$_SERVER['SCRIPT_NAME']);
+		$url=str_replace("/index.php","",$_SERVER['SCRIPT_NAME']);
+		if(!defined('BASE_URL'))
 			define("BASE_URL",$url);
-			return $url;
-		}
+			
+		return $url;
+	
 	}
 	
 	/**
@@ -206,6 +207,7 @@ class SmUser
 			$SmUrlRouter->setRouter(SmBase::$config["urlrouter"]);
 		}else
 			$SmUrlRouter->setRouter(SmBase::$configSmce["urlrouter"]);
+		
 		
 		$SmUrlRouter->redirect($controllerView,$array,Smce::app()->baseUrl);
     }
