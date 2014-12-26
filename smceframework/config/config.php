@@ -10,7 +10,7 @@
  
 return array(
 	
-	'urlRouter'=>array(
+	'urlrouter'=>array(
 		'router'=>array(
 			"all"=>array(),
 		),
