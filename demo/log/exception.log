@@ -1,0 +1,1 @@
+[2014-12-29 09-44-50] Fatal error: Call to undefined method Smce\Core\SmTempManager::deleteTmp() in D:\HOST\smceframework\smceframework\core\SmFiletozip\SmFiletozip.php:82  @  http://localhost/smceframework/demo/index.php?route=Filetozip/Zipdownload  @@  exception-2014-12-29-09-44-50-4e34b919ad4733b86d91b350a5af0dc7.html

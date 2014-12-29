@@ -13,20 +13,12 @@ namespace Smce\Core;
 class SmFiletozip{
 	
 	private $file=array();
+	
 	private $params=array("current","away");
+	
 	private $tmpFile;
 	
-	/**
-	 * 
-	 * mkdir tmp
-	 *
-	 */
-	 
-	public function __construct(){
-		if(!file_exists(__DIR__."/tmp"))
-			mkdir(__DIR__."/tmp", 0777);
-		
-	}
+	private $SmTempManager;
 	
 	/**
 	 * @param $fileUrl
@@ -35,11 +27,9 @@ class SmFiletozip{
 	 */
 	
 	public function addFile($fileUrl="",$params=""){
-		if(isset($this->params[$params])){
-			return array("result"=>0,"message"=>'not params. Only "current","away"');
-		}
 		
 		$this->file[]=array("file"=>$fileUrl,"params"=>$params);
+		
 	}
 	
 	/**
@@ -48,9 +38,11 @@ class SmFiletozip{
 	 * @return this
 	 */
 	
-	public function filePackage(){
+	public function filePackage()
+	{
+		$this->SmTempManager=new SmTempManager;
 		
-		$this->tmpFile = tempnam(BASE_PATH.'\tmp.','');
+		$this->tmpFile = $this->SmTempManager->newTemp();
 		
 		$zip = new \ZipArchive();
 		$zip->open($this->tmpFile, \ZipArchive::CREATE);
@@ -86,7 +78,8 @@ class SmFiletozip{
 		header('Content-disposition: attachment; filename='.$name.".zip");
 		header('Content-type: application/zip');
 		readfile($this->tmpFile);
-		unlink($this->tmpFile);
+		
+		$this->SmTempManager->deleteTemp();
 	}
 	
 	/**
@@ -98,7 +91,8 @@ class SmFiletozip{
 	public function filePutContent($name="")
 	{
 		file_put_contents($name,file_get_contents($this->tmpFile));
-		unlink($this->tmpFile);
+		
+		$this->SmTempManager->deleteTemp();
 	}
 	
 	

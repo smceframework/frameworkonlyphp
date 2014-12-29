@@ -114,6 +114,7 @@ class SmAutoload
 			"Smce\Core\SmException"=>SMCE_PATH."/core/SmException.php",
 			"Smce\Core\SmHttpException"=>SMCE_PATH."/core/SmHttpException.php",
 			"Smce\Core\SmAssetsManager"=>SMCE_PATH."/core/SmAssetsManager/SmAssetsManager.php",
+			"Smce\Core\SmTempManager"=>SMCE_PATH."/core/SmTempManager.php",
 			"Smce\Core\SmController"=>SMCE_PATH."/core/SmController.php",
 			"Smce\Core\SmFormModel"=>SMCE_PATH."/core/SmFormModel.php",
 			"Smce\Core\SmUserIdentity"=>SMCE_PATH."/core/SmUserIdentity.php",
