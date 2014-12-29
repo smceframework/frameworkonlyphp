@@ -1,6 +1,6 @@
 <?php
 
-namespace Smce\Lib;
+namespace Smce\Core;
 
 
 class SmHelper

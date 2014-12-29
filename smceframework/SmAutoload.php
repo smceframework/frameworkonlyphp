@@ -23,7 +23,7 @@ class SmAutoload
 	
 	private static  function autoloadFramework($className)
 	{
-		$classMap=self::getClassMapAll();
+		$classMap=self::classMap();
 		
 		if(isset($classMap[$className]))
 		{
@@ -74,21 +74,7 @@ class SmAutoload
 			include BASE_PATH."/main/controller/".$className . '.php';
 	}
 	
-	/**
-	 * @param $className
-	 * 
-	 * include class
-	 */
 	
-	private static  function autoloadComposer($className)
-	{
-		$classMap=self::classMapLib();
-		
-		if(isset($classMap[$className]))
-		{
-			include $classMap[$className];
-		}
-	}
 	
 	/**
 	 * autoload register
@@ -112,18 +98,7 @@ class SmAutoload
 		spl_autoload_register(array($this, 'autoloadComposer'),true,true);
 	}
 	
-	/**
-	 * class all map
-	 * 
-	 * 
-	 */
 	
-	private static function getClassMapAll()
-	{
-		$clasMap=array();
-		$clasMap=array_merge(self::classMap(), self::classMapLib());
-		return $clasMap;
-	}
 	
 	/**
 	 * class map
@@ -160,6 +135,12 @@ class SmAutoload
 			"Smce\Core\SmGrud"=>SMCE_PATH."/core/SmGrud/SmGrud.php",
 			"Smce\Core\SmForm"=>SMCE_PATH."/core/SmForm/SmForm.php",
 			"Smce\Core\SmFormField"=>SMCE_PATH."/core/SmForm/SmFormField.php",
+			"Smce\Core\SmTemplate"=>SMCE_PATH."/lib/SmTemplate/SmTemplate.php",
+			"Smce\Core\SmGump"=>SMCE_PATH."/lib/SmGump/SmGump.php",
+			"Smce\Core\SmUrlRouter"=>SMCE_PATH."/lib/SmUrlRouter/SmUrlRouter.php",
+			"Smce\Core\SmFiletozip"=>SMCE_PATH."/lib/SmFiletozip/SmFiletozip.php",
+			"Smce\Core\SmOutput"=>SMCE_PATH."/lib/SmOutput/SmOutput.php",
+			"Smce\Core\SmHelper"=>SMCE_PATH."/lib/SmHelper/SmHelper.php",
 			
 			//base
 			"Smce\Base\SmBase"=>SMCE_PATH."/base/SmBase.php",
@@ -180,24 +161,6 @@ class SmAutoload
 		);
 	}
 	
-	/**
-	 * lib class map
-	 * 
-	 * @return array
-	 */
-	 
-	private static function classMapLib(){
-		return array(
-		
-			//lib
-			"Smce\Lib\SmTemplate"=>SMCE_PATH."/lib/SmTemplate/SmTemplate.php",
-			"Smce\Lib\SmGump"=>SMCE_PATH."/lib/SmGump/SmGump.php",
-			"Smce\Lib\SmUrlRouter"=>SMCE_PATH."/lib/SmUrlRouter/SmUrlRouter.php",
-			"Smce\Lib\SmFiletozip"=>SMCE_PATH."/lib/SmFiletozip/SmFiletozip.php",
-			"Smce\Lib\SmOutput"=>SMCE_PATH."/lib/SmOutput/SmOutput.php",
-			"Smce\Lib\SmHelper"=>SMCE_PATH."/lib/SmHelper/SmHelper.php",
-			
-		);
-	}
+	
 	
 }

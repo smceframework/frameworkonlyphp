@@ -1,7 +1,7 @@
 <?php
 
 use Smce\Core\SmController;
-use Smce\Lib\SmOutput;
+use Smce\Core\SmOutput;
 
 class SiteController extends SmController
 {

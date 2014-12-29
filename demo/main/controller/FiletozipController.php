@@ -1,7 +1,7 @@
 <?php
 
 use Smce\Core\SmController;
-use Smce\Lib\SmFiletozip;
+use Smce\Core\SmFiletozip;
 
 class FiletozipController extends SmController
 {

@@ -1,6 +1,6 @@
 <?php
 
-use Smce\Lib\SmGump;
+use Smce\Core\SmGump;
 
 $validator = new SmGump();
 

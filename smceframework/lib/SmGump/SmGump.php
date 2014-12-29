@@ -9,7 +9,7 @@
  * @version     1.0
  */
 
-namespace Smce\Lib;
+namespace Smce\Core;
 
 use Exception;
 

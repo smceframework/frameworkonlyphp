@@ -13,7 +13,7 @@ namespace Smce\Base;
 
 use Smce\Core\SmHttpException;
 use Smce\Core\SmACL;
-use Smce\Lib\SmUrlRouter;
+use Smce\Core\SmUrlRouter;
 use ActiveRecord;
 
 class SmBase

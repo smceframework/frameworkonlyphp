@@ -11,7 +11,7 @@
 namespace Smce\Core;
 
 use Smce\Core\SmForm;
-use Smce\Lib\SmGump;
+use Smce\Core\SmGump;
 
 class SmModel 
 {

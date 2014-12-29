@@ -8,7 +8,7 @@
  * @github https://github.com/imadige/SMCEframework-MVC
  */
  
-namespace Smce\Lib;
+namespace Smce\Core;
 
 class SmOutput
 {

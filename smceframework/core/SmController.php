@@ -10,8 +10,8 @@
  
 namespace Smce\Core;
 
-use Smce\Lib\SmTemplate;
-use Smce\Lib\SmUrlRouter;
+use Smce\Core\SmTemplate;
+use Smce\Core\SmUrlRouter;
 use Smce\Core\SmUser;
 use Smce;
 
