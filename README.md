@@ -12,6 +12,7 @@ https://packagist.org/packages/smce/framework
 - Autoload
 - Session Management
 - Assets Manager
+- Temp Manager
 - Validation
 - Masterpage/Layout
 - Template Engine
