@@ -70,14 +70,15 @@ class SmFiletozip{
 	 * @return temp file
 	 */
 	
-	public function download($name="")
+	public function download($fileName="")
 	{
-		if(empty($name))
-			$name="File_".time();
-			
-		header('Content-disposition: attachment; filename='.$name.".zip");
-		header('Content-type: application/zip');
-		readfile($this->tmpFile);
+		if(empty($fileName))
+			$fileName="File_".time();
+		
+		$SmOutput=new SmOutput;
+		$SmOutput->setContentType("application/zip");	
+		$SmOutput->setFileName($fileName);
+		$SmOutput->putFile($this->tmpFile);
 		
 		$this->SmTempManager->deleteTemp();
 	}

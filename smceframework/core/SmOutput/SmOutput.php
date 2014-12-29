@@ -55,11 +55,30 @@ class SmOutput
 	{
 		if(!empty($this->fileName))
 			header('Content-disposition: attachment; filename='.$this->fileName);
+			
 		header($this->header);
 		echo $data;
 		
 	}
 	
+	
+	
+	/**
+	 * @param $data
+	 *
+	 * echo
+	 */
+	
+	
+	public function putFile($file)
+	{
+		if(!empty($this->fileName))
+			header('Content-disposition: attachment; filename='.$this->fileName);
+			
+		header($this->header);
+		readfile($file);
+		
+	}
 	
 	/**
 	 *
