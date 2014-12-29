@@ -785,7 +785,7 @@ class SmGump
 	 */
 	protected function validate_required($field, $input, $param = null)
 	{
-    if (isset($input[$field]) && ($input[$field] === false || $input[$field] === 0 || $input[$field] === 0.0 || $input[$field] === "0" || !empty($input[$field]))) {
+    if (isset($input[$field]) && (!empty($input[$field]))) {
 			return;
 		}
 
