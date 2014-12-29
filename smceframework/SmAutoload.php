@@ -135,12 +135,12 @@ class SmAutoload
 			"Smce\Core\SmGrud"=>SMCE_PATH."/core/SmGrud/SmGrud.php",
 			"Smce\Core\SmForm"=>SMCE_PATH."/core/SmForm/SmForm.php",
 			"Smce\Core\SmFormField"=>SMCE_PATH."/core/SmForm/SmFormField.php",
-			"Smce\Core\SmTemplate"=>SMCE_PATH."/lib/SmTemplate/SmTemplate.php",
-			"Smce\Core\SmGump"=>SMCE_PATH."/lib/SmGump/SmGump.php",
-			"Smce\Core\SmUrlRouter"=>SMCE_PATH."/lib/SmUrlRouter/SmUrlRouter.php",
-			"Smce\Core\SmFiletozip"=>SMCE_PATH."/lib/SmFiletozip/SmFiletozip.php",
-			"Smce\Core\SmOutput"=>SMCE_PATH."/lib/SmOutput/SmOutput.php",
-			"Smce\Core\SmHelper"=>SMCE_PATH."/lib/SmHelper/SmHelper.php",
+			"Smce\Core\SmTemplate"=>SMCE_PATH."/core/SmTemplate/SmTemplate.php",
+			"Smce\Core\SmGump"=>SMCE_PATH."/core/SmGump/SmGump.php",
+			"Smce\Core\SmUrlRouter"=>SMCE_PATH."/core/SmUrlRouter/SmUrlRouter.php",
+			"Smce\Core\SmFiletozip"=>SMCE_PATH."/core/SmFiletozip/SmFiletozip.php",
+			"Smce\Core\SmOutput"=>SMCE_PATH."/core/SmOutput/SmOutput.php",
+			"Smce\Core\SmHelper"=>SMCE_PATH."/core/SmHelper/SmHelper.php",
 			
 			//base
 			"Smce\Base\SmBase"=>SMCE_PATH."/base/SmBase.php",
