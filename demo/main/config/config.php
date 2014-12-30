@@ -37,7 +37,7 @@ return array(
 			# otherwise forward it to index.php
 			
 			# RewriteRule . index.php
-			RewriteRule ^(.*)$ index.php?page=$1 [QSA,L,NC]
+			RewriteRule ^(.*)$ index.php?page=$1 [L,NC]
 		
 		*/	
 	),
