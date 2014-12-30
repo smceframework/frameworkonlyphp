@@ -142,6 +142,7 @@ class SmAutoload
 			"Smce\Core\SmFiletozip"=>SMCE_PATH."/core/SmFiletozip/SmFiletozip.php",
 			"Smce\Core\SmOutput"=>SMCE_PATH."/core/SmOutput/SmOutput.php",
 			"Smce\Core\SmHelper"=>SMCE_PATH."/core/SmHelper/SmHelper.php",
+			"Smce\Core\SmDbCriteria"=>SMCE_PATH."/core/SmDbCriteria.php",
 			
 			//base
 			"Smce\Base\SmBase"=>SMCE_PATH."/base/SmBase.php",
