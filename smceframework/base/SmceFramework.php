@@ -36,7 +36,7 @@ class SmceFramework
 		
 		
 		if(isset($config["debug"]) && $config["debug"]!=false)
-			static::SmTrancy($config);
+			static::SmTrancy($config["debug"]);
 		
 		static::appConfig($config);
 		

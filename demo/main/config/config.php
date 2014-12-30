@@ -37,7 +37,7 @@ return array(
 			# otherwise forward it to index.php
 			
 			# RewriteRule . index.php
-			RewriteRule ^(.*)$ index.php?page=$1 [L,NC]
+			RewriteRule ^(.*)$ index.php?page=$1 [QSA,L,NC]
 		
 		*/	
 	),
@@ -47,7 +47,7 @@ return array(
 		//MySQL, SQLite, PostgreSQL, Oracle
 		'activerecord'=>array(
 			'db1'=>array(
-				"connectionString"=>"mysql://root:password@localhost/db_name"
+				"connectionString"=>"mysql://root:password@localhost/db_name;charset=utf8"
 			),
 			
 			/*
