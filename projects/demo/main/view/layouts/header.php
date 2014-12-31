@@ -2,12 +2,16 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <title>Welcome to SmceFramework</title>
+  <title><?=Smce::app()->appname?></title>
   <!--[if IE]><meta http-equiv="X-UA-Compatible" content="chrome=1"><![endif]-->
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="format-detection" content="telephone=no"/>
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
 
+  <meta name="description" content="High performing, Secure, Flexible and Simple PHP Framework Application">
+  <meta name="keywords" content="php, framework, php framework, mvc, model, view, controller, activerecord, model view controller">
+  <meta name="author" content="Samed Ceylan">
+	
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700,400italic">
   <link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/reset.css">
   <link rel="stylesheet" type="text/css" href="<?php echo Smce::app()->baseUrl; ?>/front/css/styles.css">
