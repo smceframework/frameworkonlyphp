@@ -46,9 +46,11 @@ return array(
 		
 		//MySQL, SQLite, PostgreSQL, Oracle
 		'activerecord'=>array(
+			/*
 			'db1'=>array(
 				"connectionString"=>"mysql://root:password@localhost/db_name;charset=utf8"
 			),
+			*/
 			
 			/*
 			'db2'=>array(
