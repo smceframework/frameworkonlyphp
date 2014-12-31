@@ -33,7 +33,7 @@
 
 <a class="scroll-point" id="home"></a>
 
-<div id="top">
+<div id="top" class="toptema">
   <nav>
     <div class="logo clearfix"><a href="<?=Smce::app()->createUrl("site/index")?>"><h1><?php echo Smce::app()->appname;?></h1></a></div>
     <ul id="menu">
