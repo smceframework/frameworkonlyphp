@@ -6,7 +6,7 @@ class SmRouter
 {
   public:
 	SmRouter(const int max_gear);
-    char hello();
+    char* hello(string a);
 
 };
 

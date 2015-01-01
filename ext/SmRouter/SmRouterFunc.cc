@@ -77,14 +77,26 @@ zend_object_value smrouter_create_handler(zend_class_entry *type TSRMLS_DC)
 
 PHP_METHOD(SmRouter, hello)
 {
-	  SmRouter *smrouter = NULL;
+	 SmRouter *smr = NULL;
 	 
 	 smrouter_object  *obj =(smrouter_object *) zend_object_store_get_object(
 getThis() TSRMLS_CC);
       
-      smrouter=obj->smrouter;
-    RETURN_STRING("saa", 0);
-   
+      smr=obj->smrouter;
+	
+    string str;
+    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &str) == FAILURE) {
+        RETURN_NULL();
+    }
+    
+    char* str2;
+
+    str2=smr->hello(str);
+    
+    
+
+    RETURN_STRING(str2, 0);
+    
 }
 
 
