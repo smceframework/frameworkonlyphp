@@ -1,12 +1,12 @@
-/*!
- * \brief   Php Extension Writing with Zend to wrapp c++ classes.
- *
- * This file is the implementation of Wrapping C++ Classes in a PHP Extension by
- * Paul Osman.
- *
- * \see     http://devzone.zend.com/article/4486
- */
 
+/**
+ *
+ * @author Samed Ceylan
+ * @link http://www.samedceylan.com/
+ * @copyright 2015 SmceFramework
+ * @github https://github.com/imadige/SMCEframework-MVC
+ */
+ 
 #define PHP_SMCEFRAMEWORK_VERSION "0.0.1"
 #define PHP_SMCEFRAMEWORK_EXTNAME "Smce Framework (PHP/C++)"
 

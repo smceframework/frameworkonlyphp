@@ -1,4 +1,12 @@
 
+/**
+ *
+ * @author Samed Ceylan
+ * @link http://www.samedceylan.com/
+ * @copyright 2015 SmceFramework
+ * @github https://github.com/imadige/SMCEframework-MVC
+ */
+ 
 
 struct smrouter_object {
   zend_object std;
@@ -7,10 +15,8 @@ struct smrouter_object {
 
 zend_class_entry *smrouter_ce;
 zend_object_handlers smrouter_object_handlers;
-char * strSmRouter;
-SmRouter *smr;
-string strT;
- 
+SmRouter *smr; 
+
 zend_function_entry smrouter_methods[] = {
   
     PHP_ME(SmRouter , hello, NULL, ZEND_ACC_PUBLIC)

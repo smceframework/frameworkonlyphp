@@ -1,5 +1,12 @@
 
-
+/**
+ *
+ * @author Samed Ceylan
+ * @link http://www.samedceylan.com/
+ * @copyright 2015 SmceFramework
+ * @github https://github.com/imadige/SMCEframework-MVC
+ */
+ 
 struct deneme_object {
   zend_object std;
   Deneme *deneme;
@@ -11,8 +18,8 @@ zend_object_handlers deneme_object_handlers;
 
 zend_function_entry deneme_methods[] = {
   
-    PHP_ME(Deneme , hello2, NULL, ZEND_ACC_PUBLIC)
-    {NULL, NULL, NULL}
+	PHP_ME(Deneme , hello2, NULL, ZEND_ACC_PUBLIC)
+	{NULL, NULL, NULL}
 };
 
 
@@ -51,7 +58,7 @@ zend_object_value deneme_create_handler(zend_class_entry *type TSRMLS_DC)
 	#endif
 
   retval.handle = zend_objects_store_put(obj, NULL, deneme_free_storage,
-      NULL TSRMLS_CC);
+	  NULL TSRMLS_CC);
   retval.handlers = &deneme_object_handlers;
 
   return retval;
@@ -64,18 +71,18 @@ PHP_METHOD(Deneme, hello2)
 	 
 	 deneme_object  *obj =(deneme_object *) zend_object_store_get_object(
 getThis() TSRMLS_CC);
-      
-      dmr=obj->deneme;
+	  
+	  dmr=obj->deneme;
 	
-    char *str;
-    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &str) == FAILURE) {
-        RETURN_NULL();
-    }
-    str=dmr->hello2(str);
+	char *str;
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &str) == FAILURE) {
+		RETURN_NULL();
+	}
+	str=dmr->hello2(str);
   
 
-    RETURN_STRING(str, false);
-    
+	RETURN_STRING(str, false);
+	
 }
 
 
