@@ -5,12 +5,12 @@ using std::string;
 #include "smceframework.h"
 
 //SmRouter
-#include "../ext/SmRouter/SmRouter.cc"
-#include "../ext/SmRouter/SmRouterFunc.cc"
+#include "../ext/SmRouter/SmRouter.cpp"
+#include "../ext/SmRouter/SmRouterFunc.cpp"
 
 //Deneme
-#include "../ext/Deneme/deneme.cc"
-#include "../ext/Deneme/denefunc.cc"
+#include "../ext/Deneme/deneme.cpp"
+#include "../ext/Deneme/denefunc.cpp"
 
 
 
