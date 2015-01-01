@@ -7,30 +7,8 @@
  * @github https://github.com/imadige/SMCEframework-MVC
  */
  
-
-/**
- *
- * @author Samed Ceylan
- * @link http://www.samedceylan.com/
- * @copyright 2015 SmceFramework
- * @github https://github.com/imadige/SMCEframework-MVC
- */
- 
- #include <string>
-using namespace std; 
-using std::string;
-
-#include "smceframework.h"
-
-//SmRouter
-#include "../ext/SmRouter/SmRouter.cpp"
-#include "../ext/SmRouter/SmRouterFunc.cpp"
-
-//Deneme
-#include "../ext/Deneme/deneme.cpp"
-#include "../ext/Deneme/denefunc.cpp"
-
-
+// Core
+#include "../ext/Core/smce.cpp"
 
 zend_module_entry smceframework_module_entry = {
 #if ZEND_MODULE_API_NO >= 20010901
@@ -61,14 +39,14 @@ PHP_MINIT_FUNCTION(smceframework)
   zend_class_entry _ce_smrouter;
   zend_class_entry _ce_deneme;
   
-  INIT_CLASS_ENTRY(_ce_smrouter, "SmRouter", smrouter_methods);
+  INIT_NS_CLASS_ENTRY(_ce_smrouter, "Smce/Ext", "SmRouter", smrouter_methods);
   smrouter_ce = zend_register_internal_class(&_ce_smrouter TSRMLS_CC);
   smrouter_ce->create_object = smrouter_create_handler;
   memcpy(&smrouter_object_handlers, zend_get_std_object_handlers(),
       sizeof(zend_object_handlers));
   smrouter_object_handlers.clone_obj = NULL;
   
- INIT_CLASS_ENTRY(_ce_deneme, "Deneme", deneme_methods);
+ INIT_NS_CLASS_ENTRY(_ce_deneme,"Smce/Ext", "Deneme", deneme_methods);
   deneme_ce = zend_register_internal_class(&_ce_deneme TSRMLS_CC);
   deneme_ce->create_object = deneme_create_handler;
   memcpy(&deneme_object_handlers, zend_get_std_object_handlers(),
