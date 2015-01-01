@@ -6,8 +6,6 @@
  *
  * \see     http://devzone.zend.com/article/4486
  */
-#ifndef PHP_SMCEFRAMEWORK_H
-#define PHP_SMCEFRAMEWORK_H
 
 #define PHP_SMCEFRAMEWORK_VERSION "0.0.1"
 #define PHP_SMCEFRAMEWORK_EXTNAME "Smce Framework (PHP/C++)"
@@ -24,10 +22,18 @@
 #endif
 
 PHP_MINIT_FUNCTION(smceframework);
+PHP_MSHUTDOWN_FUNCTION(smceframework);
+PHP_RINIT_FUNCTION(smceframework);
+PHP_RSHUTDOWN_FUNCTION(smceframework);
+
+//SmRouter
 PHP_METHOD(SmRouter, hello);
 
-extern zend_module_entry smframework_module_entry;
-#define phpext_smceframework_ptr &vehicles_module_entry;
+//Deneme
+PHP_METHOD(Deneme, hello2);
 
-#endif
+extern zend_module_entry smframework_module_entry;
+#define phpext_smceframework_ptr &smceframework_module_entry;
+
+
 

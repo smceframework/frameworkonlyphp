@@ -1,27 +1,27 @@
 
 
-struct smrouter_object {
+struct deneme_object {
   zend_object std;
-  SmRouter *smrouter;
+  Deneme *deneme;
 };
 
-zend_class_entry *smrouter_ce;
-zend_object_handlers smrouter_object_handlers;
-char * strSmRouter;
-SmRouter *smr;
-string strT;
- 
-zend_function_entry smrouter_methods[] = {
+zend_class_entry *deneme_ce;
+zend_object_handlers deneme_object_handlers;
+
+
+zend_function_entry deneme_methods[] = {
   
-    PHP_ME(SmRouter , hello, NULL, ZEND_ACC_PUBLIC)
+    PHP_ME(Deneme , hello2, NULL, ZEND_ACC_PUBLIC)
     {NULL, NULL, NULL}
 };
 
 
-void smrouter_free_storage(void *object TSRMLS_DC)
+
+
+void deneme_free_storage(void *object TSRMLS_DC)
 {
-  smrouter_object *obj = (smrouter_object*) object;
-  delete obj->smrouter;
+  deneme_object *obj = (deneme_object*) object;
+  delete obj->deneme;
 
   zend_hash_destroy(obj->std.properties);
   FREE_HASHTABLE(obj->std.properties);
@@ -29,13 +29,13 @@ void smrouter_free_storage(void *object TSRMLS_DC)
   efree(obj);
 }
 
-zend_object_value smrouter_create_handler(zend_class_entry *type TSRMLS_DC)
+zend_object_value deneme_create_handler(zend_class_entry *type TSRMLS_DC)
 {
  
   zend_object_value retval;
 
-  smrouter_object *obj = (smrouter_object*)emalloc(sizeof(smrouter_object));
-  memset(obj, 0, sizeof(smrouter_object));
+  deneme_object *obj = (deneme_object*)emalloc(sizeof(deneme_object));
+  memset(obj, 0, sizeof(deneme_object));
   obj->std.ce = type;
 
   ALLOC_HASHTABLE(obj->std.properties);
@@ -50,28 +50,28 @@ zend_object_value smrouter_create_handler(zend_class_entry *type TSRMLS_DC)
 		object_properties_init(&(obj->std), type);
 	#endif
 
-  retval.handle = zend_objects_store_put(obj, NULL, smrouter_free_storage,
+  retval.handle = zend_objects_store_put(obj, NULL, deneme_free_storage,
       NULL TSRMLS_CC);
-  retval.handlers = &smrouter_object_handlers;
+  retval.handlers = &deneme_object_handlers;
 
   return retval;
 }
 
 
-PHP_METHOD(SmRouter, hello)
+PHP_METHOD(Deneme, hello2)
 {
-	 smr = NULL;
+	 Deneme *dmr = NULL;
 	 
-	 smrouter_object  *obj =(smrouter_object *) zend_object_store_get_object(
+	 deneme_object  *obj =(deneme_object *) zend_object_store_get_object(
 getThis() TSRMLS_CC);
       
-      smr=obj->smrouter;
+      dmr=obj->deneme;
 	
     char *str;
     if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &str) == FAILURE) {
         RETURN_NULL();
     }
-    str=smr->hello(str);
+    str=dmr->hello2(str);
   
 
     RETURN_STRING(str, false);
