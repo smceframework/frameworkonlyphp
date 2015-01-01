@@ -1,10 +1,10 @@
-PHP_ARG_ENABLE(php_smceframework,
-  [ --enable-smceframework   Enable Vehicles support])
+PHP_ARG_ENABLE(smceframework,
+  [ --enable-smceframework   Enable smceframework support])
 
-if test "$PHP_VEHICLES" = "yes"; then
+if test "$PHP_SMCEFRAMEWORK" = "yes"; then
   PHP_REQUIRE_CXX()
-  PHP_SUBST(VEHICLES_SHARED_LIBADD)
-  PHP_ADD_LIBRARY(stdc++, 1, VEHICLES_SHARED_LIBADD)
-  PHP_NEW_EXTENSION(vehicles, vehicles.cpp car.cpp, $ext_shared)
+  PHP_SUBST(SMCEFRAMEWORK_SHARED_LIBADD)
+  PHP_ADD_LIBRARY(stdc++, 1, SMCEFRAMEWORK_SHARED_LIBADD)
+  PHP_NEW_EXTENSION(smceframework,smceframework.cpp,$ext_shared)
 fi
 

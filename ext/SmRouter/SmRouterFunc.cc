@@ -1,4 +1,5 @@
 
+
 struct smrouter_object {
   zend_object std;
   SmRouter *smrouter;
@@ -26,14 +27,52 @@ zend_module_entry smceframework_module_entry = {
   NULL,                   //!< RSHUTDOWN
   NULL,                   //!< MINFO
 #if ZEND_MODULE_API_NO >= 20010901
-  PHP_SMCEFRAMEWORK_EXTNAME,
+  PHP_SMCEFRAMEWORK_VERSION,
 #endif
   STANDARD_MODULE_PROPERTIES
 };
 
-#ifdef COMPILE_DL_SMCEFRAMEWORK
-ZEND_GET_MODULE(vehicles)
-#endif
+
+
+
+void smrouter_free_storage(void *object TSRMLS_DC)
+{
+  smrouter_object *obj = (smrouter_object*) object;
+  delete obj->smrouter;
+
+  zend_hash_destroy(obj->std.properties);
+  FREE_HASHTABLE(obj->std.properties);
+
+  efree(obj);
+}
+
+zend_object_value smrouter_create_handler(zend_class_entry *type TSRMLS_DC)
+{
+ 
+  zend_object_value retval;
+
+  smrouter_object *obj = (smrouter_object*)emalloc(sizeof(smrouter_object));
+  memset(obj, 0, sizeof(smrouter_object));
+  obj->std.ce = type;
+
+  ALLOC_HASHTABLE(obj->std.properties);
+  zend_hash_init(obj->std.properties, 0, NULL, ZVAL_PTR_DTOR, 0);
+  // Eklenen
+	#if PHP_VERSION_ID < 50399
+	
+	zval *tmp;
+	zend_hash_copy(obj->std.properties, &type->default_properties,                                                                                                                                                    (copy_ctor_func_t) zval_add_ref, (void *)&tmp, sizeof(zval *));
+
+	#else
+		object_properties_init(&(obj->std), type);
+	#endif
+
+  retval.handle = zend_objects_store_put(obj, NULL, smrouter_free_storage,
+      NULL TSRMLS_CC);
+  retval.handlers = &smrouter_object_handlers;
+
+  return retval;
+}
 
 
 PHP_METHOD(SmRouter, hello)
@@ -47,4 +86,6 @@ getThis() TSRMLS_CC);
     RETURN_STRING("saa", 0);
    
 }
+
+
 
