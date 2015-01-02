@@ -7,6 +7,10 @@
  * @github https://github.com/imadige/SMCEframework-MVC
  */
  
+
+
+PHP_METHOD(Deneme, hello2);
+ 
 struct deneme_object {
   zend_object std;
   Deneme *deneme;

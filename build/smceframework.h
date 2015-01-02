@@ -7,6 +7,9 @@
  * @github https://github.com/imadige/SMCEframework-MVC
  */
  
+#ifndef SMCE_BASE_SMCE_H
+#define SMCE_BASE_SMCE_H 
+ 
 #define PHP_SMCEFRAMEWORK_VERSION "0.0.1"
 #define PHP_SMCEFRAMEWORK_EXTNAME "Smce Framework (PHP/C++)"
 
@@ -15,25 +18,26 @@
 #endif
 
 
+extern "C" {
 #include "php.h"
+}
+
 
 #ifdef ZTS
 #include "TSRM.h"
 #endif
+
+
 
 PHP_MINIT_FUNCTION(smceframework);
 PHP_MSHUTDOWN_FUNCTION(smceframework);
 PHP_RINIT_FUNCTION(smceframework);
 PHP_RSHUTDOWN_FUNCTION(smceframework);
 
-//SmRouter
-PHP_METHOD(SmRouter, hello);
 
-//Deneme
-PHP_METHOD(Deneme, hello2);
 
 extern zend_module_entry smframework_module_entry;
 #define phpext_smceframework_ptr &smceframework_module_entry;
 
-
+#endif
 

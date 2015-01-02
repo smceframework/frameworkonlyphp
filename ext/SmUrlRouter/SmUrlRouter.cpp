@@ -7,11 +7,16 @@
  * @github https://github.com/imadige/SMCEframework-MVC
  */
  
- #include "SmRouter.h"
+#include "SmUrlRouter.h"
 
-char* SmRouter::hello(char* str){
+void SmUrlRouter::setRequest(char* req){
 	
-	return str;
+	request=req;
 	
 }
 
+char* SmUrlRouter::getRequest(){
+	
+	return request;
+	
+}
