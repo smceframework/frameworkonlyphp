@@ -9,6 +9,11 @@
  
 #include "SmUrlRouter.h"
 
+
+SmUrlRouter::SmUrlRouter()
+{
+	
+}
 void SmUrlRouter::setRequest(char* req){
 	
 	request=req;

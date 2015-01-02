@@ -2,7 +2,7 @@
 #define SMCE_BASE_SMCE_H_H 
 
 
-char* smce_string_to_char(string str)
+static char* smce_string_to_char(string str)
 {
 	char *cstr1= new char[str.length() + 1];
 	strcpy(cstr1, str.c_str());
@@ -47,4 +47,5 @@ static char* smce_array_get_value(zval* arr,string index){
     }
     
 }
+
 #endif

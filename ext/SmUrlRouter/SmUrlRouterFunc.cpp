@@ -8,7 +8,7 @@
  */
  
 
-
+PHP_METHOD(SmUrlRouter, __construct);
 PHP_METHOD(SmUrlRouter, setRequest);
 PHP_METHOD(SmUrlRouter, setRouter);
 PHP_METHOD(SmUrlRouter, run);
@@ -27,7 +27,7 @@ struct smurlrouter_object {
 
 
 zend_function_entry smurlrouter_methods[] = {
-  
+    PHP_ME(SmUrlRouter , __construct, NULL, ZEND_ACC_PUBLIC | ZEND_ACC_CTOR)
     PHP_ME(SmUrlRouter , setRequest, NULL, ZEND_ACC_PUBLIC)
     PHP_ME(SmUrlRouter , setRouter, NULL, ZEND_ACC_PUBLIC)
     PHP_ME(SmUrlRouter , run, NULL, ZEND_ACC_PUBLIC)
@@ -76,6 +76,20 @@ zend_object_value smurlrouter_create_handler(zend_class_entry *type TSRMLS_DC)
   return retval;
 }
 
+/**
+* 
+*
+* @param Smce\Ext\SmUrlRouter __construct
+*/
+PHP_METHOD(SmUrlRouter, __construct)
+{
+  SmUrlRouter *smr = NULL;
+  
+  smr = new SmUrlRouter();
+  smurlrouter_object  *obj =(smurlrouter_object *) zend_object_store_get_object(
+getThis() TSRMLS_CC);
+  obj->smr = smr;
+}
 
 /**
 * 
@@ -97,11 +111,11 @@ getThis() TSRMLS_CC);
         RETURN_NULL();
     }
     
-    if(smr != NULL) {
-		smr->setRequest(request);
-	}
+    
+	smr->request=request;
 	
-    RETURN_TRUE;
+	
+    RETURN_STRING(smr->request,true);
 }
 
 /**
@@ -129,16 +143,17 @@ PHP_METHOD(SmUrlRouter, setRouter)
 
 PHP_METHOD(SmUrlRouter, run)
 {
-	
-	
-	RETURN_STRING("assa",true);
-   
+	SmUrlRouter *smr = NULL;
+	smurlrouter_object  *obj =(smurlrouter_object *) zend_object_store_get_object(
+getThis() TSRMLS_CC);
+	smr=obj->smr;
+	if(smr != NULL) {
+		RETURN_STRING(smr->getRequest(),true);
+	}
     /*
 	smr = NULL;
     
-	smurlrouter_object  *obj =(smurlrouter_object *) zend_object_store_get_object(
-getThis() TSRMLS_CC);
-	smr=obj->smurlrouter;
+	
 	
 	
     add_assoc_string(smr->requestArray, "controller", smce_string_to_char(""),1);

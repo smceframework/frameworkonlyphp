@@ -14,7 +14,7 @@
 class SmUrlRouter
 {
   public:
-	SmUrlRouter(const int max_gear);
+	SmUrlRouter();
     void setRequest(char* req);
     char* getRequest(void);
     
