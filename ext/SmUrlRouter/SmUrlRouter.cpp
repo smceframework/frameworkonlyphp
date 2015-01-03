@@ -20,8 +20,20 @@ void SmUrlRouter::setRequest(char* req){
 	
 }
 
+zval* SmUrlRouter::setRouter(zval* rout){
+	
+	router=rout;
+	
+}
+
 char* SmUrlRouter::getRequest(){
 	
 	return request;
+	
+}
+
+zval* SmUrlRouter::getRouter(){
+	
+	return router;
 	
 }

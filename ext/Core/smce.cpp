@@ -16,10 +16,12 @@
 using namespace std; 
 
 
+
 // build
 #include "../../build/smceframework.h"
 
-
+// func
+#include "smce.h"
 
 //SmRouter
 #include "../SmUrlRouter/SmUrlRouter.cpp"
@@ -30,8 +32,6 @@ using namespace std;
 #include "../Deneme/denefunc.cpp"
 
 
-// func
-#include "smce.h"
 
 #endif
 

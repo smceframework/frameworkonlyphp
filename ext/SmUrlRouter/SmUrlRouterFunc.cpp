@@ -85,10 +85,13 @@ PHP_METHOD(SmUrlRouter, __construct)
 {
   SmUrlRouter *smr = NULL;
   
-  smr = new SmUrlRouter();
-  smurlrouter_object  *obj =(smurlrouter_object *) zend_object_store_get_object(
-getThis() TSRMLS_CC);
-  obj->smr = smr;
+  
+	smr = new SmUrlRouter();
+	smurlrouter_object  *obj =(smurlrouter_object *) zend_object_store_get_object(
+	getThis() TSRMLS_CC);
+	
+	obj->smr = smr;
+  
 }
 
 /**
@@ -102,6 +105,7 @@ PHP_METHOD(SmUrlRouter, setRequest)
 	char *request;
 	int name_len;
 	SmUrlRouter *smr = NULL;
+	
 	smurlrouter_object  *obj =(smurlrouter_object *) zend_object_store_get_object(
 getThis() TSRMLS_CC);
 	smr=obj->smr;
@@ -111,11 +115,11 @@ getThis() TSRMLS_CC);
         RETURN_NULL();
     }
     
-    
-	smr->request=request;
+    if(smr != NULL) {
+		smr->setRequest(request);
+	}
 	
-	
-    RETURN_STRING(smr->request,true);
+    RETURN_TRUE;
 }
 
 /**
@@ -126,17 +130,22 @@ getThis() TSRMLS_CC);
 
 PHP_METHOD(SmUrlRouter, setRouter)
 {
-	/*
+	 zval *router;
+	 SmUrlRouter *smr = NULL;
+	
+	smurlrouter_object  *obj =(smurlrouter_object *) zend_object_store_get_object(
+getThis() TSRMLS_CC);
+	smr=obj->smr;
 	
     if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "a", &router) == FAILURE) {
         RETURN_NULL();
     }
     
-    
-	RETURN_TRUE;
-	* 
-	* */
+	 if(smr != NULL) {
+		smr->setRouter(router);
+	}
 	
+    RETURN_TRUE;
 }
 
 
@@ -147,8 +156,12 @@ PHP_METHOD(SmUrlRouter, run)
 	smurlrouter_object  *obj =(smurlrouter_object *) zend_object_store_get_object(
 getThis() TSRMLS_CC);
 	smr=obj->smr;
+	
 	if(smr != NULL) {
-		RETURN_STRING(smr->getRequest(),true);
+		
+		
+			RETURN_STRING(smce_array_get_value(smr->getRouter(),"showScriptName"),1);
+		
 	}
     /*
 	smr = NULL;
