@@ -1,4 +1,5 @@
-PHP_ARG_ENABLE(smceframework,	
+PHP_ARG_ENABLE(smceframework,
+   [Whether to enable the "smceframework" extension],	
   [ --enable-smceframework   Enable smceframework support])
 
 if test "$PHP_SMCEFRAMEWORK" = "yes"; then

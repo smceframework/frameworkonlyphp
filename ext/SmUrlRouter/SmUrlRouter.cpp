@@ -14,19 +14,20 @@ SmUrlRouter::SmUrlRouter()
 {
 	
 }
-void SmUrlRouter::setRequest(char* req){
+
+void SmUrlRouter::setRequest(zval* req){
 	
 	request=req;
 	
 }
 
-zval* SmUrlRouter::setRouter(zval* rout){
+void SmUrlRouter::setRouter(zval* rout){
 	
 	router=rout;
 	
 }
 
-char* SmUrlRouter::getRequest(){
+zval* SmUrlRouter::getRequest(){
 	
 	return request;
 	
