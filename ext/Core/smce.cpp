@@ -12,7 +12,8 @@
 
 #include <cstring>
 #include <iostream>
-
+#include <vector>
+#include <sstream>
 using namespace std; 
 
 
@@ -20,8 +21,11 @@ using namespace std;
 // build
 #include "../../build/smceframework.h"
 
+
 // func
+#include "string.h"
 #include "smce.h"
+
 
 //SmRouter
 #include "../SmUrlRouter/SmUrlRouter.cpp"

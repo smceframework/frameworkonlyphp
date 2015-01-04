@@ -20,6 +20,7 @@
 
 extern "C" {
 #include "php.h"
+#include <ext/standard/php_string.h>
 }
 
 

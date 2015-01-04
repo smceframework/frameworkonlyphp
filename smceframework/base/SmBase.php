@@ -51,15 +51,18 @@ class SmBase
 		
 		$SmUrlRouter=new SmUrlRouter;
 		$SmUrlRouter->setRequest($request);
+
+		if(isset($_GET["route"]))
+			$SmUrlRouter->setRoute($_GET["route"]);
+
 		if(isset(self::$config["urlrouter"])){
 			$SmUrlRouter->setRouter(self::$config["urlrouter"]);
 		}else
 			$SmUrlRouter->setRouter(self::$configSmce["urlrouter"]);
 		
+
 		$requestArray=$SmUrlRouter->run();
-		foreach($requestArray as $key=>$value){
-			$_GET[$key]=$value;
-		}
+		
 		
       	$this->controller=strtolower($requestArray["controller"]);
         $this->view=strtolower($requestArray["view"]);

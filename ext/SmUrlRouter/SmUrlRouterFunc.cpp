@@ -11,6 +11,7 @@
 PHP_METHOD(SmUrlRouter, __construct);
 PHP_METHOD(SmUrlRouter, setRequest);
 PHP_METHOD(SmUrlRouter, setRouter);
+PHP_METHOD(SmUrlRouter, setRoute);
 PHP_METHOD(SmUrlRouter, run);
 /*
 PHP_METHOD(SmUrlRouter, createUrl);
@@ -30,6 +31,7 @@ zend_function_entry smurlrouter_methods[] = {
     PHP_ME(SmUrlRouter , __construct, NULL, ZEND_ACC_PUBLIC | ZEND_ACC_CTOR)
     PHP_ME(SmUrlRouter , setRequest, NULL, ZEND_ACC_PUBLIC)
     PHP_ME(SmUrlRouter , setRouter, NULL, ZEND_ACC_PUBLIC)
+    PHP_ME(SmUrlRouter , setRoute, NULL, ZEND_ACC_PUBLIC)
     PHP_ME(SmUrlRouter , run, NULL, ZEND_ACC_PUBLIC)
     //PHP_ME(SmUrlRouter , createUrl, NULL, ZEND_ACC_PUBLIC)
     //PHP_ME(SmUrlRouter , redirect, NULL, ZEND_ACC_PUBLIC)
@@ -96,6 +98,8 @@ PHP_METHOD(SmUrlRouter, __construct)
  
 }
 
+
+
 /**
 * 
 *
@@ -104,7 +108,8 @@ PHP_METHOD(SmUrlRouter, __construct)
 
 PHP_METHOD(SmUrlRouter, setRequest)
 {
-	zval* request;
+	char* request;
+	int request_len;
 	SmUrlRouter *smr = NULL;
 	
 	smurlrouter_object  *obj =(smurlrouter_object *) zend_object_store_get_object(
@@ -112,12 +117,12 @@ getThis() TSRMLS_CC);
 	smr=obj->smr;
 	
 	
-    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "z", &request) == FAILURE) {
+    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &request,&request_len) == FAILURE) {
         RETURN_NULL();
     }
     
     if(smr != NULL) {
-		smr->setRequest(request);
+		smr->setRequest(request,request_len);
 	}
 	
     RETURN_TRUE;
@@ -132,7 +137,6 @@ getThis() TSRMLS_CC);
 PHP_METHOD(SmUrlRouter, setRouter)
 {
 	
-	
 	 zval *router;
 	 SmUrlRouter *smr = NULL;
 	
@@ -140,7 +144,7 @@ PHP_METHOD(SmUrlRouter, setRouter)
 getThis() TSRMLS_CC);
 	smr=obj->smr;
 	
-    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "a", &router) == FAILURE) {
+    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "z", &router) == FAILURE) {
         RETURN_NULL();
     }
     
@@ -152,9 +156,38 @@ getThis() TSRMLS_CC);
 }
 
 
+/**
+* 
+*
+* @param Smce\Ext\SmUrlRouter $setRoute
+*/
+
+PHP_METHOD(SmUrlRouter, setRoute)
+{
+	 char *route;
+	 int route_len;
+	 SmUrlRouter *smr = NULL;
+	
+	smurlrouter_object  *obj =(smurlrouter_object *) zend_object_store_get_object(
+getThis() TSRMLS_CC);
+	smr=obj->smr;
+	
+    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &route,&route_len) == FAILURE) {
+        RETURN_NULL();
+    }
+    
+	 if(smr != NULL) {
+		smr->setRoute(route,route_len);
+	}
+	
+    RETURN_TRUE;
+}
+
+
 
 PHP_METHOD(SmUrlRouter, run)
 {
+	zval* requestArray;
 	
 	SmUrlRouter *smr = NULL;
 	smurlrouter_object  *obj =(smurlrouter_object *) zend_object_store_get_object(
@@ -166,25 +199,53 @@ getThis() TSRMLS_CC);
 	
 		array_init(return_value);
 		
-		
 		add_assoc_string(return_value, "controller", smce_string_to_char(""),1);
 		
 		add_assoc_string(return_value, "view", smce_string_to_char(""),1);
 		
+		requestArray=return_value;
+		
 		smr->requestArray=return_value;
 		
-		zval* request=smr->getRequest();
-		
-		if(Z_TYPE_P(request)== IS_NULL){
+	
+		if(smr->getRequest()== NULL){
 			
 			add_assoc_string(return_value, "controller", smce_string_to_char("site"),1);
 		
 			add_assoc_string(return_value, "view", smce_string_to_char("index"),1);
 			
+			requestArray=return_value;
 		}else{
 			
+			
 			if(Z_LVAL_P(smce_array_get_value_zval(smr->getRouter(),"showScriptName"))==false){
-				RETURN_STRING("0",1);
+				
+				
+				if(smr->getRoute()!=NULL){
+					HashTable *routeEx_hash;
+					
+					zval zdelim, zroute;
+					ZVAL_STRINGL(&zroute, smr->getRoute(), smr->getRoute_len(), 0);
+					ZVAL_STRINGL(&zdelim, smce_string_to_char("/"), 1, 0);
+					array_init(return_value);
+					php_explode( &zdelim,&zroute, return_value, LONG_MAX);
+					
+					
+					 if(Z_TYPE_P(smce_array_get_index_zval(return_value,0))!= IS_NULL &&
+					  Z_TYPE_P(smce_array_get_index_zval(return_value,1))!= IS_NULL){
+						 RETURN_STRING("3",1);
+						 
+						 array_init(return_value);
+						 add_assoc_string(return_value, "controller", Z_STRVAL_P(smce_array_get_index_zval(return_value,0)),1);
+						 add_assoc_string(return_value, "view", Z_STRVAL_P(smce_array_get_index_zval(return_value,0)),1);
+						 
+						 requestArray=return_value;
+					}
+					
+					
+				}
+				
+				RETURN_STRING("2",1);
 			
 			}else{
 				RETURN_STRING("1",1);
@@ -197,29 +258,7 @@ getThis() TSRMLS_CC);
 	
 	
 }
+
+
 //PHP_METHOD(SmUrlRouter, createUrl);
 //PHP_METHOD(SmUrlRouter, redirect);
-
-/*
-PHP_METHOD(SmUrlRouter, setRequest)
-{
-	 smr = NULL;
-	 
-	 smurlrouter_object  *obj =(smurlrouter_object *) zend_object_store_get_object(
-getThis() TSRMLS_CC);
-      
-      smr=obj->smurlrouter;
-	
-    char *str;
-    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &str) == FAILURE) {
-        RETURN_NULL();
-    }
-    str=smr->hello(str);
-  
-
-    RETURN_STRING(str, false);
-    
-}
-*/
-
-

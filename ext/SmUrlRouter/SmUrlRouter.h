@@ -16,18 +16,31 @@ class SmUrlRouter
   public:
 	SmUrlRouter();
 	
-    void setRequest(zval* request);
+    void setRequest(char* request,int request_len);
     void setRouter(zval* router);
+    void setRoute(char* route,int route_len);
     
-    zval* getRequest(void);
+    char* getRequest(void);
+    int getRequest_len(void);
+    
+    char* getRoute(void);
+    int getRoute_len(void);
+    
     zval* getRouter(void);
+    
     
 	zval* requestArray;
 	zval* routeGetEx;
     
   private:
-	zval* request;
+	char* request;
+	int request_len;
+	
+	char* route;
+	int route_len;
+	
 	zval* router;
+	
 };
 
 

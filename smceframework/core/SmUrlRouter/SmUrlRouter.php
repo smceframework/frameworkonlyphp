@@ -13,6 +13,8 @@ namespace Smce\Core;
 class SmUrlRouter{
 
 	private $router;
+
+	private $route;
 	
 	private $request;
 
@@ -36,6 +38,17 @@ class SmUrlRouter{
 	{
 		$this->router=$router;
 	}
+
+	/**
+	 * @param $route
+	 * 
+	 * 
+	 */
+	public function setRoute($route)
+	{
+		$this->route=$route;
+	}
+	
 	
 	/**
 	 * run
@@ -59,17 +72,19 @@ class SmUrlRouter{
 			$routeGetEx=array();
 			if(!isset($this->router["showScriptName"]) || $this->router["showScriptName"]==false){
 				
-				if(isset($_GET["route"])){
-					$routeGetEx=explode("/",$_GET["route"]);
+				if(isset($this->route)){
+					$routeGetEx=explode("/",$this->route);
 					
 					$requestArray=array(
 						"controller"=>isset($routeGetEx[0])?$routeGetEx[0]:"",
 						"view"=>isset($routeGetEx[1])?$routeGetEx[1]:"",
 					);
 				}
+				/*
 				foreach($_GET as $key=>$value){
 					$requestArray[$key]=$value;
 				}
+				*/
 			}else{
 				
 				$parse=parse_url($this->request);
