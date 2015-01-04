@@ -260,38 +260,69 @@ getThis() TSRMLS_CC);
 						zval zdelim, zrequest;
 						ZVAL_STRINGL(&zrequest, parseurl->path,strlen(path), 0);
 						ZVAL_STRINGL(&zdelim, smce_string_to_char("/"), 1, 0);
-						array_init(return_value);
-						php_explode( &zdelim,&zrequest, return_value, LONG_MAX);
 						
-						if(Z_TYPE_P(smce_array_get_index_zval(return_value,0))!= IS_NULL &&
-						  Z_TYPE_P(smce_array_get_index_zval(return_value,1))!= IS_NULL){
+						zval* explodeEx;
+						ALLOC_INIT_ZVAL(explodeEx);
+						array_init(explodeEx);
+						php_explode( &zdelim,&zrequest, explodeEx, LONG_MAX);
+					
+						
+						if(Z_TYPE_P(smce_array_get_index_zval(explodeEx,0))!= IS_NULL &&
+						  Z_TYPE_P(smce_array_get_index_zval(explodeEx,1))!= IS_NULL){
 							
-							char* index1= Z_STRVAL_P(smce_array_get_index_zval(return_value,0));
-							char* index2= Z_STRVAL_P(smce_array_get_index_zval(return_value,1));
+							char* index1= Z_STRVAL_P(smce_array_get_index_zval(explodeEx,0));
+							char* index2= Z_STRVAL_P(smce_array_get_index_zval(explodeEx,1));
 							 
 							 array_init(return_value);
 							 add_assoc_string(return_value, "controller",index1,1);
 							 add_assoc_string(return_value, "view", index2,1);
 							 
-							 requestArray=return_value;
-							 
-							if(Z_LVAL_P(smce_array_get_value_zval(smr->getRouter(),"router"))==false){
+							 zval *routerEx=smce_array_get_value_zval(smr->getRouter(),"router");
+							if(Z_TYPE_P(smce_array_get_value_zval(routerEx,index1)) !=  IS_NULL){
+								HashTable *arr;
+								HashPosition pointer;
+								zval **data;
 								
+								arr= Z_ARRVAL_P(smce_array_get_value_zval(routerEx,index1));
+								int i=0;
+								for(zend_hash_internal_pointer_reset_ex(arr, &pointer); 
+								zend_hash_get_current_data_ex(arr, (void**) &data, &pointer) == SUCCESS; 
+								zend_hash_move_forward_ex(arr, &pointer)) {
+									
+									if(Z_TYPE_P(smce_array_get_index_zval(explodeEx,i+2))	!=	IS_NULL)
+										add_assoc_string(return_value, Z_STRVAL_PP(data),Z_STRVAL_P(smce_array_get_index_zval(explodeEx,i+2)),1);
+									
+									i++;
+								}
+								
+							}else{
+								HashTable *arr;
+								HashPosition pointer;
+								zval **data;
+								
+								arr= Z_ARRVAL_P(smce_array_get_value_zval(routerEx,"all"));
+								int i=0;
+								for(zend_hash_internal_pointer_reset_ex(arr, &pointer); 
+								zend_hash_get_current_data_ex(arr, (void**) &data, &pointer) == SUCCESS; 
+								zend_hash_move_forward_ex(arr, &pointer)) {
+									
+									if(Z_TYPE_P(smce_array_get_index_zval(explodeEx,i+2))	!=	IS_NULL)
+										add_assoc_string(return_value, Z_STRVAL_PP(data),Z_STRVAL_P(smce_array_get_index_zval(explodeEx,i+2)),1);
+									
+									i++;
+								}
 							}
-							 
+							
 						}
 						
 						
 					}
 					
-					RETURN_STRING("1",1);
+					
 				}
 		}
 		
 	}
-	
-	RETURN_TRUE;
-	
 	
 }
 

@@ -31,6 +31,7 @@ class SmUrlRouter
     
 	zval* requestArray;
 	zval* routeGetEx;
+	zval* explodeEx;
     
   private:
 	char* request;
