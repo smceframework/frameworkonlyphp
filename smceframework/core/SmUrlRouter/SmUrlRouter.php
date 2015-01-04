@@ -80,11 +80,8 @@ class SmUrlRouter{
 						"view"=>isset($routeGetEx[1])?$routeGetEx[1]:"",
 					);
 				}
-				/*
-				foreach($_GET as $key=>$value){
-					$requestArray[$key]=$value;
-				}
-				*/
+				
+				
 			}else{
 				
 				$parse=parse_url($this->request);

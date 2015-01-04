@@ -63,6 +63,11 @@ class SmBase
 
 		$requestArray=$SmUrlRouter->run();
 		
+		if(isset($requestArray)){
+			foreach ($requestArray as $key => $value)
+				$_GET[$key]=$value;
+			
+		}
 		
       	$this->controller=strtolower($requestArray["controller"]);
         $this->view=strtolower($requestArray["view"]);

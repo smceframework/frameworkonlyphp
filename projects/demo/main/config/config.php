@@ -18,10 +18,10 @@ return array(
 	
 	'urlrouter'=>array(
 		'router'=>array(
-			"all"=>array(array("id")),
+			"all"=>array("id"),
 			"router"=>array("dataA","dataB"),
 		),
-		'showScriptName'=>false, //false - true
+		'showScriptName'=>true, //false - true
 		
 		/*
 			'showScriptName'=>true,

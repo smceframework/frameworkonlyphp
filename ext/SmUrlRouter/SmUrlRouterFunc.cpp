@@ -233,23 +233,59 @@ getThis() TSRMLS_CC);
 					
 					 if(Z_TYPE_P(smce_array_get_index_zval(return_value,0))!= IS_NULL &&
 					  Z_TYPE_P(smce_array_get_index_zval(return_value,1))!= IS_NULL){
-						 RETURN_STRING("3",1);
+						
+						char* index1= Z_STRVAL_P(smce_array_get_index_zval(return_value,0));
+						char* index2= Z_STRVAL_P(smce_array_get_index_zval(return_value,1));
 						 
 						 array_init(return_value);
-						 add_assoc_string(return_value, "controller", Z_STRVAL_P(smce_array_get_index_zval(return_value,0)),1);
-						 add_assoc_string(return_value, "view", Z_STRVAL_P(smce_array_get_index_zval(return_value,0)),1);
+						 add_assoc_string(return_value, "controller",index1,1);
+						 add_assoc_string(return_value, "view", index2,1);
 						 
 						 requestArray=return_value;
 					}
 					
 					
 				}
-				
-				RETURN_STRING("2",1);
 			
 			}else{
-				RETURN_STRING("1",1);
-			}
+					
+					php_url *parseurl;
+					
+					parseurl = php_url_parse_ex(smr->getRequest(), smr->getRequest_len());
+					
+					RETVAL_STRING(parseurl->path,1);
+					char* path=parseurl->path;
+					
+					if(path!=NULL){
+						zval zdelim, zrequest;
+						ZVAL_STRINGL(&zrequest, parseurl->path,strlen(path), 0);
+						ZVAL_STRINGL(&zdelim, smce_string_to_char("/"), 1, 0);
+						array_init(return_value);
+						php_explode( &zdelim,&zrequest, return_value, LONG_MAX);
+						
+						if(Z_TYPE_P(smce_array_get_index_zval(return_value,0))!= IS_NULL &&
+						  Z_TYPE_P(smce_array_get_index_zval(return_value,1))!= IS_NULL){
+							
+							char* index1= Z_STRVAL_P(smce_array_get_index_zval(return_value,0));
+							char* index2= Z_STRVAL_P(smce_array_get_index_zval(return_value,1));
+							 
+							 array_init(return_value);
+							 add_assoc_string(return_value, "controller",index1,1);
+							 add_assoc_string(return_value, "view", index2,1);
+							 
+							 requestArray=return_value;
+							 
+							if(Z_LVAL_P(smce_array_get_value_zval(smr->getRouter(),"router"))==false){
+								
+							}
+							 
+						}
+						
+						
+					}
+					
+					RETURN_STRING("1",1);
+				}
 		}
 		
 	}

@@ -19,8 +19,13 @@
 
 
 extern "C" {
+	
+//php-src
+	
 #include "php.h"
 #include <ext/standard/php_string.h>
+#include <ext/standard/url.h>
+
 }
 
 
