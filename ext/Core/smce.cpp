@@ -7,13 +7,18 @@
  * @github https://github.com/imadige/SMCEframework-MVC
  */
  
+ 
+ 
 #ifndef SMCE_EXT_CORE_SMCE_H
 #define SMCE_EXT_CORE_SMCE_H
+
 
 #include <cstring>
 #include <iostream>
 #include <vector>
 #include <sstream>
+
+
 using namespace std; 
 
 
@@ -22,18 +27,25 @@ using namespace std;
 #include "../../build/smceframework.h"
 
 
+
 // func
 #include "string.h"
 #include "smce.h"
+
+
 
 
 //SmRouter
 #include "../SmUrlRouter/SmUrlRouter.cpp"
 #include "../SmUrlRouter/SmUrlRouterFunc.cpp"
 
+
+
 //Deneme
 #include "../Deneme/deneme.cpp"
 #include "../Deneme/denefunc.cpp"
+
+
 
 
 
