@@ -13,6 +13,6 @@ php:
 
 before_script:
  - composer install --dev
- - sh -c phpize && sudo ./configure --enable-smceframework && make && sudo make install)
+ - phpize && sudo ./configure --enable-smceframework && make && sudo make install)
  - ulimit -c unlimited || true
 
