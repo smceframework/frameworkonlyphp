@@ -12,8 +12,7 @@ php:
 
 
 before_script:
-  - composer install --dev
- - git submodule --quiet update --init --recursive
- - (cd build; export CFLAGS="-g3 -O1 -std=gnu90 -Wall -Werror -Wno-error=uninitialized"; phpize && sudo ./configure --enable-smceframework && make && sudo make install)
+ - composer install --dev
+ - sh -c phpize && sudo ./configure --enable-smceframework && make && sudo make install)
  - ulimit -c unlimited || true
 
