@@ -6,60 +6,62 @@
  * @copyright 2015 SmceFramework
  * @github https://github.com/imadige/SMCEframework-MVC
  */
- 
-#include "SmUrlRouter.h"
+
+#include "../../php_smceframework.h"
+
+#include "smrouter.h"
 
 
-SmUrlRouter::SmUrlRouter()
+SmRouter::SmRouter()
 {
 	
 }
 
-void SmUrlRouter::setRequest(char* req,int req_len){
+void SmRouter::setRequest(char* req,int req_len){
 	
 	request=req;
 	request_len=req_len;
 	
 }
 
-void SmUrlRouter::setRouter(zval* rout){
+void SmRouter::setRouter(zval* rout){
 	
 	router=rout;
 	
 }
 
-void SmUrlRouter::setRoute(char* rout,int rout_len){
+void SmRouter::setRoute(char* rout,int rout_len){
 	
 	route=rout;
 	route_len=rout_len;
 }
 
-char* SmUrlRouter::getRequest(){
+char* SmRouter::getRequest(){
 	
 	return request;
 	
 }
 
-int SmUrlRouter::getRequest_len(){
+int SmRouter::getRequest_len(){
 	
 	return request_len;
 	
 }
 
-char* SmUrlRouter::getRoute(){
+char* SmRouter::getRoute(){
 	
 	return route;
 	
 }
 
-int SmUrlRouter::getRoute_len(){
+int SmRouter::getRoute_len(){
 	
 	return route_len;
 	
 }
 
 
-zval* SmUrlRouter::getRouter(){
+zval* SmRouter::getRouter(){
 	
 	return router;
 	

@@ -7,14 +7,14 @@
  * @github https://github.com/imadige/SMCEframework-MVC
  */
  
-#ifndef SMCE_EXT_SMURLROUTER_SMROUTER_H
-#define SMCE_EXT_SMURLROUTER_SMROUTER_H
+#ifndef SMCE_EXT_SMROUTER_SMROUTER_H
+#define SMCE_EXT_SMROUTER_SMROUTER_H
 
 
-class SmUrlRouter
+class SmRouter
 {
   public:
-	SmUrlRouter();
+	SmRouter();
 	
     void setRequest(char* request,int request_len);
     void setRouter(zval* router);

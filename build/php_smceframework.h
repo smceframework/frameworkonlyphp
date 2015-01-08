@@ -9,6 +9,15 @@
  
 #ifndef SMCE_BASE_SMCE_H
 #define SMCE_BASE_SMCE_H 
+
+
+#include <cstring>
+#include <iostream>
+#include <vector>
+#include <sstream>
+
+using namespace std;
+
  
 #define PHP_SMCEFRAMEWORK_VERSION "0.0.1"
 #define PHP_SMCEFRAMEWORK_EXTNAME "Smce Framework (PHP/C++)"
@@ -18,15 +27,13 @@
 #endif
 
 
-extern "C" {
-	
-//php-src
 	
 #include "php.h"
-#include <ext/standard/php_string.h>
-#include <ext/standard/url.h>
+#include "php_ini.h"
+#include "php_variables.h"
 
-}
+#include "ext/standard/php_string.h"
+#include "ext/standard/url.h"
 
 
 #ifdef ZTS
