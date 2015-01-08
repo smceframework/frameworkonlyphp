@@ -9,6 +9,7 @@
 
 #include "../../php_smceframework.h"
 
+#include "string.h";
 
 #include "array.h";
 

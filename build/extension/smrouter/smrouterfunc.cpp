@@ -11,9 +11,9 @@
 
 #include "smrouter.h" 
 
-#include "../../core/string.h"
+#include "../core/string.h"
 
-#include "../../core/array.h"
+#include "../core/array.h"
 
 PHP_METHOD(SmRouter, __construct);
 PHP_METHOD(SmRouter, setRequest);
