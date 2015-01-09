@@ -9,11 +9,14 @@
  
 #include "../../php_smceframework.h" 
 
+
 #include "smrouter.h" 
 
 #include "../core/string.h"
 
 #include "../core/array.h"
+
+
 
 PHP_METHOD(SmRouter, __construct);
 PHP_METHOD(SmRouter, setRequest);
@@ -33,8 +36,6 @@ struct smrouter_object {
   zend_object std;
   SmRouter *smr;
 };
-
-
 
 
 
@@ -112,11 +113,6 @@ PHP_METHOD(SmRouter, __construct)
 
 
 
-/**
-* 
-*
-* @param Smce\Ext\SmRouter $setRequest
-*/
 
 PHP_METHOD(SmRouter, setRequest)
 {
@@ -140,11 +136,6 @@ getThis() TSRMLS_CC);
     RETURN_TRUE;
 }
 
-/**
-* 
-*
-* @param Smce\Ext\SmRouter $setRouter
-*/
 
 PHP_METHOD(SmRouter, setRouter)
 {
@@ -168,11 +159,6 @@ getThis() TSRMLS_CC);
 }
 
 
-/**
-* 
-*
-* @param Smce\Ext\SmRouter $setRoute
-*/
 
 PHP_METHOD(SmRouter, setRoute)
 {
@@ -336,6 +322,7 @@ getThis() TSRMLS_CC);
 	
 }
 
+
 PHP_METHOD(SmRouter, array_get)
 {
 	zval *routeEx, *arr, **desc, *arr2, **data;
@@ -350,14 +337,15 @@ PHP_METHOD(SmRouter, array_get)
 	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "as",&arr,&route,&route_len) == FAILURE) {
         RETURN_NULL();
     }
-	
-	ZVAL_STRINGL(&zroute, route,route_len, 1);
-	ZVAL_STRINGL(&zdelim, ".", 1, 1);
+
+	ZVAL_STRINGL(&zroute, route,route_len, 0);
+	ZVAL_STRINGL(&zdelim, ".", 1, 0);
 	
 	ALLOC_INIT_ZVAL(routeEx);
 	array_init(routeEx);
+	
 	php_explode( &zdelim,&zroute, routeEx, LONG_MAX);
-	 
+	
 	arr_hash= Z_ARRVAL_P(routeEx);
 	
 	
@@ -402,7 +390,7 @@ PHP_METHOD(SmRouter, array_get)
 		array_init(return_value);
 	    add_index_zval(return_value,0, arr2); 
 	}
-
+	
 }
 
 
@@ -411,19 +399,15 @@ PHP_METHOD(SmRouter, array_get)
 
 
 
+
 PHP_MINIT_FUNCTION(smceframework)
 {
-	
-  zend_class_entry ce;
-  
-  INIT_NS_CLASS_ENTRY(ce, "Smce\\Ext", "SmUrlRouter", smrouter_methods);
-  smrouter_ce = zend_register_internal_class(&ce TSRMLS_CC);
-  smrouter_ce->create_object = smrouter_create_handler;
-  memcpy(&smrouter_object_handlers, zend_get_std_object_handlers(),
-      sizeof(zend_object_handlers));
-  smrouter_object_handlers.clone_obj = NULL;
-  
-  
-  return SUCCESS;
-  
+	zend_class_entry ce;
+	INIT_NS_CLASS_ENTRY(ce, "Smce\\Ext", "SmUrlRouter", smrouter_methods);
+	smrouter_ce = zend_register_internal_class(&ce TSRMLS_CC);
+	smrouter_ce->create_object = smrouter_create_handler;
+	memcpy(&smrouter_object_handlers, zend_get_std_object_handlers(),
+	sizeof(zend_object_handlers));
+	smrouter_object_handlers.clone_obj = NULL;
+	return SUCCESS;
 }

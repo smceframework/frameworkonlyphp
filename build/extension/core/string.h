@@ -11,10 +11,12 @@
 #define SMCE_BASE_STRING_H_H 
 
 
-static char* smce_string_to_char(string str);
+#include "../../php_smceframework.h"
 
+char* smce_string_to_char(string str);
 
 static zval* smce_string_to_zval(string str);
+
 
 
 #endif

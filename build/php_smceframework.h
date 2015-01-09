@@ -10,7 +10,7 @@
 #ifndef SMCE_BASE_SMCE_H
 #define SMCE_BASE_SMCE_H 
 
-
+ 
 #include <cstring>
 #include <iostream>
 #include <vector>
@@ -18,7 +18,7 @@
 
 using namespace std;
 
- 
+
 #define PHP_SMCEFRAMEWORK_VERSION "0.0.1"
 #define PHP_SMCEFRAMEWORK_EXTNAME "Smce Framework (PHP/C++)"
 
@@ -27,14 +27,13 @@ using namespace std;
 #endif
 
 
-	
-#include "php.h"
-#include "php_ini.h"
-#include "php_variables.h"
-
-#include "ext/standard/php_string.h"
-#include "ext/standard/url.h"
-
+extern "C" {	
+	#include "php.h"
+	#include "php_ini.h"
+	#include "php_variables.h"
+	#include "ext/standard/php_string.h"
+	#include "ext/standard/url.h"
+}
 
 #ifdef ZTS
 #include "TSRM.h"
@@ -43,9 +42,6 @@ using namespace std;
 
 
 PHP_MINIT_FUNCTION(smceframework);
-PHP_MSHUTDOWN_FUNCTION(smceframework);
-PHP_RINIT_FUNCTION(smceframework);
-PHP_RSHUTDOWN_FUNCTION(smceframework);
 
 
 

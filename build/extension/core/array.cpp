@@ -7,11 +7,10 @@
  * @github https://github.com/imadige/SMCEframework-MVC
  */
 
-#include "../../php_smceframework.h"
 
-#include "string.h";
+#ifndef SMCE_CORE_SMCE_H_H
+#define SMCE_CORE_SMCE_H_H 
 
-#include "array.h";
 
 static char* smce_array_get_value_string(zval* arr,string index){
 	HashTable *hash;
@@ -72,3 +71,5 @@ static zval* smce_array_get_index_zval(zval* arr,ulong index){
     
 }
 
+
+#endif
