@@ -17,7 +17,7 @@ zend_module_entry smceframework_module_entry = {
   PHP_SMCEFRAMEWORK_EXTNAME,
   NULL,                   //!< Functions
 	PHP_MINIT(smceframework),
-    NULL,                  /* MSHUTDOWN */
+    PHP_MSHUTDOWN(smceframework),                  /* MSHUTDOWN */
     NULL,                  /* RINIT */
     NULL,                  /* RSHUTDOWN */
     NULL,                   // MINFO
@@ -33,3 +33,9 @@ ZEND_GET_MODULE(smceframework)
 }
 #endif
 
+
+PHP_MSHUTDOWN_FUNCTION(smceframework)
+{
+    UNREGISTER_INI_ENTRIES();
+    return SUCCESS;
+}

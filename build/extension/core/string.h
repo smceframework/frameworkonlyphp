@@ -15,8 +15,9 @@
 
 char* smce_string_to_char(string str);
 
-zval* smce_string_to_zval(string str);
+string smce_char_to_string(char* chr);
 
+zval* smce_string_to_zval(string str);
 
 
 #endif

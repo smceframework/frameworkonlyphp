@@ -23,8 +23,8 @@ PHP_METHOD(SmRouter, setRequest);
 PHP_METHOD(SmRouter, setRouter);
 PHP_METHOD(SmRouter, setRoute);
 PHP_METHOD(SmRouter, run);
-//PHP_METHOD(SmRouter, createUrl);
-//PHP_METHOD(SmRouter, redirect);
+PHP_METHOD(SmRouter, createUrl);
+PHP_METHOD(SmRouter, redirect);
 
  
 zend_class_entry *smrouter_ce;
@@ -43,8 +43,8 @@ zend_function_entry smrouter_methods[] = {
     PHP_ME(SmRouter , setRouter, NULL, ZEND_ACC_PUBLIC)
     PHP_ME(SmRouter , setRoute, NULL, ZEND_ACC_PUBLIC)
     PHP_ME(SmRouter , run, NULL, ZEND_ACC_PUBLIC)
-    //PHP_ME(SmRouter , createUrl, NULL, ZEND_ACC_PUBLIC)
-    //PHP_ME(SmRouter , redirect, NULL, ZEND_ACC_PUBLIC)
+    PHP_ME(SmRouter , createUrl, NULL, ZEND_ACC_PUBLIC)
+    PHP_ME(SmRouter , redirect, NULL, ZEND_ACC_PUBLIC)
     {NULL, NULL, NULL}
 };
 
@@ -109,7 +109,11 @@ PHP_METHOD(SmRouter, __construct)
 }
 
 
-
+/**
+* 
+*
+* @param Smce\Ext\SmRouter setRequest
+*/
 
 PHP_METHOD(SmRouter, setRequest)
 {
@@ -133,6 +137,11 @@ getThis() TSRMLS_CC);
     RETURN_TRUE;
 }
 
+/**
+* 
+*
+* @param Smce\Ext\SmRouter setRouter
+*/
 
 PHP_METHOD(SmRouter, setRouter)
 {
@@ -155,7 +164,11 @@ getThis() TSRMLS_CC);
     RETURN_TRUE;
 }
 
-
+/**
+* 
+*
+* @param Smce\Ext\SmRouter setRoute
+*/
 
 PHP_METHOD(SmRouter, setRoute)
 {
@@ -178,7 +191,11 @@ getThis() TSRMLS_CC);
     RETURN_TRUE;
 }
 
-
+/**
+* 
+*
+* @param Smce\Ext\SmRouter run
+*/
 
 PHP_METHOD(SmRouter, run)
 {
@@ -217,21 +234,23 @@ getThis() TSRMLS_CC);
 					zval zdelim, zroute;
 					ZVAL_STRINGL(&zroute, smr->getRoute(), smr->getRoute_len(), 0);
 					ZVAL_STRINGL(&zdelim, smce_string_to_char("/"), 1, 0);
-					array_init(return_value);
-					php_explode( &zdelim,&zroute, return_value, LONG_MAX);
 					
+					zval* explodeEx;
+					ALLOC_INIT_ZVAL(explodeEx);
+					array_init(explodeEx);
+					php_explode( &zdelim,&zroute, explodeEx, LONG_MAX);
+				
 					
-					 if(Z_TYPE_P(smce_array_get_index_zval(return_value,0))!= IS_NULL &&
-					  Z_TYPE_P(smce_array_get_index_zval(return_value,1))!= IS_NULL){
+					if(Z_TYPE_P(smce_array_get_index_zval(explodeEx,0))!= IS_NULL &&
+					  Z_TYPE_P(smce_array_get_index_zval(explodeEx,1))!= IS_NULL){
 						
-						char* index1= Z_STRVAL_P(smce_array_get_index_zval(return_value,0));
-						char* index2= Z_STRVAL_P(smce_array_get_index_zval(return_value,1));
+						char* index1= Z_STRVAL_P(smce_array_get_index_zval(explodeEx,0));
+						char* index2= Z_STRVAL_P(smce_array_get_index_zval(explodeEx,1));
 						 
 						 array_init(return_value);
 						 add_assoc_string(return_value, "controller",index1,1);
 						 add_assoc_string(return_value, "view", index2,1);
 						 
-						 requestArray=return_value;
 					}
 					
 					
@@ -315,9 +334,162 @@ getThis() TSRMLS_CC);
 	
 }
 
+/**
+* 
+*
+* @param Smce\Ext\SmRouter createUrl
+*/
 
-//PHP_METHOD(SmRouter, createUrl);
-//PHP_METHOD(SmRouter, redirect);
+PHP_METHOD(SmRouter, createUrl)
+{
+	char *controllerView, *baseUrl, *STR, *STR2;
+	int controllerViewLen, baseUrlLen;
+	zval *array, **data;
+	HashTable *arr_hash;
+	HashPosition pointer;
+	string s1, s2="";
+	
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "sas", &controllerView,&controllerViewLen,&array,&baseUrl,&baseUrlLen) == FAILURE) {
+        RETURN_NULL();
+    }
+    
+   
+    SmRouter *smr = NULL;
+	smrouter_object  *obj =(smrouter_object *) zend_object_store_get_object(
+getThis() TSRMLS_CC);
+	smr=obj->smr;
+	
+	
+	if(Z_LVAL_P(smce_array_get_value_zval(smr->getRouter(),"showScriptName"))==true){
+		 
+		string s1=smce_char_to_string(baseUrl)+"/"+smce_char_to_string(controllerView);
+		
+		arr_hash= Z_ARRVAL_P(array);
+		
+		for(zend_hash_internal_pointer_reset_ex(arr_hash, &pointer); 
+		zend_hash_get_current_data_ex(arr_hash, (void**) &data, &pointer) == SUCCESS; 
+		zend_hash_move_forward_ex(arr_hash, &pointer)) {
+			
+			s2+="/";
+			s2+=smce_char_to_string(Z_STRVAL_PP(data));
+			
+		}
+		
+		s1+=s2;
+		
+		STR=smce_string_to_char(s1);
+	}else{
+		
+		string s1=smce_char_to_string(baseUrl)+"/index.php?route="+smce_char_to_string(controllerView);
+		
+		
+		arr_hash= Z_ARRVAL_P(array);
+		
+		for(zend_hash_internal_pointer_reset_ex(arr_hash, &pointer); 
+		zend_hash_get_current_data_ex(arr_hash, (void**) &data, &pointer) == SUCCESS; 
+		zend_hash_move_forward_ex(arr_hash, &pointer)) {
+			
+			char *key;
+			uint key_len;
+			ulong index;
+			
+			zend_hash_get_current_key_ex(arr_hash, &key, &key_len, &index, 0, &pointer);
+			
+			s2+="&"+smce_char_to_string(key)+"="+smce_char_to_string(Z_STRVAL_PP(data));
+			
+			
+		}
+		
+		s1+=s2;
+		
+		STR=smce_string_to_char(s1);
+	}
+	
+	RETURN_STRING(STR,1);
+    
+
+}
+
+
+
+/**
+* 
+*
+* @param Smce\Ext\SmRouter redirect
+*/
+
+PHP_METHOD(SmRouter, redirect)
+{
+	char *controllerView, *baseUrl, *STR, *STR2;
+	int controllerViewLen, baseUrlLen;
+	zval *array, **data;
+	HashTable *arr_hash;
+	HashPosition pointer;
+	string s1, s2="";
+	
+	sapi_header_line h = { NULL, 0, 0 };
+	
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "sas", &controllerView,&controllerViewLen,&array,&baseUrl,&baseUrlLen) == FAILURE) {
+        RETURN_NULL();
+    }
+    
+   
+    SmRouter *smr = NULL;
+	smrouter_object  *obj =(smrouter_object *) zend_object_store_get_object(
+getThis() TSRMLS_CC);
+	smr=obj->smr;
+	
+	
+	if(Z_LVAL_P(smce_array_get_value_zval(smr->getRouter(),"showScriptName"))==true){
+		 
+		s1=smce_char_to_string(baseUrl)+"/"+smce_char_to_string(controllerView);
+		
+		arr_hash= Z_ARRVAL_P(array);
+		
+		for(zend_hash_internal_pointer_reset_ex(arr_hash, &pointer); 
+		zend_hash_get_current_data_ex(arr_hash, (void**) &data, &pointer) == SUCCESS; 
+		zend_hash_move_forward_ex(arr_hash, &pointer)) {
+			
+			s2+="/";
+			s2+=smce_char_to_string(Z_STRVAL_PP(data));
+			
+		}
+		
+		s1+=s2;
+		
+	}else{
+		
+		s1=smce_char_to_string(baseUrl)+"/index.php?route="+smce_char_to_string(controllerView);
+		
+		
+		arr_hash= Z_ARRVAL_P(array);
+		
+		for(zend_hash_internal_pointer_reset_ex(arr_hash, &pointer); 
+		zend_hash_get_current_data_ex(arr_hash, (void**) &data, &pointer) == SUCCESS; 
+		zend_hash_move_forward_ex(arr_hash, &pointer)) {
+			
+			char *key;
+			uint key_len;
+			ulong index;
+			
+			zend_hash_get_current_key_ex(arr_hash, &key, &key_len, &index, 0, &pointer);
+			
+			char *buff = new char[strlen(STR2)+1];
+			sprintf(buff, "&%s=%s",key, Z_STRVAL_PP(data));
+			s2+=buff;
+			
+			
+		}
+		
+		s1+=s2;
+		
+	}
+	
+	string header="Location: "+s1;
+	h.line = smce_string_to_char(header);
+	h.line_len = header.length();
+	sapi_header_op(SAPI_HEADER_REPLACE, &h TSRMLS_CC);
+}
 
 
 

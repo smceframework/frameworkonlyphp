@@ -11,7 +11,7 @@
 namespace Smce\Core;
 
 use Smce\Base\SmBase;
-use Smce\Core\SmUrlRouter;
+use Smce\Ext\SmRouter;
 use Smce;
 use ActiveRecord\ConnectionManager;
 
@@ -61,17 +61,31 @@ class SmUser
 
 	public function createUrl($controllerView="",$array=array())
 	{
-		$request=str_replace(Smce::app()->baseUrl."/", "",$_SERVER["REQUEST_URI"]);
+		$request=str_replace($this->base_url(), "",$_SERVER["REQUEST_URI"]);
+		
+		if(substr($request,0,1)=="/")
+			$request=substr($request,1,strlen($request));
+			
 		$request=str_replace("index.php", "",$request);
+
 		
-		$SmUrlRouter=new SmUrlRouter;
-		$SmUrlRouter->setRequest($request);
+		$SmRouter=new SmRouter;
+
+		$SmRouter->setRequest($request);
+
+		if(isset($_GET["route"]))
+			$SmRouter->setRoute($_GET["route"]);
+
+
 		if(isset(SmBase::$config["urlrouter"])){
-			$SmUrlRouter->setRouter(SmBase::$config["urlrouter"]);
+			$SmRouter->setRouter(SmBase::$config["urlrouter"]);
 		}else
-			$SmUrlRouter->setRouter(SmBase::$configSmce["urlrouter"]);
+			$SmRouter->setRouter(SmBase::$configSmce["urlrouter"]);
+	
 		
-		return $SmUrlRouter->createUrl($controllerView,$array,$this->data["baseurl"]);
+		return $SmRouter->createUrl($controllerView,$array,$this->data["baseurl"]);
+		
+		
 	}
 	
 	/**
@@ -198,18 +212,30 @@ class SmUser
 
     public function redirect($controllerView="",$array=array())
     {
-        $request=str_replace(Smce::app()->baseUrl."/", "",$_SERVER["REQUEST_URI"]);
+       $request=str_replace($this->base_url(), "",$_SERVER["REQUEST_URI"]);
+		
+		if(substr($request,0,1)=="/")
+			$request=substr($request,1,strlen($request));
+			
 		$request=str_replace("index.php", "",$request);
+
 		
-		$SmUrlRouter=new SmUrlRouter;
-		$SmUrlRouter->setRequest($request);
+		$SmRouter=new SmRouter;
+
+		$SmRouter->setRequest($request);
+
+		if(isset($_GET["route"]))
+			$SmRouter->setRoute($_GET["route"]);
+
+
 		if(isset(SmBase::$config["urlrouter"])){
-			$SmUrlRouter->setRouter(SmBase::$config["urlrouter"]);
+			$SmRouter->setRouter(SmBase::$config["urlrouter"]);
 		}else
-			$SmUrlRouter->setRouter(SmBase::$configSmce["urlrouter"]);
+			$SmRouter->setRouter(SmBase::$configSmce["urlrouter"]);
+	
 		
+		return $SmRouter->redirect($controllerView,$array,$this->data["baseurl"]);
 		
-		$SmUrlRouter->redirect($controllerView,$array,Smce::app()->baseUrl);
     }
 	
 	

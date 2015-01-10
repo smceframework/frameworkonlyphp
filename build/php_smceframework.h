@@ -42,7 +42,7 @@ extern "C" {
 
 
 PHP_MINIT_FUNCTION(smceframework);
-
+PHP_MSHUTDOWN_FUNCTION(smceframework);
 
 
 extern zend_module_entry smframework_module_entry;

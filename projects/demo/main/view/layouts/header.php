@@ -43,16 +43,13 @@
   <nav>
     <div class="logo clearfix"><a href="<?=Smce::app()->createUrl("site/index")?>"><h1><?php echo Smce::app()->appname;?></h1></a></div>
     <ul id="menu">
+
       <li><a href="<?=Smce::app()->createUrl("site/index");?>">Home</a></li>
       <li><a href="<?=Smce::app()->createUrl("site/helper");?>">Helper</a></li>
       <li><a href="<?=Smce::app()->createUrl("site/about");?>">About</a></li>
       <li><a href="<?=Smce::app()->createUrl("themebasic/index");?>">Theme</a></li>
       <li><a href="<?=Smce::app()->createUrl("router/index",array("veriA"=>"SmceFramework","veriB"=>"3123554"));?>">Router</a></li>
-      <?php if(Smce::app()->getState("name")==""):?>
-        <li><a href="<?=Smce::app()->createUrl("site/login");?>">Login</a></li>
-      <?php else:?>
-        <li><a href="<?=Smce::app()->createUrl("site/logout");?>">Logout</a></li>
-      <?php endif;?>
+    
     </ul>
     
     <a href="#menu-footer" class="menu-btn"></a>

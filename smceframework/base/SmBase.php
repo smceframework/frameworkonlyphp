@@ -15,6 +15,7 @@ use Smce\Core\SmHttpException;
 use Smce\Core\SmACL;
 use Smce\Core\SmUrlRouter;
 use ActiveRecord;
+use Smce\Ext\SmRouter;
 
 class SmBase
 {
@@ -49,16 +50,25 @@ class SmBase
 			
 		$request=str_replace("index.php", "",$request);
 		
-		$SmUrlRouter=new SmUrlRouter;
-		$SmUrlRouter->setRequest($request);
-		if(isset(self::$config["urlrouter"])){
-			$SmUrlRouter->setRouter(self::$config["urlrouter"]);
-		}else
-			$SmUrlRouter->setRouter(self::$configSmce["urlrouter"]);
+		$SmRouter=new SmRouter;
 		
-		$requestArray=$SmUrlRouter->run();
-		foreach($requestArray as $key=>$value){
-			$_GET[$key]=$value;
+		$SmRouter->setRequest($request);
+
+		if(isset($_GET["route"]))
+			$SmRouter->setRoute($_GET["route"]);
+
+		if(isset(self::$config["urlrouter"])){
+			$SmRouter->setRouter(self::$config["urlrouter"]);
+		}else
+			$SmRouter->setRouter(self::$configSmce["urlrouter"]);
+		
+		$requestArray=$SmRouter->run();
+		
+	
+		if(isset($requestArray)){
+			foreach ($requestArray as $key => $value)
+				$_GET[$key]=$value;
+			
 		}
 		
       	$this->controller=strtolower($requestArray["controller"]);
