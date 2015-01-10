@@ -46,11 +46,11 @@ $ sudo apt-get install php5-dev  gcc make
 
 
 ####  Suse
-sudo yast -i gcc make php5-devel
+$ sudo yast -i gcc make php5-devel
 
 
 ####  CentOS/RedHat/Fedora
-sudo yum install php-devel gcc make
+$ sudo yum install php-devel gcc make
 
 
 -------------
