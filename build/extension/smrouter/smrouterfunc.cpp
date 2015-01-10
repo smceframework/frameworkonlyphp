@@ -23,11 +23,9 @@ PHP_METHOD(SmRouter, setRequest);
 PHP_METHOD(SmRouter, setRouter);
 PHP_METHOD(SmRouter, setRoute);
 PHP_METHOD(SmRouter, run);
-PHP_METHOD(SmRouter, array_get);
-/*
-PHP_METHOD(SmRouter, createUrl);
-PHP_METHOD(SmRouter, redirect);
-* */
+//PHP_METHOD(SmRouter, createUrl);
+//PHP_METHOD(SmRouter, redirect);
+
  
 zend_class_entry *smrouter_ce;
 zend_object_handlers smrouter_object_handlers;
@@ -45,7 +43,6 @@ zend_function_entry smrouter_methods[] = {
     PHP_ME(SmRouter , setRouter, NULL, ZEND_ACC_PUBLIC)
     PHP_ME(SmRouter , setRoute, NULL, ZEND_ACC_PUBLIC)
     PHP_ME(SmRouter , run, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(SmRouter , array_get, NULL, ZEND_ACC_PUBLIC)
     //PHP_ME(SmRouter , createUrl, NULL, ZEND_ACC_PUBLIC)
     //PHP_ME(SmRouter , redirect, NULL, ZEND_ACC_PUBLIC)
     {NULL, NULL, NULL}
@@ -201,18 +198,14 @@ getThis() TSRMLS_CC);
 		
 		add_assoc_string(return_value, "view", smce_string_to_char(""),1);
 		
-		requestArray=return_value;
-		
-		smr->requestArray=return_value;
 		
 	
-		if(smr->getRequest()== NULL){
+		if(smr->getRequest()== NULL || strlen(smr->getRequest())==0){
 			
 			add_assoc_string(return_value, "controller", smce_string_to_char("site"),1);
 		
 			add_assoc_string(return_value, "view", smce_string_to_char("index"),1);
 			
-			requestArray=return_value;
 		}else{
 			
 			
@@ -323,91 +316,9 @@ getThis() TSRMLS_CC);
 }
 
 
-PHP_METHOD(SmRouter, array_get)
-{
-	zval *routeEx, *arr, **desc, *arr2, **data;
-	zval zdelim, zroute;
-	char* route;
-	int route_len;
-	HashTable *hash, *has_a;
-	HashTable *arr_hash;
-	HashPosition pointer;
-	
-	
-	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "as",&arr,&route,&route_len) == FAILURE) {
-        RETURN_NULL();
-    }
-
-	ZVAL_STRINGL(&zroute, route,route_len, 0);
-	ZVAL_STRINGL(&zdelim, ".", 1, 0);
-	
-	ALLOC_INIT_ZVAL(routeEx);
-	array_init(routeEx);
-	
-	php_explode( &zdelim,&zroute, routeEx, LONG_MAX);
-	
-	arr_hash= Z_ARRVAL_P(routeEx);
-	
-	
-	hash = Z_ARRVAL_P(arr);
-	
-	for(zend_hash_internal_pointer_reset_ex(arr_hash, &pointer); 
-		zend_hash_get_current_data_ex(arr_hash, (void**) &data, &pointer) == SUCCESS; 
-		zend_hash_move_forward_ex(arr_hash, &pointer)) {
-			
-			ALLOC_INIT_ZVAL(arr2);
-			array_init(arr2);
-			if(zend_hash_find(hash,  Z_STRVAL_PP(data),Z_STRLEN_PP(data)+1, (void**)&desc) != FAILURE)
-			{
-				
-				
-				if(Z_TYPE_PP(desc) == IS_STRING)
-					add_index_string(arr2,0,Z_STRVAL_PP(desc),1);
-				else if(Z_TYPE_PP(desc) ==  IS_DOUBLE)
-					add_index_double(arr2,0,Z_DVAL_PP(desc));
-				else if(Z_TYPE_PP(desc) == IS_BOOL)
-					add_index_bool(arr2,0,Z_BVAL_PP(desc));
-				else if(Z_TYPE_PP(desc) == IS_LONG)
-					add_index_long(arr2,0,Z_LVAL_PP(desc));
-				else if(Z_TYPE_PP(desc) == IS_ARRAY){
-					add_index_zval(arr2,0,*desc);
-					
-				}
-				
-				hash=Z_ARRVAL_P(*desc);
-			}
-			
-			
-
-	}
-	
-	hash = Z_ARRVAL_P(arr2);
-	if(zend_hash_index_find(hash,  0, (void**)&desc) != FAILURE)
-	{
-			array_init(return_value);
-			add_index_zval(return_value,0, *desc); 
-	}else{
-		array_init(return_value);
-	    add_index_zval(return_value,0, arr2); 
-	}
-	
-}
-
-
 //PHP_METHOD(SmRouter, createUrl);
 //PHP_METHOD(SmRouter, redirect);
 
 
 
 
-PHP_MINIT_FUNCTION(smceframework)
-{
-	zend_class_entry ce;
-	INIT_NS_CLASS_ENTRY(ce, "Smce\\Ext", "SmUrlRouter", smrouter_methods);
-	smrouter_ce = zend_register_internal_class(&ce TSRMLS_CC);
-	smrouter_ce->create_object = smrouter_create_handler;
-	memcpy(&smrouter_object_handlers, zend_get_std_object_handlers(),
-	sizeof(zend_object_handlers));
-	smrouter_object_handlers.clone_obj = NULL;
-	return SUCCESS;
-}
