@@ -40,16 +40,16 @@ https://packagist.org/packages/smce/framework
 
 # Installation
 
-## Ubuntu
+### Ubuntu
 
 $ sudo apt-get install php5-dev  gcc make
 
 
-## Suse
+### Suse
 sudo yast -i gcc make php5-devel
 
 
-## CentOS/RedHat/Fedora
+### CentOS/RedHat/Fedora
 sudo yum install php-devel gcc make
 
 
