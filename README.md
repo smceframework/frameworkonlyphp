@@ -38,7 +38,29 @@ https://packagist.org/packages/smce/framework
 - Http Exceptions Capture (404, 403 .. vs Page)
 - Widgets
 
-# Ornekler
+# Installation
+
+## Ubuntu
+
+$ sudo apt-get install php5-dev  gcc make
+
+
+## Suse
+sudo yast -i gcc make php5-devel
+
+
+## CentOS/RedHat/Fedora
+sudo yum install php-devel gcc make
+
+
+-------------
+
+$ cd build
+
+$ phpize && sudo ./configure --enable-smceframework && make && sudo make install && service apache2 restart
+
+
+# Examples
 
 ### Smce Console help
 
