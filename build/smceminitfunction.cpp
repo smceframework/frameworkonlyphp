@@ -11,11 +11,11 @@ PHP_MINIT_FUNCTION(smceframework)
 	smrouter_object_handlers.clone_obj = NULL;
 
 	
-	INIT_NS_CLASS_ENTRY(ce, "Smce\\Ext", "SmHelper", smhelper_methods);
-	smhelper_ce = zend_register_internal_class(&ce TSRMLS_CC);
-	memcpy(&smhelper_object_handlers, zend_get_std_object_handlers(),
+	INIT_NS_CLASS_ENTRY(ce, "Smce\\Ext", "SmHelperc", smhelperc_methods);
+	smhelperc_ce = zend_register_internal_class(&ce TSRMLS_CC);
+	memcpy(&smhelperc_object_handlers, zend_get_std_object_handlers(),
 	sizeof(zend_object_handlers));
-	smhelper_object_handlers.clone_obj = NULL;
+	smhelperc_object_handlers.clone_obj = NULL;
 	
 	
 	return SUCCESS;

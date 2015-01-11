@@ -15,26 +15,15 @@
 #include "../core/array.h"
 
 
-
-//PHP_METHOD(SmHelper, array_first);
-//PHP_METHOD(SmHelper, array_last);
-//PHP_METHOD(SmHelper, array_filter);
-//PHP_METHOD(SmHelper, array_flatten);
-PHP_METHOD(SmHelper, array_get);
-//PHP_METHOD(SmHelper, array_sort);
+PHP_METHOD(SmHelperc, array_get);
 
  
-zend_class_entry *smhelper_ce;
-zend_object_handlers smhelper_object_handlers;
+zend_class_entry *smhelperc_ce;
+zend_object_handlers smhelperc_object_handlers;
 
 
-zend_function_entry smhelper_methods[] = {
-    //PHP_ME(SmHelper , array_first, NULL, ZEND_ACC_PUBLIC)
-    //PHP_ME(SmHelper , array_last, NULL, ZEND_ACC_PUBLIC)
-    //PHP_ME(SmHelper , array_filter, NULL, ZEND_ACC_PUBLIC)
-    //PHP_ME(SmHelper , array_flatten, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(SmHelper , array_get, NULL, ZEND_ACC_PUBLIC)
-    //PHP_ME(SmHelper , array_sort, NULL, ZEND_ACC_PUBLIC)
+zend_function_entry smhelperc_methods[] = {
+    PHP_ME(SmHelperc , array_get, NULL, ZEND_ACC_PUBLIC)
     {NULL, NULL, NULL}
 };
 
@@ -43,10 +32,10 @@ zend_function_entry smhelper_methods[] = {
 /**
 * 
 *
-* @param Smce\Ext\SmHelper array_get
+* @param Smce\Ext\SmHelperc array_get
 */
 
-PHP_METHOD(SmHelper, array_get)
+PHP_METHOD(SmHelperc, array_get)
 {
 	zval *routeEx, *arr, **desc, *arr2, **data;
 	zval zdelim, zroute;
@@ -57,7 +46,7 @@ PHP_METHOD(SmHelper, array_get)
 	HashPosition pointer;
 	
 	
-	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "as",&arr,&route,&route_len) == FAILURE) {
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "sa",&route,&route_len,&arr) == FAILURE) {
         RETURN_NULL();
     }
 
@@ -116,12 +105,5 @@ PHP_METHOD(SmHelper, array_get)
 	
 }
 
-
-
-//PHP_METHOD(SmHelper, array_first);
-//PHP_METHOD(SmHelper, array_last);
-//PHP_METHOD(SmHelper, array_filter);
-//PHP_METHOD(SmHelper, array_flatten);
-//PHP_METHOD(SmHelper, array_sort);
 
 

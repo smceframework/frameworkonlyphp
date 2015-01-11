@@ -57,7 +57,7 @@ class HelperController extends SmController
 	{
 		$array = array("name"=>array("foo"=>array("bar"=>"fu")));
 
-		$arr=S::array_get($array,"name.foo");
+		$arr=S::array_get("name.foo",$array);
 
 		echo "<pre>";
 		print_r($arr);
