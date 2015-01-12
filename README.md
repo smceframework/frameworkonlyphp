@@ -60,24 +60,6 @@ $ cd build
 $ phpize && sudo ./configure --enable-smceframework && make && sudo make install && service apache2 restart
 
 
-# Examples
-
-### Smce Console help
-
-php smce --help |
---- |
-
-
-## Smce Console Grud
-
-
-### New Model
-
-php smce --grud model connectingstring table_name |
---- |
-
-
-
 
 ## Gelistirici Hakkinda
 Samed Ceylan
