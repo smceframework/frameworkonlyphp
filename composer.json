@@ -19,7 +19,6 @@
 
 	},
 	"support": {
-		"issues": "https://github.com/imadige/smceframework-MVC/issues?state=open",
-		"source": "https://github.com/imadige/smceframework-MVC"
+		"issues": "https://github.com/smceframework/framework/issues?state=open"
 	}
 }
