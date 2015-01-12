@@ -2,7 +2,6 @@
 
 namespace Smce\Core;
 
-use Smce\Ext\SmHelperc;
 
 class SmHelper
 {
@@ -36,11 +35,20 @@ class SmHelper
 		return $array_re;
 	}
 
-	public static function array_get($params,$array)
+	public static function array_get($array,$params)
 	{
-		$SmHelper=new SmHelperc;
+		
+		if (is_null($params)) return $array;
 
-		return $SmHelper->array_get($params,$array);
+		if (isset($array[$params])) return $array[$params];
+
+		foreach (explode('.', $params) as $prEx)
+		{
+			
+			$array = $array[$prEx];
+			
+		}
+		return $array;
 	}
 	
 	

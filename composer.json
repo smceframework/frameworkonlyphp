@@ -1,7 +1,7 @@
 {
-    "name": "smce/framework",
-    "description": "SmceFramework",
-	"keywords": ["smce", "framework", "smce framework", "smceframework", "mvc"],
+    "name": "smce/frameworkonlyphp",
+    "description": "SmceFramework Only PHP",
+	"keywords": ["smce", "framework", "smce framework", "smceframework", "mvc", "only php"],
     "license": "MIT",
     "authors": [
         {
@@ -19,6 +19,6 @@
 
 	},
 	"support": {
-		"issues": "https://github.com/smceframework/framework/issues?state=open"
+		"issues": "https://github.com/smceframework/frameworkonlyphp/issues?state=open"
 	}
 }

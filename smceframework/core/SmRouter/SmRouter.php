@@ -10,7 +10,7 @@
  
 namespace Smce\Core;
 
-class SmUrlRouter{
+class SmRouter{
 
 	private $router;
 

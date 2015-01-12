@@ -11,7 +11,7 @@
 namespace Smce\Core;
 
 use Smce\Core\SmTemplate;
-use Smce\Core\SmUrlRouter;
+use Smce\Core\SmRouter;
 use Smce\Core\SmUser;
 use Smce;
 

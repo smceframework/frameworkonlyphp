@@ -138,7 +138,7 @@ class SmAutoload
 			"Smce\Core\SmFormField"=>SMCE_PATH."/core/SmForm/SmFormField.php",
 			"Smce\Core\SmTemplate"=>SMCE_PATH."/core/SmTemplate/SmTemplate.php",
 			"Smce\Core\SmGump"=>SMCE_PATH."/core/SmGump/SmGump.php",
-			"Smce\Core\SmUrlRouter"=>SMCE_PATH."/core/SmUrlRouter/SmUrlRouter.php",
+			"Smce\Core\SmRouter"=>SMCE_PATH."/core/SmRouter/SmRouter.php",
 			"Smce\Core\SmFiletozip"=>SMCE_PATH."/core/SmFiletozip/SmFiletozip.php",
 			"Smce\Core\SmOutput"=>SMCE_PATH."/core/SmOutput/SmOutput.php",
 			"Smce\Core\SmHelper"=>SMCE_PATH."/core/SmHelper/SmHelper.php",

@@ -11,7 +11,6 @@
 namespace Smce\Core;
 
 use Smce\Base\SmBase;
-use Smce\Ext\SmRouter;
 use Smce;
 use ActiveRecord\ConnectionManager;
 
