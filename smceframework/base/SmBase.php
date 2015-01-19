@@ -113,8 +113,10 @@ class SmBase
                     $SmACL=new SmACL();
                     if($SmACL->rules($accessRules,$this->view))
                         $class->$actionView();
-                    else
+                    else{
+					    header('HTTP/1.0 404 Not Found');
                         SmHttpException::htppError(404,"You do not have authority to allow");
+					}
                 }
             } else {
 				try
@@ -127,6 +129,7 @@ class SmBase
             }
 
         } else {
+			header('HTTP/1.0 404 Not Found');
             SmHttpException::htppError(404,"Page Not Found");
         }
     }
