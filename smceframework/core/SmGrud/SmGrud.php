@@ -56,7 +56,7 @@ class SmGrud
 			
 			if($value->null=="NO" && $value->extra!="auto_increment"){
 				if($requiredBol==false){
-					$rules2="array(";
+					$rules2="array('";
 					$requiredBol=true;
 				}
 				$rules2.=strtolower($value->field).", ";
@@ -75,7 +75,7 @@ class SmGrud
 		}
 		if(!empty($rules2)){
 			$rules2=substr($rules2,0,strlen($rules2)-2);
-			$rules2.="', 'required'";
+			$rules2.="', 'required')";
 		}
 		
 		$max_len=array();
