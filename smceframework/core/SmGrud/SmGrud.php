@@ -43,19 +43,23 @@ class SmGrud
 		
 		$model_1=str_replace("[connection]",self::$conn,$model_1);
 		
-		$rules1=array();
-		$rules2="'";
+		$rules2="";
 		$label="";
 		$int=array();
 		$varchar=array();
+		
+		$requiredBol=false;
 		
 		foreach($attributes as $key=>$value){
 			
 			$value=(object)$value;
 			
 			if($value->null=="NO" && $value->extra!="auto_increment"){
+				if($requiredBol==false){
+					$rules2="array(";
+					$requiredBol=true;
+				}
 				$rules2.=strtolower($value->field).", ";
-				$rules1[]=strtolower($value->field);
 			}
 			
 			if(substr($value->type,0,7)=="varchar"  && $value->extra!="auto_increment"){
@@ -69,8 +73,10 @@ class SmGrud
 			
 			$label[]=sprintf("'%s' =>\t'%s',",strtolower($value->field),strtolower($value->field));
 		}
-		$rules2=substr($rules2,0,strlen($rules2)-2);
-		$rules2.="', 'required'";
+		if(!empty($rules2)){
+			$rules2=substr($rules2,0,strlen($rules2)-2);
+			$rules2.="', 'required'";
+		}
 		
 		$max_len=array();
 		foreach($varchar as $key=>$value){
@@ -87,25 +93,29 @@ class SmGrud
 	{
 		
 		return array(
-			// [//rules] are required
-			array([array]),
-			
-			[max_len],
-			
+		
+			[array]
+			[max_len]
 			[integer]
+			
 		);
 		
 	}";
 	
-		$rules=str_replace("[//rules]",implode(", ",$rules1),$rules);
+		if(!empty($rules2))
+			$rules=str_replace("[array]",$rules2.",",$rules);
+		else
+			$rules=str_replace("[array]","",$rules);
 		
-		$rules=str_replace("[array]",$rules2,$rules);
+		if(!empty($max_len))
+			$rules=str_replace("[max_len]",implode(",",$max_len).",",$rules);
+		else
+			$rules=str_replace("[max_len]","",$rules);
 		
-		$rules=str_replace("[max_len]",implode(",
-		",$max_len),$rules);
 		
 		$rules=str_replace("[integer]",$integer,$rules);
 		
+			
 		$model_1=str_replace("[rules]",$rules,$model_1);
 		
 		

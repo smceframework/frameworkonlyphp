@@ -101,6 +101,7 @@ class SmGump
 	 */
 	public static function xss_clean(array $data)
 	{
+		
 		foreach ($data as $k => $v) {
 			$data[$k] = filter_var($v, FILTER_SANITIZE_STRING);
 		}
@@ -192,7 +193,7 @@ class SmGump
 	public function run(array $data, $check_fields = false)
 	{
 		$data = $this->filter($data, $this->filter_rules());
-
+		
 		$validated = $this->validate(
 			$data, $this->validation_rules()
 		);
@@ -238,6 +239,7 @@ class SmGump
 	 */
 	public function sanitize(array $input, $fields = null, $utf8_encode = true)
 	{
+		
 		$magic_quotes = (bool) get_magic_quotes_gpc();
 
 		if (is_null($fields)) {
@@ -275,7 +277,7 @@ class SmGump
 				$return[$field] = $value;
 			}
 		}
-
+		
 		return $return;
 	}
 
@@ -300,8 +302,9 @@ class SmGump
 	 */
 	public function validate(array $input, array $ruleset)
 	{
+		
 		$this->errors = array();
-
+		
 		foreach ($ruleset as $field => $rules) {
 			#if(!array_key_exists($field, $input))
             #{
@@ -1045,7 +1048,7 @@ class SmGump
 			return;
 		}
 
-		if (!filter_var($input[$field], FILTER_VALIDATE_INT)) {
+		if ($input[$field]==0 && !filter_var($input[$field], FILTER_VALIDATE_INT)) {
 			return array(
 				'field' => $field,
 				'value' => $input[$field],

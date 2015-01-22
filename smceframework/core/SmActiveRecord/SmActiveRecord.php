@@ -102,7 +102,6 @@ class SmActiveRecord extends SmActiveEvent
 								$value2 = trim($value2);
 								$valid[$value2] = trim($value[1]);
 								$data[$value2]= $this->$value2;
-								
 								$this->exValid($data,$valid);
 							}
 							 

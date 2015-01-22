@@ -482,6 +482,8 @@ class Model
 		// check for attribute
 		if (array_key_exists($name,$this->attributes))
 			return $this->attributes[$name];
+			
+			
 
 		// check relationships if no attribute
 		if (array_key_exists($name,$this->__relationships))
