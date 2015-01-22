@@ -1048,7 +1048,7 @@ class SmGump
 			return;
 		}
 
-		if ($input[$field]==0 && !filter_var($input[$field], FILTER_VALIDATE_INT)) {
+		if (!filter_var($input[$field], FILTER_VALIDATE_INT)) {
 			return array(
 				'field' => $field,
 				'value' => $input[$field],
