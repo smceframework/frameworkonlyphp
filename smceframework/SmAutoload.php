@@ -111,7 +111,9 @@ class SmAutoload
 		return array(
 
 			//Core
+			
 			"Smce\Core\SmException"=>SMCE_PATH."/core/SmException.php",
+			"Smce\Core\SmHttpException"=>SMCE_PATH."/core/SmHttpException.php",
 			"Smce\Core\SmAssetsManager"=>SMCE_PATH."/core/SmAssetsManager/SmAssetsManager.php",
 			"Smce\Core\SmTempManager"=>SMCE_PATH."/core/SmTempManager.php",
 			"Smce\Core\SmController"=>SMCE_PATH."/core/SmController.php",
