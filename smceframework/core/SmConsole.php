@@ -10,6 +10,8 @@ class SmConsole
 	private $help=array(
 		"language 		php smce --lang path/to/project/main/lang/main.php",
 		"crud/newmodel		php smce --crud model connectingstring tablename",
+		"crud/newcontroller	php smce --crud controller connectingstring tablename",
+		"crud/newview		php smce --crud view connectingstring tablename",
 	);
 
 	private $words=array(
@@ -60,6 +62,32 @@ class SmConsole
 				
 				$SmCrud=new SmCrud($argv[3]);
 				$SmCrud->newModel($argv[4]);
+				
+			}catch(SmException $e){
+				
+				echo $e->getMessage();
+				
+			}
+			
+		}elseif(isset($argv[2]) && isset($argv[3]) && isset($argv[4]) && !empty($argv[2]) && !empty($argv[4]) && $argv[2]=="controller"){
+			
+			try{
+				
+				$SmCrud=new SmCrud($argv[3]);
+				$SmCrud->newController($argv[4]);
+				
+			}catch(SmException $e){
+				
+				echo $e->getMessage();
+				
+			}
+			
+		}elseif(isset($argv[2]) && isset($argv[3]) && isset($argv[4]) && !empty($argv[2]) && !empty($argv[4]) && $argv[2]=="view"){
+			
+			try{
+				
+				$SmCrud=new SmCrud($argv[3]);
+				$SmCrud->newView($argv[4]);
 				
 			}catch(SmException $e){
 				

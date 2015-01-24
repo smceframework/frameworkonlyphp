@@ -147,4 +147,62 @@ class SmCrud
 		else
 			echo "Failed to Create ".$modelName."	".$fileName;	
 	}
+
+	public function newController($table="")
+	{
+		if(empty($table))
+			throw new SmException("Table Name not be empty");
+		
+		$migration=new SmMigration(self::$conn);
+		
+		if(!$migration->getTable($table))
+			throw new SmException("Table can not be found.");
+
+		$attributes=$migration->getAttributes($table);
+
+		$modelName=ucfirst($table)."Model";
+
+		$controllerName=ucfirst($table)."Controller";
+		
+		$controller=file_get_contents(dirname(__FILE__)."/controller/controller");
+	
+		$pk="id";
+
+		foreach($attributes as $key=>$value){
+			
+			$value=(object)$value;
+			
+			if($value->extra=="auto_increment"){
+				$pk=strtolower($value->field);
+			}
+
+		}
+		
+		$controller=str_replace("[contoller]",$controllerName,$controller);
+
+		$controller=str_replace("[model]",$modelName,$controller);
+
+		$controller=str_replace("[id]",$pk,$controller);
+
+		echo "Is Let's create a new controller ?(yes-no)# ";
+
+		while ($c = fread(STDIN, 3)) {
+			if(trim(strtolower($c))=="yes" || trim(strtolower($c))=="y")
+				break;
+			else
+				exit;
+		}
+	
+		$fileName=Smce::app()->basePath."/main/controller/".$controllerName.".php";
+		if(file_put_contents($fileName,$controller))
+			echo "Add ".$controllerName." 	".$fileName;
+		else
+			echo "Failed to Create ".$controllername."	".$fileName;
+	}
+
+
+	public function newView($table="")
+	{
+		echo "Coming Soon";
+	}
 }

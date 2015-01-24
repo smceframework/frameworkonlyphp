@@ -1,0 +1,101 @@
+<?php
+
+use Smce\Core\SmController;
+
+class [contoller]  extends SmController
+{
+	
+	public $layout='//layouts/colum1';
+	
+    private function loginControl()
+    {
+     	 return Smce::app()->getState("admin")==1?true:false;
+    }
+
+    // Accses Control Lists (ACL)
+
+    public function accessRules()
+    {
+        return array(
+
+            array(
+                'actions' => array("delete","update","create","view"), // Actions. is array
+                'users' => '@',  // Only * or @ values ​​are
+                'redirect' => "site/login",
+                'expression' => $this->loginControl(),    //True is allowed only. Only TRUE or FALSE values ​​are.
+                // 'ip' => array('127.0.0.1'), //IP is allowed only. is array
+            ),
+
+        );
+    }
+	
+	
+	public function actionView()
+	{
+		$model=$this->loadModel($_GET["id"]);
+		
+		$this->render("view",array(
+			"model"=>$model,
+		));
+	}
+	
+	
+	public function actionUpdate()
+	{
+		$model=$this->loadModel($_GET["id"]);
+		
+		
+		 if (isset($_POST["[model]"])) {
+			 
+			$post=(object) $_POST["[model]"];
+			$model->attributesApply($_POST["[model]"]);
+			
+			
+			if($model->validate() && $model->save())
+				$this->redirect("users/view",array("id"=>$model->[id]));
+			
+		 }
+		 
+		$this->render("update",array(
+			"model"=>$model,
+		));
+	}
+	
+	public function actionCreate(){
+		
+		$model=new [model];
+		
+		 if (isset($_POST["[model]"])) {
+			 
+			$post=(object) $_POST["[model]"];
+			$model->attributesApply($_POST["[model]"]);
+			
+			if($model->validate() && $model->save())
+				$this->redirect("users/view",array("id"=>$model->[id]));
+		 }
+		 
+		$this->render("create",array(
+			"model"=>$model,
+		));
+	}
+	
+	public function actionDelete(){
+		$model=[model]::find($_POST["[id]"]);
+		$model->delete();
+	}
+	
+	public function loadModel($id)
+	{
+		$criteria=new SmDbCriteria;
+		$criteria->condition(array("[id] = ?",$id));
+		
+		$model=[model]::first($criteria->push());
+		if($model===null){
+			header('HTTP/1.0 403 Forbidden');
+			SmHttpException::htppError(403,'The requested page does not exist.');
+		}
+		return $model;
+		
+	}
+	
+}

@@ -112,7 +112,6 @@ class SmAutoload
 
 			//Core
 			"Smce\Core\SmException"=>SMCE_PATH."/core/SmException.php",
-			"Smce\Core\SmHttpException"=>SMCE_PATH."/core/SmHttpException.php",
 			"Smce\Core\SmAssetsManager"=>SMCE_PATH."/core/SmAssetsManager/SmAssetsManager.php",
 			"Smce\Core\SmTempManager"=>SMCE_PATH."/core/SmTempManager.php",
 			"Smce\Core\SmController"=>SMCE_PATH."/core/SmController.php",
@@ -122,7 +121,6 @@ class SmAutoload
 			"Smce\Core\SmUser"=>SMCE_PATH."/core/SmUser.php",
 			"Smce\Core\SmLayout"=>SMCE_PATH."/core/SmLayout.php",
 			"Smce\Core\SmModel"=>SMCE_PATH."/core/SmModel.php",
-			"Smce\Core\SmUrlManager"=>SMCE_PATH."/core/SmUrlManager.php",
 			"Smce\Core\SmActiveRecord"=>SMCE_PATH."/core/SmActiveRecord/SmActiveRecord.php",
 			"Smce\Core\SmActiveEvent"=>SMCE_PATH."/core/SmActiveRecord/SmActiveEvent.php",
 			"Smce\Core\SmPagination"=>SMCE_PATH."/core/SmPagination/SmPagination.php",
@@ -138,11 +136,7 @@ class SmAutoload
 			"Smce\Core\SmFormField"=>SMCE_PATH."/core/SmForm/SmFormField.php",
 			"Smce\Core\SmTemplate"=>SMCE_PATH."/core/SmTemplate/SmTemplate.php",
 			"Smce\Core\SmGump"=>SMCE_PATH."/core/SmGump/SmGump.php",
-			"Smce\Core\SmUrlRouter"=>SMCE_PATH."/core/SmUrlRouter/SmUrlRouter.php",
 			"Smce\Core\SmFiletozip"=>SMCE_PATH."/core/SmFiletozip/SmFiletozip.php",
-			"Smce\Core\SmOutput"=>SMCE_PATH."/core/SmOutput/SmOutput.php",
-			"Smce\Core\SmHelper"=>SMCE_PATH."/core/SmHelper/SmHelper.php",
-			"Smce\Core\SmDbCriteria"=>SMCE_PATH."/core/SmDbCriteria.php",
 			
 			//base
 			"Smce\Base\SmBase"=>SMCE_PATH."/base/SmBase.php",
