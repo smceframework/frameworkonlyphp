@@ -34,7 +34,7 @@ class SmHttpException
 		
         $SiteController->error($httpCode,$message);
 		
-		exit;
+		exit();
 
     }
 }

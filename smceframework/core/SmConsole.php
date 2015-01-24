@@ -9,13 +9,13 @@ class SmConsole
 	
 	private $help=array(
 		"language 		php smce --lang path/to/project/main/lang/main.php",
-		"grud/newmodel		php smce --grud model connectingstring tablename",
+		"crud/newmodel		php smce --crud model connectingstring tablename",
 	);
 
 	private $words=array(
 		'--help',
 		"--lang",
-		"--grud",
+		"--crud",
 	);
 
 	public function __construct($config=array())
@@ -51,15 +51,15 @@ class SmConsole
 	}
 	
 	
-	public function __grud($argv)
+	public function __crud($argv)
 	{
 		
 		if(isset($argv[2]) && isset($argv[3]) && isset($argv[4]) && !empty($argv[2]) && !empty($argv[4]) && $argv[2]=="model"){
 			
 			try{
 				
-				$SmGrud=new SmGrud($argv[3]);
-				$SmGrud->newModel($argv[4]);
+				$SmCrud=new SmCrud($argv[3]);
+				$SmCrud->newModel($argv[4]);
 				
 			}catch(SmException $e){
 				

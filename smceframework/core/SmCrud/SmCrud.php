@@ -3,11 +3,10 @@
 namespace Smce\Core;
 
 use Smce\Base\SmBase;
-use Smce\Core\SmMigration;
 use ActiveRecord;
 use Smce;
 
-class SmGrud
+class SmCrud
 {
 	public static $conn;
 	
