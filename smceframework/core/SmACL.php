@@ -5,23 +5,32 @@
  * @author Samed Ceylan
  * @link http://www.samedceylan.com/
  * @copyright 2015 SmceFramework
- * @github https://github.com/imadige/SMCEframework-MVC
+ * @github https://github.com/smceframework
  */
  
 namespace Smce\Core;
 
-use Smce;
+
 
 class SmACL
 {
+	
+	public $ip;
+	
+	public $loginState;
+	
 	/**
 	 * @param $accessRules
 	 * @param $view
 	 *
 	 * @return bool
 	 */
-	public function rules($accessRules, $view)
+	public function rules($accessRules, $view, $ip="", $loginState="")
 	{
+		$this->ip=$ip;
+		
+		$this->loginState=$loginState;
+		
 		foreach ($accessRules as $key => $value) {
 
 			if (isset($value["actions"]) && in_array(strtolower($view), $value["actions"])) {
@@ -50,7 +59,7 @@ class SmACL
 	{
 		if (is_array($ipAdress)) {
 
-			return in_array(Smce::app()->IP, $ipAdress);
+			return in_array($this->ip, $ipAdress);
 		}
 	}
 	
@@ -64,7 +73,7 @@ class SmACL
 	private function loginControl($users,$redirect="")
 	{
 	 
-		if (isset($users) && $users == "@" && Smce::app()->getState(md5(md5("SMCE_".Smce::app()->securitycode))) == '') {
+		if (isset($users) && $users == "@" && $this->loginState == '') {
 			
 			$SmController=new SmController;
 			
