@@ -127,8 +127,4 @@ class SmceFramework
 	}
 	
 	
-	
-	
-	
-	
 }
