@@ -133,7 +133,7 @@ class SmAutoload
 			"Smce\Core\SmMigration"=>SMCE_PATH."/core/SmMigration/SmMigration.php",
 			"Smce\Core\SmMigrationForge"=>SMCE_PATH."/core/SmMigration/SmMigrationForge.php",
 			"Smce\Core\SmConsole"=>SMCE_PATH."/core/SmConsole.php",
-			"Smce\Core\SmGrud"=>SMCE_PATH."/core/SmGrud/SmGrud.php",
+			"Smce\Core\SmCrud"=>SMCE_PATH."/core/SmCrud/SmCrud.php",
 			"Smce\Core\SmForm"=>SMCE_PATH."/core/SmForm/SmForm.php",
 			"Smce\Core\SmFormField"=>SMCE_PATH."/core/SmForm/SmFormField.php",
 			"Smce\Core\SmTemplate"=>SMCE_PATH."/core/SmTemplate/SmTemplate.php",
