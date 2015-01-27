@@ -1,6 +1,7 @@
 <?php
 
 use Smce\Core\SmController;
+use Smce\Core\SmDbCriteria;
 
 class [contoller]  extends SmController
 {
