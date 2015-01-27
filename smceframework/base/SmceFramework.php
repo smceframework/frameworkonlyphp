@@ -12,7 +12,7 @@ namespace Smce\Base;
 
 use Smce\Extension\SmTracy;
 use Smce\SmAutoload;
-use Tracy\Debugger;
+use Tracy\configger;
 
 class SmceFramework
 {
@@ -34,9 +34,7 @@ class SmceFramework
 		
 		static::SmAutoload($config);
 		
-		
-		if(isset($config["debug"]) && $config["debug"]!=false)
-			static::SmTrancy($config["debug"]);
+		static::SmTrancy($config);
 		
 		static::appConfig($config);
 		
@@ -80,25 +78,27 @@ class SmceFramework
 	 *
 	 */
 	
-	private static function SmTrancy($debug)
+	private static function SmTrancy($config)
 	{
-		
-		$SmTracy = new SmTracy;
-		$SmTracy->register();
-		
-		if($debug=="DEVELOPMENT")
-			$debug=Debugger::DEVELOPMENT;
-		elseif($debug=="PRODUCTION")
-			$debug=Debugger::PRODUCTION;
-		elseif($debug=="DETECT")
-			$debug=Debugger::DETECT;
-		else
-			$debug=Debugger::DEVELOPMENT;
+		if(isset($config["config"]) && $config["config"]!=false)
+		{
+			$SmTracy = new SmTracy;
+			$SmTracy->register();
 			
-		if(!file_exists(BASE_PATH . '/log'))
-			mkdir(BASE_PATH . '/log');
-			
-		 Debugger::enable($debug, BASE_PATH . '/log');
+			if($config=="DEVELOPMENT")
+				$config=configger::DEVELOPMENT;
+			elseif($config=="PRODUCTION")
+				$config=configger::PRODUCTION;
+			elseif($config=="DETECT")
+				$config=configger::DETECT;
+			else
+				$config=configger::DEVELOPMENT;
+				
+			if(!file_exists(BASE_PATH . '/log'))
+				mkdir(BASE_PATH . '/log');
+				
+			 configger::enable($config, BASE_PATH . '/log');
+		}
 	}
 	
 	/**

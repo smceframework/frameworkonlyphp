@@ -1,7 +1,7 @@
 {
     "name": "smce/frameworkonlyphp",
     "description": "SmceFramework Only PHP",
-	"keywords": ["smce", "framework", "smce framework", "smceframework", "mvc", "only php"],
+	"keywords": ["smce", "framework", "smce framework", "smceframework", "mvc", "c"],
     "license": "MIT",
     "authors": [
         {
@@ -11,12 +11,9 @@
 			"role": "Developer"
         }
     ],
-    "autoload": {
-		"files": ["smceframework/CAutoload.php"]
-    },
     "minimum-stability": "dev",
     "require": {
-
+        
 	},
 	"support": {
 		"issues": "https://github.com/smceframework/frameworkonlyphp/issues?state=open"

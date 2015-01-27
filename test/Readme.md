@@ -1,0 +1,1 @@
+$  phpunit --configuration phpunit.xml --process-isolation

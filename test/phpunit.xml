@@ -1,0 +1,8 @@
+<testsuites>
+  <testsuite name="test">
+  	<file>Testapp.php</file>
+  	<file>Testmicro.php</file>
+
+  </testsuite>
+  
+</testsuites>

@@ -43,7 +43,7 @@ class SmBase
 
     private function baseURL()
     {
-		$request=str_replace($this->base_url(), "",$_SERVER["REQUEST_URI"]);
+		$request=str_replace($this->base_url(), "",isset($_SERVER["REQUEST_URI"])?$_SERVER["REQUEST_URI"]:"");
 		
 		if(substr($request,0,1)=="/")
 			$request=substr($request,1,strlen($request));
