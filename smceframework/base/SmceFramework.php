@@ -71,7 +71,7 @@ class SmceFramework
 	private static function SmAutoload($config)
 	{
 		$SmAutoload = new SmAutoload;
-		$SmAutoload->register($config);
+		$SmAutoload::register($config);
 	}
 	
 	/**

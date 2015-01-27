@@ -82,10 +82,10 @@ class SmAutoload
 	 * @param $config
 	 */
 	
-	public function register($config=array()){
+	public static function register($config=array()){
 		self::$config=$config;
-		spl_autoload_register(array($this, 'autoloadFramework'),true,true);
-		spl_autoload_register(array($this, 'autoloadApp'),true,true);
+		spl_autoload_register(array(__CLASS__, 'autoloadFramework'),true,true);
+		spl_autoload_register(array(__CLASS__, 'autoloadApp'),true,true);
 	}
 	
 	/**
