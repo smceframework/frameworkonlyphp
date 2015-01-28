@@ -8,3 +8,7 @@ php:
 
 
 script:  phpunit --configuration test/phpunit.xml --process-isolation
+
+
+notifications:
+  email: false
