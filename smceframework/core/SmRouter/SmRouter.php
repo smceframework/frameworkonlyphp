@@ -53,45 +53,45 @@ class SmRouter{
 	private  function scriptNameIsFalse()
 	{
 			
-			if(isset($this->route)){
-				$routeGetEx=explode("/",$this->route);
-				
-				$requestArray=array(
-					"controller"=>isset($routeGetEx[0])?$routeGetEx[0]:"",
-					"view"=>isset($routeGetEx[1])?$routeGetEx[1]:"",
-				);
-			}
+		if(isset($this->route)){
+			$routeGetEx=explode("/",$this->route);
+			
+			$requestArray=array(
+				"controller"=>isset($routeGetEx[0])?$routeGetEx[0]:"",
+				"view"=>isset($routeGetEx[1])?$routeGetEx[1]:"",
+			);
+		}
 
-			return $requestArray;
+		return $requestArray;
 	 }
 
 
 	private  function scriptNameIsTrue()
 	{
-			$parse=parse_url($this->request);
-			$requestGetEx=explode("/",$parse["path"]);
-			$requestArray=array(
-				"controller"=>isset($requestGetEx[0])?$requestGetEx[0]:"",
-				"view"=>isset($requestGetEx[1])?$requestGetEx[1]:"",
-			);
-			if(isset($this->router["router"][$requestGetEx[0]])){
-				foreach($this->router["router"][$requestGetEx[0]] as $key=>$value){
-					if(isset($requestGetEx[$key+2]))
-						$requestArray[$value]=$requestGetEx[$key+2];
-						
-				}
-				
-				
-			}else{
-				
-				foreach($this->router["router"]["all"] as $key=>$value){
-				
-					if(isset($requestGetEx[$key+2]))
-						$requestArray[$value]=$requestGetEx[$key+2];
-				}
+		$parse=parse_url($this->request);
+		$requestGetEx=explode("/",$parse["path"]);
+		$requestArray=array(
+			"controller"=>isset($requestGetEx[0])?$requestGetEx[0]:"",
+			"view"=>isset($requestGetEx[1])?$requestGetEx[1]:"",
+		);
+		if(isset($this->router["router"][$requestGetEx[0]])){
+			foreach($this->router["router"][$requestGetEx[0]] as $key=>$value){
+				if(isset($requestGetEx[$key+2]))
+					$requestArray[$value]=$requestGetEx[$key+2];
+					
 			}
+			
+			
+		}else{
+			
+			foreach($this->router["router"]["all"] as $key=>$value){
+			
+				if(isset($requestGetEx[$key+2]))
+					$requestArray[$value]=$requestGetEx[$key+2];
+			}
+		}
 
-			return $requestArray;
+		return $requestArray;
 	 }
 	
 	/**
