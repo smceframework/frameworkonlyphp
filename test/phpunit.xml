@@ -2,7 +2,7 @@
   <testsuite name="test">
   	<file>Testapp.php</file>
   	<file>Testmicro.php</file>
-
+  	<file>Testmicro2.php</file>
   </testsuite>
   
 </testsuites>
