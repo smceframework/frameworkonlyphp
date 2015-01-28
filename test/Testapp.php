@@ -8,5 +8,7 @@ class Testapp  extends PHPUnit_Framework_TestCase
 	public function test()
     {
         include "testapp/index.php";
+		
+		$this->assertTrue(FALSE);
     }
 }
