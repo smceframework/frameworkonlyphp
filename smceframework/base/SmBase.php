@@ -263,7 +263,7 @@ class SmBase
                 if (is_array($accessRules) && count($accessRules)>0) {
 
                     $SmACL=new SmACL();
-                    if($SmACL->rules($accessRules,$this->view,Smce::app()->IP,Smce::app()->getState(md5(md5("SMCE_".Smce::app()->securitycode)))))
+                    if($SmACL->rules($accessRules,self::$view,Smce::app()->IP,Smce::app()->getState(md5(md5("SMCE_".Smce::app()->securitycode)))))
                         $class->$actionView();
                     else{
 					    header('HTTP/1.0 404 Not Found');
