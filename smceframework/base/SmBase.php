@@ -36,13 +36,13 @@ class SmBase
     {
         session_start();
 
-        SmBase::router();
+        self::router();
 
-        SmBase::includeFile();
+        self::includeFile();
 
-        SmBase::dbSetting();
+        self::dbSetting();
 
-        SmBase::command();
+        self::command();
 		
     }
 
@@ -55,8 +55,8 @@ class SmBase
 
 	public function commandLineRun()
     {
-        SmBase::includeFile();
-        SmBase::dbSetting();
+        self::includeFile();
+        self::dbSetting();
     }
 
     /**
@@ -91,7 +91,7 @@ class SmBase
     	$SmRouter=new SmRouter;
 		
 		$SmRouter->setRequest($request);
-			
+
 		if(isset($_GET["route"]))
 			$SmRouter->setRoute($_GET["route"]);
 
@@ -234,7 +234,7 @@ class SmBase
     {
 
     	if(!empty(self::$controller->layout))
-            SmBase::$layout=self::$controller->layout;
+            self::$layout=self::$controller->layout;
     }
 
      /**
@@ -332,7 +332,7 @@ class SmBase
     private function dbSetting()
     {
 		
-		if(isset(SmBase::$config["components"]["activerecord"]) && count(SmBase::$config["components"]["activerecord"])>0){
+		if(isset(self::$config["components"]["activerecord"]) && count(self::$config["components"]["activerecord"])>0){
 			
 			require_once SMCE_PATH.'/extension/SmActiverecord/ActiveRecord.php';
 			

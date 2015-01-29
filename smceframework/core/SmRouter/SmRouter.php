@@ -14,9 +14,9 @@ class SmRouter{
 
 	private $router;
 
-	private $route;
+	private $route="";
 	
-	private $request;
+	private $request="";
 
 	private $requestArray=array(
 				"controller"=>"",
