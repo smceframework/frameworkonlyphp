@@ -74,10 +74,9 @@ class SmMemCache {
      */
 
     public function get($name){
-		if(!$get=$this->memcache->get($name))
-			 throw new SmException("Failed to get data at the server");
-			 
-		return $get;
+		
+		return $this->memcache->get($name);
+		
     }
 
       /**

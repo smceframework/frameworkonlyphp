@@ -91,7 +91,7 @@ class SmBase
     	$SmRouter=new SmRouter;
 		
 		$SmRouter->setRequest($request);
-
+			
 		if(isset($_GET["route"]))
 			$SmRouter->setRoute($_GET["route"]);
 

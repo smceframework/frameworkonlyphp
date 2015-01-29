@@ -70,11 +70,9 @@ class Smredis {
 	 * @return $get
      */
     public function get($name){
-        if(!$get=$this->redis->get($name))
-            throw new SmException('Failed to get data at the server');
 		
-			 
-		return $get;
+		return $this->redis->get($name);
+		
     }
 
     /**

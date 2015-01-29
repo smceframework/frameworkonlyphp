@@ -18,6 +18,10 @@ class SmRouter{
 	
 	private $request;
 
+	private $requestArray=array(
+				"controller"=>"",
+				"view"=>"",
+		);
 
 	/**
 	 * @param $request
@@ -52,7 +56,8 @@ class SmRouter{
 
 	private  function scriptNameIsFalse()
 	{
-			
+		$requestArray=$this->requestArray;
+		
 		if(isset($this->route)){
 			$routeGetEx=explode("/",$this->route);
 			
@@ -68,6 +73,9 @@ class SmRouter{
 
 	private  function scriptNameIsTrue()
 	{
+		
+		$requestArray=$this->requestArray;
+		
 		$parse=parse_url($this->request);
 		$requestGetEx=explode("/",$parse["path"]);
 		$requestArray=array(
@@ -102,10 +110,7 @@ class SmRouter{
 	public function run()
 	{
 
-		$requestArray=array(
-				"controller"=>"",
-				"view"=>"",
-		);
+		$requestArray=$this->requestArray;
 		
 		if(empty($this->request)){
 			$requestArray=array(
@@ -121,10 +126,10 @@ class SmRouter{
 			}else{
 				
 				$requestArray=$this->scriptNameIsTrue();
+				
 			}
 		}
 		
-	
 		return $requestArray;
 	}
 
