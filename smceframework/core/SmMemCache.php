@@ -191,7 +191,7 @@ class SmMemCache {
 
     public function getServerStatus($host,$port){
        
-        return $this->memcache->getServerStatus($host,$port)
+        return $this->memcache->getServerStatus($host,$port);
     }
 
 
@@ -228,7 +228,7 @@ class SmMemCache {
 
     public function increment($key,$item){
            
-        return $this->memcache->increment($key,$item)
+        return $this->memcache->increment($key,$item);
     }
 
 
