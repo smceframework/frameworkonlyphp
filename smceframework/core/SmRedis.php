@@ -70,7 +70,7 @@ class Smredis {
 	 * @return $get
      */
     public function get($name){
-		
+       
 		return $this->redis->get($name);
 		
     }
@@ -83,9 +83,8 @@ class Smredis {
 	 * @return $set
      */
     public function set($name,$value,$duration){
-       if(!$set=$this->redis->set($name, $value, $duration))
-            throw new SmException('Failed to set data at the server');
-		return $set;
+
+		return this->redis->set($name, $value, $duration);
     }
 	
 	
@@ -98,10 +97,8 @@ class Smredis {
      */
 
     public function lpush($key,$value){
-		if($get=$this->redis->lpush($key,$value))
-			 throw new SmException("Failed to lpush data at the server");
 			 
-		return $get;
+		return $this->redis->lpush($key,$value);
     }
 
       /**
@@ -112,10 +109,8 @@ class Smredis {
      * @return $set
      */
     public function lrange($name,$x,$y){
-        if(!$set=$this->redis->lrange($name, $x, $y))
-             throw new SmException("Failed to lrange data at the server");
-            
-        return $set;
+       
+        return $this->redis->lrange($name, $x, $y);
     }
 
 }

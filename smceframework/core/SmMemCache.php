@@ -88,10 +88,9 @@ class SmMemCache {
 	 * @return $set
      */
     public function set($name,$value,$bolen,$duration){
-        if(!$set=$this->memcache->set($name, $value, $bolen, $duration))
-			 throw new SmException("Failed to set data at the server");
-			
-		return $set;
+
+		return $this->memcache->set($name, $value, $bolen, $duration);
+
     }
 
 
@@ -105,10 +104,8 @@ class SmMemCache {
      * @return $set
      */
     public function add($name,$value,$bolen,$duration=10){
-        if(!$set=$this->memcache->add($name, $value, $bolen, $duration))
-             throw new SmException("Failed to add data at the server");
-            
-        return $set;
+          
+        return $this->memcache->add($name, $value, $bolen, $duration);
     }
 
 
@@ -120,10 +117,8 @@ class SmMemCache {
      */
 
     public function addServer($host,$port){
-        if(!$get=$this->memcache->addServer($host,$port))
-             throw new SmException("Failed to addServer data at the server");
-             
-        return $get;
+          
+        return $this->memcache->addServer($host,$port);
     }
 
 
@@ -135,10 +130,8 @@ class SmMemCache {
      */
 
     public function close(){
-        if(!$get=$this->memcache->close())
-             throw new SmException("Failed to close data at the server");
-         
-         return $get;
+        
+         return $this->memcache->close();
     }
 
 
@@ -150,10 +143,8 @@ class SmMemCache {
      */
 
     public function decrement($key,$item){
-        if(!$get=$this->memcache->decrement($key,$item))
-             throw new SmException("Failed to decrement data at the server");
-             
-        return $get;
+         
+        return $this->memcache->decrement($key,$item);
     }
 
 
@@ -164,10 +155,8 @@ class SmMemCache {
      */
 
     public function delete($key){
-        if(!$get=$this->memcache->delete($key))
-             throw new SmException("Failed to delete data at the server");
-             
-        return $get;
+         
+        return $this->memcache->delete($key);
     }
 
     /**
@@ -177,10 +166,8 @@ class SmMemCache {
      */
 
     public function flush(){
-        if(!$get=$this->memcache->flush())
-             throw new SmException("Failed to flush data at the server");
-             
-        return $get;
+           
+        return $this->memcache->flush();
     }
 
     /**
@@ -190,10 +177,8 @@ class SmMemCache {
      */
 
     public function getExtendedStats(){
-        if(!$get=$this->memcache->getExtendedStats())
-             throw new SmException("Failed to getExtendedStats data at the server");
-             
-        return $get;
+        
+        return $this->memcache->getExtendedStats();
     }
 
 
@@ -205,10 +190,8 @@ class SmMemCache {
      */
 
     public function getServerStatus($host,$port){
-        if(!$get=$this->memcache->getServerStatus($host,$port))
-             throw new SmException("Failed to getServerStatus data at the server");
-             
-        return $get;
+       
+        return $this->memcache->getServerStatus($host,$port)
     }
 
 
@@ -219,10 +202,8 @@ class SmMemCache {
      */
 
     public function getStats(){
-        if(!$get=$this->memcache->getStats())
-             throw new SmException("Failed to getStats data at the server");
-             
-        return $get;
+           
+        return $this->memcache->getStats();
     }
 
 
@@ -233,10 +214,8 @@ class SmMemCache {
      */
 
     public function getVersion(){
-        if(!$get=$this->memcache->getVersion())
-             throw new SmException("Failed to getVersion data at the server");
-             
-        return $get;
+          
+        return $this->memcache->getVersion();
     }
 
 
@@ -248,10 +227,8 @@ class SmMemCache {
      */
 
     public function increment($key,$item){
-        if(!$get=$this->memcache->increment($key,$item))
-             throw new SmException("Failed to increment data at the server");
-             
-        return $get;
+           
+        return $this->memcache->increment($key,$item)
     }
 
 
@@ -263,10 +240,8 @@ class SmMemCache {
      */
 
     public function pconnect($host,$port){
-        if(!$get=$this->memcache->pconnect($host,$port))
-             throw new SmException("Failed to pconnect data at the server");
-             
-        return $get;
+          
+        return $this->memcache->pconnect($host,$port);
     }
 
 
@@ -281,10 +256,8 @@ class SmMemCache {
      */
 
     public function replace($key,$value,$bol,$duration){
-        if(!$get=$this->memcache->replace($key,$value,$bol,$duration))
-             throw new SmException("Failed to replace data at the server");
-             
-        return $get;
+         
+        return $this->memcache->replace($key,$value,$bol,$duration);
     }
 
 
@@ -296,10 +269,8 @@ class SmMemCache {
      */
 
     public function setCompressThreshold($i,$d){
-        if(!$get=$this->memcache->setCompressThreshold($i,$d))
-             throw new SmException("Failed to setCompressThreshold data at the server");
-             
-        return $get;
+            
+        return $this->memcache->setCompressThreshold($i,$d);
     }
 
 
