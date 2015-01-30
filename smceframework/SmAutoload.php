@@ -163,6 +163,13 @@ class SmAutoload
 		);
 	}
 	
+
+	public static function includeFiles()
+	{
+		
+		require_once SMCE_PATH.'/extension/SmActiverecord/ActiveRecord.php';
+
+	}
 	
 	
 }

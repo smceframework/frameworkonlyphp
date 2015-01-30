@@ -24,5 +24,6 @@ class Smce
       return static::$SmLayout;
     }
 
+
 	
 }

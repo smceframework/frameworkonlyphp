@@ -14,6 +14,7 @@ namespace Smce\Base;
 use Smce\Core\SmHttpException;
 use Smce\Core\SmACL;
 use Smce\Core\SmRouter;
+use Smce\SmAutoload;
 use ActiveRecord;
 use Smce;
 
@@ -38,8 +39,6 @@ class SmBase
 
         self::router();
 
-        self::includeFile();
-
         self::dbSetting();
 
         self::command();
@@ -55,8 +54,9 @@ class SmBase
 
 	public function commandLineRun()
     {
-        self::includeFile();
+
         self::dbSetting();
+
     }
 
     /**
@@ -163,8 +163,6 @@ class SmBase
 
 		$componentsController=self::isComponentsController();
 		
-		self::includeController();
-        
 		self::setLayout();
         
 		self::getControllerAction($componentsController);
@@ -183,7 +181,7 @@ class SmBase
 
     private static function isController()
     {
-    	if (! is_file(BASE_PATH."/main/controller/".ucfirst(self::$controller)."Controller.php")) {
+    	if (! class_exists(ucfirst(self::$controller)."Controller")) {
             SmHttpException::htppError(404,"Controller Not Found");
 			exit();
         }
@@ -200,27 +198,14 @@ class SmBase
 
     private static function isComponentsController()
     {
-    	if (is_file(BASE_PATH."/main/components/Controller.php")) {
-			require BASE_PATH."/main/components/Controller.php";
-			return new \Controller;
+    	if (class_exists("CController")) {
+
+			return new CController;
+
 		}else
 			return "";
     }
 
-     /**
-     *
-	 * 
-	 *
-	 * @void
-	 * 
-	 */
-
-
-    private static function includeController()
-    {
-
-    	require BASE_PATH."/main/controller/".ucfirst(self::$controller)."Controller.php";
-    }
 
      /**
      *
@@ -309,20 +294,6 @@ class SmBase
 	}
 
 
-	  /**
-     *
-	 *
-	 * @void
-	 * 
-	 */
- 
-
-    private function includeFile()
-    {
-      	require_once SMCE_PATH."/Smce.php";
-    }
-
-
       /**
      *
 	 * @void
@@ -334,8 +305,8 @@ class SmBase
 		
 		if(isset(self::$config["components"]["activerecord"]) && count(self::$config["components"]["activerecord"])>0){
 			
-			require_once SMCE_PATH.'/extension/SmActiverecord/ActiveRecord.php';
-			
+			SmAutoload::includeFiles();
+
 			ActiveRecord\Config::initialize(function($cfg)
 			{
 				$cfg->set_model_directory(BASE_PATH."/main/model");
