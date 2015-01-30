@@ -200,7 +200,7 @@ class SmBase
     {
     	if (class_exists("CController")) {
 
-			return new CController;
+			return new \CController;
 
 		}else
 			return "";
