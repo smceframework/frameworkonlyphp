@@ -27,14 +27,13 @@ class SmHttpException
 	}
 	
 	public static function htppError($httpCode,$message)
-    {
-        $SiteController=new SiteController();
+    {	
 
-        SiteController::$error=true;
+        if(method_exists("SiteController","error")){
+        	$SiteController=new SiteController();
+       		$SiteController->error($httpCode,$message);
+			exit();
+        }
 		
-        $SiteController->error($httpCode,$message);
-		
-		exit;
-
     }
 }

@@ -21,7 +21,6 @@ use Smce;
 class SmBase
 {
     public static $config;
-	public static $configSmce;
 
     public static $controller;
     public static $view;
@@ -33,7 +32,7 @@ class SmBase
 	 * 
 	 */
 	
-    public function run()
+    public static function run()
     {
         session_start();
 
@@ -42,7 +41,6 @@ class SmBase
         self::dbSetting();
 
         self::command();
-		
     }
 
     /**
@@ -68,7 +66,7 @@ class SmBase
 
     private static function getRequestUri()
     {
-    	$request=str_replace(self::base_url(), "",isset($_SERVER["REQUEST_URI"])?$_SERVER["REQUEST_URI"]:"");
+    	$request=str_replace(self::baseUrl(), "",isset($_SERVER["REQUEST_URI"])?$_SERVER["REQUEST_URI"]:"");
 
 		
 		if(substr($request,0,1)=="/")
@@ -95,10 +93,7 @@ class SmBase
 		if(isset($_GET["route"]))
 			$SmRouter->setRoute($_GET["route"]);
 
-		if(isset(self::$config["urlrouter"])){
-			$SmRouter->setRouter(self::$config["urlrouter"]);
-		}else
-			$SmRouter->setRouter(self::$configSmce["urlrouter"]);
+		$SmRouter->setRouter(self::$config["urlrouter"]);
 		
 		return $SmRouter->run();
 
@@ -124,8 +119,6 @@ class SmBase
       	self::$controller=strtolower($requestArray["controller"]);
         self::$view=strtolower($requestArray["view"]);
 		
-        define('BASE_CONTROLLER',strtolower(self::$controller));
-        define('BASE_VIEW',strtolower(self::$view));
     }
 
 
@@ -144,6 +137,9 @@ class SmBase
 
 		self::setControllerView(self::setSmRouter($request));
 		
+
+		define('BASE_CONTROLLER',strtolower(self::$controller));
+        define('BASE_VIEW',strtolower(self::$view));
     }
 
 
@@ -182,8 +178,11 @@ class SmBase
     private static function isController()
     {
     	if (! class_exists(ucfirst(self::$controller)."Controller")) {
+
             SmHttpException::htppError(404,"Controller Not Found");
+
 			exit();
+
         }
     }
 
@@ -300,7 +299,7 @@ class SmBase
 	 * 
 	 */
 
-    private function dbSetting()
+    private static function dbSetting()
     {
 		
 		if(isset(self::$config["components"]["activerecord"]) && count(self::$config["components"]["activerecord"])>0){
@@ -328,7 +327,7 @@ class SmBase
 	 * 
 	 */
 
-	private static function base_url()
+	public static function baseUrl()
 	{
 		return str_replace("/index.php","",$_SERVER['SCRIPT_NAME']);
 	}

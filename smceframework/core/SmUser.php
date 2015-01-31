@@ -11,6 +11,7 @@
 namespace Smce\Core;
 
 use Smce\Base\SmBase;
+use Smce\Core\SmRouter;
 use Smce;
 use ActiveRecord\ConnectionManager;
 
@@ -26,7 +27,7 @@ class SmUser
 	public function __construct()
 	{
 		$this->data["basepath"]=BASE_PATH;
-		$this->data["baseurl"]=$this->base_url();
+		$this->data["baseurl"]=SmBase::baseUrl();
 	    $this->data["ip"]=$this->getIP();
 
 	    foreach(SmBase::$config as $key=>$value)
@@ -60,7 +61,7 @@ class SmUser
 
 	public function createUrl($controllerView="",$array=array())
 	{
-		$request=str_replace($this->base_url(), "",$_SERVER["REQUEST_URI"]);
+		$request=str_replace(SmBase::baseUrl(), "",$_SERVER["REQUEST_URI"]);
 		
 		if(substr($request,0,1)=="/")
 			$request=substr($request,1,strlen($request));
@@ -87,21 +88,6 @@ class SmUser
 		
 	}
 	
-	/**
-	 *
-	 * @return url
-	 */
-
-	private function base_url()
-	{
-		
-		$url=str_replace("/index.php","",$_SERVER['SCRIPT_NAME']);
-		if(!defined('BASE_URL'))
-			define("BASE_URL",$url);
-			
-		return $url;
-	
-	}
 	
 	/**
 	 *
@@ -211,7 +197,7 @@ class SmUser
 
     public function redirect($controllerView="",$array=array())
     {
-       $request=str_replace($this->base_url(), "",$_SERVER["REQUEST_URI"]);
+       $request=str_replace(SmBase::baseUrl(), "",$_SERVER["REQUEST_URI"]);
 		
 		if(substr($request,0,1)=="/")
 			$request=substr($request,1,strlen($request));

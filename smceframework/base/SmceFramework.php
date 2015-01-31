@@ -16,10 +16,7 @@ use Tracy\configger;
 
 class SmceFramework
 {
-	private static $smBase;
-	
-	private static $configSmce;
-	
+
 	
 	/**
 	 *
@@ -38,10 +35,10 @@ class SmceFramework
 		
 		static::appConfig($config);
 		
-		static::smceConfig();
-		
-		return self::$smBase;
+		SmBase::run();
     }
+
+
 	
 	/**
 	 *
@@ -57,7 +54,7 @@ class SmceFramework
         	require_once SMCE_PATH.'/vendor/autoload.php';
 			
         require SMCE_PATH."/SmAutoload.php";
-		self::$configSmce=require SMCE_PATH."/config/config.php";
+		
 	}
 	
 	/**
@@ -109,9 +106,13 @@ class SmceFramework
 	
 	private static function appConfig($config)
 	{
-		//Application Config
-		self::$smBase=new SmBase;
-        SmBase::$config=$config;
+
+		if(!empty($config))
+        	SmBase::$config=$config;
+        else{
+	        //SmceFramework Config
+			SmBase::$config=require SMCE_PATH."/config/config.php";
+		}
 	}
 	
 	/**
@@ -122,8 +123,7 @@ class SmceFramework
 	
 	private static function smceConfig()
 	{
-		//SmceFramework Config
-		SmBase::$configSmce=self::$configSmce;
+		
 	}
 	
 	

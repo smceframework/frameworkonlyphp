@@ -12,7 +12,7 @@ return array(
 	
 	'urlrouter'=>array(
 		'router'=>array(
-			"all"=>array(),
+			"all"=>array("id"),
 		),
 		'showScriptName'=>false, //false - true
 		
