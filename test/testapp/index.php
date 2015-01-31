@@ -10,4 +10,4 @@ require_once dirname(__FILE__).'/config.php';
 require_once $smce_path.'/SmceBase.php';
 
 // createWebApplication and run
-SmceFramework::createWebApplication()->run();
+SmceFramework::createWebApplication();
