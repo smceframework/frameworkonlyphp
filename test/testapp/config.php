@@ -1,8 +1,7 @@
 <?php
 
-
-// setting default timezone setting to Europe/Istanbul
-//date_default_timezone_set('Europe/Istanbul');
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
 // set the base path, ex: /home/app/public_html
 define('BASE_PATH', dirname(__FILE__));
