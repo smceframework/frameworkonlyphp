@@ -155,6 +155,11 @@ class SmFormField  extends  SmForm
 			$form["class"][]="error";
 		}
 
+		if(isset($array["value"])){
+			$text=$array["value"];
+			unset($array["value"]);
+		}
+
 		foreach ($array as $key=>$value) {
 			if($key!="class")
 				$form[$key]=$value;
@@ -176,7 +181,9 @@ class SmFormField  extends  SmForm
 			}
 		}
 
-		$STR.=sprintf('name="%s[%s]">%s</textarea>',get_class($model),$attribute,$model->$attribute);
+
+
+		$STR.=sprintf('name="%s[%s]">%s</textarea>',get_class($model),$attribute,isset($text)?$text:$model->$attribute);
 
 		return $STR;
 	}
