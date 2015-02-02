@@ -44,19 +44,15 @@ return array(
 	'components'=>array(
 		
 		//MySQL, SQLite, PostgreSQL, Oracle
+		/*
 		'activerecord'=>array(
-			/*
-			'db1'=>array(
-				"connectionString"=>"mysql://root:password@localhost/db_name;charset=utf8"
-			),
-			*/
+		
+			//"db1"=>"mysql://root:password@localhost/db_name;charset=utf8",
 			
-			/*
-			'db2'=>array(
-				"connectionString"=>"mysql://username:password@localhost/db_name"
-			),
-			*/
+			//"db2"=>"mysql://root:password@localhost/db_name;charset=utf8"
 		),
+		
+		*/
 		
 		/*
 		'ssh'=>array(

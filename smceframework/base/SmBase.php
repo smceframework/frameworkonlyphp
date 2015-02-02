@@ -309,11 +309,8 @@ class SmBase
 			ActiveRecord\Config::initialize(function($cfg)
 			{
 				$cfg->set_model_directory(BASE_PATH."/main/model");
-				foreach(SmBase::$config["components"]["activerecord"] as $key=>$value){
-					$cfg->set_connections(array(
-						$key => $value["connectionString"]
-					));
-				}
+				
+				$cfg->set_connections(SmBase::$config["components"]["activerecord"]);
 			});
 
 		}
