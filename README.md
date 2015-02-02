@@ -1,41 +1,18 @@
-﻿
-## Composer
-https://packagist.org/packages/smce/frameworkonlyphp
+﻿## Smce PHP Framework
 
-## Features
+The Framework gets this name from letters of Developer Samed Ceylan's, it’s PHP library, using the php and c together, developed for high performance .
 
-- MVC
-- PSR
-- Autoload
-- Session Management
-- Assets Manager
-- Temp Manager
-- Validation
-- Masterpage/Layout
-- Template Engine
-- GRUD
-- Smce Command Line
-- ORM ActiveRecord(MySQL, SQLite, PostgreSQL, Oracle)
-- Using ActiveRecord on Multiple Databases
-- Accses Control Lists (ACL)
-- Debug
-- Logger
-- Router
-- Use SSH to Connect to a Remote Server (SSH,FTP)
-- Using multiple ssh and ftp over SSH
-- Exception Class
-- Zip Encoding Class
-- User Agent Class
-- Pagination Class
-- Output Class
-- MemCache Class
-- Redis Class
-- Migration Class
-- Helper Class - Enriched With Anonymous Closure Functions
-- Http Exceptions Capture (404, 403 .. vs Page)
-- Widgets
+The Smceframework is  well thought out architecture,Professional, flexible, simple, fast, safe, and designed correctly a framework. Smce has flexible structure of OOP(Object-oriented programming),unrepeated for developer DRY(Don’t Repeat Yourself), provides fast and clean codding environment. It has been developed to MVC structure in accordance; reinforced support  from Query Builder, Active Record, have widgets from support AJAX, have the ability to work together MemCache and Redis, and with many more features we can say that Framework can be only open-source code and Free Framework. Also Smce, offers debug mode(debug). Smce is provide better performance than other Frameworks.
 
 
+## Official Documentation
+
+Documentation for the entire framework can be found on the [Smceframework website](http://www.smceframework.com/en/pages/show/1/introduction).
+
+
+### License
+
+The Smceframework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
 
 ## Gelistirici Hakkinda
