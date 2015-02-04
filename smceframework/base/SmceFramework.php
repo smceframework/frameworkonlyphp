@@ -34,7 +34,7 @@ class SmceFramework
 		if(isset($config["debug"]) && $config["debug"]!=false)
 			self::SmTrancy($config);
 		
-		self::appConfig($config);
+		SmBase::$config=$config;
 		
 		SmBase::run();
     }
@@ -97,12 +97,14 @@ class SmceFramework
 		
 	}
 	
+
 	/**
 	 *
 	 * @param $config
 	 *
 	 */
 	
+	/*
 	private static function appConfig($config)
 	{
 
@@ -114,7 +116,7 @@ class SmceFramework
 		}
 	}
 	
-	
+	*/
 	
 	
 }

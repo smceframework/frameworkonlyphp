@@ -94,7 +94,8 @@ class SmBase
 		if(isset($_GET["route"]))
 			$SmRouter->setRoute($_GET["route"]);
 
-		$SmRouter->setRouter(self::$config["urlrouter"]);
+		if(isset(self::$config["urlrouter"]))
+			$SmRouter->setRouter(self::$config["urlrouter"]);
 		
 		return $SmRouter->run();
 
