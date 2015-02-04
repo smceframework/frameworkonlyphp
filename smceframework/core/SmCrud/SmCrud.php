@@ -13,7 +13,7 @@ class SmCrud
 	public function __construct($conn)
 	{
 		
-		if(!isset(SmBase::$config["components"]["activerecord"][$conn]["connectionString"]))
+		if(!isset(SmBase::$config["components"]["activerecord"][$conn]))
 			throw new SmException("Connection String not be empty");
 		
 		self::$conn=$conn;
