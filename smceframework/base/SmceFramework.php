@@ -27,13 +27,14 @@ class SmceFramework
 	 
     public static function createWebApplication($config=array())
     {
-		static::includeFile();
+		self::includeFile();
 		
-		static::SmAutoload($config);
+		self::SmAutoload($config);
 		
-		static::SmTrancy($config);
+		if(isset($config["debug"]) && $config["debug"]!=false)
+			self::SmTrancy($config);
 		
-		static::appConfig($config);
+		self::appConfig($config);
 		
 		SmBase::run();
     }
@@ -77,27 +78,23 @@ class SmceFramework
 	
 	private static function SmTrancy($config)
 	{
-
-		if(isset($config["debug"]) && $config["debug"]!=false)
-		{
-
-			$SmTracy = new SmTracy;
-			$SmTracy->register();
+		$SmTracy = new SmTracy;
+		$SmTracy->register();
+		
+		if($config["debug"]=="DEVELOPMENT")
+			$config=Debugger::DEVELOPMENT;
+		elseif($config["debug"]=="PRODUCTION")
+			$config=Debugger::PRODUCTION;
+		elseif($config["debug"]=="DETECT")
+			$config=Debugger::DETECT;
+		else
+			$config=Debugger::DEVELOPMENT;
 			
-			if($config["debug"]=="DEVELOPMENT")
-				$config=Debugger::DEVELOPMENT;
-			elseif($config["debug"]=="PRODUCTION")
-				$config=Debugger::PRODUCTION;
-			elseif($config["debug"]=="DETECT")
-				$config=Debugger::DETECT;
-			else
-				$config=Debugger::DEVELOPMENT;
-				
-			if(!file_exists(BASE_PATH . '/log'))
-				mkdir(BASE_PATH . '/log');
-				
-			 Debugger::enable($config, BASE_PATH . '/log');
-		}
+		if(!file_exists(BASE_PATH . '/log'))
+			mkdir(BASE_PATH . '/log');
+			
+		 Debugger::enable($config, BASE_PATH . '/log');
+		
 	}
 	
 	/**
@@ -117,16 +114,7 @@ class SmceFramework
 		}
 	}
 	
-	/**
-	 *
-	 * smce $config
-	 *
-	 */
 	
-	private static function smceConfig()
-	{
-		
-	}
 	
 	
 }

@@ -38,7 +38,8 @@ class SmBase
 
         self::router();
 
-        self::dbSetting();
+        if(isset(self::$config["components"]["activerecord"]) && count(self::$config["components"]["activerecord"])>0)
+        	self::dbSetting();
 
         self::command();
     }
@@ -302,19 +303,15 @@ class SmBase
     private static function dbSetting()
     {
 		
-		if(isset(self::$config["components"]["activerecord"]) && count(self::$config["components"]["activerecord"])>0){
+		SmAutoload::includeFiles();
+
+		ActiveRecord\Config::initialize(function($cfg)
+		{
+			$cfg->set_model_directory(BASE_PATH."/main/model");
 			
-			SmAutoload::includeFiles();
+			$cfg->set_connections(SmBase::$config["components"]["activerecord"]);
+		});
 
-			ActiveRecord\Config::initialize(function($cfg)
-			{
-				$cfg->set_model_directory(BASE_PATH."/main/model");
-				
-				$cfg->set_connections(SmBase::$config["components"]["activerecord"]);
-			});
-
-		}
-		
     }
 
       /**
