@@ -96,10 +96,14 @@ class SmBase
 		$SmRouter->setRequest($request);
 
 		if(isset($_GET["route"]))
+		{
 			$SmRouter->setRoute($_GET["route"]);
+		}
 
 		if(isset(self::$config["urlrouter"]))
+		{
 			$SmRouter->setRouter(self::$config["urlrouter"]);
+		}
 		
 		return $SmRouter->run();
 
@@ -245,7 +249,9 @@ class SmBase
     {
 
     	if(!empty(self::$controller->layout))
+    	{
             self::$layout=self::$controller->layout;
+    	}
     }
 
      /**
