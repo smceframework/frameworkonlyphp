@@ -39,7 +39,9 @@ class SmBase
         self::router();
 
         if(isset(self::$config["components"]["activerecord"]) && count(self::$config["components"]["activerecord"])>0)
+        {
         	self::dbSetting();
+        }
 
         self::command();
     }
@@ -71,7 +73,9 @@ class SmBase
 
 		
 		if(substr($request,0,1)=="/")
+		{
 			$request=substr($request,1,strlen($request));
+		}
 			
 		return str_replace("index.php", "",$request);
 		
