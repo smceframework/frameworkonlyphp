@@ -31,6 +31,7 @@ class SmceFramework
 		
 		self::SmAutoload($config);
 		
+		
 		if(isset($config["debug"]) && $config["debug"]!=false)
 		{
 

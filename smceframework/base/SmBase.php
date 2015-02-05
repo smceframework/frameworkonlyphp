@@ -34,8 +34,9 @@ class SmBase
 	
     public function run()
     {
-        session_start();
-
+		
+		$this->obSeStart();
+		
         $this->router();
 
         if(isset(self::$config["components"]["activerecord"]) && count(self::$config["components"]["activerecord"])>0)
@@ -356,5 +357,11 @@ class SmBase
 	public static function baseUrl()
 	{
 		return str_replace("/index.php","",$_SERVER['SCRIPT_NAME']);
+	}
+	
+	public function obSeStart()
+	{
+		ob_start();
+        session_start();
 	}
 }
