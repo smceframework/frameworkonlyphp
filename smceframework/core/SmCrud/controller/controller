@@ -93,7 +93,7 @@ class [contoller]  extends SmController
 		$model=[model]::first($criteria->push());
 		if($model===null){
 			header('HTTP/1.0 403 Forbidden');
-			SmHttpException::htppError(403,'The requested page does not exist.');
+			throw new SmHttpException(403,'The requested page does not exist.');
 		}
 		return $model;
 		
