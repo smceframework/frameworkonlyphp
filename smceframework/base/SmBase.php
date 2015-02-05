@@ -32,18 +32,18 @@ class SmBase
 	 * 
 	 */
 	
-    public static function run()
+    public function run()
     {
         session_start();
 
-        self::router();
+        $this->router();
 
         if(isset(self::$config["components"]["activerecord"]) && count(self::$config["components"]["activerecord"])>0)
         {
-        	self::dbSetting();
+        	$this->dbSetting();
         }
 
-        self::command();
+       $this->command();
     }
 
     /**
@@ -56,7 +56,7 @@ class SmBase
 	public function commandLineRun()
     {
 
-        self::dbSetting();
+        $this->dbSetting();
 
     }
 
@@ -67,9 +67,9 @@ class SmBase
 	 * 
 	 */
 
-    private static function getRequestUri()
+    private function getRequestUri()
     {
-    	$request=str_replace(self::baseUrl(), "",isset($_SERVER["REQUEST_URI"])?$_SERVER["REQUEST_URI"]:"");
+    	$request=str_replace($this->baseUrl(), "",isset($_SERVER["REQUEST_URI"])?$_SERVER["REQUEST_URI"]:"");
 
 		
 		if(substr($request,0,1)=="/")
@@ -89,7 +89,7 @@ class SmBase
 	 * 
 	 */
 
-    private static function setSmRouter($request)
+    private function setSmRouter($request)
     {
     	$SmRouter=new SmRouter;
 		
@@ -118,7 +118,7 @@ class SmBase
 	 */
 
 
-    private static function setControllerView($requestArray)
+    private function setControllerView($requestArray)
     {
     	if(isset($requestArray)){
 			foreach ($requestArray as $key => $value)
@@ -140,12 +140,12 @@ class SmBase
 	 * 
 	 */
    
-    private static function router()
+    private function router()
     {
 		
-		$request=self::getRequestUri();
+		$request=$this->getRequestUri();
 
-		self::setControllerView(self::setSmRouter($request));
+		$this->setControllerView($this->setSmRouter($request));
 		
 
 		define('BASE_CONTROLLER',strtolower(self::$controller));
@@ -162,31 +162,31 @@ class SmBase
 	 */
 
 
-    private static function command()
+    private function command()
     {
         
-        if(!self::isController())
+        if(!$this->isController())
         {
         	throw new SmHttpException(404,"Controller Not Found");
 
         }
 
-		self::setLayout();
+		$this->setLayout();
 
 
-		$cController=self::isComponentsController();
+		$cController=$this->isComponentsController();
 
 
 		if($cController)
 		{
-			self::controllerAction($cController,"beforeAction");
+			$this->controllerAction($cController,"beforeAction");
 		}
 
-		self::getControllerAction();
+		$this->getControllerAction();
         
         if($cController)
 		{
-			self::controllerAction($cController,"afterAction");
+			$this->controllerAction($cController,"afterAction");
 		}
 
     }
@@ -202,7 +202,7 @@ class SmBase
 	 * 
 	 */
 
-    private static function isController()
+    private function isController()
     {
     	if (class_exists(ucfirst(self::$controller)."Controller")) {
 
@@ -224,7 +224,7 @@ class SmBase
 	 * 
 	 */
 
-    private static function isComponentsController()
+    private function isComponentsController()
     {
     	if (class_exists("CController")) {
 
@@ -245,12 +245,12 @@ class SmBase
 	 * 
 	 */
 
-    private static function setLayout()
+    private function setLayout()
     {
 
     	if(!empty(self::$controller->layout))
     	{
-            self::$layout=self::$controller->layout;
+            $this->layout=self::$controller->layout;
     	}
     }
 
@@ -274,7 +274,7 @@ class SmBase
            
             if (method_exists ($class , "accessRules" )) {
 
-                $accessRules=$class->accessRules();
+                $accessRules=$class->$accessRules();
 
                 if (is_array($accessRules) && count($accessRules)>0) {
 
@@ -332,7 +332,7 @@ class SmBase
 	 * 
 	 */
 
-    private static function dbSetting()
+    private function dbSetting()
     {
 		
 		SmAutoload::includeFiles();

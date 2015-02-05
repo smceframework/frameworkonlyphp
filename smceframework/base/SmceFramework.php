@@ -38,9 +38,12 @@ class SmceFramework
 			
 		}
 		
-		SmBase::$config=$config;
+		self::appConfig($config);
 		
-		SmBase::run();
+		$smBase=new SmBase;
+		$smBase->run();
+		
+		
     }
 
 
@@ -108,19 +111,15 @@ class SmceFramework
 	 *
 	 */
 	
-	/*
+	
 	private static function appConfig($config)
 	{
-
-		if(!empty($config))
-        	SmBase::$config=$config;
-        else{
-	        //SmceFramework Config
-			SmBase::$config=require SMCE_PATH."/config/config.php";
-		}
+        
+		SmBase::$config=$config;
+    
 	}
 	
-	*/
+	
 	
 	
 }
