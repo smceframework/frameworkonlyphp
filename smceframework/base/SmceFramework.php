@@ -32,7 +32,11 @@ class SmceFramework
 		self::SmAutoload($config);
 		
 		if(isset($config["debug"]) && $config["debug"]!=false)
+		{
+
 			self::SmTrancy($config);
+			
+		}
 		
 		SmBase::$config=$config;
 		

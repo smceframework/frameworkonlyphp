@@ -157,10 +157,14 @@ class SmBase
     private static function command()
     {
         
-        self::isController();
+        if(!self::isController())
+        {
+        	throw new SmHttpException(404,"Controller Not Found");
 
-		$componentsController=self::isComponentsController();
-		
+        }
+
+		$componentsController= self::isComponentsController();
+        
 		self::setLayout();
         
 		self::getControllerAction($componentsController);
@@ -179,12 +183,14 @@ class SmBase
 
     private static function isController()
     {
-    	if (! class_exists(ucfirst(self::$controller)."Controller")) {
+    	if (class_exists(ucfirst(self::$controller)."Controller")) {
 
-            SmHttpException::htppError(404,"Controller Not Found");
+            return true;
 
-			exit();
+        }else
+        {
 
+        	return false;
         }
     }
 
@@ -204,7 +210,9 @@ class SmBase
 			return new \CController;
 
 		}else
-			return "";
+		{
+			return false;
+		}
     }
 
 
@@ -236,7 +244,12 @@ class SmBase
     	$actionView = 'action'.ucfirst(self::$view);
         $actionController = ucfirst(self::$controller."Controller");
 		
-		self::controllerAction($componentsController,"beforeAction");
+		if(!$componentsController)
+		{
+
+			self::controllerAction($componentsController,"beforeAction");
+
+		}
 		
         $class = new $actionController;
 		
@@ -249,30 +262,31 @@ class SmBase
                 if (is_array($accessRules) && count($accessRules)>0) {
 
                     $SmACL=new SmACL();
-                    if($SmACL->rules($accessRules,self::$view,Smce::app()->IP,Smce::app()->getState(md5(md5("SMCE_".Smce::app()->securitycode)))))
+
+                    if($SmACL->rules($accessRules,self::$view,Smce::app()->IP,Smce::app()->getState(md5(md5("SMCE_".Smce::app()->securitycode))))){
                         $class->$actionView();
-                    else{
-					    header('HTTP/1.0 404 Not Found');
-                        SmHttpException::htppError(404,"You do not have authority to allow");
+                    }else{
+
+					    throw new SmHttpException(404,"You do not have authority to allow");
 					}
+
                 }
             } else {
-				try
+
+				$class->$actionView();
+
+				if(!$componentsController)
 				{
-					$class->$actionView();
+					
 					self::controllerAction($componentsController,"afterAction");
 
-				}catch(SmHttpException $e){
-
-				 	SmHttpException::htppError($e->getHttpCode,$e->getMessage());
-
 				}
+
             }
 
         } else {
 
-			header('HTTP/1.0 404 Not Found');
-            SmHttpException::htppError(404,"Page Not Found");
+             throw new SmHttpException(404,"Page Not Found");
 
         }
     }
