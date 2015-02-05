@@ -163,14 +163,39 @@ class SmBase
 
         }
 
-		$componentsController= self::isComponentsController();
-        
 		self::setLayout();
+
+
+		$cController=self::isComponentsController();
+
+
+		if($cController)
+		{
+			self::before();
+		}
         
 		self::getControllerAction($componentsController);
         
+        if($cController)
+		{
+			self::after();
+		}
+
     }
 
+    private static function before()
+    {
+
+		self::controllerAction($componentsController,"beforeAction");
+
+    }
+
+    private static function after()
+    {
+
+		self::controllerAction($componentsController,"afterAction");
+
+    }
 
 
       /**
@@ -244,12 +269,7 @@ class SmBase
     	$actionView = 'action'.ucfirst(self::$view);
         $actionController = ucfirst(self::$controller."Controller");
 		
-		if(!$componentsController)
-		{
-
-			self::controllerAction($componentsController,"beforeAction");
-
-		}
+		
 		
         $class = new $actionController;
 		
@@ -281,13 +301,6 @@ class SmBase
             } else {
 
 				$class->$actionView();
-
-				if(!$componentsController)
-				{
-					
-					self::controllerAction($componentsController,"afterAction");
-
-				}
 
             }
 
