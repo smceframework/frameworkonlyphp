@@ -27,6 +27,7 @@ class SmceFramework
 	 
     public static function createWebApplication($config=array())
     {
+		ob_start();
 		self::includeFile();
 		
 		self::SmAutoload($config);
@@ -43,6 +44,7 @@ class SmceFramework
 		
 		$smBase=new SmBase;
 		$smBase->run();
+		ob_end_flush(); 
 		
 		
     }

@@ -35,7 +35,7 @@ class SmBase
     public function run()
     {
 		
-		$this->obSeStart();
+		session_start();
 		
         $this->router();
 
@@ -359,9 +359,5 @@ class SmBase
 		return str_replace("/index.php","",$_SERVER['SCRIPT_NAME']);
 	}
 	
-	public function obSeStart()
-	{
-		ob_start();
-        session_start();
-	}
+
 }
