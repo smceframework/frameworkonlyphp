@@ -171,31 +171,19 @@ class SmBase
 
 		if($cController)
 		{
-			self::before();
+			self::controllerAction($cController,"beforeAction");
 		}
-        
+
 		self::getControllerAction($componentsController);
         
         if($cController)
 		{
-			self::after();
+			self::controllerAction($cController,"afterAction");
 		}
 
     }
 
-    private static function before()
-    {
-
-		self::controllerAction($componentsController,"beforeAction");
-
-    }
-
-    private static function after()
-    {
-
-		self::controllerAction($componentsController,"afterAction");
-
-    }
+   
 
 
       /**
