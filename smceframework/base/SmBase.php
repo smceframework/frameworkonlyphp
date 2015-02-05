@@ -174,7 +174,7 @@ class SmBase
 			self::controllerAction($cController,"beforeAction");
 		}
 
-		self::getControllerAction($componentsController);
+		self::getControllerAction();
         
         if($cController)
 		{
@@ -252,11 +252,10 @@ class SmBase
 	 * 
 	 */
 
-    public static function getControllerAction($componentsController)
+    public static function getControllerAction()
     {
     	$actionView = 'action'.ucfirst(self::$view);
         $actionController = ucfirst(self::$controller."Controller");
-		
 		
 		
         $class = new $actionController;
