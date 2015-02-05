@@ -263,8 +263,15 @@ class SmBase
 
                     $SmACL=new SmACL();
 
-                    if($SmACL->rules($accessRules,self::$view,Smce::app()->IP,Smce::app()->getState(md5(md5("SMCE_".Smce::app()->securitycode))))){
+                    if($SmACL->rules(
+                    	$accessRules,
+                    	self::$view,
+                    	Smce::app()->IP,
+                    	Smce::app()->getState(md5(md5("SMCE_".Smce::app()->securitycode))))
+                    	){
+
                         $class->$actionView();
+                    
                     }else{
 
 					    throw new SmHttpException(404,"You do not have authority to allow");
