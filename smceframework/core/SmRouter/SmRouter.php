@@ -77,7 +77,18 @@ class SmRouter{
 		$requestArray=$this->requestArray;
 		
 		$parse=parse_url($this->request);
-		$requestGetEx=explode("/",$parse["path"]);
+
+		if(isset($parse["path"]))
+		{
+
+			$requestGetEx=explode("/",$parse["path"]);
+
+		}else{
+
+			$requestGetEx=explode("/","");
+			
+		}
+		
 		$requestArray=array(
 			"controller"=>isset($requestGetEx[0])?$requestGetEx[0]:"",
 			"view"=>isset($requestGetEx[1])?$requestGetEx[1]:"",
