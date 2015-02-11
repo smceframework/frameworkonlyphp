@@ -4,7 +4,7 @@ namespace Smce\Core;
 
 use SiteController;
 
-class SmHttpException
+class SmHttpException extends \Exception
 {
 	private $httpCode;
 	
@@ -15,7 +15,7 @@ class SmHttpException
 		$this->msg=$msg;
 		$this->httpCode=$httpCode;
 		
-		$this->htppError($httpCode,$msg);
+		
 	}
 	
 	public function getmsg()
@@ -28,16 +28,14 @@ class SmHttpException
 		return $this->httpCode;
 	}
 	
-	private function htppError($httpCode,$msg)
+	public function htppError()
     {	
 
         if(method_exists("SiteController","error")){
 			
         	$SiteController=new SiteController();
-       		$SiteController->error($httpCode,$msg);
-			$this->http_response_code($httpCode);
-			
-			exit();
+       		$SiteController->error($this->httpCode,$this->msg);
+			$this->http_response_code($this->httpCode);
         }
 		
     }

@@ -44,7 +44,15 @@ class SmBase
         	$this->dbSetting();
         }
 
-       $this->command();
+       try{
+
+       		$this->command();
+
+       }catch(SmHttpException $e){
+       		$e->htppError();
+
+       }
+       
     }
 
     /**
