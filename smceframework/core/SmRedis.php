@@ -84,7 +84,7 @@ class Smredis {
      */
     public function set($name,$value,$duration){
 
-		return this->redis->set($name, $value, $duration);
+		return $this->redis->set($name, $value, $duration);
     }
 	
 	
